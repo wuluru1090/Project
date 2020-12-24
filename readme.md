@@ -12,5 +12,6 @@
 - git checkout canvas
 - git merge canvas
 - 哈囉
+- 哈囉哈囉
 
 git readme aaa
