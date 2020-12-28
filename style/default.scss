@@ -37,7 +37,23 @@ $h4-font-size: $font-size-base * 2.125;
 $h5-font-size: $font-size-base * 1.5;
 $h6-font-size: $font-size-base * 1.25;
 
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
+@font-face {
+  font-family: "TaipeiSansTCBeta-Regular";
+  src: url("font/TaipeiSansTCBeta-Regular.ttf");
+}
+@font-face {
+  font-family: "TaipeiSansTCBeta-Bold";
+  src: url("font/TaipeiSansTCBeta-Bold.ttf");
+}
+@font-face {
+  font-family: "TaipeiSansTCBeta-Light";
+  src: url("font/TaipeiSansTCBeta-Light.ttf");
+}
+
+body {
+  font-family: "TaipeiSansTCBeta-Regular" !important;
+}
 
 $rose: #f3b4ba;
 main > .container {
@@ -128,4 +144,25 @@ body {
 }
 .bg-yellow {
   background: $yellow;
+}
+h1 {
+  font-family: TaipeiSansTCBeta-Bold;
+}
+.subtitle1 {
+  font-size: 1rem;
+}
+.subtitle2 {
+  font-size: 14px;
+}
+.body1 {
+  font-size: 1rem;
+}
+.botton-font {
+  font-size: 14px;
+}
+.caption {
+  font-size: 12px;
+}
+.Overline {
+  font-size: 10px;
 }
