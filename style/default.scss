@@ -1,0 +1,131 @@
+$primary: #104b6d;
+$secondary: #12d0c9;
+$danger: #df3d00;
+
+$primary-050: #daf0fd;
+$primary-100: #adcbdd;
+$primary-200: #88adc2;
+$primary-300: #4f7f9a;
+$primary-400: #2d6281;
+$primary-500: $primary;
+$primary-600: #0c3d59;
+$primary-700: #0a3148;
+$primary-800: #08283b;
+$primary-900: #041824;
+
+$secondary-050: #c4fcfa;
+$secondary-100: #5ee3de;
+$secondary-200: $secondary;
+$secondary-300: #10b9b2;
+$secondary-400: #0ea29c;
+$secondary-500: #0e9f9a;
+$secondary-600: #0d9490;
+$secondary-700: #0c8480;
+$secondary-800: #0b7370;
+$secondary-900: #09605d;
+
+$blue: #175fab;
+$pink: #e7b6df;
+$orange: #f28d61;
+$yellow: #fdd499;
+
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 6;
+$h2-font-size: $font-size-base * 3.75;
+$h3-font-size: $font-size-base * 3;
+$h4-font-size: $font-size-base * 2.125;
+$h5-font-size: $font-size-base * 1.5;
+$h6-font-size: $font-size-base * 1.25;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+$rose: #f3b4ba;
+main > .container {
+  padding: 60px 15px 0;
+}
+.footer {
+  background-color: #f5f5f5;
+}
+html {
+  font-size: 12px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.bg-primary-900 {
+  background: $primary-900;
+}
+.bg-primary-800 {
+  background: $primary-800;
+}
+.bg-primary-700 {
+  background: $primary-700;
+}
+.bg-primary-600 {
+  background: $primary-600;
+}
+.bg-primary {
+  background: $primary-500;
+}
+.bg-primary-400 {
+  background: $primary-400;
+}
+.bg-primary-300 {
+  background: $primary-300;
+}
+.bg-primary-200 {
+  background: $primary-200;
+}
+.bg-primary-100 {
+  background: $primary-100;
+}
+.bg-primary-050 {
+  background: $primary-050;
+}
+.bg-secondary-900 {
+  background: $secondary-900;
+}
+.bg-secondary-800 {
+  background: $secondary-800;
+}
+.bg-secondary-700 {
+  background: $secondary-700;
+}
+.bg-secondary-600 {
+  background: $secondary-600;
+}
+.bg-secondary-500 {
+  background: $secondary-500;
+}
+.bg-secondary-400 {
+  background: $secondary-400;
+}
+.bg-secondary-300 {
+  background: $secondary-300;
+}
+.bg-secondary {
+  background: $secondary;
+}
+.bg-secondary-100 {
+  background: $secondary-100;
+}
+.bg-secondary-050 {
+  background: $secondary-050;
+}
+.bg-rose {
+  background: $rose;
+}
+.bg-blue {
+  background: $blue;
+}
+.bg-orange {
+  background: $orange;
+}
+.bg-pink {
+  background: $pink;
+}
+.bg-yellow {
+  background: $yellow;
+}
