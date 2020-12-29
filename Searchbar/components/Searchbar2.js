@@ -8,31 +8,31 @@ import Loc from '../icon/location_on-24px.png'
 function Searchbar2(props) {
   return (
     <>
-      <div class="searchbarrr">
-        <div class="container-fluid mt-5">
-          <form class="form-inline md-form mb-4 col-8 m-auto position-relative">
-            <img src={Sear} alt="Sear" class="position-absolute searchicon" />
+      <div className="searchbarrr">
+        <div className="container-fluid mt-5">
+          <form className="form-inline md-form mb-4 col-8 m-auto position-relative">
+            <img src={Sear} alt="Sear" className="position-absolute searchicon" />
 
             <input
-              class="form-control rounded-pill col-6 searchbarrrr"
+              className="form-control rounded-pill col-6 searchbarrrr"
               type="text"
               placeholder="尋找活動"
               aria-label="Search"
             />
-            <button class="btn rounded-pill btn-md sub" type="submit">
+            <button className="btn rounded-pill btn-md sub" type="submit">
               搜尋
             </button>
           </form>
-          <div class="mr-auto mb-4 col-8 m-auto tags d-flex">
-            <button class="btn rounded-pill btn-md d-flex ta" type="button">
+          <div className="mr-auto mb-4 col-8 m-auto tags d-flex">
+            <button className="btn rounded-pill btn-md d-flex ta" type="button">
               <img src={Loc} alt="Loc" />
               地點(縣市)
             </button>
-            <button class="btn rounded-pill btn-md d-flex ta" type="button">
+            <button className="btn rounded-pill btn-md d-flex ta" type="button">
               <img src={Date} alt="Date" />
               時間
             </button>
-            <button class="btn rounded-pill btn-md d-flex ta" type="button">
+            <button className="btn rounded-pill btn-md d-flex ta" type="button">
               <img src={Vin} alt="Vin" />
               類型
             </button>
