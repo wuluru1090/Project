@@ -31,6 +31,7 @@ function ClassMain() {
               <button>分享</button>
             </div>
           </div>
+          <div className="bread_crumb">麵包屑放置處</div>
         </div>
       </div>
     </div>
