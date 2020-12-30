@@ -57,6 +57,7 @@ button {
   align-items: flex-end;
 }
 
+// 波浪背景
 .wave_background {
   background: url($url + '/Pic/SVG/wave2.svg');
   border: 1px solid black;
@@ -67,7 +68,22 @@ button {
   background-size: cover;
 }
 
+// 麵包屑
 .bread_crumb {
   border: 1px solid brown;
   margin-top: 43px;
+}
+
+// 商品圖片
+.class_pic {
+  width: 730px;
+  height: 305px;
+  border: 1px solid red;
+  overflow: hidden;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.class_pic img {
+  object-fit: contain;
 }

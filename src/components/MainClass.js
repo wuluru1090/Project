@@ -33,6 +33,11 @@ function ClassMain() {
           </div>
           <div className="bread_crumb">麵包屑放置處</div>
         </div>
+        <div className="class_pic">
+          <figure>
+            <img src={devUrl + '/pic/SVG/class_pic.svg'} alt="哭哭" />
+          </figure>
+        </div>
       </div>
     </div>
   )
