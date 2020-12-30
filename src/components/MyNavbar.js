@@ -21,7 +21,7 @@ function MyNavbar(props) {
         fixed="top"
       >
         <Navbar.Brand href="#home">
-          <img className="Logo" src={devUrl+'/Pic/SVG/logo.svg'} alt="哈囉" />
+          <img className="Logo" src={devUrl+'/Pic/SVG/logo.svg'} alt="揪影" />
         </Navbar.Brand>
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
         {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
