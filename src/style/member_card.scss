@@ -25,3 +25,16 @@
     height: 23.2px;
   }
 }
+.mem_navlist {
+  width: 278px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+}
+
+.mem_listbar {
+  background-color: $secondary;
+  width: 8px;
+  height: 38px;
+}
