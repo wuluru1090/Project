@@ -37,6 +37,11 @@ $h4-font-size: $font-size-base * 2.125;
 $h5-font-size: $font-size-base * 1.5;
 $h6-font-size: $font-size-base * 1.25;
 
+$navbar-light-color:               $primary-500 ;
+$navbar-light-hover-color:          $primary-100;
+$navbar-light-active-color:         $secondary;
+
+
 @import '~bootstrap/scss/bootstrap.scss';
 @font-face {
   font-family: 'TaipeiSansTCBeta-Regular';

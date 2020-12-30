@@ -1,0 +1,68 @@
+
+// 預設變數覆蓋需要在導入Bootstrap之前
+// $navbar-dark-hover-color:pink;
+// $navbar-dark-active-color:blue ;
+
+
+// Import Bootstrap and its default variables
+
+@import 'default.scss';
+
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+
+main > .container {
+  padding: 60px 15px 0;
+}
+
+body{
+  background:burlywood
+}
+
+.navbar{
+  height:80px;
+}
+
+.nav1 {
+  display:flex;
+  align-items: center;
+  font-size: 16px;
+  font-family: TaipeiSansTCBeta;
+  margin:0 auto;
+}
+
+.nav1 > .navLink {
+  margin: 0 30px;
+  padding: 0;
+}
+
+.nav2 {
+  display:flex;
+  align-items: center;
+  font-size:20px;
+  margin-right:18px;
+  // background:pink
+}
+
+.Logo {
+  height: 30px;
+  margin-left: 75px;
+}
+
+.memberPhoto{
+  width:42px;
+  height:42px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right:75px;
+  border: 1px solid gray;
+  
+}
+
+.memberPhoto img{
+  width:100%;
+}
+
+.icon{
+  font-size:26px;
+}
