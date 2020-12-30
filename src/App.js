@@ -3,6 +3,7 @@ import './index.scss'
 import MyNavbar from './components/MyNavbar'
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import MainClass from './components/MainClass'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Router>
         <>
           <MyNavbar />
+          <MainClass/>
         </>
       </Router>
     </>
