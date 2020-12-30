@@ -42,7 +42,7 @@ function MyNavbar(props) {
           </Nav>
           <div className="memberPhoto">
           <figure>
-              <img src="./Pic/pic/member.jpg" alt=""/>
+              <img src={devUrl+'/Pic/pic/member.jpg'} alt=""/>
           </figure>
           </div>
         {/* </Navbar.Collapse> */}
