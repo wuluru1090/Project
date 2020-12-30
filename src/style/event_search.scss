@@ -66,5 +66,9 @@ body {
     .searchbar {
       margin-left: 36.5px;
     }
+    .ta:hover {
+      color: $secondary;
+      border: 1px solid $secondary;
+    }
   }
 }
