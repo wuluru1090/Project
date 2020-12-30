@@ -1,0 +1,70 @@
+@import './default.scss';
+@import '~bootstrap/scss/_Carousel.scss';
+@import './searchbar.scss';
+.carousel-item {
+  height: calc(100vh - 80px);
+  > .carousel-img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.carousel-caption {
+  //   right: (100% - $carousel-caption-width) / 2;
+  top: 70px;
+  right: 76px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $carousel-caption-color;
+  text-align: right;
+  h5 {
+    line-height: 24px;
+    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+  }
+  p {
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+  }
+}
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators {
+  display: none;
+}
+body {
+  position: relative;
+  .wave1 {
+    position: absolute;
+    z-index: 50;
+    bottom: 0px;
+    // background: blue;
+    img {
+      width: 100vw;
+      object-fit: contain;
+    }
+  }
+  .event-search-bar {
+    position: absolute;
+    z-index: 30;
+    top: 372px;
+    // background: blue;
+    h4 {
+      padding-left: 125px;
+      color: #fff;
+      font-family: 'TaipeiSansTCBeta-Bold';
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+    }
+    .ta {
+      color: #fff;
+      border: 1px solid #fff;
+    }
+    .hot {
+      color: #fff;
+    }
+    .searchbar {
+      margin-left: 36.5px;
+    }
+  }
+}

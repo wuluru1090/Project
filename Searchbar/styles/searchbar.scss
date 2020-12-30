@@ -4,45 +4,45 @@
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
 * {
-    font-size: 16px;
-    font-family: 'Taipei Sans TC Beta';
+  font-size: 16px;
+  font-family: 'Taipei Sans TC Beta';
+}
+
+.searchbar {
+  .searchbar2 {
+    box-shadow: 0 3px 6px rgba(25, 25, 25, 0.2);
+    text-indent: 42px;
   }
-  
-  .searchbar {
-    .searchbar2 {
-      box-shadow: 0 3px 6px rgba(25, 25, 25, 0.2);
-      text-indent: 42px;
-    }
-  
-    .searchicon {
-      z-index: 5;
-      left: 20px;
-    }
-  
-    .sub {
-      margin-left: 15px;
-      padding: 5px 40px;
-      background: #12D0C9;
+
+  .searchicon {
+    z-index: 5;
+    left: 20px;
+  }
+
+  .sub {
+    margin-left: 15px;
+    padding: 5px 40px;
+    background: #12d0c9;
+    color: white;
+    box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+
+    &:hover {
       color: white;
-      box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
-  
-      &:hover {
-        color: white;
-        background: #4F7F9A;
-      }
-    }
-  
-    .ta {
-      margin-right: 15px;
-      margin-top: 18px;
-      padding: 4px 20px;
-      color: #104B6D;
-      border: 1px solid #104B6D;
-    }
-  
-    .hot {
-      margin-top: 18px;
-      padding: 5px 0px 5px 0;
-      color: #104B6D;
+      background: #4f7f9a;
     }
   }
+
+  .ta {
+    margin-right: 15px;
+    margin-top: 18px;
+    padding: 4px 20px;
+    color: #104b6d;
+    border: 1px solid #104b6d;
+  }
+
+  .hot {
+    margin-top: 18px;
+    padding: 5px 0px 5px 0;
+    color: #104b6d;
+  }
+}

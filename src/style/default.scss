@@ -37,10 +37,9 @@ $h4-font-size: $font-size-base * 2.125;
 $h5-font-size: $font-size-base * 1.5;
 $h6-font-size: $font-size-base * 1.25;
 
-$navbar-light-color:               $primary-500 ;
-$navbar-light-hover-color:          $primary-100;
-$navbar-light-active-color:         $secondary;
-
+$navbar-light-color: $primary-500;
+$navbar-light-hover-color: $primary-100;
+$navbar-light-active-color: $secondary;
 
 @import '~bootstrap/scss/bootstrap.scss';
 @font-face {
@@ -155,6 +154,11 @@ body {
 }
 .body1 {
   font-size: 1rem;
+  letter-spacing: 31px;
+}
+.body2 {
+  font-size: 1rem;
+  letter-spacing: 18px;
 }
 .botton-font {
   font-size: 14px;
@@ -164,4 +168,8 @@ body {
 }
 .Overline {
   font-size: 10px;
+}
+.container {
+  max-width: 1290px;
+  margin: 0 auto;
 }

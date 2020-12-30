@@ -1,23 +1,15 @@
-import logo from './logo.svg'
 import './index.scss'
 import MyNavbar from './components/MyNavbar'
-import Footer from './components/Footer'
-import ClassMain from './components/Main'
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-  } from 'react-router-dom'
+import EventMain from './components/EventMain'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
   return (
-      <Router>
+    <Router>
       <>
-      <MyNavbar/>
-      <ClassMain/>
-
-    </>
+        <MyNavbar />
+        <EventMain />
+      </>
     </Router>
   )
 }
