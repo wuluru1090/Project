@@ -1,0 +1,6 @@
+
+$url: 'http://localhost:3000';
+.background{
+    background: url($url+"/Pic/SVG/wave.svg");
+    background-repeat: no-repeat;
+}

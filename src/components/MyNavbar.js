@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { MdSearch } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
+import {devUrl} from '../config/'
 import '../style/navbar.scss'
 
 import { NavLink } from 'react-router-dom'
@@ -20,18 +21,18 @@ function MyNavbar(props) {
         fixed="top"
       >
         <Navbar.Brand href="#home">
-          <img className="Logo" src="./pic/SVG/logo.svg" />
+          <img className="Logo" src={devUrl+'/Pic/SVG/logo.svg'} alt="哈囉" />
         </Navbar.Brand>
         {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
         {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
-            <Nav.Link className="navLink" as={NavLink} to="#" exact={true}>
+            <Nav.Link className="navLink" as={NavLink} to="/home" exact={true}>
               發起揪影
             </Nav.Link>
-            <Nav.Link className="navLink" as={NavLink} to="#">
+            <Nav.Link className="navLink" as={NavLink} to="/join">
               參加攝影團
             </Nav.Link>
-            <Nav.Link className="navLink" as={NavLink} to="#">
+            <Nav.Link className="navLink" as={NavLink} to="/class">
               精選課程
             </Nav.Link>
           </Nav>
