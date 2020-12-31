@@ -12,7 +12,7 @@
 .carousel-caption {
   //   right: (100% - $carousel-caption-width) / 2;
   top: 70px;
-  right: 76px;
+  right: 125px;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -36,7 +36,7 @@ body {
   position: relative;
   .wave1 {
     position: absolute;
-    z-index: 50;
+    z-index: 30;
     bottom: 0px;
     // background: blue;
     img {
@@ -46,11 +46,12 @@ body {
   }
   .event-search-bar {
     position: absolute;
-    z-index: 30;
+    z-index: 50;
     top: 372px;
+    left: 115px;
     // background: blue;
     h4 {
-      padding-left: 125px;
+      padding-left: 15px;
       color: #fff;
       font-family: 'TaipeiSansTCBeta-Bold';
       margin-bottom: 20px;
@@ -64,11 +65,21 @@ body {
       color: #fff;
     }
     .searchbar {
-      margin-left: 36.5px;
+      margin-left: 0px;
     }
     .ta:hover {
       color: $secondary;
       border: 1px solid $secondary;
     }
+  }
+  .scroll {
+    position: absolute;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    z-index: 55;
+    right: 75px;
+    bottom: 50px;
+    color: $black;
+    // background: blue;
+    text-align: right;
   }
 }

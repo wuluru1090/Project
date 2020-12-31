@@ -1,9 +1,10 @@
 import React from 'react'
 import '../style/default.scss'
 import '../style/event_search.scss'
-import Searchbar from './Searchbar'
+import SearchbarEvent from './SearchbarEvent'
 import { devUrl } from '../config/'
 import { Carousel } from 'react-bootstrap'
+import { MdExpandMore } from 'react-icons/md'
 
 function EventMain() {
   return (
@@ -48,9 +49,16 @@ function EventMain() {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <div className="event-search-bar">
-        <h4>尋找理想中的攝影行程</h4>
-        <Searchbar />
+      <div className="container">
+        <div className="event-search-bar">
+          <h4>尋找理想中的攝影行程</h4>
+          <SearchbarEvent />
+        </div>
+        <div className="scroll">
+          <h6>
+            Scroll Down <MdExpandMore />
+          </h6>
+        </div>
       </div>
 
       <div className="wave1">

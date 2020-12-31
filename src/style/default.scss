@@ -157,7 +157,7 @@ body {
   letter-spacing: 31px;
 }
 .body2 {
-  font-size: 1rem;
+  font-size: 14rem;
   letter-spacing: 18px;
 }
 .botton-font {
@@ -170,6 +170,6 @@ body {
   font-size: 10px;
 }
 .container {
-  max-width: 1290px;
+  max-width: calc(100vw - 150px);
   margin: 0 auto;
 }

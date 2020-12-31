@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import Sear from '../icon/icon-action-search_24px.png'
 
-function Searchbar(props) {
+function SearchbarEvent(props) {
   return (
     <>
       <div className="searchbar">
-        <div className="container-fluid col-10">
+        <div className="col-10">
           <form className="form-inline md-form mb-4 m-auto position-relative">
             <img
               src={Sear}
@@ -15,7 +15,7 @@ function Searchbar(props) {
             />
 
             <input
-              className="form-control rounded-pill col-8 searchbar2"
+              className="form-control rounded-pill col-9 searchbar2"
               type="text"
               placeholder="尋找攝影課程"
               aria-label="Search"
@@ -26,7 +26,7 @@ function Searchbar(props) {
           </form>
           <div className="box d-flex">
             <div className="hot">熱門關鍵字 |</div>
-            <div className="mr-auto d-flex flex-wrap col-8">
+            <div className="mr-auto d-flex flex-wrap col-9">
               <button
                 className="btn rounded-pill btn-md d-flex ta"
                 type="button"
@@ -77,4 +77,4 @@ function Searchbar(props) {
   )
 }
 
-export default Searchbar
+export default SearchbarEvent
