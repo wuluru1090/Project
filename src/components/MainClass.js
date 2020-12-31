@@ -4,6 +4,9 @@ import '../style/main_class.scss'
 import { devUrl } from '../config/'
 import { RotateLoader } from 'react-spinners'
 
+// 元素
+import ClassCard from '../components/ClassCard'
+
 function ClassMain() {
   return (
     <div className="wave_background">
@@ -33,10 +36,13 @@ function ClassMain() {
           </div>
           <div className="bread_crumb">麵包屑放置處</div>
         </div>
-        <div className="class_pic">
-          <figure>
-            <img src={devUrl + '/pic/SVG/class_pic.svg'} alt="哭哭" />
-          </figure>
+        <div>
+          <div className="class_pic">
+            <figure>
+              <img src={devUrl + '/pic/SVG/class_pic.svg'} alt="課程圖片" />
+            </figure>
+          </div>
+          <ClassCard />
         </div>
       </div>
     </div>
