@@ -1,6 +1,6 @@
 import React from 'react'
 import '../style/footer_custom.scss'
-import { devUrl } from '../config/'
+import { devUrl } from '../../config'
 function Footer(props) {
   return (
     <>

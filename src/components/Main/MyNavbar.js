@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { MdSearch } from 'react-icons/md'
 import { MdShoppingCart } from 'react-icons/md'
-import { devUrl } from '../config/'
+import { devUrl } from '../../config'
 import '../style/navbar.scss'
 
 import { NavLink } from 'react-router-dom'

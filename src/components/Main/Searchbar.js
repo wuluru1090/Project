@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
-import {devUrl} from '../config/'
+import { devUrl } from '../../config'
 import '../style/searchbar.scss'
 
 function Searchbar(props) {
@@ -10,7 +10,7 @@ function Searchbar(props) {
         <div className="container-fluid mt-5 col-10">
           <form className="form-inline md-form mb-4 m-auto position-relative">
             <img
-              src={devUrl+'/pic/pic/icon-action-search_24px.png'}
+              src={devUrl + '/pic/pic/icon-action-search_24px.png'}
               alt="Sear"
               className="position-absolute searchicon"
             />

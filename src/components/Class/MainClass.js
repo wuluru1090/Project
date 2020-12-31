@@ -1,11 +1,11 @@
 import React from 'react'
 import '../style/default.scss'
 import '../style/main_class.scss'
-import { devUrl } from '../config/'
+import { devUrl } from '../../config'
 import { RotateLoader } from 'react-spinners'
 
 // 元素
-import ClassCard from '../components/ClassCard'
+import ClassCard from './ClassCard'
 
 function ClassMain() {
   return (
