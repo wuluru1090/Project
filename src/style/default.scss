@@ -169,7 +169,8 @@ body {
 .Overline {
   font-size: 10px;
 }
-.container {
-  max-width: calc(100vw - 150px);
+.my-container {
+  max-width: (calc(100vw - 150px));
   margin: 0 auto;
+  padding: 0px;
 }

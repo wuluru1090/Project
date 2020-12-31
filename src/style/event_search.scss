@@ -12,7 +12,7 @@
 .carousel-caption {
   //   right: (100% - $carousel-caption-width) / 2;
   top: 70px;
-  right: 125px;
+  right: 91px;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -36,8 +36,8 @@ body {
   position: relative;
   .wave1 {
     position: absolute;
-    z-index: 30;
-    bottom: 0px;
+    // z-index: 30;
+    top: 613px; //之後用js動態取得視窗高度以計算位置
     // background: blue;
     img {
       width: 100vw;
@@ -48,7 +48,7 @@ body {
     position: absolute;
     z-index: 50;
     top: 372px;
-    left: 115px;
+    left: 75px;
     // background: blue;
     h4 {
       padding-left: 15px;
@@ -76,10 +76,13 @@ body {
     position: absolute;
     font-family: 'TaipeiSansTCBeta-Bold';
     z-index: 55;
-    right: 75px;
-    bottom: 50px;
-    color: $black;
+    right: 91px;
+    top: 825px;
+    color: $primary;
     // background: blue;
     text-align: right;
+    .c-icon {
+      margin-left: 12px;
+    }
   }
 }
