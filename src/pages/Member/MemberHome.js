@@ -1,13 +1,11 @@
-import logo from './logo.svg'
 import './index.scss'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
 import MemberContent from './components/Member/MemberContent'
-import MemberCard from './components/Member/MemberCard'
-import MemberNavlist from './components/Member/MemberNavlist'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
-function App() {
+//已排版 未遷動
+function MemberHome(props) {
   return (
     <>
       <Router>
@@ -16,7 +14,7 @@ function App() {
             <MyNavbar />
           </header>
           <main className="container">
-            <aside className="d-flex justify-content-between">
+            <aside className="d-flex justify-content-end">
               <div>
                 <MemberCard />
                 <br />
@@ -37,4 +35,4 @@ function App() {
   )
 }
 
-export default App
+export default MemberHome

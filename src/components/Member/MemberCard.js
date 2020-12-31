@@ -9,7 +9,7 @@ function MemberCard() {
   return (
     <>
       <div className="container ">
-        <Card className="card d-flex justify-content-start ">
+        <Card className="mem_card d-flex justify-content-start ">
           <div className="d-flex justify-content-center align-items-center">
             <Card.Img
               className=" rounded-circle "
