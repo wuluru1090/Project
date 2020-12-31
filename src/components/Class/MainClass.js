@@ -1,6 +1,6 @@
 import React from 'react'
-import '../style/default.scss'
-import '../style/main_class.scss'
+import './../style/default.scss'
+import '../../style/main_class.scss'
 import { devUrl } from '../../config'
 import { RotateLoader } from 'react-spinners'
 
