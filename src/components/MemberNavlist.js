@@ -58,7 +58,8 @@ function MemberCard() {
             eventKey="link-5"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
-            <div className="mem_listbar"></div> <MdImage />
+            <div className="mem_listbar "></div>
+            <MdImage />
             <h6>我的相簿</h6>
           </Nav.Link>
           <Nav.Link
