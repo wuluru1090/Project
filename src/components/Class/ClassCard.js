@@ -1,6 +1,6 @@
 import React from 'react'
-import '../style/default.scss'
-import '../style/class_card.scss'
+import '../../style/default.scss'
+import '../../style/class_card.scss'
 import { Card } from 'react-bootstrap'
 
 function ClassCard() {

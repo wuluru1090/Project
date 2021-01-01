@@ -54,11 +54,11 @@ button {
   align-items: flex-end;
 }
 
-// 波浪背景
+// 波浪背景1
 .wave_background {
   background: url($url + '/Pic/SVG/wave2.svg');
   width: 100%;
-  height: 536px;
+  height: 579px;
   top: 40px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -85,5 +85,72 @@ button {
 .page-head-part3 {
   display: flex;
   margin-top: 20px;
+}
+
+.content_big_part {
   border: 1px solid black;
+  width: 730px;
+  margin-right: 80px;
+}
+
+h5 {
+  color: $primary;
+}
+
+.line {
+  border: 2px solid $primary;
+  width: 96px;
+}
+
+.features {
+  margin: 50px 0px 54px 20px;
+}
+p {
+  margin: 50px 0px 54px 0px;
+  line-height: 28px;
+}
+
+.teacher {
+  width: 730px;
+  height: 138px;
+  margin-top: 50px;
+  display: flex;
+}
+
+.teacher_pic {
+  height: 138px;
+  width: 138px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.teacher_pic img {
+  width: 100%;
+}
+.teacher_info_block {
+  width: 550px;
+  margin-left: 42px;
+}
+
+.teacher_intro {
+  margin: 0;
+}
+
+.wave_background2 {
+  background: url($url + '/Pic/SVG/wave3.svg');
+  width: 100%;
+  height: 1060px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid red;
+}
+
+h4 {
+  text-align: center;
+}
+
+.line2 {
+  border: 2px solid $primary;
+  width: 155px;
+  margin: 0 auto;
 }

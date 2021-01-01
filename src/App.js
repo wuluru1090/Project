@@ -2,6 +2,7 @@ import logo from './logo.svg'
 import './index.scss'
 import MyNavbar from './components/Main/MyNavbar'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import MainClass from './components/Class/MainClass'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Router>
         <>
           <MyNavbar />
+          <MainClass />
         </>
       </Router>
     </>
