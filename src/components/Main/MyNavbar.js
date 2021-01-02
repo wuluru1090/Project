@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { MdSearch } from 'react-icons/md'
 import { MdShoppingCart } from 'react-icons/md'
-import { devUrl } from '../config/'
-import '../style/navbar.scss'
+import { devUrl } from '../../config'
+import '../../style/navbar.scss'
 
 import { NavLink } from 'react-router-dom'
 
@@ -12,19 +12,20 @@ function MyNavbar(props) {
   return (
     <>
       {/* .navbar-expand-{sm|md|lg|xl}決定在哪個斷點以上就出現漢堡式選單 */}
-      <div className="navbar">
+      <div className="navbar1">
         <Navbar
           collapseOnSelect
           expand="lg"
           bg="white"
           variant="light"
           fixed="top"
+          style={{ padding: '0', height: '80px' }}
         >
           <Navbar.Brand href="#home">
             <img
               className="Logo"
               src={devUrl + '/Pic/SVG/logo.svg'}
-              alt="哈囉"
+              alt="揪影"
             />
           </Navbar.Brand>
           {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}

@@ -3,7 +3,7 @@ import '../style/default.scss'
 import '../style/event_search.scss'
 import SearchbarEvent from './SearchbarEvent'
 import EventResult from './EventResult'
-import { devUrl } from '../config/'
+import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
 
 function EventMain() {
