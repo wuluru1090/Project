@@ -1,5 +1,6 @@
 import React from 'react'
 import '../style/footer_custom.scss'
+import { devUrl } from '../config/'
 function Footer(props) {
   return (
     <>
@@ -62,10 +63,13 @@ function Footer(props) {
               </a>
               <ul className="nav d-flex justify-content-around ">
                 <li className="nav-link">
-                  <img src="./pic/pic/btn_app_android.png"></img>
+                  <img
+                    src={devUrl + '/pic/pic/btn_app_android.png'}
+                    alt=""
+                  ></img>
                 </li>
                 <li className="nav-link">
-                  <img src="./pic/pic/btn_app_ios.png"></img>
+                  <img src={devUrl + '/pic/pic/btn_app_ios.png'} alt=""></img>
                 </li>
               </ul>
             </li>
@@ -76,16 +80,32 @@ function Footer(props) {
               </a>
               <ul className="nav d-flex justify-content-around">
                 <li>
-                  <img className="nav-link icon" src="./pic/SVG/FB.svg"></img>
+                  <img
+                    className="nav-link icon"
+                    src={devUrl + '/pic/SVG/FB.svg'}
+                    alt=""
+                  ></img>
                 </li>
                 <li>
-                  <img className="nav-link icon" src="./pic/SVG/ig.svg"></img>
+                  <img
+                    className="nav-link icon"
+                    src={devUrl + '/pic/SVG/ig.svg'}
+                    alt=""
+                  ></img>
                 </li>
                 <li>
-                  <img className="nav-link icon" src="./pic/SVG/Twitter.svg"></img>
+                  <img
+                    className="nav-link icon"
+                    src={devUrl + '/pic/SVG/Twitter.svg'}
+                    alt=""
+                  ></img>
                 </li>
                 <li>
-                  <img className="nav-link icon" src="./pic/SVG/Pinterst.svg"></img>
+                  <img
+                    className="nav-link icon"
+                    src={devUrl + '/pic/SVG/Pinterst.svg'}
+                    alt=""
+                  ></img>
                 </li>
               </ul>
             </li>

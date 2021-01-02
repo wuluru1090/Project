@@ -8,7 +8,9 @@ function EventResult() {
     <>
       <div className="my-container" style={{ background: 'blue' }}>
         <div className="d-flex result-header justify-content-between">
-          <p className="d-inline-block">搜尋結果</p>
+          <div className="result-word">
+            <h6 className="d-inline-block">搜尋結果</h6>
+          </div>
           <div className="icon d-inline-block">
             <img
               className="d-inline-block c-icon"

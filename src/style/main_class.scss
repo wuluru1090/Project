@@ -1,6 +1,89 @@
-
+@import 'default.scss';
 $url: 'http://localhost:3000';
-.background{
-    background: url($url+"/Pic/SVG/wave.svg");
-    background-repeat: no-repeat;
+
+.wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.organizer {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 75px;
+  border: 1px solid gray;
+}
+
+.organizer img {
+  width: 100%;
+}
+
+.page-head {
+  // border:1px solid green;
+  padding-top: 42px;
+  border: 1px solid green;
+}
+.page-head-part2 {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  margin-top: 20px;
+}
+
+button {
+  width: 111px;
+  height: 38px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: $primary-600;
+}
+
+.organizer_info {
+  border: 1px solid red;
+  display: flex;
+}
+
+.organizer_info > span {
+  margin-left: -60px;
+}
+
+.btn_part {
+  // border:1px solid red;
+  display: flex;
+  align-items: flex-end;
+}
+
+// 波浪背景
+.wave_background {
+  background: url($url + '/Pic/SVG/wave2.svg');
+  border: 1px solid black;
+  width: 100%;
+  height: 535.9px;
+  top: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// 麵包屑
+.bread_crumb {
+  border: 1px solid brown;
+  margin-top: 43px;
+}
+
+// 商品圖片
+.class_pic {
+  width: 730px;
+  height: 305px;
+  border: 1px solid red;
+  overflow: hidden;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.class_pic img {
+  object-fit: contain;
 }
