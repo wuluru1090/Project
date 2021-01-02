@@ -32,12 +32,13 @@
 .carousel-indicators {
   display: none;
 }
+
 body {
   position: relative;
   .wave1 {
     position: absolute;
     // z-index: 30;
-    top: 613px; //之後用js動態取得視窗高度以計算位置
+    top: calc(100vh - 290px);
     // background: blue;
     img {
       width: 100vw;
@@ -88,10 +89,28 @@ body {
 }
 
 .result-word {
-  background: rgb(128, 128, 128);
+  // background: rgb(128, 128, 128);
   h6 {
     margin: 0px;
     padding: 0px;
     line-height: 38px;
   }
+}
+
+.event-container {
+  max-width: 1290px;
+  margin: 0 auto;
+}
+
+.result-header {
+  margin-top: 14px;
+  .c-icon {
+    margin-left: 16px;
+  }
+}
+.divider {
+  width: 100%;
+  height: 2px;
+  margin: 14px 0px;
+  background: rgba(112, 112, 112, 0.3);
 }

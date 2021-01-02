@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../style/footer_custom.scss'
 import { devUrl } from '../../config'
-function Footer(props) {
+function Footer() {
   return (
     <>
       <footer className="footer bg-primary  mt-auto justify-content-center">
