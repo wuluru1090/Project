@@ -1,7 +1,7 @@
 import React from 'react'
-import '../style/default.scss'
+import '../../style/default.scss'
 import { Card } from 'react-bootstrap'
-import '../style/member_card.scss'
+import '../../style/member_card.scss'
 import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
 // var Rating = require('react-rating')
 // React.createElement(Rating)

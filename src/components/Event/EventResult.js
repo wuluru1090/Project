@@ -1,7 +1,7 @@
 import React from 'react'
 import '../style/default.scss'
 import '../style/event_search.scss'
-import { devUrl } from '../config/'
+import { devUrl } from '../../config'
 
 function EventResult() {
   return (

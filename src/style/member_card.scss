@@ -1,5 +1,6 @@
 @import 'default.scss';
 
+//card
 .card {
   width: 278px;
   height: 268px;
@@ -9,15 +10,6 @@
   background-color: #ffffff;
 }
 
-// .Cameraicon {
-//   svg {
-//     color: #ce6926;
-//     border: solid 3px paleturquoise;
-//     width: 100px;
-//     height: 100px;
-//   }
-// }
-
 .star {
   svg {
     color: $yellow;
@@ -25,6 +17,9 @@
     height: 23.2px;
   }
 }
+
+//navlist
+
 .mem_navlist {
   width: 278px;
   text-align: center;
@@ -32,13 +27,17 @@
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
 }
-
-.mem_listbar {
-  background-color: $secondary-700;
-  width: 8px;
-  height: 38px;
-  margin: 0 40px 0 0;
-  opacity: 0;
+.mem_navlist_icon {
+  position: relative;
+  .mem_listbar {
+    background-color: $secondary-700;
+    width: 8px;
+    height: 38px;
+    // margin: 0 10px 0 0;
+    position: absolute;
+    opacity: 0;
+    left: 30px;
+  }
 }
 
 .mem_navlist_icon:hover {
@@ -61,6 +60,7 @@
 }
 
 .mem_navlist_icon:hover {
+  display: block;
   svg {
     color: $secondary-700;
     opacity: 0.5;
@@ -72,6 +72,7 @@
 }
 
 .mem_navlist_icon:active {
+  display: block;
   svg {
     color: $secondary-700;
     opacity: 1;

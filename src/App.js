@@ -1,6 +1,6 @@
 import './index.scss'
 import MyNavbar from './components/MyNavbar'
-import EventMain from './components/EventMain'
+import EventMain from './components/Event/EventMain'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
