@@ -5,6 +5,7 @@ import EventMain from './components/Event/EventMain'
 import EventResult from './components/Event/EventResult'
 import EventBottom from './components/Event/EventBottom'
 import EventAttendant from './components/Event/EventAttendant'
+import EventAlbum from './components/Event/EventAlbum'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
     <Router>
       <>
         <MyNavbar />
-        <EventAttendant />
+        <EventAlbum />
         <Footer />
       </>
     </Router>
