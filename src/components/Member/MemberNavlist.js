@@ -14,13 +14,13 @@ import {
   MdBrightnessHigh,
 } from 'react-icons/md'
 
-function MemberCard() {
+function MemberNavlist() {
   return (
     <>
       <div className="container ">
         <Nav defaultActiveKey="/home" className="flex-column  mem_navlist">
           <Nav.Link
-            href="/home"
+            href="/member"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdAccountBox />
@@ -28,6 +28,7 @@ function MemberCard() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-1"
+            href="/Myjoinin"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdCameraEnhance />
@@ -35,6 +36,7 @@ function MemberCard() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-2"
+            href="/member"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdShoppingCart />
@@ -89,4 +91,4 @@ function MemberCard() {
   )
 }
 
-export default MemberCard
+export default MemberNavlist

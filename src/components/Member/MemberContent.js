@@ -98,7 +98,7 @@ function MemberContent() {
                 <Form.Label>電話</Form.Label>
                 <Form.Control
                   type="photo"
-                  placeholder="0910000000"
+                  placeholder="請輸入電話"
                   className="  text_w"
                 />
               </Form.Group>
