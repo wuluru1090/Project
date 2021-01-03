@@ -1,8 +1,7 @@
 import React from 'react'
-import '../style/default.scss'
-import '../style/event_search.scss'
+import '../../style/default.scss'
+import '../../style/event_search.scss'
 import SearchbarEvent from './SearchbarEvent'
-import EventResult from './EventResult'
 import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
 
@@ -66,7 +65,6 @@ function EventMain() {
       <div className="wave1">
         <img src={devUrl + '/Pic/SVG/Mask Group 20.svg'} alt="" />
       </div>
-      <EventResult />
     </>
   )
 }
