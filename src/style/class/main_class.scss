@@ -4,7 +4,7 @@ $url: 'http://localhost:3000';
 .wrapper {
   max-width: 1160px;
   margin: 0 auto;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
 // 發起者頭像
@@ -24,7 +24,7 @@ $url: 'http://localhost:3000';
 // 課程簡易資訊欄大區(含按鈕)
 .page-head {
   padding-top: 42px;
-  border: 1px solid green;
+  // border: 1px solid green;
 }
 
 .page-head-part2 {
@@ -162,16 +162,18 @@ p {
 
 h4 {
   text-align: center;
+  color: white;
 }
 
 .line2 {
-  border: 2px solid $primary;
+  border: 2px solid white;
   width: 155px;
   margin: 0 auto;
 }
 
 .gallery_part {
   margin-top: 270px;
+  border: 1px solid red;
 }
 
 .suggested {
