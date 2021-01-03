@@ -1,11 +1,13 @@
-@import 'default.scss';
+@import '../default.scss';
 $url: 'http://localhost:3000';
 
 .wrapper {
   max-width: 1160px;
   margin: 0 auto;
+  border: 1px solid red;
 }
 
+// 發起者頭像
 .organizer {
   width: 56px;
   height: 56px;
@@ -19,25 +21,29 @@ $url: 'http://localhost:3000';
   width: 100%;
 }
 
+// 課程簡易資訊欄大區(含按鈕)
 .page-head {
-  // border:1px solid green;
   padding-top: 42px;
+  border: 1px solid green;
 }
+
 .page-head-part2 {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-button {
-  width: 111px;
-  height: 38px;
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+.bttn {
+  width: 91px;
+  height: 36px;
   border-radius: 50px;
-  background-color: $primary-600;
+  background-color: #f28d61;
+  border: 1px solid transparent;
+}
+
+.share {
+  background-color: #12d0c9;
+  margin-left: 17px;
 }
 
 .organizer_info {
@@ -74,7 +80,7 @@ button {
   width: 730px;
   height: 305px;
   overflow: hidden;
-  margin: 0 87px 44px 0px;
+  margin-right: 87px;
   border-radius: 10px;
 }
 
@@ -88,23 +94,33 @@ button {
 }
 
 .content_big_part {
-  border: 1px solid black;
   width: 730px;
   margin-right: 80px;
 }
 
-h5 {
+.features {
+  padding-left: 30px;
+}
+
+.gmap {
+  width: 343px;
+  height: 386px;
+  margin-top: 35px;
+  border-radius: 10px;
+}
+
+.title {
   color: $primary;
+  margin-top: 50px;
+  margin-bottom: 0px;
 }
 
 .line {
   border: 2px solid $primary;
   width: 96px;
+  margin-bottom: 48px;
 }
 
-.features {
-  margin: 50px 0px 54px 20px;
-}
 p {
   margin: 50px 0px 54px 0px;
   line-height: 28px;
@@ -113,7 +129,6 @@ p {
 .teacher {
   width: 730px;
   height: 138px;
-  margin-top: 50px;
   display: flex;
 }
 
@@ -142,7 +157,7 @@ p {
   height: 1060px;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 1px solid red;
+  border: 1px solid transparent;
 }
 
 h4 {
@@ -153,4 +168,18 @@ h4 {
   border: 2px solid $primary;
   width: 155px;
   margin: 0 auto;
+}
+
+.gallery_part {
+  margin-top: 270px;
+}
+
+.suggested {
+  margin-top: 81px;
+  margin-bottom: 60px;
+}
+
+.cards {
+  margin-top: 90px;
+  display: flex;
 }

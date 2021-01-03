@@ -1,11 +1,12 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/main_class.scss'
+import '../../style/class/main_class.scss'
 import { devUrl } from '../../config'
-import { RotateLoader } from 'react-spinners'
+import { MdBookmark, MdShare } from 'react-icons/md'
 
 // 元素
 import ClassCard from './ClassCard'
+import Card from '../Class/ClassCard2'
 
 function ClassMain() {
   return (
@@ -31,8 +32,14 @@ function ClassMain() {
                 </span>
               </div>
               <div className="btn_part">
-                <button>收藏</button>
-                <button>分享</button>
+                <button className="bttn">
+                  <MdBookmark />
+                  收藏
+                </button>
+                <button className="bttn share">
+                  <MdShare />
+                  分享
+                </button>
               </div>
             </div>
             <div className="bread_crumb">麵包屑放置處</div>
@@ -44,14 +51,14 @@ function ClassMain() {
                   <img src={devUrl + '/pic/SVG/class_pic.svg'} alt="課程圖片" />
                 </figure>
               </div>
-              <h5>課程特色</h5>
+              <h5 className="title">課程特色</h5>
               <div className="line"></div>
               <ul className="features">
                 <li>我們的導師有多年攝影教學經驗,熟習各主要牌子的相機運作</li>
                 <li>課室設有場景供大家即場實習,不用另覓場地</li>
                 <li>不定期設有免費的攝影活動供同學參與,增加實戰機會</li>
               </ul>
-              <h5>課程內容</h5>
+              <h5 className="title">課程內容</h5>
               <div className="line"></div>
               <p>
                 攝影，到底應該如何實現。攝影可以說是有著成為常識的趨勢。我們可以很篤定的說，這需要花很多時間來嚴謹地論證。了解清楚攝影到底是一種怎麼樣的存在，是解決一切問題的關鍵。
@@ -60,7 +67,7 @@ function ClassMain() {
                 攝影，到底應該如何實現。攝影可以說是有著成為常識的趨勢。我們可以很篤定的說，這需要花很多時間來嚴謹地論證。了解清楚攝影到底是一種怎麼樣的存在，是解決一切問題的關鍵。
                 薩迪相信，你在兩個仇人之間說話要有分寸，以免他們和好後你將無地自容。但願各位能從這段話中獲得心靈上的滋長。在人生的歷程中，攝影的出現是必然的。面對如此難題，我們必須設想周全。金纓曾提出，敗德之事非一，而酗酒者德必敗，傷生之事非一，而好色者生必傷。這句話決定了一切。
               </p>
-              <h5>授課老師</h5>
+              <h5 className="title">授課老師</h5>
               <div className="line"></div>
               <div className="teacher">
                 <div className="teacher_pic">
@@ -78,12 +85,27 @@ function ClassMain() {
                 </div>
               </div>
             </div>
-            <ClassCard />
+            <div className="left_part">
+              <ClassCard />
+              <div className="gmap">這是gmap</div>
+            </div>
           </div>
         </div>
         <div className="wave_background2">
-          <h4>學員攝影作品</h4>
-          <div className="line2"></div>
+          <div className="gallery_part">
+            <h4>學員攝影作品</h4>
+            <div className="line2"></div>
+          </div>
+        </div>
+        <div className="wrapper suggested">
+          <h5>相似課程</h5>
+          <div className="line"></div>
+          <div className="cards">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
         </div>
       </div>
     </>

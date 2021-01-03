@@ -10,4 +10,10 @@
 
 .paragraph {
   margin-bottom: 44px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.info {
+  margin-left: 15px;
 }

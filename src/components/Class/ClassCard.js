@@ -1,7 +1,8 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/class_card.scss'
+import '../../style/class/class_card.scss'
 import { Card } from 'react-bootstrap'
+import { MdDone, MdAccessTime, MdExplore, MdCall } from 'react-icons/md'
 
 function ClassCard() {
   return (
@@ -9,26 +10,38 @@ function ClassCard() {
       <Card className="card1">
         <Card.Body className="card_body">
           <div className="paragraph">
-            <span>報名截止：</span>
-            <br />
-            <span>2020-12-19</span>
+            <MdDone />
+            <div className="info">
+              <span>報名截止：</span>
+              <br />
+              <span>2020-12-19</span>
+            </div>
           </div>
           <div className="paragraph">
-            <span>上課時間：</span>
-            <br />
-            <span>2020-12-20~2020-01-30</span>
+            <MdAccessTime />
+            <div className="info">
+              <span>上課時間：</span>
+              <br />
+              <span>2020-12-20~2020-01-30</span>
+            </div>
           </div>
           <div className="paragraph">
-            <span>上課地點：</span>
-            <br />
-            <span>光廊攝影棚</span>
-            <br />
-            <span>地址放在這裡喔</span>
+            <MdExplore />
+            <div className="info">
+              <span>上課地點：</span>
+              <br />
+              <span>光廊攝影棚</span>
+              <br />
+              <span>地址放在這裡喔</span>
+            </div>
           </div>
           <div className="paragraph">
-            <span>聯繫老師：</span>
-            <br />
-            <span>09123456789</span>
+            <MdCall />
+            <div className="info">
+              <span>聯繫老師：</span>
+              <br />
+              <span>09123456789</span>
+            </div>
           </div>
         </Card.Body>
       </Card>
