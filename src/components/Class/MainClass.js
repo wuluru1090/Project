@@ -8,6 +8,7 @@ import { MdBookmark, MdShare } from 'react-icons/md'
 import ClassCard from './ClassCard'
 import Card from '../Class/ClassCard2'
 import GMap from './GMap'
+import Carousel1 from './Carousel1'
 
 //GMap地圖Pin標記位置
 const location = {
@@ -105,6 +106,9 @@ function ClassMain() {
           <div className="gallery_part">
             <h4>學員攝影作品</h4>
             <div className="line2"></div>
+            <div className="carousel_block">
+              <Carousel1 />
+            </div>
           </div>
         </div>
         <div className="wrapper suggested">
