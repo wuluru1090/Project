@@ -3,11 +3,11 @@ import GoogleMapReact from 'google-map-react'
 import '../../style/class/gmap.scss'
 
 // 置入pin元素
-import { FaBeer } from 'react-icons/fa'
+import { MdRoom } from 'react-icons/md'
 
 const LocationPin = ({ text }) => (
   <div className="pin">
-    <FaBeer className="pin-icon" />
+    <MdRoom className="pin-icon" />
     <p className="pin-text">{text}</p>
   </div>
 )

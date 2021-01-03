@@ -7,6 +7,14 @@ import { MdBookmark, MdShare } from 'react-icons/md'
 // 元素
 import ClassCard from './ClassCard'
 import Card from '../Class/ClassCard2'
+import GMap from './GMap'
+
+//GMap地圖Pin標記位置
+const location = {
+  address: '320桃園市中壢區中大路300號',
+  lat: 24.96803,
+  lng: 121.19498,
+}
 
 function ClassMain() {
   return (
@@ -87,7 +95,9 @@ function ClassMain() {
             </div>
             <div className="left_part">
               <ClassCard />
-              <div className="gmap">這是gmap</div>
+              <div className="gmap">
+                <GMap location={location} zoomLevel={15} />
+              </div>
             </div>
           </div>
         </div>
