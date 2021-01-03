@@ -8,5 +8,5 @@ ruby 2021.01.03:
     font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC' sans-serif !important;
    }
 
-Roboto 被設為只有英語與係字元可以使用，因此要將 Roboto 擺在第一個順位，中文字會吃到 Taipei Sans。Noto Sans 是我設定的備用字體。如果要使用中英文的粗體或細體，可以將以下設定在 font family:
+Roboto 被設為只有英語語系字元可以使用，因此要將 Roboto 擺在第一個順位，中文字會吃到 Taipei Sans。Noto Sans 是我設定的備用字體。如果要使用中英文的粗體或細體，可以將以下設定在 font family:
 'TaipeiSansTCBeta-Bold','TaipeiSansTCBeta-Light','Roboto-light','Roboto-regular'
