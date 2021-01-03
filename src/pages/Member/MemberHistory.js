@@ -2,7 +2,7 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MemberPdCard from '../../components/Member/MemberPdCard'
+import MemberPdCard2 from '../../components/Member/MemberPdCard2'
 import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
 import '../../style/member_navbar.scss'
@@ -10,7 +10,7 @@ import { Card, Button } from 'react-bootstrap'
 import { MdVisibility } from 'react-icons/md'
 import { devUrl } from '../../config'
 
-function MemberMyjoinin(props) {
+function MemberHistory(props) {
   return (
     <>
       <body>
@@ -32,7 +32,7 @@ function MemberMyjoinin(props) {
                   <div className="container ">
                     <Card className="mem_box">
                       <Card.Header className="mem_title d-flex justify-content-between">
-                        <h5>我的揪團</h5>
+                        <h5>歷史紀錄</h5>
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
@@ -40,14 +40,14 @@ function MemberMyjoinin(props) {
                       >
                         <ul className="row navbar  d-flex align-items-center">
                           <li className=" subtitle1  main_li">
-                            <a href="#">發起中</a>
+                            <a href="#">活動</a>
                           </li>
                           <li className=" subtitle1 main_li">
-                            <a href="#">已完成</a>
+                            <a href="#">課程</a>
                           </li>
                         </ul>
                         <br />
-                        <MemberPdCard />
+                        <MemberPdCard2 />
                       </Card.Body>
                     </Card>
                   </div>
@@ -76,4 +76,4 @@ function MemberMyjoinin(props) {
   )
 }
 
-export default MemberMyjoinin
+export default MemberHistory

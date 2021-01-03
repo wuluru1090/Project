@@ -36,14 +36,16 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-2"
-            href="/member"
+            href="/MyOrder"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
-            <div className="mem_listbar"></div> <MdShoppingCart />
+            <div className="mem_listbar"></div>
+            <MdShoppingCart />
             <h6>訂單管理</h6>
           </Nav.Link>
           <Nav.Link
             eventKey="link-3"
+            href="/MyCoupon"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdLoyalty />
@@ -51,6 +53,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-4"
+            href="/MyCoupon"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdTurnedIn />
@@ -66,6 +69,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-6"
+            href="/MyHistory"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdRestore />

@@ -1,8 +1,54 @@
 @import 'default.scss';
 
+.box {
+  .navbar {
+    .main_li {
+      list-style: none;
+      padding: 5px 20px;
+      .sublist {
+        list-style: none;
+        padding: 5px 20px;
+      }
+    }
+  }
+}
+
+.box {
+  .navbar {
+    position: absolute;
+    ul {
+      .main_li {
+        .sublist {
+          list-style: none;
+          padding: 5px 20px;
+          display: none;
+
+          a {
+            border: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
 ul {
-  li {
-    list-style: none;
-    border: solid 2px #12d0c9;
+  .main_li:hover {
+    background-color: $secondary-050;
+    border-right: solid 2px $secondary-300;
+    border-left: solid 2px $secondary-300;
+    color: $secondary-300;
+    opacity: 0.8;
+    .sublist:hover {
+      background-color: $secondary-050;
+      border-right: solid 2px $secondary-300;
+      border-left: solid 2px $secondary-300;
+      color: $secondary-300;
+      opacity: 0.8;
+    }
+  }
+
+  .main_li :active {
+    opacity: 1;
   }
 }

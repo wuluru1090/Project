@@ -4,19 +4,32 @@ import './index.scss'
 // 頁面元件
 import MemberHome from './pages/Member/MemberHome'
 import MemberMyjoinin from './pages/Member/MemberMyjoinin'
+import MemberMyOrder from './pages/Member/MemberMyOrder'
+import MemberCoupon from './pages/Member/MemberCoupon'
+import MemberHistory from './pages/Member/MemberHistory'
 
 function App() {
   return (
     <>
       <Router>
         <body>
-          123
-          <Route path="/member">
-            <MemberHome />
-          </Route>
-          <Route path="/Myjoinin">
-            <MemberMyjoinin />
-          </Route>
+          <Switch>
+            <Route path="/member">
+              <MemberHome />
+            </Route>
+            <Route path="/Myjoinin">
+              <MemberMyjoinin />
+            </Route>
+            <Route path="/MyOrder">
+              <MemberMyOrder />
+            </Route>
+            <Route path="/MyCoupon">
+              <MemberCoupon />
+            </Route>
+            <Route path="/MyHistory">
+              <MemberHistory />
+            </Route>
+          </Switch>
         </body>
       </Router>
     </>
