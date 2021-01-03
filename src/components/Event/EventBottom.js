@@ -6,7 +6,7 @@ import { devUrl } from '../../config'
 function EventBottom() {
   return (
     <>
-      <div className="blue-wave"></div>
+      <div className="blue-wave-with-couple"></div>
       <div className="wave-height">
         <div className="theme d-flex justify-content-center">
           <button className="btn rounded-pill theme-button" type="button">

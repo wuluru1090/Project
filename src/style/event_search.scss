@@ -132,7 +132,7 @@ body {
 }
 
 //EventBottom
-.blue-wave {
+.blue-wave-with-couple {
   // background: brown;
   background-image: url('http://localhost:3000/Pic/SVG/wave-blue-with-couple-1440-01.svg');
   background-repeat: no-repeat;
@@ -163,5 +163,105 @@ body {
   &:hover {
     color: white;
     background: #4f7f9a;
+  }
+}
+
+//EventAttendant
+
+.att-wave-height {
+  background: $primary-200;
+  height: 160px;
+}
+.att-container {
+  width: 740px;
+  margin: 0px auto;
+  // background: cadetblue;
+}
+.back {
+  position: relative;
+  background-image: url('http://localhost:3000/Pic/SVG/wave-blue-attbg-1440.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+
+  // height: 200vh;
+  .content {
+    // position: absolute;
+    padding: 62px 0px 120px 0px;
+    z-index: 50;
+    top: 0px;
+    left: calc((100% - 740px) / 2);
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.att-header {
+  .title {
+    margin-bottom: 42px;
+  }
+  .status {
+    border-bottom: rgba(0, 0, 0, 0.6) 3px solid;
+    border-bottom-style: inset;
+    height: 45px;
+    position: relative;
+    ul {
+      position: absolute;
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+      li {
+        padding: 9px 12px;
+        cursor: pointer;
+      }
+      .selected-status {
+        border-bottom: $secondary 4px solid;
+        color: $secondary;
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+    }
+  }
+
+  .select-bar {
+    height: 3px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+.list {
+  // background: sienna;
+  margin-top: 20px;
+  .list-content {
+    height: 112px;
+    max-width: 740px;
+    margin: 0px auto;
+    border-bottom: rgba(0, 0, 0, 0.6) 1px solid;
+    .pic {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 12px;
+      figure {
+        width: 77px;
+        height: 77px;
+        border-radius: 50%;
+        margin: 0px;
+        border: rgba(0, 0, 0, 0.6) 1px solid;
+      }
+    }
+    .detail {
+      margin: 0px;
+      padding: 0px;
+      .de {
+      }
+      h6 {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+      .subtitle2 {
+        margin: 0px;
+      }
+      .host {
+        color: $secondary;
+        margin-bottom: 8px;
+      }
+    }
   }
 }
