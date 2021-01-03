@@ -37,27 +37,49 @@ $h4-font-size: $font-size-base * 2.125;
 $h5-font-size: $font-size-base * 1.5;
 $h6-font-size: $font-size-base * 1.25;
 
-$navbar-light-color:               $primary-500 ;
-$navbar-light-hover-color:          $primary-100;
-$navbar-light-active-color:         $secondary;
-
+$navbar-light-color: $primary-500;
+$navbar-light-hover-color: $primary-100;
+$navbar-light-active-color: $secondary;
 
 @import '~bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
 @font-face {
   font-family: 'TaipeiSansTCBeta-Regular';
   src: url('font/TaipeiSansTCBeta-Regular.ttf');
+  unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Bold';
   src: url('font/TaipeiSansTCBeta-Bold.ttf');
+  unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Light';
   src: url('font/TaipeiSansTCBeta-Light.ttf');
+  unicode-range: U+4E00-9FFF;
+}
+@font-face {
+  font-family: 'Roboto-light', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+  unicode-range: U+00-024F;
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Roboto-regular', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+  unicode-range: U+00-024F;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Roboto-Bold', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+  unicode-range: U+00-024F;
+  font-weight: 700;
 }
 
 body {
-  font-family: 'TaipeiSansTCBeta-Regular' !important;
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC' sans-serif !important;
 }
 
 $rose: #f3b4ba;
@@ -155,6 +177,11 @@ body {
 }
 .body1 {
   font-size: 1rem;
+  letter-spacing: 31px;
+}
+.body2 {
+  font-size: 14rem;
+  letter-spacing: 18px;
 }
 .botton-font {
   font-size: 14px;
@@ -164,4 +191,9 @@ body {
 }
 .Overline {
   font-size: 10px;
+}
+.my-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0px;
 }
