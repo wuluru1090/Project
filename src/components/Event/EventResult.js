@@ -25,6 +25,9 @@ function EventResult() {
           </div>
         </div>
         <div className="divider"></div>
+        <div className="no-result">
+          <h5>很抱歉，未找到符合的搜尋結果。</h5>
+        </div>
       </div>
     </>
   )
