@@ -13,12 +13,12 @@
 .carousel-caption {
   //   right: (100% - $carousel-caption-width) / 2;
   top: 70px;
-  right: 91px;
+  right: 75px !important;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   color: $carousel-caption-color;
-  text-align: right;
+  text-align: right !important;
   h5 {
     line-height: 24px;
     text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
@@ -28,10 +28,11 @@
     text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
   }
 }
+
 .carousel-control-prev,
 .carousel-control-next,
 .carousel-indicators {
-  display: none;
+  display: none !important;
 }
 
 body {
@@ -130,6 +131,15 @@ body {
     color: $primary;
   }
 }
+.have-result {
+  // background: royalblue;
+  width: 100%;
+  margin: 0px !important;
+  padding: 0px;
+  .col-3 {
+    margin-bottom: 36px;
+  }
+}
 
 //EventBottom
 .blue-wave-with-couple {
@@ -151,7 +161,7 @@ body {
   padding: 60px 0px 120px 0px;
 }
 
-.theme-button {
+.theme-button.theme-button {
   background: $primary-050;
   padding: 17px 34px;
   border: 1px transparent;
@@ -159,6 +169,7 @@ body {
   font-size: $font-size-base * 1.5;
   letter-spacing: 1.92px;
   margin: 18px;
+  // transition: 0.5s;
 
   &:hover {
     color: white;

@@ -13,7 +13,9 @@ function App() {
     <Router>
       <>
         <MyNavbar />
-        <EventAlbum />
+        <EventMain />
+        <EventResult />
+        <EventBottom />
         <Footer />
       </>
     </Router>
