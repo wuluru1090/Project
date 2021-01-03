@@ -6,14 +6,13 @@ import EventResult from './components/Event/EventResult'
 import EventBottom from './components/Event/EventBottom'
 import EventAttendant from './components/Event/EventAttendant'
 import { BrowserRouter as Router } from 'react-router-dom'
+import SoYa from './pages/SoYa/SoYa'
 
 function App() {
   return (
     <Router>
       <>
-        <MyNavbar />
-        <EventAttendant />
-        <Footer />
+        <SoYa />
       </>
     </Router>
   )

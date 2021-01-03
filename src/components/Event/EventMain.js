@@ -63,14 +63,8 @@ function EventMain() {
         </div>
       </div>
       <div className="wave1">
-<<<<<<< HEAD
         {/* <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" /> */}
       </div>
-=======
-        <img src={devUrl + '/Pic/SVG/Mask Group 20.svg'} alt="" />
-      </div>
-      <EventResult />
->>>>>>> fcc2ae1480156750b6f2fe5bc2003b84b9e9b3f4
     </>
   )
 }
