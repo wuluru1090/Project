@@ -4,13 +4,25 @@ import { devUrl } from '../../config'
 import '../../style/class/class_card2.scss'
 
 function Card(props) {
+  const [isActive, setIsActive] = useState(false)
   return (
     <>
       <div className="card ccard">
         <img
           src={devUrl + '/pic/SVG//bookmark-24px.svg'}
-          className="tag"
+          className="tag un-pushed"
           alt="..."
+          onClick={() => setIsActive(true)}
+          style={isActive ? { display: 'none' } : { display: 'inline' }}
+          id="inactive"
+        />
+        <img
+          src={devUrl + '/pic/SVG//bookmark-24px.svg'}
+          className="tag pushed"
+          alt="..."
+          onClick={() => setIsActive(false)}
+          style={isActive ? { display: 'inline' } : { display: 'none' }}
+          id="active"
         />
         <img
           src={devUrl + '/pic/pic/合歡山.jpeg'}
