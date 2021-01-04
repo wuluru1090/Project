@@ -1,0 +1,24 @@
+@import 'default.scss';
+
+body {
+  min-height: 100%;
+}
+.background_wave {
+  width: 100%;
+  background-image: url('http://localhost:3000/pic/SVG/wave.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 1;
+  //   bottom: 80px;
+}
+.wrapper {
+  max-width: 1440px;
+}
+
+.bg-couple {
+  -webkit-transform: scaleX(-1);
+  position: absolute;
+  left: 80%;
+  top: 79%;
+  z-index: 2;
+}

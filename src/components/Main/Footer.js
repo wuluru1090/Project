@@ -4,7 +4,7 @@ import { devUrl } from '../../config'
 function Footer() {
   return (
     <>
-      <footer className="footer bg-primary  mt-auto justify-content-center">
+      <footer className="footer bg-primary-500 mt-auto justify-content-center">
         <div className="container">
           <ul className="nav justify-content-around">
             <li className="nav-item">

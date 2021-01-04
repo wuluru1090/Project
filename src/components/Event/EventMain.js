@@ -49,6 +49,7 @@ function EventMain() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+
         <div className="my-container">
           <div className="event-search-bar">
             <h4>尋找理想中的攝影行程</h4>
@@ -63,6 +64,7 @@ function EventMain() {
             />
           </div>
         </div>
+
         <div className="wave1">
           <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" />
         </div>

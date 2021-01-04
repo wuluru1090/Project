@@ -1,6 +1,6 @@
 @import './default.scss';
 @import '~bootstrap/scss/_Carousel.scss';
-@import './searchbar.scss';
+@import './event_searchbar.scss';
 
 .carousel-item {
   height: calc(100vh - 80px);
@@ -37,11 +37,12 @@
 .event-wrapper {
   position: relative;
   .wave1 {
+    // background: turquoise;
     position: absolute;
     bottom: 0px;
     width: 100%;
     transform: translateY(3px);
-    z-index: 53;
+    z-index: 25;
   }
   .scroll {
     position: absolute;
@@ -60,7 +61,7 @@
 
 .event-search-bar {
   position: absolute;
-  z-index: 50;
+  z-index: 60;
   top: 372px;
   left: 75px;
   // background: blue;
