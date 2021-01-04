@@ -4,7 +4,7 @@ $url: 'http://localhost:3000';
 .wrapper {
   max-width: 1160px;
   margin: 0 auto;
-  // border: 1px solid red;
+  border: 1px solid red;
 }
 
 // 發起者頭像
@@ -80,7 +80,6 @@ $url: 'http://localhost:3000';
   width: 730px;
   height: 305px;
   overflow: hidden;
-  margin-right: 87px;
   border-radius: 10px;
 }
 
@@ -91,11 +90,12 @@ $url: 'http://localhost:3000';
 .page-head-part3 {
   display: flex;
   margin-top: 20px;
+  // border: 3px solid green;
 }
 
 .content_big_part {
   width: 730px;
-  margin-right: 80px;
+  // border: 2px solid yellow;
 }
 
 .features {
@@ -189,3 +189,9 @@ h4 {
 // .carousel_block {
 //   border: 1px solid red;
 // }
+
+.left_part {
+  // border: 1px solid red;
+  margin-left: 83px;
+  width: 347px;
+}

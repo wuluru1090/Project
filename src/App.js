@@ -11,7 +11,20 @@ function App() {
       <Router>
         <>
           <MyNavbar />
-          <MainClass />
+          <Switch>
+            <Route path="/class">
+              <MainClass />
+            </Route>
+            {/* <Route exact path="/event">
+              <Home />
+            </Route>
+            <Route path="/begin">
+              <ProductMen />
+            </Route>
+            <Route path="/cart">
+              <ProductMen />
+            </Route> */}
+          </Switch>
         </>
       </Router>
     </>

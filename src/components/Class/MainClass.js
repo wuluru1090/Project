@@ -9,6 +9,7 @@ import ClassCard from './ClassCard'
 import Card from '../Class/ClassCard2'
 import GMap from './GMap'
 import Carousel1 from './Carousel1'
+import Accordion from './Accordion'
 
 //GMap地圖Pin標記位置
 const location = {
@@ -115,9 +116,6 @@ function ClassMain() {
           <h5>相似課程</h5>
           <div className="line"></div>
           <div className="cards">
-            <Card />
-            <Card />
-            <Card />
             <Card />
           </div>
         </div>

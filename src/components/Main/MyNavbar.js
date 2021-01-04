@@ -31,10 +31,10 @@ function MyNavbar(props) {
           {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
           {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
-            <Nav.Link className="navLink" as={NavLink} to="/home" exact={true}>
+            <Nav.Link className="navLink" as={NavLink} to="/begin" exact={true}>
               發起揪影
             </Nav.Link>
-            <Nav.Link className="navLink" as={NavLink} to="/join">
+            <Nav.Link className="navLink" as={NavLink} to="/event">
               參加攝影團
             </Nav.Link>
             <Nav.Link className="navLink" as={NavLink} to="/class">
@@ -45,7 +45,7 @@ function MyNavbar(props) {
             <Nav.Link className="icon" href="#">
               <MdSearch />
             </Nav.Link>
-            <Nav.Link className="icon" href="#memes">
+            <Nav.Link className="icon" as={NavLink} to="/cart">
               <MdShoppingCart />
             </Nav.Link>
           </Nav>
