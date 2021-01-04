@@ -28,7 +28,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-1"
-            href="/Myjoinin"
+            href="/member/Myjoinin"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdCameraEnhance />
@@ -36,7 +36,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-2"
-            href="/MyOrder"
+            href="/member/MyOrder"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div>
@@ -45,7 +45,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-3"
-            href="/MyCoupon"
+            href="/member/MyCoupon"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdLoyalty />
@@ -53,14 +53,14 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-4"
-            href="/MyCollection"
+            href="/member/MyCollection"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdTurnedIn />
             <h6>我的收藏</h6>
           </Nav.Link>
           <Nav.Link
-            href="/MyPhoto"
+            href="/member/MyPhoto"
             eventKey="link-5"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
@@ -70,7 +70,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-6"
-            href="/MyHistory"
+            href="/member/MyHistory"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdRestore />
@@ -78,6 +78,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-7"
+            href="/member/MyScore"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdInsertComment />
@@ -85,6 +86,7 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-8"
+            href="/member/MyManagement"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdBrightnessHigh />

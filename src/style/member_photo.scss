@@ -3,20 +3,33 @@
 .photo_album {
   width: 200px;
   height: 126px;
+  margin: 38px 0px 50px 0px;
   h6 {
     text-align: center;
   }
   .img_box {
     width: 200px;
     height: 140px;
-    background-color: paleturquoise;
+    border-radius: 5px;
     border: solid 1px $primary-050;
     padding: 8px;
+    background-color: #ffffff;
 
     img {
-      width: 80px;
-      height: 50px;
+      width: 90px;
+      height: 55px;
       padding: 5px;
     }
   }
+}
+.addphoto {
+  right: 0;
+  SVG {
+    width: 40px;
+    height: 40px;
+    color: $primary-300;
+  }
+}
+
+.card_body {
 }
