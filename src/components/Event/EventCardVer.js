@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
-import '../../style/event_card_ver.scss'
+import '../../style/event/event_card_ver.scss'
 
 function EventCardVer() {
   const [isActive, setIsActive] = useState(false)

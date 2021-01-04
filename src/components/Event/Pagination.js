@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/event_search.scss'
+import '../../style/event/event_search.scss'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
 
 function Pagination() {

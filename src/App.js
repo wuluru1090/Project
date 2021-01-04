@@ -8,13 +8,6 @@ function App() {
     <Router>
       <>
         <Event />
-        {/* <MyNavbar />
-        <EventMain />
-        <EventResult />
-        <EventBottom /> */}
-        {/* <EventAttendant /> */}
-        {/* <EventAlbum /> */}
-        {/* <Footer /> */}
       </>
     </Router>
   )
