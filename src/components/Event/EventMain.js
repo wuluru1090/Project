@@ -8,7 +8,7 @@ import { Carousel } from 'react-bootstrap'
 function EventMain() {
   return (
     <>
-      <div className="wrapper">
+      <div className="event-wrapper">
         <Carousel>
           <Carousel.Item>
             <img
