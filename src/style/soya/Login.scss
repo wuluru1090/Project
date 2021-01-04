@@ -24,7 +24,7 @@ $url: "http://localhost:3000";
 
 
     .cardboxmargin{
-        margin-top: 95px;
+        margin-top: 125px;
         // width: 500px;
         
         .card{
@@ -37,7 +37,7 @@ $url: "http://localhost:3000";
             font-family: "Roboto";
             font-size: $h4-font-size;
             font-weight: bold;
-            color: black;
+            color: #707070;
             // border: 1px solid
         }
 
@@ -95,7 +95,7 @@ $url: "http://localhost:3000";
         .loginbtntheme2{
             border-radius: 5px;
             background: white;
-            color: black;
+            color:  #707070;
             .loginbtnthemeicon2{
                 margin-right: 5px; 
                 width: 22px;
@@ -135,6 +135,7 @@ $url: "http://localhost:3000";
             // border: 1px solid;
             justify-content: center;
             font-family: 'TaipeiSansTCBeta-Regular';
+            color: #707070;
             
 
             .signupbtn{

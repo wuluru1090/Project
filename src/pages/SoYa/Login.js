@@ -1,7 +1,7 @@
 import logo from '../../logo.svg'
 import '../../index.scss'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import MyNavbar from '../../components/Main/MyNavbar'
+import MyNavbar1 from '../../components/Soya/MyNavbar1'
 import Footer from '../../components/Main/Footer'
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
@@ -14,7 +14,7 @@ function Login() {
   return (
     <>
       <Router>
-        <MyNavbar />
+        <MyNavbar1 />
       </Router>
 
       <div className="login">

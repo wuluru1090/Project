@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <>
-        <Event />
+        <Login />
       </>
     </Router>
   )
