@@ -22,7 +22,7 @@
   }
 
   .photo {
-    width: 271px;
+    // width: 271px;
     height: 183px;
     object-fit: fill;
     z-index: 1;
@@ -32,13 +32,19 @@
     margin-top: -38px;
     border-radius: 10px;
   }
-  .ccc {
+  .pushed {
+    display: inline;
+    z-index: 3;
+    display: none;
+  }
+  .bookmark {
     height: 50px;
     margin-top: 10px;
-    margin-left: 215px;
+    margin-left: 203px;
     z-index: 2;
+    cursor: pointer;
   }
-  .eee {
+  .more-att {
     width: 31px;
     height: 31px;
     border-radius: 50%;
@@ -48,7 +54,7 @@
     right: 187px;
     z-index: 3;
   }
-  .fff {
+  .second-att {
     width: 31px;
     height: 31px;
     border-radius: 50%;
@@ -58,7 +64,7 @@
     right: 207px;
     z-index: 4;
   }
-  .hhh {
+  .first-att {
     width: 31px;
     height: 31px;
     border-radius: 50%;
@@ -83,7 +89,7 @@
   .cardtitle {
     margin-bottom: 8px;
   }
-  .ddd {
+  .inform {
     margin-top: 1px;
   }
 
@@ -95,9 +101,8 @@
     /* border:1px solid gray; */
   }
 
-  .ggg {
-    width: 50px;
-    height: 24px;
+  .tag {
+    padding: 6px 12px;
     font-size: 12px;
     border: 1px solid #4b4b4b;
     justify-content: center;
@@ -110,8 +115,7 @@
   }
 
   .join {
-    width: 90px;
-    height: 24px;
+    padding: 6px 21px;
     border-radius: 50px;
     font-size: 12px;
     background: #4f7f9a;
@@ -119,10 +123,10 @@
     box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
     justify-content: center;
     align-items: center;
-    margin-left: 71px;
-
+    transition: 0.5s;
     &:hover {
-      color: white;
+      transform: translateY(2px);
+      box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
     }
   }
 

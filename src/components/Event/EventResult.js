@@ -1,8 +1,9 @@
 import React from 'react'
+import Pagination from './Pagination'
 import '../../style/default.scss'
 import '../../style/event_search.scss'
 import { devUrl } from '../../config'
-import Card from './Card'
+import EventCardVer from './EventCardVer'
 
 function EventResult() {
   return (
@@ -31,42 +32,43 @@ function EventResult() {
         </div> */}
         <div className="have-result d-flex row justify-content-center">
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
           <div className="col-3 d-flex justify-content-center">
-            <Card />
+            <EventCardVer />
           </div>
         </div>
+        <Pagination />
       </div>
     </>
   )
