@@ -10,17 +10,20 @@ $url: "http://localhost:3000";
     margin: 0 auto;
   }
   
-  .cover-fit {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+  
 
 
-  .login{
+.login{
     height: 100vh;
     background:url($url + "/pic/soya/Group778.png") no-repeat;
     background-size: cover;
+
+
+    .cover-fit {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
 
 
     .cardboxmargin{
@@ -29,6 +32,7 @@ $url: "http://localhost:3000";
         
         .card{
             box-shadow: 0 3px 6px rgba(#000,0.2);
+            background: rgba(white,0.8);
         }
 
 
@@ -39,6 +43,7 @@ $url: "http://localhost:3000";
             font-weight: bold;
             color: #707070;
             // border: 1px solid
+            padding-bottom: 30px;
         }
 
         input{
@@ -147,5 +152,5 @@ $url: "http://localhost:3000";
 
       
     }
-  }
+}
 

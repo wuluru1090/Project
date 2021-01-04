@@ -1,31 +1,34 @@
-// 導入bootstrap所有的樣式與預設變數
-@import '~bootstrap/scss/bootstrap.scss';
+
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
 $url: "http://localhost:3000";
 
 
-  .container-fluid{
-    padding-left: 0;
-    padding-right: 0;
-  }
+
 
   .wrapper {
     max-width: 1440px;
     margin: 0 auto;
   }
   
-  .cover-fit {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+
 
   .soya5{
     box-sizing: border-box;
     //   border: 1px solid;
     margin-top: -5px;
+
+      .container-fluid{
+            padding-left: 0;
+            padding-right: 0;
+      }
+      
+      .cover-fit {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
 
       .classbox{
         margin: 0 140px 40px 140px;
@@ -67,12 +70,16 @@ $url: "http://localhost:3000";
                     font-family: 'TaipeiSansTCBeta-Bold';
                     margin-bottom: 10px;
                     width: 70%;
+                    color:$gray-darkest;
                 }
 
                 .classcontenttext{
                     font-size: $font-size-base;
                     width: 70%;
                     margin-bottom: 10px;
+                    font-family: 'TaipeiSansTCBeta-Regular';
+                    color:$gray-default;
+                    
                 }
 
                 .classcontentinfobox{
@@ -84,9 +91,12 @@ $url: "http://localhost:3000";
                     .classcontentinfoicon{
                         align-items: center;
                         font-size: 12px;
+                        color:$gray-default;
+
 
                         .MdDateRangeicon{
                             margin-right: 5px;
+                            color:$gray-default;
                         }
 
                       
@@ -148,6 +158,7 @@ $url: "http://localhost:3000";
                     position: absolute;
                     top: calc(50% - 6px);
                     left: calc(50% - 24px);
+                    font-family: 'TaipeiSansTCBeta-Regular';
                     
     
                 }

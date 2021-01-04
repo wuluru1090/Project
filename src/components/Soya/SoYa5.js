@@ -39,10 +39,7 @@ function SoYa5(props) {
               <div className="classcontentinfobox d-flex">
                 <div className="classcontentinfo">
                   <div className="classcontentinfoicon d-flex">
-                    <MdDateRange
-                      style={{ color: 'black' }}
-                      className="MdDateRangeicon"
-                    />
+                    <MdDateRange className="MdDateRangeicon" />
                     2020/10/04 ~ 2020/11/01
                   </div>
                   <div className="classcontentinfoicon d-flex">

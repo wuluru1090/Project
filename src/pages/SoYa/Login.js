@@ -2,10 +2,9 @@ import logo from '../../logo.svg'
 import '../../index.scss'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import MyNavbar1 from '../../components/Soya/MyNavbar1'
-import Footer from '../../components/Main/Footer'
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
-import '../../style/soya/Login.scss'
+import '../../style/soya/login.scss'
 import { FaTwitter } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
@@ -23,7 +22,7 @@ function Login() {
             <div className="row justify-content-center">
               <div className="col-6 cardboxmargin">
                 <form className="card p-5">
-                  <div className="logintitle p-3">Login</div>
+                  <div className="logintitle">Login</div>
                   <div className="col-12">
                     <input
                       type="text"
