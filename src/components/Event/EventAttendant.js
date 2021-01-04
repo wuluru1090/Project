@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/event_search.scss'
+import '../../style/event/event_attendant.scss'
 import { devUrl } from '../../config'
 
 function EventAttendant() {

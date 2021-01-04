@@ -1,0 +1,89 @@
+@import '../default.scss';
+@import '~bootstrap/scss/_Carousel.scss';
+@import './event_searchbar.scss';
+
+.carousel-item {
+  height: calc(100vh - 80px);
+  > .carousel-img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.carousel-caption {
+  //   right: (100% - $carousel-caption-width) / 2;
+  top: 70px;
+  right: 75px !important;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $carousel-caption-color;
+  text-align: right !important;
+  h5 {
+    line-height: 24px;
+    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+  }
+  p {
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators {
+  display: none !important;
+}
+.event-wrapper {
+  position: relative;
+  .wave1 {
+    // background: turquoise;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    transform: translateY(3px);
+    z-index: 25;
+  }
+  .scroll {
+    position: absolute;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    z-index: 55;
+    right: 91px;
+    bottom: 48px;
+    color: $primary;
+    // background: blue;
+    text-align: right;
+    .c-icon {
+      margin-left: 12px;
+    }
+  }
+}
+
+.event-search-bar {
+  position: absolute;
+  z-index: 60;
+  top: 372px;
+  left: 75px;
+  // background: blue;
+  h4 {
+    padding-left: 15px;
+    color: #fff;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+  }
+  .ta {
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  .hot {
+    color: #fff;
+  }
+  .searchbar {
+    margin-left: 0px;
+  }
+  .ta:hover {
+    color: $secondary;
+    border: 1px solid $secondary;
+  }
+}

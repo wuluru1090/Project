@@ -1,7 +1,9 @@
 import React from 'react'
+import Pagination from './Pagination'
 import '../../style/default.scss'
-import '../../style/event_search.scss'
+import '../../style/event/event_result.scss'
 import { devUrl } from '../../config'
+import EventCardVer from './EventCardVer'
 
 function EventResult() {
   return (
@@ -25,9 +27,48 @@ function EventResult() {
           </div>
         </div>
         <div className="divider"></div>
-        <div className="no-result">
+        {/* <div className="no-result">
           <h5>很抱歉，未找到符合的搜尋結果。</h5>
+        </div> */}
+        <div className="have-result d-flex row justify-content-center">
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
+          <div className="col-3 d-flex justify-content-center">
+            <EventCardVer />
+          </div>
         </div>
+        <Pagination />
       </div>
     </>
   )
