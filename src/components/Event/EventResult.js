@@ -1,7 +1,7 @@
 import React from 'react'
 import Pagination from './Pagination'
 import '../../style/default.scss'
-import '../../style/event_search.scss'
+import '../../style/event_result.scss'
 import { devUrl } from '../../config'
 import EventCardVer from './EventCardVer'
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
-import '../../style/event-card-ver.scss'
+import '../../style/event_card_ver.scss'
 
 function EventCardVer() {
   const [isActive, setIsActive] = useState(false)
@@ -59,7 +59,7 @@ function EventCardVer() {
             <p className="card-text">台南市歸仁區歸仁大道100號 </p>
           </div>
 
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between buttons">
             <div className="tag-box">
               <a href="#" className="btn rounded-pill btn-md tag" type="button">
                 自然
