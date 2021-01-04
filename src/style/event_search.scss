@@ -1,0 +1,330 @@
+@import './default.scss';
+@import '~bootstrap/scss/_Carousel.scss';
+@import './searchbar.scss';
+
+.carousel-item {
+  height: calc(100vh - 80px);
+  > .carousel-img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.carousel-caption {
+  //   right: (100% - $carousel-caption-width) / 2;
+  top: 70px;
+  right: 75px !important;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $carousel-caption-color;
+  text-align: right !important;
+  h5 {
+    line-height: 24px;
+    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+  }
+  p {
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+  }
+}
+
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-indicators {
+  display: none !important;
+}
+
+body {
+  position: relative;
+  .wave1 {
+    position: absolute;
+    top: calc(100vh - 290px);
+    background-image: url('http://localhost:3000/Pic/SVG/wave-white-1440.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 291px;
+    // background: blue;
+    // img {
+    //   width: 100vw;
+    //   object-fit: contain;
+    // }
+  }
+  .event-search-bar {
+    position: absolute;
+    z-index: 50;
+    top: 372px;
+    left: 75px;
+    // background: blue;
+    h4 {
+      padding-left: 15px;
+      color: #fff;
+      font-family: 'TaipeiSansTCBeta-Bold';
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+    }
+    .ta {
+      color: #fff;
+      border: 1px solid #fff;
+    }
+    .hot {
+      color: #fff;
+    }
+    .searchbar {
+      margin-left: 0px;
+    }
+    .ta:hover {
+      color: $secondary;
+      border: 1px solid $secondary;
+    }
+  }
+  .scroll {
+    position: absolute;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    z-index: 55;
+    right: 91px;
+    top: calc(100vh - 72px);
+    color: $primary;
+    // background: blue;
+    text-align: right;
+    .c-icon {
+      margin-left: 12px;
+    }
+  }
+}
+
+.result-word {
+  // background: rgb(128, 128, 128);
+  h6 {
+    margin: 0px;
+    padding: 0px;
+    line-height: 38px;
+  }
+}
+
+//EventResult
+.event-container {
+  max-width: calc(100% - 150px);
+  margin: 0 auto;
+}
+
+.result-header {
+  margin-top: 72px;
+  .c-icon {
+    margin-left: 16px;
+  }
+}
+.divider {
+  width: 100%;
+  height: 2px;
+  margin: 14px 0px;
+  background: rgba(112, 112, 112, 0.3);
+}
+.no-result {
+  height: 40vh;
+  // background: cadetblue;
+  h5 {
+    padding: 48px;
+    text-align: center;
+    color: $primary;
+  }
+}
+.have-result {
+  // background: royalblue;
+  width: 100%;
+  margin: 0px !important;
+  padding: 0px;
+  .col-3 {
+    margin-bottom: 36px;
+  }
+}
+
+//EventBottom
+.blue-wave-with-couple {
+  // background: brown;
+  background-image: url('http://localhost:3000/Pic/SVG/wave-blue-with-couple-1440-01.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  height: 291px;
+  transform: translateY(3px);
+}
+.wave-height {
+  background: $primary-100;
+}
+.theme {
+  width: calc(100% - 150px);
+  margin: 0px auto;
+  flex-wrap: wrap;
+  padding: 60px 0px 120px 0px;
+}
+
+.theme-button.theme-button {
+  background: $primary-050;
+  padding: 17px 34px;
+  border: 1px transparent;
+  color: $primary-300;
+  font-size: $font-size-base * 1.5;
+  letter-spacing: 1.92px;
+  margin: 18px;
+  // transition: 0.5s;
+
+  &:hover {
+    color: white;
+    background: #4f7f9a;
+  }
+}
+
+//EventAttendant
+
+.att-wave-height {
+  background: $primary-200;
+  height: 160px;
+}
+.att-container {
+  width: 740px;
+  margin: 0px auto;
+  // background: cadetblue;
+}
+.back {
+  position: relative;
+  background-image: url('http://localhost:3000/Pic/SVG/wave-blue-attbg-1440.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+
+  // height: 200vh;
+  .content {
+    // position: absolute;
+    padding: 62px 0px 120px 0px;
+    z-index: 50;
+    top: 0px;
+    left: calc((100% - 740px) / 2);
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.att-header {
+  .title {
+    margin-bottom: 42px;
+  }
+  .status {
+    border-bottom: rgba(0, 0, 0, 0.6) 3px solid;
+    border-bottom-style: inset;
+    height: 45px;
+    position: relative;
+    ul {
+      position: absolute;
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+      li {
+        padding: 9px 12px;
+        cursor: pointer;
+      }
+      .selected-status {
+        border-bottom: $secondary 4px solid;
+        color: $secondary;
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+    }
+  }
+
+  .select-bar {
+    height: 3px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+.list {
+  // background: sienna;
+  margin-top: 20px;
+  .list-content {
+    height: 112px;
+    max-width: 740px;
+    margin: 0px auto;
+    border-bottom: rgba(0, 0, 0, 0.6) 1px solid;
+    .pic {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 12px;
+      figure {
+        width: 77px;
+        height: 77px;
+        border-radius: 50%;
+        margin: 0px;
+        border: rgba(0, 0, 0, 0.6) 1px solid;
+      }
+    }
+    .detail {
+      margin: 0px;
+      padding: 0px;
+      .de {
+      }
+      h6 {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+      .subtitle2 {
+        margin: 0px;
+      }
+      .host {
+        color: $secondary;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+//EventAlbum
+.album-page {
+  max-width: calc(100% - 240px);
+  margin: 0px auto;
+  .go-back {
+    margin: 28px 0px 42px 0px;
+    font-size: 16px;
+  }
+  .title {
+    h6 {
+      margin-bottom: 8px;
+    }
+    .upload-button {
+      background: $primary;
+      padding: 8px 16px;
+      border: 1px transparent;
+      color: white;
+      font-size: 14px;
+      letter-spacing: 1.92px;
+      margin: 18px;
+
+      &:hover {
+        color: white;
+        background: #4f7f9a;
+      }
+    }
+  }
+  .album-slider {
+    margin: 50px auto;
+    // background: slategray;
+    .arrow {
+      transition: 0.5s;
+      padding: 0px;
+      cursor: pointer;
+      &:hover {
+        background: rgba(112, 112, 112, 0.1);
+      }
+    }
+    .album-content {
+      flex-wrap: wrap;
+      .photo-card {
+        cursor: pointer;
+        margin-bottom: 20px;
+        figure {
+          height: 28vh;
+          background: skyblue;
+        }
+      }
+    }
+  }
+}

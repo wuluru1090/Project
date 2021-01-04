@@ -193,7 +193,7 @@ body {
   font-size: 10px;
 }
 .my-container {
-  max-width: 1440px;
+  max-width: (calc(100vw - 150px));
   margin: 0 auto;
   padding: 0px;
 }

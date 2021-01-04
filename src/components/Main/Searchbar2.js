@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
-import '../style/searchbar2.scss'
+import '../../style/searchbar2.scss'
 
 function Searchbar2(props) {
   return (
