@@ -16,6 +16,8 @@ function App() {
         <EventMain />
         <EventResult />
         <EventBottom />
+        {/* <EventAttendant /> */}
+        {/* <EventAlbum /> */}
         <Footer />
       </>
     </Router>
