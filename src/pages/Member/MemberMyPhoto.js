@@ -1,6 +1,5 @@
 import '../../index.scss'
 import React from 'react'
-import MemberContent from '../../components/Member/MemberContent'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import MyNavbar from '../../components/Main/MyNavbar'
@@ -8,7 +7,7 @@ import Footer from '../../components/Main/Footer'
 import '../../style/member.scss'
 import '../../style/member_photo.scss'
 import { devUrl } from '../../config'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { MdAddCircle } from 'react-icons/md'
 function MemberMyPhoto(props) {
   return (
@@ -35,8 +34,8 @@ function MemberMyPhoto(props) {
                         <h5>我的相簿</h5>
                       </Card.Header>
                       <Card.Body style={{ padding: '14px  42px  43px 42px' }}>
-                        <div className="d-flex justify-content-around flex-wrap">
-                          <div className="photo_album">
+                        <div className="d-flex justify-content-between flex-wrap">
+                          <div className="photo_album  justify-content-start ">
                             <h6 className="subtitle2">
                               綠意盎藍一日遊遊遊遊遊
                             </h6>
@@ -58,7 +57,7 @@ function MemberMyPhoto(props) {
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
                                 ></img>
-                                <figure className="d-flex justify-content-end">
+                                <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
                                     <MdAddCircle href="/member/MyPhoto/Pic" />
                                   </div>
@@ -66,7 +65,7 @@ function MemberMyPhoto(props) {
                               </figure>
                             </div>
                           </div>
-                          <div className="photo_album">
+                          <div className="photo_album  justify-content-start flex-wrap">
                             <h6 className="subtitle2">
                               綠意盎藍一日遊遊遊遊遊
                             </h6>
@@ -88,15 +87,15 @@ function MemberMyPhoto(props) {
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
                                 ></img>
-                                <figure className="d-flex justify-content-end">
+                                <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
-                                    <MdAddCircle />
+                                    <MdAddCircle href="/member/MyPhoto/Pic" />
                                   </div>
                                 </figure>
                               </figure>
                             </div>
                           </div>
-                          <div className="photo_album">
+                          <div className="photo_album  justify-content-start flex-wrap">
                             <h6 className="subtitle2">
                               綠意盎藍一日遊遊遊遊遊
                             </h6>
@@ -118,15 +117,15 @@ function MemberMyPhoto(props) {
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
                                 ></img>
-                                <figure className="d-flex justify-content-end">
+                                <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
-                                    <MdAddCircle />
+                                    <MdAddCircle href="/member/MyPhoto/Pic" />
                                   </div>
                                 </figure>
                               </figure>
                             </div>
                           </div>
-                          <div className="photo_album">
+                          <div className="photo_album  justify-content-start flex-wrap">
                             <h6 className="subtitle2">
                               綠意盎藍一日遊遊遊遊遊
                             </h6>
@@ -148,69 +147,9 @@ function MemberMyPhoto(props) {
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
                                 ></img>
-                                <figure className="d-flex justify-content-end">
+                                <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
-                                    <MdAddCircle />
-                                  </div>
-                                </figure>
-                              </figure>
-                            </div>
-                          </div>
-                          <div className="photo_album">
-                            <h6 className="subtitle2">
-                              綠意盎藍一日遊遊遊遊遊
-                            </h6>
-                            <div className="img_box">
-                              <figure className="d-flex justify-content-end flex-wrap">
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figure className="d-flex justify-content-end">
-                                  <div className="addphoto ">
-                                    <MdAddCircle />
-                                  </div>
-                                </figure>
-                              </figure>
-                            </div>
-                          </div>
-                          <div className="photo_album">
-                            <h6 className="subtitle2">
-                              綠意盎藍一日遊遊遊遊遊
-                            </h6>
-                            <div className="img_box">
-                              <figure className="d-flex justify-content-end flex-wrap">
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figure className="d-flex justify-content-end">
-                                  <div className="addphoto ">
-                                    <MdAddCircle />
+                                    <MdAddCircle href="/member/MyPhoto/Pic" />
                                   </div>
                                 </figure>
                               </figure>

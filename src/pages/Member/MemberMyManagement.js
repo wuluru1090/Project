@@ -95,7 +95,7 @@ function MemberMyManagement(props) {
                               className="btn-style botton-font btn_icon mem_card_btn  "
                             >
                               <MdCreate />
-                              活動檢視
+                              確認修改
                             </Button>
                           </div>
                         </Form>

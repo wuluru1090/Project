@@ -1,0 +1,42 @@
+@import 'default.scss';
+
+body {
+  min-height: 100%;
+  .mem_nameandtitle {
+    padding: 16px;
+  }
+
+  .photo_album2 {
+    width: 200px;
+    margin: 50px 24px 50px 24px;
+    h6 {
+      text-align: center;
+    }
+    .img_box2 {
+      width: 200px;
+      align-items: center;
+      border-radius: 5px;
+      border: solid 1px $primary-050;
+      padding: 8px;
+      background-color: #ffffff;
+      margin: 0 auto;
+      img {
+        width: 90px;
+        height: 55px;
+        padding: 5px;
+      }
+    }
+  }
+  .btn-mem_view {
+    width: 124.7px;
+    height: 34px;
+    padding: 10px 20px 10px 20px;
+    background-color: $secondary;
+    border: 0;
+    border-radius: 50px;
+  }
+}
+
+.footer {
+  bottom: 0;
+}

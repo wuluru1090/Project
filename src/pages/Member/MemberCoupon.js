@@ -87,6 +87,7 @@ function MemberCoupon(props) {
                           </div>
                         </div>
                         <br />
+                        <br />
                         <div className=" d-flex justify-content-end ">
                           <button className=" btn_style subtitle2 ">
                             一鍵領取

@@ -1,15 +1,15 @@
 @import 'default.scss';
 
 .photo_album {
-  width: 200px;
-  height: 126px;
-  margin: 38px 0px 50px 0px;
+  width: 220px;
+  height: 150px;
+  margin: 38px 0px 43px 0px;
   h6 {
     text-align: center;
   }
   .img_box {
-    width: 200px;
-    height: 140px;
+    width: 210px;
+    height: 144px;
     border-radius: 5px;
     border: solid 1px $primary-050;
     padding: 8px;
@@ -29,7 +29,4 @@
     height: 40px;
     color: $primary-300;
   }
-}
-
-.card_body {
 }

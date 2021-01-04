@@ -9,6 +9,7 @@ import MemberCoupon from './pages/Member/MemberCoupon'
 import MemberHistory from './pages/Member/MemberHistory'
 import MemberMyCollection from './pages/Member/MemberMyCollection'
 import MemberMyPhoto from './pages/Member/MemberMyPhoto'
+import MemberMyPhoto2 from './pages/Member/MemberMyPhoto2'
 import MemberMyManagement from './pages/Member/MemberMyManagement'
 import MemberMyScore from './pages/Member/MemberMyScore'
 import UserSeeMember from './pages/Member/UserSeeMember'
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <Route path="/member/MyManagement">
               <MemberMyManagement />
+            </Route>
+            <Route path="/member/MyPhoto2">
+              <MemberMyPhoto2 />
             </Route>
 
             <Route path="/member/MyPhoto">

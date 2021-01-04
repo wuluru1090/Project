@@ -81,28 +81,28 @@ function Footer(props) {
               <ul className="nav d-flex justify-content-around">
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/FB.svg'}
                     alt="FB"
                   ></img>
                 </li>
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/ig.svg'}
                     alt="IG"
                   ></img>
                 </li>
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/Twitter.svg'}
                     alt="Twitter"
                   ></img>
                 </li>
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/Pinterst.svg'}
                     alt="Pinterst"
                   ></img>
