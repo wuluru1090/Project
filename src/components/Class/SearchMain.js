@@ -1,11 +1,9 @@
 import React from 'react'
-import Pagination from './Pagination'
 import '../../style/default.scss'
-import '../../style/event_result.scss'
 import { devUrl } from '../../config'
-import EventCardVer from './EventCardVer'
+import EventCardVer from '../Event/EventCardVer'
 
-function EventResult() {
+function SearchMain() {
   return (
     <>
       <div className="event-container">
@@ -68,10 +66,10 @@ function EventResult() {
             <EventCardVer />
           </div>
         </div>
-        <Pagination />
+        {/* <Pagination /> */}
       </div>
     </>
   )
 }
 
-export default EventResult
+export default SearchMain

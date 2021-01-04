@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/event_search.scss'
+import '../../style/event_main.scss'
 import SearchbarEvent from './SearchbarEvent'
 import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
