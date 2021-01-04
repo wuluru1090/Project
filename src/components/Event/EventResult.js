@@ -8,6 +8,34 @@ import EventCardHor from './EventCardHor'
 
 function EventResult() {
   const [displayCard, setDisplayCard] = useState(true)
+
+  const resultCard = (
+    <div className="result-card d-flex row justify-content-start">
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+      <EventCardVer />
+    </div>
+  )
+  const resultList = (
+    <div className="result-list d-flex justify-content-start flex-wrap">
+      <EventCardHor />
+      <EventCardHor />
+      <EventCardHor />
+      <EventCardHor />
+      <EventCardHor />
+      <EventCardHor />
+      <EventCardHor />
+      <EventCardHor />
+    </div>
+  )
   return (
     <>
       <div className="event-container">
@@ -54,46 +82,8 @@ function EventResult() {
         {/* <div className="no-result">
           <h5>很抱歉，未找到符合的搜尋結果。</h5>
         </div> */}
-        <div
-          className="have-result d-flex row justify-content-center"
-          style={
-            displayCard
-              ? { display: 'block' }
-              : { height: 0, width: 0, opacity: 0 }
-          }
-        >
-          <div className="result-card d-flex row justify-content-start">
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-            <EventCardVer />
-          </div>
-        </div>
-        <div
-          className="have-result d-flex row justify-content-center"
-          style={
-            displayCard
-              ? { height: 0, width: 0, opacity: 0 }
-              : { display: 'block' }
-          }
-        >
-          <div className="result-list d-flex justify-content-start flex-wrap">
-            <EventCardHor />
-            <EventCardHor />
-            <EventCardHor />
-            <EventCardHor />
-            <EventCardHor />
-            <EventCardHor />
-            <EventCardHor />
-            <EventCardHor />
-          </div>
+        <div className="have-result d-flex row justify-content-center">
+          {displayCard ? resultCard : resultList}
         </div>
         <Pagination />
       </div>
