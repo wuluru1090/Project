@@ -2,12 +2,11 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MemberPdCard2 from '../../components/Member/MemberPdCard2'
+import MemberPdCardcoll from '../../components/Member/MemberPdCardcoll'
 import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
 import '../../style/member_navbar.scss'
-import { Card, Button } from 'react-bootstrap'
-import { MdVisibility } from 'react-icons/md'
+import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
 
 function MemberHistory(props) {
@@ -29,7 +28,7 @@ function MemberHistory(props) {
                 </div>
 
                 <article>
-                  <div className="container ">
+                  <div className="container">
                     <Card className="mem_box">
                       <Card.Header className="mem_title d-flex justify-content-between">
                         <h5>歷史紀錄</h5>
@@ -47,7 +46,7 @@ function MemberHistory(props) {
                           </li>
                         </ul>
                         <br />
-                        <MemberPdCard2 />
+                        <MemberPdCardcoll />
                       </Card.Body>
                     </Card>
                   </div>

@@ -7,7 +7,8 @@ import MemberMyjoinin from './pages/Member/MemberMyjoinin'
 import MemberMyOrder from './pages/Member/MemberMyOrder'
 import MemberCoupon from './pages/Member/MemberCoupon'
 import MemberHistory from './pages/Member/MemberHistory'
-
+import MemberMyCollection from './pages/Member/MemberMyCollection'
+import MemberMyPhoto from './pages/Member/MemberMyPhoto'
 function App() {
   return (
     <>
@@ -28,6 +29,12 @@ function App() {
             </Route>
             <Route path="/MyHistory">
               <MemberHistory />
+            </Route>
+            <Route path="/MyCollection">
+              <MemberMyCollection />
+            </Route>
+            <Route path="/MyPhoto">
+              <MemberMyPhoto />
             </Route>
           </Switch>
         </body>

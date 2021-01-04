@@ -2,10 +2,10 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MemberPdCard from '../../components/Member/MemberPdCard'
 import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
 import '../../style/member_coupon.scss'
+import '../../style/member_navbar.scss'
 import { Card, Button } from 'react-bootstrap'
 import { MdVisibility } from 'react-icons/md'
 import { devUrl } from '../../config'
@@ -18,7 +18,7 @@ function MemberCoupon(props) {
           <header>
             <MyNavbar />
           </header>
-          <div className="wrapper  ">
+          <div className="wrapper ">
             <main className="container">
               <aside className="d-flex justify-content-end">
                 <br />
@@ -59,7 +59,7 @@ function MemberCoupon(props) {
                               </button>
                             </div>
                           </div>
-                          <div className=" coupon ">
+                          <div className=" coupon  ">
                             <p className="d-flex justify-content-center">
                               註冊禮
                             </p>

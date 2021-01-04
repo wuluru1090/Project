@@ -2,14 +2,13 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MemberPdCard2 from '../../components/Member/MemberPdCard2'
+import MemberPdCardcoll from '../../components/Member/MemberPdCardcoll'
 import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
-import '../../style/member.scss'
 import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
 
-function MemberMyOrder(props) {
+function MemberMyCollection(props) {
   return (
     <>
       <body>
@@ -17,7 +16,7 @@ function MemberMyOrder(props) {
           <header>
             <MyNavbar />
           </header>
-          <div className="wrapper ">
+          <div className="wrapper  ">
             <main className="container">
               <aside className="d-flex justify-content-end">
                 <br />
@@ -28,37 +27,25 @@ function MemberMyOrder(props) {
                 </div>
 
                 <article>
-                  <div className="container ">
+                  <div className="container">
                     <Card className="mem_box">
                       <Card.Header className="mem_title d-flex justify-content-between">
-                        <h5>訂單管理</h5>
+                        <h5>我的收藏</h5>
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
                         className="box "
                       >
                         <ul className="row navbar  d-flex align-items-center">
-                          <li className=" subtitle1  main_li  d-flex align-items-center">
-                            <a href="#">購物車</a>
-                            <li className=" subtitle1 sublist">
-                              <a href="#">活動</a>
-                            </li>
-                            <li className=" subtitle1 sublist">
-                              <a href="#">課程</a>
-                            </li>
+                          <li className=" subtitle1  main_li">
+                            <a href="#">活動</a>
                           </li>
-                          <li className=" subtitle1 main_li  d-flex align-items-center">
-                            <a href="#">未付款</a>
-                            <li className=" subtitle1  sublist">
-                              <a href="#">活動</a>
-                            </li>
-                            <li className=" subtitle1  sublist">
-                              <a href="#">課程</a>
-                            </li>
+                          <li className=" subtitle1 main_li">
+                            <a href="#">課程</a>
                           </li>
                         </ul>
                         <br />
-                        <MemberPdCard2 />
+                        <MemberPdCardcoll />
                       </Card.Body>
                     </Card>
                   </div>
@@ -87,4 +74,4 @@ function MemberMyOrder(props) {
   )
 }
 
-export default MemberMyOrder
+export default MemberMyCollection

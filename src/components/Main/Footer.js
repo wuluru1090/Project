@@ -83,28 +83,28 @@ function Footer(props) {
                   <img
                     className="nav-link icon"
                     src={devUrl + '/pic/SVG/FB.svg'}
-                    alt=""
+                    alt="FB"
                   ></img>
                 </li>
                 <li>
                   <img
                     className="nav-link icon"
                     src={devUrl + '/pic/SVG/ig.svg'}
-                    alt=""
+                    alt="IG"
                   ></img>
                 </li>
                 <li>
                   <img
                     className="nav-link icon"
                     src={devUrl + '/pic/SVG/Twitter.svg'}
-                    alt=""
+                    alt="Twitter"
                   ></img>
                 </li>
                 <li>
                   <img
                     className="nav-link icon"
                     src={devUrl + '/pic/SVG/Pinterst.svg'}
-                    alt=""
+                    alt="Pinterst"
                   ></img>
                 </li>
               </ul>

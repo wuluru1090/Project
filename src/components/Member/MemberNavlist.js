@@ -53,13 +53,14 @@ function MemberNavlist() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-4"
-            href="/MyCoupon"
+            href="/MyCollection"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdTurnedIn />
             <h6>我的收藏</h6>
           </Nav.Link>
           <Nav.Link
+            href="/MyPhoto"
             eventKey="link-5"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
