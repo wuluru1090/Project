@@ -46,17 +46,17 @@ $navbar-light-active-color: $secondary;
 
 @font-face {
   font-family: 'TaipeiSansTCBeta-Regular';
-  src: url('font/TaipeiSansTCBeta-Regular.ttf');
+  src: url('./font/TaipeiSansTCBeta-Regular.ttf');
   unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Bold';
-  src: url('font/TaipeiSansTCBeta-Bold.ttf');
+  src: url('./font/TaipeiSansTCBeta-Bold.ttf');
   unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Light';
-  src: url('font/TaipeiSansTCBeta-Light.ttf');
+  src: url('./font/TaipeiSansTCBeta-Light.ttf');
   unicode-range: U+4E00-9FFF;
 }
 @font-face {
@@ -100,7 +100,7 @@ body {
 .bg-primary-600 {
   background: $primary-600;
 }
-.bg-primary-500 {
+.bg-primary {
   background: $primary-500;
 }
 .bg-primary-400 {
@@ -140,7 +140,7 @@ body {
   background: $secondary-300;
 }
 .bg-secondary {
-  background: $secondary;
+  background: $secondary; 
 }
 .bg-secondary-100 {
   background: $secondary-100;
@@ -193,7 +193,7 @@ body {
   font-size: 10px;
 }
 .my-container {
-  max-width: (calc(100vw - 150px));
+  // max-width: (calc(100vw - 150px));
   max-width: 1440px;
   margin: 0 auto;
   padding: 0px;

@@ -25,20 +25,23 @@ $url: "http://localhost:3000";
  
   
   .soya4 {
-    height:1880px;
+    // height:1880px;
     background:url($url + '/pic/soya/page4bg1.png') center center;
     background-size: cover;
-    margin-top: -180px;
+    margin-top: -170px;
     // border: 1px solid transparent;
     box-sizing: border-box;
 
     .whitewave{
       width: 100%;
-      margin:0 auto;
+      margin: auto;
+      margin-top: -2px;
+      
     }
     .whitewavedown{
       width: 100%;
       margin:0 auto;
+      transform: translateY(3px);
   
 
       

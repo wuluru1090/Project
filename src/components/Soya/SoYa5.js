@@ -50,7 +50,7 @@ function SoYa5(props) {
                     桃園市中壢區中北路200號
                   </div>
                 </div>
-                <button className="classcontentinfobutton caption rounded-pill d-flex">
+                <button className="btn classcontentinfobutton caption rounded-pill d-flex">
                   參加課程
                 </button>
               </div>
