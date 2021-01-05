@@ -22,36 +22,43 @@ $url: 'http://localhost:3000';
     overflow: hidden;
     margin-right: 75px;
     border: 1px solid gray;
-  }
-
-  .organizer img {
-    width: 100%;
+    img {
+      width: 100%;
+    }
   }
 
   // 課程簡易資訊欄大區(含按鈕)
   .page-head {
     padding-top: 42px;
-    // border: 1px solid green;
-  }
 
-  .page-head-part2 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
+    .page-head-part2 {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
 
-  .bttn {
-    width: 91px;
-    height: 36px;
-    border-radius: 50px;
-    background-color: #f28d61;
-    border: 1px solid transparent;
-    color: white;
-  }
-
-  .share {
-    background-color: #12d0c9;
-    margin-left: 17px;
+      // 按鈕區
+      .btn_part {
+        // border:1px solid red;
+        display: flex;
+        align-items: flex-end;
+        .bttn {
+          width: 91px;
+          height: 36px;
+          border-radius: 50px;
+          background-color: #f28d61;
+          border: 1px solid transparent;
+          color: white;
+        }
+        .share {
+          background-color: #12d0c9;
+          margin-left: 17px;
+        }
+      }
+    }
+    // 麵包屑
+    .bread_crumb {
+      margin-top: 43px;
+    }
   }
 
   .organizer_info {
@@ -62,51 +69,39 @@ $url: 'http://localhost:3000';
     margin-left: -60px;
   }
 
-  .btn_part {
-    // border:1px solid red;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  // 麵包屑
-  .bread_crumb {
-    margin-top: 43px;
-  }
-
   // 商品圖片
   .class_pic {
     width: 730px;
     height: 305px;
     overflow: hidden;
     border-radius: 10px;
-  }
-
-  .class_pic img {
-    object-fit: contain;
+    img {
+      object-fit: contain;
+    }
   }
 
   .page-head-part3 {
     display: flex;
     margin-top: 20px;
-    // border: 3px solid green;
-  }
-
-  .content_big_part {
-    width: 730px;
-    // border: 2px solid yellow;
+    .content_big_part {
+      width: 730px;
+    }
   }
 
   .features {
     padding-left: 30px;
   }
-
-  .gmap {
-    width: 343px;
-    height: 386px;
-    margin-top: 35px;
-    border-radius: 10px;
+  .left_part {
+    // border: 1px solid red;
+    margin-left: 83px;
+    width: 347px;
+    .gmap {
+      width: 343px;
+      height: 386px;
+      margin-top: 35px;
+      border-radius: 10px;
+    }
   }
-
   .class_title {
     color: $primary;
     margin-top: 50px;
@@ -125,30 +120,30 @@ $url: 'http://localhost:3000';
     margin: 50px 0px 54px 0px;
     line-height: 28px;
   }
-
+  // 授課老師資訊欄
   .teacher {
     width: 730px;
     height: 138px;
     display: flex;
-  }
-
-  .teacher_pic {
-    height: 138px;
-    width: 138px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-  .teacher_pic img {
-    width: 100%;
-  }
-  .teacher_info_block {
-    width: 550px;
-    margin-left: 42px;
-  }
-
-  .teacher_intro {
-    margin: 0;
+    .teacher_pic {
+      height: 138px;
+      width: 138px;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+    .teacher_info_block {
+      width: 550px;
+      margin-left: 42px;
+      .class_teacher {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+      .teacher_intro {
+        margin: 0;
+      }
+    }
   }
 
   .wave_background2 {
@@ -177,11 +172,6 @@ $url: 'http://localhost:3000';
     // border: 1px solid red;
   }
 
-  .suggested {
-    margin-top: 81px;
-    margin-bottom: 60px;
-  }
-
   .cards {
     margin-top: 90px;
     display: flex;
@@ -190,16 +180,6 @@ $url: 'http://localhost:3000';
   // .carousel_block {
   //   border: 1px solid red;
   // }
-
-  .left_part {
-    // border: 1px solid red;
-    margin-left: 83px;
-    width: 347px;
-  }
-
-  .class_teacher {
-    font-family: 'TaipeiSansTCBeta-Bold';
-  }
 
   .class_suggest {
     color: $primary;
