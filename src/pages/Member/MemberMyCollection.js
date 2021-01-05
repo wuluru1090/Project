@@ -3,8 +3,6 @@ import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import MemberPdCardcoll from '../../components/Member/MemberPdCardcoll'
-import MyNavbar from '../../components/Main/MyNavbar'
-import Footer from '../../components/Main/Footer'
 import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
 
@@ -13,9 +11,6 @@ function MemberMyCollection(props) {
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper  ">
             <main className="container">
               <aside className="d-flex justify-content-end">
@@ -67,8 +62,6 @@ function MemberMyCollection(props) {
           </div>
           <br />
         </div>
-
-        <Footer />
       </body>
     </>
   )

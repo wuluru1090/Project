@@ -3,8 +3,6 @@ import React from 'react'
 import MemberContent from '../../components/Member/MemberContent'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MyNavbar from '../../components/Main/MyNavbar'
-import Footer from '../../components/Main/Footer'
 import '../../style/member.scss'
 import { devUrl } from '../../config'
 function MemberHome(props) {
@@ -12,9 +10,6 @@ function MemberHome(props) {
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper  ">
             <main className="container">
               <aside className="d-flex justify-content-end">
@@ -45,8 +40,6 @@ function MemberHome(props) {
           </div>
           <br />
         </div>
-
-        <Footer />
       </body>
     </>
   )

@@ -1,6 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import './index.scss'
+
+import MyNavbar from './components/Main/MyNavbar'
+import Footer from './components/Main/Footer'
 // 頁面元件
 import MemberHome from './pages/Member/MemberHome'
 import MemberMyjoinin from './pages/Member/MemberMyjoinin'
@@ -17,6 +20,7 @@ function App() {
   return (
     <>
       <Router>
+        <MyNavbar />
         <body>
           <Switch>
             <Route path="/member/MyScore">
@@ -56,6 +60,7 @@ function App() {
             </Route>
           </Switch>
         </body>
+        <Footer />
       </Router>
     </>
   )

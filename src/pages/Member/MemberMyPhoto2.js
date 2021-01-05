@@ -2,21 +2,15 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MyNavbar from '../../components/Main/MyNavbar'
-import Footer from '../../components/Main/Footer'
 import '../../style/member.scss'
 import '../../style/member_photo2.scss'
 import { devUrl } from '../../config'
 import { Card } from 'react-bootstrap'
-import { MdAddCircleOutline } from 'react-icons/md'
 function MemberMyPhoto2(props) {
   return (
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper  ">
             <main className="container">
               <aside className="d-flex justify-content-end">
@@ -32,14 +26,17 @@ function MemberMyPhoto2(props) {
                     <Card className="mem_box">
                       <Card.Header className="mem_title d-flex justify-content-between">
                         <h5>我的相簿/一日遊是我</h5>
-                        <div className="addphoto2 ">
-                          <MdAddCircleOutline />
-                        </div>
+
+                        <img
+                          className="addphoto2 "
+                          src={devUrl + '/pic/SVG/photoadd2.svg'}
+                          alt="add2"
+                        ></img>
                       </Card.Header>
-                      <Card.Body style={{ padding: '14px  42px  43px 42px' }}>
-                        <div className="photo_album3 ">
-                          <div className="img_box3   d-flex justify-content-start">
-                            <figure className=" d-flex justify-content-between flex-wrap">
+                      <Card.Body style={{ padding: '14px  42px  14px 42px' }}>
+                        <div className="photo_album3 d-flex ">
+                          <div className="img_box3  d-flex justify-content-between">
+                            <figure className="d-flex flex-wrap">
                               <img
                                 src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                 alt="photo1"
@@ -84,8 +81,6 @@ function MemberMyPhoto2(props) {
           </div>
           <br />
         </div>
-
-        <Footer />
       </body>
     </>
   )

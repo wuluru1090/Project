@@ -14,9 +14,6 @@ function MemberMyOrder(props) {
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper ">
             <main className="container">
               <aside className="d-flex justify-content-end">
@@ -80,8 +77,6 @@ function MemberMyOrder(props) {
           </div>
           <br />
         </div>
-
-        <Footer />
       </body>
     </>
   )

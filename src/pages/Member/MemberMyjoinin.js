@@ -15,9 +15,6 @@ function MemberMyjoinin(props) {
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper  ">
             <main className="container">
               <aside className="d-flex justify-content-end">
@@ -69,8 +66,6 @@ function MemberMyjoinin(props) {
           </div>
           <br />
         </div>
-
-        <Footer />
       </body>
     </>
   )

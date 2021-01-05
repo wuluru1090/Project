@@ -8,7 +8,7 @@ import {
   MdStarBorder,
   MdStarHalf,
   MdVisibility,
-  MdFolder,
+  MdFolderOpen,
 } from 'react-icons/md'
 import '../../style/user_member.scss'
 import { devUrl } from '../../config'
@@ -17,9 +17,6 @@ function UserSeeMember(props) {
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper">
             <main className="container">
               <aside className="d-flex justify-content-center card_body">
@@ -51,7 +48,7 @@ function UserSeeMember(props) {
                     </div>
                   </div>
 
-                  <div className="d-flex justify-content-center  ">
+                  <div className="d-flex justify-content-center ">
                     <Button
                       onclick=""
                       className="botton-font btn_icon btn-mem_view d-flex justify-content-center align-items-center "
@@ -62,11 +59,15 @@ function UserSeeMember(props) {
                   </div>
 
                   <br />
-                  <div className="d-flex justify-content-between ">
+                  <div className="d-flex justify-content-between  photo_album_all flex-wrap">
                     <div className="photo_album2">
-                      <h6 className="subtitle2">綠意盎藍一日遊遊遊遊遊</h6>
+                      <h6 className="subtitle2 font-bold">
+                        綠意盎藍一日遊遊遊遊遊 &nbsp;
+                        <MdFolderOpen />
+                      </h6>
+
                       <div className="img_box2">
-                        <figure className="d-flex justify-content-end flex-wrap">
+                        <div className="">
                           <img
                             src={devUrl + '/pic/pic/桌布-德國.jpg'}
                             alt="photo1"
@@ -79,17 +80,41 @@ function UserSeeMember(props) {
                             src={devUrl + '/pic/pic/桌布-德國.jpg'}
                             alt="photo1"
                           ></img>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="photo_album2">
+                      <h6 className="subtitle2 font-bold">
+                        綠意盎藍一日遊遊遊遊遊 &nbsp;
+                        <MdFolderOpen />
+                      </h6>
+
+                      <div className="img_box2">
+                        <div className="">
                           <img
                             src={devUrl + '/pic/pic/桌布-德國.jpg'}
                             alt="photo1"
                           ></img>
-                        </figure>
+                          <img
+                            src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                            alt="photo1"
+                          ></img>
+                          <img
+                            src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                            alt="photo1"
+                          ></img>
+                        </div>
                       </div>
                     </div>
                     <div className="photo_album2">
-                      <h6 className="subtitle2">綠意盎藍一日遊遊遊遊遊</h6>
+                      <h6 className="subtitle2 font-bold">
+                        綠意盎藍一日遊遊遊遊遊 &nbsp;
+                        <MdFolderOpen />
+                      </h6>
+
                       <div className="img_box2">
-                        <figure className="d-flex justify-content-end flex-wrap">
+                        <div className="">
                           <img
                             src={devUrl + '/pic/pic/桌布-德國.jpg'}
                             alt="photo1"
@@ -102,17 +127,17 @@ function UserSeeMember(props) {
                             src={devUrl + '/pic/pic/桌布-德國.jpg'}
                             alt="photo1"
                           ></img>
-                          <img
-                            src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                            alt="photo1"
-                          ></img>
-                        </figure>
+                        </div>
                       </div>
                     </div>
                     <div className="photo_album2">
-                      <h6 className="subtitle2">綠意盎藍一日遊遊遊遊遊</h6>
+                      <h6 className="subtitle2 font-bold">
+                        綠意盎藍一日遊遊遊遊遊 &nbsp;
+                        <MdFolderOpen />
+                      </h6>
+
                       <div className="img_box2">
-                        <figure className="d-flex justify-content-end flex-wrap">
+                        <div className="">
                           <img
                             src={devUrl + '/pic/pic/桌布-德國.jpg'}
                             alt="photo1"
@@ -125,11 +150,7 @@ function UserSeeMember(props) {
                             src={devUrl + '/pic/pic/桌布-德國.jpg'}
                             alt="photo1"
                           ></img>
-                          <img
-                            src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                            alt="photo1"
-                          ></img>
-                        </figure>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -138,8 +159,6 @@ function UserSeeMember(props) {
             </main>
           </div>
         </div>
-
-        <Footer />
       </body>
     </>
   )

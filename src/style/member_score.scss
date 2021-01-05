@@ -5,14 +5,14 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    margin: 0 0px 0 8px;
-    p {
-      margin: 0 auto;
-    }
+    margin: 0 8px 0 8px;
+  }
+  p {
+    margin: 5px;
   }
 
   .ScoText {
-    width: 680px;
+    width: 640px;
     height: 80px;
   }
 }
@@ -29,13 +29,15 @@
   align-items: center;
   border: 0;
 }
-.mem_toscore_G {
-  text-align: center;
-  figure {
-    figcaption {
-      padding: 8px 0;
-      font-size: 12px;
-      text-align: center;
+.mymem_toscore {
+  margin: 0 0 0 16px;
+  .mem_toscore_G {
+    figure {
+      figcaption {
+        padding: 8px 0;
+        font-size: 12px;
+        text-align: center;
+      }
     }
   }
 }

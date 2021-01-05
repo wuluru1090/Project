@@ -2,8 +2,6 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MyNavbar from '../../components/Main/MyNavbar'
-import Footer from '../../components/Main/Footer'
 import { Card, Form, Button } from 'react-bootstrap'
 import { MdCreate } from 'react-icons/md'
 import { devUrl } from '../../config'
@@ -14,9 +12,6 @@ function MemberMyManagement(props) {
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper  ">
             <main className="container">
               <aside className="d-flex justify-content-end">
@@ -120,8 +115,6 @@ function MemberMyManagement(props) {
           </div>
           <br />
         </div>
-
-        <Footer />
       </body>
     </>
   )
