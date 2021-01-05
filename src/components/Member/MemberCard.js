@@ -3,19 +3,21 @@ import '../../style/default.scss'
 import { Card } from 'react-bootstrap'
 import '../../style/member_card.scss'
 import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
+import { devUrl } from '../../config'
+
 // var Rating = require('react-rating')
 // React.createElement(Rating)
 function MemberCard() {
   return (
     <>
       <div className="container ">
-        <Card className="card d-flex justify-content-start ">
+        <Card className="mem_card d-flex justify-content-start ">
           <div className="d-flex justify-content-center align-items-center">
             <Card.Img
               className=" rounded-circle "
               style={{ width: '160px' }}
               variant="top"
-              src="./pic/pic/member.jpg"
+              src={devUrl + '/pic/pic/member.jpg'}
               alt=""
             />
             <div class="position-relative">

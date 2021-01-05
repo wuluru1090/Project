@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/event_album.scss'
+import '../../style/event/event_album.scss'
 import { devUrl } from '../../config'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import { MdKeyboardArrowRight } from 'react-icons/md'

@@ -14,13 +14,13 @@ import {
   MdBrightnessHigh,
 } from 'react-icons/md'
 
-function MemberCard() {
+function MemberNavlist() {
   return (
     <>
       <div className="container ">
         <Nav defaultActiveKey="/home" className="flex-column  mem_navlist">
           <Nav.Link
-            href="/home"
+            href="/member"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdAccountBox />
@@ -28,6 +28,7 @@ function MemberCard() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-1"
+            href="/Myjoinin"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdCameraEnhance />
@@ -35,13 +36,16 @@ function MemberCard() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-2"
+            href="/MyOrder"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
-            <div className="mem_listbar"></div> <MdShoppingCart />
+            <div className="mem_listbar"></div>
+            <MdShoppingCart />
             <h6>訂單管理</h6>
           </Nav.Link>
           <Nav.Link
             eventKey="link-3"
+            href="/MyCoupon"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdLoyalty />
@@ -49,6 +53,7 @@ function MemberCard() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-4"
+            href="/MyCoupon"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdTurnedIn />
@@ -64,6 +69,7 @@ function MemberCard() {
           </Nav.Link>
           <Nav.Link
             eventKey="link-6"
+            href="/MyHistory"
             className=" d-flex align-items-center justify-content-center mem_navlist_icon"
           >
             <div className="mem_listbar"></div> <MdRestore />
@@ -89,4 +95,4 @@ function MemberCard() {
   )
 }
 
-export default MemberCard
+export default MemberNavlist

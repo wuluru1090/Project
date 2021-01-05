@@ -1,0 +1,43 @@
+@import 'default.scss';
+.mem_box {
+  width: 825px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+  .mem_inf {
+    padding: 41px 27px 14px 27px;
+    .mem_form {
+      .text_w {
+        border-radius: 5px;
+
+        width: 240px;
+        height: 38px;
+        margin: 0 43px 0 0;
+      }
+    }
+  }
+  .mem_title {
+    border-radius: 10px 10px 0 0;
+    background-color: $primary-100;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    color: $primary-300;
+    padding: 10px 38px 10px 38px;
+  }
+
+  .btn-style {
+    // width: 82px;
+    height: 34px;
+    border-radius: 25px;
+    background-color: #104b6d;
+    color: #ffffff;
+    font-family: 'TaipeiSansTCBeta-Regular';
+  }
+
+  .btn_icon {
+    svg {
+      width: 16px;
+      height: 16px;
+      margin: 0 8px 0 0;
+    }
+  }
+}
