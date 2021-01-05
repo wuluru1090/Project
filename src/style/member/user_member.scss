@@ -43,3 +43,43 @@ body {
   border: 0;
   border-radius: 50px;
 }
+
+.mem_coll_list {
+  // background: sienna;
+  margin-top: 20px;
+  .list-content {
+    margin: 0px auto;
+    border-bottom: rgba(0, 0, 0, 0.6) 1px solid;
+    .pic {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 12px;
+      figure {
+        img {
+          width: 80px;
+          height: 80px;
+          margin: 0px;
+          border: rgba(0, 0, 0, 0.6) 1px solid;
+        }
+      }
+    }
+    .detail {
+      margin: 0px;
+      padding: 0px;
+      .de {
+        .star {
+        }
+      }
+      h6 {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+      .subtitle2 {
+        margin: 0px;
+      }
+      .host {
+        color: $secondary;
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
