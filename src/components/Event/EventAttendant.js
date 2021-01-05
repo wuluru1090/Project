@@ -64,6 +64,48 @@ function EventAttendant() {
                 </div>
               </div>
             </div>
+
+            <div className="list-content row">
+              <div className="pic col-2 d-flex justify-content-start align-items-center">
+                <figure>
+                  <img src="" alt="" />
+                </figure>
+              </div>
+              <div className="detail d-flex col-10 align-items-center">
+                <div className="de">
+                  <h6>陳宇軒</h6>
+                  <p className="subtitle2">1月1日, 12:25</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="list-content row">
+              <div className="pic col-2 d-flex justify-content-start align-items-center">
+                <figure>
+                  <img src="" alt="" />
+                </figure>
+              </div>
+              <div className="detail d-flex col-10 align-items-center">
+                <div className="de">
+                  <h6>陳宇軒</h6>
+                  <p className="subtitle2">1月1日, 12:25</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="list-content row">
+              <div className="pic col-2 d-flex justify-content-start align-items-center">
+                <figure>
+                  <img src="" alt="" />
+                </figure>
+              </div>
+              <div className="detail d-flex col-10 align-items-center">
+                <div className="de">
+                  <h6>陳宇軒</h6>
+                  <p className="subtitle2">1月1日, 12:25</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -20,6 +20,9 @@ function EventAlbum() {
             <h5>阿里山國家公園二日遊輕鬆拍</h5>
           </div>
           <div className="button col-3 d-flex justify-content-end align-items-end">
+            <button className="btn rounded-pill upload-button bg-secondary">
+              編輯圖片
+            </button>
             <button className="btn rounded-pill upload-button">上傳圖片</button>
           </div>
         </div>

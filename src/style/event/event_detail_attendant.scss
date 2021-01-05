@@ -1,0 +1,35 @@
+@import '../default.scss';
+$url: 'http://localhost:3000';
+
+.detail-attendant-wrapper {
+  width: 730px;
+  margin: 0px;
+  .attendant-card {
+    position: relative;
+    width: 23%;
+    height: 198px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
+    margin: 0px 12px 38px 12px;
+    .detail-attendant-avatar {
+      position: absolute;
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      background: yellowgreen;
+      top: 18px;
+      left: calc(50% - 47.5px);
+    }
+    .name {
+      margin-top: 130px;
+      //   margin: auto;
+      .host {
+        color: $secondary;
+      }
+      .attendants {
+        color: $gray-default;
+      }
+    }
+  }
+}

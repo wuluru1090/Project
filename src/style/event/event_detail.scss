@@ -2,7 +2,7 @@
 $url: 'http://localhost:3000';
 
 // 波浪背景1
-.class_wave_background {
+.event_wave_background {
   background: url($url + '/Pic/SVG/wave-blue-attbg-1440.svg');
   width: 100%;
   top: 40px;
@@ -29,7 +29,13 @@ $url: 'http://localhost:3000';
 
   // 課程簡易資訊欄大區(含按鈕)
   .page-head {
+    color: white;
     padding-top: 42px;
+    .title {
+      h5 {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+    }
 
     .page-head-part2 {
       display: flex;
@@ -42,12 +48,13 @@ $url: 'http://localhost:3000';
         display: flex;
         align-items: flex-end;
         .bttn {
-          width: 91px;
-          height: 36px;
-          border-radius: 50px;
-          background-color: #f28d61;
-          border: 1px solid transparent;
+          padding: 5px 20px;
           color: white;
+          font-size: 16px;
+          text-align: center;
+        }
+        .save {
+          background-color: #f28d61;
         }
         .share {
           background-color: #12d0c9;
@@ -95,10 +102,17 @@ $url: 'http://localhost:3000';
     // border: 1px solid red;
     margin-left: 83px;
     width: 347px;
+    .google-calender {
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
+      margin: 38px 0px;
+      color: white;
+      width: 347px;
+      padding: 18px 56px;
+      background: $primary-100;
+    }
     .gmap {
       width: 343px;
       height: 386px;
-      margin-top: 35px;
       border-radius: 10px;
     }
   }
@@ -119,31 +133,6 @@ $url: 'http://localhost:3000';
   p {
     margin: 50px 0px 54px 0px;
     line-height: 28px;
-  }
-  // 授課老師資訊欄
-  .teacher {
-    width: 730px;
-    height: 138px;
-    display: flex;
-    .teacher_pic {
-      height: 138px;
-      width: 138px;
-      border-radius: 50%;
-      overflow: hidden;
-      img {
-        width: 100%;
-      }
-    }
-    .teacher_info_block {
-      width: 550px;
-      margin-left: 42px;
-      .class_teacher {
-        font-family: 'TaipeiSansTCBeta-Bold';
-      }
-      .teacher_intro {
-        margin: 0;
-      }
-    }
   }
 
   .wave_background2 {

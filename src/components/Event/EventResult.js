@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Pagination from './Pagination'
+import EventPagination from './Pagination'
 import '../../style/default.scss'
 import '../../style/event/event_result.scss'
 import { devUrl } from '../../config'
@@ -85,7 +85,7 @@ function EventResult() {
         <div className="have-result d-flex row justify-content-center">
           {displayCard ? resultCard : resultList}
         </div>
-        <Pagination />
+        <EventPagination />
       </div>
     </>
   )

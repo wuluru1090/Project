@@ -2,21 +2,23 @@ import React from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_search.scss'
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md'
+import Pagination from 'react-bootstrap/Pagination'
 
-function Pagination() {
+function EventPagination() {
+  let active = 2
+  let items = []
+  for (let number = 1; number <= 5; number++) {
+    items.push(
+      <Pagination.Item key={number} active={number === active}>
+        {number}
+      </Pagination.Item>
+    )
+  }
   return (
     <>
-      <button className="prev">
-        <MdKeyboardArrowLeft />
-      </button>
-      <button className="pages">1</button>
-      <button className="pages">2</button>
-      <button className="pages">3</button>
-      <button className="prev">
-        <MdKeyboardArrowRight />
-      </button>
+      <Pagination>{items}</Pagination>
     </>
   )
 }
 
-export default Pagination
+export default EventPagination

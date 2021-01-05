@@ -31,10 +31,10 @@ function MyNavbar(props) {
           {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
           {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
-            <Nav.Link className="navLink" as={NavLink} to="/event">
+            <Nav.Link className="navLink" as={NavLink} to="/begin">
               發起揪影
             </Nav.Link>
-            <Nav.Link className="navLink" as={NavLink} to="/event">
+            <Nav.Link className="navLink" as={NavLink} to="/event-search">
               參加攝影團
             </Nav.Link>
             <Nav.Link className="navLink" as={NavLink} to="/class">

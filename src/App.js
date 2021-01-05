@@ -3,9 +3,13 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
 import MainContent from './components/Main/MainContent'
+import EventAttendant from './components/Event/EventAttendant'
 import Event from './pages/Event/'
+import Album from './pages/Event/EventAlbum'
+import EventDetails from './pages/Event/EventDetail'
 import SearchTop from './components/Class/SearchTop'
 import SearchMain from './components/Class/SearchMain'
+import MainClass from './components/Class/MainClass'
 import SoYa from './pages/SoYa/SoYa'
 
 function App() {
@@ -17,20 +21,22 @@ function App() {
           <MainContent>
             <Switch>
               <Route path="/begin">
-                <Event />
+                <EventAttendant />
               </Route>
-              <Route path="/event">
+              <Route path="/event-search">
                 <Event />
               </Route>
               <Route path="/class">
-                <SearchTop />
-                <SearchMain />
+                <MainClass />
+              </Route>
+              <Route path="/event/album">
+                <Album />
               </Route>
               <Route exact path="/">
                 <SoYa />
               </Route>
-              <Route exact path="/event/:id">
-                <SoYa />
+              <Route path="/event/:id">
+                <EventDetails />
               </Route>
             </Switch>
           </MainContent>

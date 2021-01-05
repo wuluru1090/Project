@@ -1,10 +1,8 @@
 @import '../default.scss';
 @import '~bootstrap/scss/_Carousel.scss';
-// @import '../searchbar.scss';
 
 .carousel-item {
   height: calc(100vh - 80px);
-  // width: 100%;
   > .carousel-img {
     object-fit: cover;
     object-position: center;
@@ -37,27 +35,28 @@
 }
 .class_search_top_wrapper {
   position: relative;
-  // border: 1px solid red;
-  .wave1 {
+  .class_wave1 {
     position: absolute;
-    bottom: -41px;
+    bottom: 0;
     width: 100%;
     transform: translateY(3px);
     z-index: 53;
   }
-  //   .scroll {
-  //     position: absolute;
-  //     font-family: 'TaipeiSansTCBeta-Bold';
-  //     z-index: 55;
-  //     right: 91px;
-  //     bottom: 48px;
-  //     color: $primary;
-  //     // background: blue;
-  //     text-align: right;
-  //     .c-icon {
-  //       margin-left: 12px;
-  //     }
-  //   }
+  // border: 1px solid red;
+
+  .scroll {
+    position: absolute;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    z-index: 55;
+    right: 91px;
+    bottom: 48px;
+    color: $primary;
+    // background: blue;
+    text-align: right;
+    .c-icon {
+      margin-left: 12px;
+    }
+  }
 }
 
 // .event-search-bar {

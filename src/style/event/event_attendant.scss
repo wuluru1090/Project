@@ -1,4 +1,5 @@
-@import './default.scss';
+@import '../default.scss';
+$url: 'http://localhost:3000';
 
 //EventAttendant
 
@@ -12,8 +13,8 @@
   // background: cadetblue;
 }
 .back {
-  position: relative;
-  background-image: url('http://localhost:3000/Pic/SVG/wave-blue-attbg-1440.svg');
+  // position: relative;
+  background-image: url($url + '/Pic/SVG/wave-blue-attbg-1440.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
@@ -44,11 +45,12 @@
       margin: 0px;
       padding: 0px;
       li {
+        margin-top: 3px;
         padding: 9px 12px;
         cursor: pointer;
       }
       .selected-status {
-        border-bottom: $secondary 4px solid;
+        border-bottom: $secondary 5px solid;
         color: $secondary;
         font-family: 'TaipeiSansTCBeta-Bold';
       }

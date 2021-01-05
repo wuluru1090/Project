@@ -60,26 +60,33 @@ $navbar-light-active-color: $secondary;
   unicode-range: U+4E00-9FFF;
 }
 @font-face {
-  font-family: 'Roboto-light', sans-serif;
+  font-family: 'Roboto-light';
   src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-  unicode-range: U+00-024F;
+  // unicode-range: U+00-024F;
   font-weight: 300;
 }
 @font-face {
-  font-family: 'Roboto-regular', sans-serif;
+  font-family: 'Roboto';
   src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-  unicode-range: U+00-024F;
+  // unicode-range: U+00-024F;
   font-weight: 400;
 }
 @font-face {
-  font-family: 'Roboto-Bold', sans-serif;
+  font-family: 'Roboto-Bold';
   src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-  unicode-range: U+00-024F;
+  // unicode-range: U+00-024F;
   font-weight: 700;
 }
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif !important;
+}
 body {
-  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC' sans-serif !important;
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif !important;
 }
 
 $rose: #f3b4ba;
@@ -166,32 +173,39 @@ body {
   background: $yellow;
 }
 .font-bold {
-  font-family: TaipeiSansTCBeta-Bold;
+  font-family: 'TaipeiSansTCBeta-Bold';
 }
 .font-light {
-  font-family: TaipeiSansTCBeta-Bold;
+  font-family: 'TaipeiSansTCBeta-Bold';
 }
 .subtitle1 {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
   font-size: 1rem;
 }
 .subtitle2 {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
   font-size: 14px;
 }
 .body1 {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
   font-size: 1rem;
   letter-spacing: 31px;
 }
 .body2 {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
   font-size: 14rem;
   letter-spacing: 18px;
 }
 .botton-font {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
   font-size: 14px;
 }
 .caption {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
   font-size: 12px;
 }
 .Overline {
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
   font-size: 10px;
 }
 .my-container {

@@ -1,76 +1,46 @@
 import React, { useState, useEffect } from 'react'
 import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
-import '../../style/event/event_searchbar.scss'
+import '../../style/event/searchbar2.scss'
 
-function SearchbarEvent(props) {
+function Searchbar2(props) {
   return (
     <>
-      <div className="searchbar">
-        <div className="col-10">
-          <form className="form-inline md-form mb-4 m-auto position-relative">
+      <div className="searchbarrr">
+        <div className="container-fluid mt-5">
+          <form className="form-inline md-form mb-4 col-8 m-auto position-relative">
             <img
-              src={devUrl + '/Pic/SVG/icon-action-search_24px.svg'}
+              src={devUrl + '/pic/pic/icon-action-search_24px.png'}
               alt="Sear"
               className="position-absolute searchicon"
             />
 
             <input
-              className="form-control rounded-pill col-9 searchbar2"
+              className="form-control rounded-pill col-9 searchbarrrr"
               type="text"
-              placeholder="尋找攝影課程"
+              placeholder="尋找活動"
               aria-label="Search"
             />
             <button className="btn rounded-pill btn-md sub" type="submit">
               搜尋
             </button>
           </form>
-          <div className="box d-flex">
-            <div className="hot">熱門關鍵字 |</div>
-            <div className="mr-auto d-flex flex-wrap col-9">
-              <button
-                className="btn rounded-pill btn-md d-flex ta"
-                type="button"
-              >
-                阿里山
-              </button>
-              <button
-                className="btn rounded-pill btn-md d-flex ta"
-                type="button"
-              >
-                星空
-              </button>
-              <button
-                className="btn rounded-pill btn-md d-flex ta"
-                type="button"
-              >
-                塔塔加
-              </button>
-              <button
-                className="btn rounded-pill btn-md d-flex ta"
-                type="button"
-              >
-                三天兩夜
-              </button>
-              <button
-                className="btn rounded-pill btn-md d-flex ta"
-                type="button"
-              >
-                花海
-              </button>
-              <button
-                className="btn rounded-pill btn-md d-flex ta"
-                type="button"
-              >
-                金針花海
-              </button>
-              <button
-                className="btn rounded-pill btn-md d-flex ta"
-                type="button"
-              >
-                輕鬆拍
-              </button>
-            </div>
+          <div className="mr-auto mb-4 col-8 m-auto tags d-flex">
+            <button className="btn rounded-pill btn-md d-flex ta" type="button">
+              <img src={devUrl + '/pic/pic/location_on-24px.png'} alt="Loca" />
+              地點(縣市)
+            </button>
+            <button className="btn rounded-pill btn-md d-flex ta" type="button">
+              <img src={devUrl + '/pic/pic/date_range-24px.png'} alt="Date" />
+              時間
+            </button>
+            <button className="btn rounded-pill btn-md d-flex ta" type="button">
+              <img
+                src={devUrl + '/pic/pic/filter_vintage-24px.png'}
+                alt="Vint"
+              />
+              類型
+            </button>
           </div>
         </div>
       </div>
@@ -78,4 +48,4 @@ function SearchbarEvent(props) {
   )
 }
 
-export default SearchbarEvent
+export default Searchbar2
