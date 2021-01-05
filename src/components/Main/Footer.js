@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../style/footer_custom.scss'
 import { devUrl } from '../../config'
-function Footer() {
+function Footer(props) {
   return (
     <>
       <footer className="footer bg-primary  mt-auto justify-content-center">
@@ -81,30 +81,30 @@ function Footer() {
               <ul className="nav d-flex justify-content-around">
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/FB.svg'}
-                    alt=""
+                    alt="FB"
                   ></img>
                 </li>
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/ig.svg'}
-                    alt=""
+                    alt="IG"
                   ></img>
                 </li>
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/Twitter.svg'}
-                    alt=""
+                    alt="Twitter"
                   ></img>
                 </li>
                 <li>
                   <img
-                    className="nav-link icon"
+                    className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/Pinterst.svg'}
-                    alt=""
+                    alt="Pinterst"
                   ></img>
                 </li>
               </ul>
