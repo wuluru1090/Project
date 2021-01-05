@@ -7,7 +7,7 @@ function SearchTop() {
   return (
     <>
       <div className="class_search_top_wrapper">
-        <Carousel>
+        <Carousel className="class_search_carousel">
           <Carousel.Item>
             <img
               className="d-block w-100 h-100 carousel-img"

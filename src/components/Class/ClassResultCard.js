@@ -45,7 +45,9 @@ function ClassResultCard() {
               </div>
               <div className="d-flex justify-content-end btn_group">
                 <div className="d-flex">
-                  <button className="btn d-flex join">參加活動</button>
+                  <button className="btn d-flex join">
+                    <a href={devUrl + '/class'}>參加活動</a>
+                  </button>
                 </div>
               </div>
             </div>

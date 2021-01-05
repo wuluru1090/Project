@@ -1,14 +1,10 @@
 import './index.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
+// 元素
+import ClassResult from './pages/Class/ClassResult'
+import ClassSearch from './pages/Class/ClassSearch'
 import MyNavbar from './components/Main/MyNavbar'
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import MainClass from './components/Class/MainClass'
-import SearchTop from './components/Class/SearchTop'
-import SearchMain from './components/Class/SearchMain'
-// import EventBottom from './components/Event/EventBottom'
-// import EventResult from './components/Event/EventResult'
-// import Footer from './components/Main/Footer'
 
 function App() {
   return (
@@ -18,12 +14,10 @@ function App() {
           <MyNavbar />
           <Switch>
             <Route path="/class">
-              <MainClass />
+              <ClassResult />
             </Route>
             <Route exact path="/event">
-              <SearchTop />
-              <SearchMain />
-              {/* <EventBottom /> */}
+              <ClassSearch />
             </Route>
             {/* <Route path="/begin">
               <ProductMen />
@@ -35,22 +29,6 @@ function App() {
         </>
       </Router>
     </>
-=======
-import Footer from './components/Main/Footer'
-
-import SoYa from './pages/SoYa/SoYa'
-import Login from './pages/SoYa/Login'
-import Event from './pages/Event/'
-import Signup from './pages/SoYa/Signup'
-
-function App() {
-  return (
-    <Router>
-      <>
-        <Signup />
-      </>
-    </Router>
->>>>>>> f0501dc7203921ee484dd497a7c8373489251d97
   )
 }
 

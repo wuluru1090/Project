@@ -86,7 +86,6 @@ $rose: #f3b4ba;
 $gray-default: #707070;
 $gray-darkest: #212121;
 
-
 body {
   margin: 0;
   padding: 0;
@@ -143,7 +142,7 @@ body {
   background: $secondary-300;
 }
 .bg-secondary {
-  background: $secondary; 
+  background: $secondary;
 }
 .bg-secondary-100 {
   background: $secondary-100;
@@ -196,12 +195,9 @@ body {
   font-size: 10px;
 }
 .my-container {
-<<<<<<< HEAD
   max-width: (calc(100vw - 150px));
-=======
   // max-width: (calc(100vw - 150px));
   max-width: 1440px;
->>>>>>> f0501dc7203921ee484dd497a7c8373489251d97
   margin: 0 auto;
   padding: 0px;
 }

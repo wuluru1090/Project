@@ -1,10 +1,8 @@
 @import '../default.scss';
 @import '~bootstrap/scss/_Carousel.scss';
-@import '../searchbar.scss';
 
-.carousel-item {
-  height: calc(100vh - 80px);
-  // width: 100%;
+.carousel .carousel-item {
+  height: 100%;
   > .carousel-img {
     object-fit: cover;
     object-position: center;

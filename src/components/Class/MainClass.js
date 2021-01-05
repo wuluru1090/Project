@@ -9,7 +9,7 @@ import ClassCard from './ClassCard'
 import Card from '../Class/ClassCard2'
 import GMap from './GMap'
 import Carousel1 from './Carousel1'
-import Accordion from './Accordion'
+import MyNavbar from '../../components/Main/MyNavbar'
 
 //GMap地圖Pin標記位置
 const location = {
