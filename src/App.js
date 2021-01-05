@@ -4,6 +4,8 @@ import './index.scss'
 
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
+import EventMain from './components/Event/EventMain'
+import EventResult from './components/Event/EventResult'
 // 頁面元件
 import MemberHome from './pages/Member/MemberHome'
 import MemberMyjoinin from './pages/Member/MemberMyjoinin'
@@ -22,6 +24,8 @@ function App() {
       <Router>
         <MyNavbar />
         <body>
+          <EventMain />
+          <EventResult />
           <Switch>
             <Route path="/member/MyScore">
               <MemberMyScore />
