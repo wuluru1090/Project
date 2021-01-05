@@ -31,7 +31,7 @@ function MyNavbar(props) {
           {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
           {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
-            <Nav.Link className="navLink" href="begin">
+            <Nav.Link className="navLink" as={NavLink} to="/event">
               發起揪影
             </Nav.Link>
             <Nav.Link className="navLink" as={NavLink} to="/event">

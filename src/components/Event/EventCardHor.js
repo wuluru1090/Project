@@ -80,7 +80,9 @@ function EventCardHor() {
                   自然
                 </button>
               </div>
-              <button className="btn d-flex join">參加活動</button>
+              <a href="#" className="btn d-flex join">
+                參加活動
+              </a>
             </div>
           </div>
         </div>
