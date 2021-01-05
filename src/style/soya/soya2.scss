@@ -1,5 +1,4 @@
-// 導入bootstrap所有的樣式與預設變數
-@import '~bootstrap/scss/bootstrap.scss';
+
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
@@ -8,17 +7,10 @@ $url: "http://localhost:3000";
 
   
  
-
-  .wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-  }
-  
-  .cover-fit {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 
 
 
@@ -27,6 +19,16 @@ $url: "http://localhost:3000";
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
+
+
+    
+  
+    
+    .cover-fit {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
 
     .lovebox{
       width: 30%;
@@ -37,6 +39,7 @@ $url: "http://localhost:3000";
         font-size: $h4-font-size;
         color: $primary-050;
         margin-bottom: 8px;
+        font-family: 'TaipeiSansTCBeta-Bold';
         
       }
 
@@ -50,6 +53,7 @@ $url: "http://localhost:3000";
         margin-top: 45px;
         color: $primary-050;
         font-size: $h6-font-size;
+        font-family: 'TaipeiSansTCBeta-Regular';
       }
     }
    

@@ -39,10 +39,7 @@ function SoYa5(props) {
               <div className="classcontentinfobox d-flex">
                 <div className="classcontentinfo">
                   <div className="classcontentinfoicon d-flex">
-                    <MdDateRange
-                      style={{ color: 'black' }}
-                      className="MdDateRangeicon"
-                    />
+                    <MdDateRange className="MdDateRangeicon" />
                     2020/10/04 ~ 2020/11/01
                   </div>
                   <div className="classcontentinfoicon d-flex">
@@ -50,7 +47,7 @@ function SoYa5(props) {
                     桃園市中壢區中北路200號
                   </div>
                 </div>
-                <button className="classcontentinfobutton caption rounded-pill d-flex">
+                <button className="btn classcontentinfobutton caption rounded-pill d-flex">
                   參加課程
                 </button>
               </div>
