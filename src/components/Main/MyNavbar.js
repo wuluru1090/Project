@@ -21,7 +21,7 @@ function MyNavbar(props) {
           fixed="top"
           style={{ padding: '0', height: '80px' }}
         >
-          <Navbar.Brand href="#home">
+          <Navbar.Brand as={NavLink} to="/" exact>
             <img
               className="Logo"
               src={devUrl + '/Pic/SVG/logo.svg'}
@@ -31,7 +31,7 @@ function MyNavbar(props) {
           {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
           {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
-            <Nav.Link className="navLink" as={NavLink} to="/begin" exact={true}>
+            <Nav.Link className="navLink" as={NavLink} to="/event">
               發起揪影
             </Nav.Link>
             <Nav.Link className="navLink" as={NavLink} to="/event">
@@ -45,7 +45,7 @@ function MyNavbar(props) {
             <Nav.Link className="icon" href="#">
               <MdSearch />
             </Nav.Link>
-            <Nav.Link className="icon" as={NavLink} to="/cart">
+            <Nav.Link className="icon" href="cart">
               <MdShoppingCart />
             </Nav.Link>
           </Nav>

@@ -34,6 +34,7 @@
 .carousel-indicators {
   display: none !important;
 }
+
 .event-wrapper {
   position: relative;
   .wave1 {
@@ -57,33 +58,32 @@
       margin-left: 12px;
     }
   }
-}
-
-.event-search-bar {
-  position: absolute;
-  z-index: 60;
-  top: 372px;
-  left: 75px;
-  // background: blue;
-  h4 {
-    padding-left: 15px;
-    color: #fff;
-    font-family: 'TaipeiSansTCBeta-Bold';
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
-  }
-  .ta {
-    color: #fff;
-    border: 1px solid #fff;
-  }
-  .hot {
-    color: #fff;
-  }
-  .searchbar {
-    margin-left: 0px;
-  }
-  .ta:hover {
-    color: $secondary;
-    border: 1px solid $secondary;
+  .event-search-bar {
+    position: absolute;
+    z-index: 60;
+    top: 336px;
+    left: 75px;
+    // background: blue;
+    h4 {
+      padding-left: 15px;
+      color: #fff;
+      font-family: 'TaipeiSansTCBeta-Bold';
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
+    }
+    .ta {
+      color: #fff;
+      border: 1px solid #fff;
+    }
+    .hot {
+      color: #fff;
+    }
+    .searchbar {
+      margin-left: 0px;
+    }
+    .ta:hover {
+      color: $secondary;
+      border: 1px solid $secondary;
+    }
   }
 }

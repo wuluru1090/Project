@@ -1,29 +1,38 @@
 // 導入bootstrap所有的樣式與預設變數
-@import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
-// * {
-//   font-size: 12px;
-//     font-family: 'Taipei Sans TC Beta';
-//     padding: 0;
-//     margin: 0;
-//   }
+* {
+  font-size: 12px;
+  font-family: 'Taipei Sans TC Beta';
+  padding: 0;
+  margin: 0;
+}
 
-.ccard {
-  width: 1169px;
-  height: 204px;
+.event-card-horizon {
+  position: relative;
+  padding: 0px;
+  margin: 9px auto;
+  // background: #add0e4;
+  width: 1160px;
 
-  .ccard.card-body {
-    padding: 0 0 0 12px;
-  }
-  .ccc {
+  .bookmark {
     height: 50px;
-    margin-top: 5px;
-    margin-left: 215px;
+    margin-top: 10px;
+    margin-left: 220px;
     z-index: 2;
     position: absolute;
+    cursor: pointer;
   }
-  .eee {
+  .photo {
+    width: 271px;
+    height: 183px;
+    object-fit: fill;
+    margin: 18px 17px 0px 0px;
+    border-radius: 10px;
+    z-index: 1;
+  }
+  .more-att {
     width: 31px;
     height: 31px;
     border-radius: 50%;
@@ -33,7 +42,7 @@
     left: 50px;
     z-index: 3;
   }
-  .fff {
+  .second-att {
     width: 31px;
     height: 31px;
     border-radius: 50%;
@@ -43,7 +52,7 @@
     left: 30px;
     z-index: 4;
   }
-  .hhh {
+  .first-att {
     width: 31px;
     height: 31px;
     border-radius: 50%;
@@ -71,18 +80,6 @@
     margin-bottom: 8px;
   }
 
-  .photo {
-    width: 271px;
-    height: 183px;
-    object-fit: fill;
-    position: relative;
-
-    /* margin-left: 7px; */
-    margin-top: 18px;
-    border-radius: 10px;
-    z-index: 1;
-  }
-
   .icon {
     height: 12px;
     width: 12px;
@@ -99,22 +96,17 @@
     margin: 3px 10px 10px 1px;
   }
 
-  .ggg {
-    width: 52px;
-    height: 24px;
+  .tag {
+    padding: 6px 12px;
     font-size: 12px;
     border: 1px solid #4b4b4b;
     justify-content: center;
     align-items: center;
-  }
-
-  .aaa {
-    margin-left: 8px;
+    margin-right: 8px;
   }
 
   .join {
-    width: 90px;
-    height: 24px;
+    padding: 6px 21px;
     border-radius: 50px;
     font-size: 12px;
     background: #4f7f9a;
@@ -122,18 +114,14 @@
     box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
     justify-content: center;
     align-items: center;
-    margin-left: 671px;
-
+    transition: 0.5s;
     &:hover {
       color: white;
+      transform: translateY(2px);
+      box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
     }
-<<<<<<< HEAD:src/style/card2.scss
+  }
+  .buttons {
+    margin-top: 8px;
   }
 }
-=======
-<<<<<<< HEAD
-  }
-=======
-  }
->>>>>>> cc9193ed1f82a375cef62e9c8e0ff88ccab5b477
->>>>>>> f0501dc7203921ee484dd497a7c8373489251d97:src/style/event/card2.scss

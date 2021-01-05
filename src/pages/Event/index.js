@@ -10,11 +10,11 @@ function Event() {
   return (
     <Router>
       <>
-        <MyNavbar />
+        {/* <MyNavbar /> */}
         <EventMain />
         <EventResult />
         <EventBottom />
-        <Footer />
+        {/* <Footer /> */}
       </>
     </Router>
   )

@@ -15,7 +15,7 @@ function SoYa() {
   return (
     <>
       <Router>
-        <MyNavbar />
+        {/* <MyNavbar /> */}
         <SoYa1>
           <Searchbar />
         </SoYa1>
@@ -23,7 +23,7 @@ function SoYa() {
         <SoYa3 />
         <SoYa4 />
         <SoYa5 />
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </>
   )
