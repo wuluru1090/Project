@@ -7,7 +7,7 @@ import { MdDone, MdAccessTime, MdExplore, MdCall } from 'react-icons/md'
 function ClassCard() {
   return (
     <>
-      <Card className="card1">
+      <Card className="class-info-card">
         <Card.Body className="card_body">
           <div className="paragraph">
             <MdDone />

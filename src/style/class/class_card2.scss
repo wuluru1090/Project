@@ -3,15 +3,7 @@
 
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
-* {
-  font-size: 16px;
-  font-family: 'Taipei Sans TC Beta';
-  padding: 0;
-  margin: 0;
-  // border: 1px solid;
-}
-
-.ccard {
+.class_suggest_card {
   width: 271px;
   height: 320x;
   border-radius: 10px !important;
@@ -21,7 +13,7 @@
   }
 
   .cardtitle {
-    font-size: $font-size-base;
+    font-size: 16px;
     font-family: 'TaipeiSansTCBeta-Bold';
   }
 
@@ -38,9 +30,8 @@
     height: 50px;
     z-index: 2;
     position: absolute;
-    top: -50px;
-    left: 227px;
-    // margin-top: -10px;
+    top: -60px;
+    right: 0px;
   }
   .fff {
     width: 31px;
@@ -111,8 +102,7 @@
     box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-left: 1000px;
+    margin: 20px 0 10px 0;
 
     &:hover {
       transform: translateY(2px);

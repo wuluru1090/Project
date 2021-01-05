@@ -7,7 +7,7 @@ function Card(props) {
   const [isActive, setIsActive] = useState(false)
   return (
     <>
-      <div className="card ccard">
+      <div className="card class_suggest_card">
         <img
           src={devUrl + '/pic/SVG//bookmark-24px.svg'}
           className="tag un-pushed"
@@ -44,7 +44,7 @@ function Card(props) {
             <p className="card-text">台南市歸仁區歸仁大道100號 </p>
           </div>
 
-          <div className="d-flex">
+          <div className="d-flex justify-content-end">
             <button className="btn d-flex join">參加活動</button>
           </div>
         </div>
