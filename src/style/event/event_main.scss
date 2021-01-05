@@ -1,6 +1,7 @@
-@import './default.scss';
+@import '../default.scss';
 @import '~bootstrap/scss/_Carousel.scss';
-@import './searchbar.scss';
+@import './event_searchbar.scss';
+
 .carousel-item {
   height: calc(100vh - 80px);
   > .carousel-img {
@@ -12,12 +13,12 @@
 .carousel-caption {
   //   right: (100% - $carousel-caption-width) / 2;
   top: 70px;
-  right: 91px;
+  right: 75px !important;
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
   color: $carousel-caption-color;
-  text-align: right;
+  text-align: right !important;
   h5 {
     line-height: 24px;
     text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
@@ -27,28 +28,40 @@
     text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
   }
 }
+
 .carousel-control-prev,
 .carousel-control-next,
 .carousel-indicators {
-  display: none;
+  display: none !important;
 }
 
-body {
+.event-wrapper {
   position: relative;
   .wave1 {
+    // background: turquoise;
     position: absolute;
-    // z-index: 30;
-    top: calc(100vh - 290px);
+    bottom: 0px;
+    width: 100%;
+    transform: translateY(3px);
+    z-index: 25;
+  }
+  .scroll {
+    position: absolute;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    z-index: 55;
+    right: 91px;
+    bottom: 48px;
+    color: $primary;
     // background: blue;
-    img {
-      width: 100vw;
-      object-fit: contain;
+    text-align: right;
+    .c-icon {
+      margin-left: 12px;
     }
   }
   .event-search-bar {
     position: absolute;
-    z-index: 50;
-    top: 372px;
+    z-index: 60;
+    top: 336px;
     left: 75px;
     // background: blue;
     h4 {
@@ -73,44 +86,4 @@ body {
       border: 1px solid $secondary;
     }
   }
-  .scroll {
-    position: absolute;
-    font-family: 'TaipeiSansTCBeta-Bold';
-    z-index: 55;
-    right: 91px;
-    top: 825px;
-    color: $primary;
-    // background: blue;
-    text-align: right;
-    .c-icon {
-      margin-left: 12px;
-    }
-  }
-}
-
-.result-word {
-  // background: rgb(128, 128, 128);
-  h6 {
-    margin: 0px;
-    padding: 0px;
-    line-height: 38px;
-  }
-}
-
-.event-container {
-  max-width: 1290px;
-  margin: 0 auto;
-}
-
-.result-header {
-  margin-top: 14px;
-  .c-icon {
-    margin-left: 16px;
-  }
-}
-.divider {
-  width: 100%;
-  height: 2px;
-  margin: 14px 0px;
-  background: rgba(112, 112, 112, 0.3);
 }

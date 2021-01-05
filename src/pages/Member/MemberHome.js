@@ -3,7 +3,7 @@ import React from 'react'
 import MemberContent from '../../components/Member/MemberContent'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import '../../style/member.scss'
+import '../../style/member/member.scss'
 import { devUrl } from '../../config'
 function MemberHome(props) {
   return (

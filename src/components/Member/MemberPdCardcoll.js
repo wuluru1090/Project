@@ -1,9 +1,9 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/member_card.scss'
-import '../../style/member_pdcard.scss'
+import '../../style/member/member_card.scss'
+import '../../style/member/member_pdcard.scss'
 import { devUrl } from '../../config'
-import '../../style/member_content.scss'
+import '../../style/member/member_content.scss'
 import { MdVisibility, MdBrightnessHigh } from 'react-icons/md'
 function MemberPdCardcoll() {
   return (

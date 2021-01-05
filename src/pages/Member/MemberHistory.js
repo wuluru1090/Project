@@ -4,7 +4,7 @@ import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import MemberPdCardcoll from '../../components/Member/MemberPdCardcoll'
 
-import '../../style/member_navbar.scss'
+import '../../style/member/member_navbar.scss'
 import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
 

@@ -5,7 +5,7 @@ import MemberNavlist from '../../components/Member/MemberNavlist'
 import { Card } from 'react-bootstrap'
 import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
 import { devUrl } from '../../config'
-import '../../style/member_score.scss'
+import '../../style/member/member_score.scss'
 
 function MemberMyScore(props) {
   return (

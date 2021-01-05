@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../style/default.scss'
 import { Card, Form, Button } from 'react-bootstrap'
-import '../../style/member_content.scss'
+import '../../style/member/member_content.scss'
 import { MdVisibility, MdDone } from 'react-icons/md'
 function MemberContent() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../style/default.scss'
 import { Nav } from 'react-bootstrap'
-import '../../style/member_card.scss'
+import '../../style/member/member_card.scss'
 import {
   MdAccountBox,
   MdCameraEnhance,

@@ -1,8 +1,6 @@
 import '../../index.scss'
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
-import MyNavbar from '../../components/Main/MyNavbar'
-import Footer from '../../components/Main/Footer'
+import { Button } from 'react-bootstrap'
 import {
   MdStar,
   MdStarBorder,
@@ -10,7 +8,7 @@ import {
   MdVisibility,
   MdFolderOpen,
 } from 'react-icons/md'
-import '../../style/user_member.scss'
+import '../../style/member/user_member.scss'
 import { devUrl } from '../../config'
 function UserSeeMember(props) {
   return (

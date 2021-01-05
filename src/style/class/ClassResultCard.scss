@@ -1,15 +1,14 @@
 // 導入bootstrap所有的樣式與預設變數
 // @import '~bootstrap/scss/bootstrap.scss';
-@import 'default.scss';
+@import '../default.scss';
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
-.ccard {
+.class_result_card {
   width: 100%;
   height: 204px;
-  padding: 14px;
-
-  .ccard.card-body {
-    padding: 0 0 0 12px;
+  padding: 14px 14px 14px 0;
+  .card-body {
+    padding-top: 0;
   }
   .ccc {
     height: 50px;
@@ -29,8 +28,16 @@
     width: 450px;
   }
 
+  .card-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   .bbb {
     margin-bottom: 8px;
+    align-items: center;
+    width: 520px;
   }
 
   .photo {
@@ -38,26 +45,23 @@
     height: 183px;
     object-fit: fill;
     position: relative;
-
-    /* margin-left: 7px; */
-    margin-top: 18px;
     border-radius: 10px;
     z-index: 1;
   }
 
   .icon {
-    height: 12px;
-    width: 12px;
+    height: 15px;
+    width: 15px;
     margin: 1px 10px 10px 1px;
   }
   .icon2 {
-    height: 12px;
-    width: 12px;
+    height: 15px;
+    width: 15px;
     margin: 2px 10px 10px 1px;
   }
   .icon3 {
-    height: 12px;
-    width: 12px;
+    height: 15px;
+    width: 15px;
     margin: 3px 10px 10px 1px;
   }
 
@@ -74,6 +78,10 @@
     box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
     justify-content: center;
     align-items: center;
+  }
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
   }
 
   .btn_group {

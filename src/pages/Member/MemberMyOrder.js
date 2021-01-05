@@ -5,7 +5,7 @@ import MemberNavlist from '../../components/Member/MemberNavlist'
 import MemberPdCard2 from '../../components/Member/MemberPdCard2'
 import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
-import '../../style/member.scss'
+import '../../style/member/member.scss'
 import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
 

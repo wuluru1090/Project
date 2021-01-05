@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
+import '../../style/event/event_searchbar.scss'
 
 function SearchbarEvent(props) {
   return (
