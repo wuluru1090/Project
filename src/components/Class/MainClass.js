@@ -107,7 +107,7 @@ function ClassMain() {
           <div className="gallery_part">
             <h4>學員攝影作品</h4>
             <div className="line2"></div>
-            <div className="carousel_block">
+            <div className="member_photo_showcase">
               <Carousel1 />
             </div>
           </div>

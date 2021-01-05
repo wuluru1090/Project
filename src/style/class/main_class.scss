@@ -177,9 +177,10 @@ $url: 'http://localhost:3000';
     display: flex;
   }
 
-  // .carousel_block {
-  //   border: 1px solid red;
-  // }
+  .member_photo_showcase {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
 
   .class_suggest {
     color: $primary;

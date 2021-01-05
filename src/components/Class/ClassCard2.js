@@ -33,7 +33,7 @@ function Card(props) {
           <h5 className="cardtitle">四草綠意盎然 台南七股一日遊</h5>
           <div className="d-flex">
             <img className="icon" src={devUrl + '/pic/SVG/date.svg'} alt="" />
-            <p className="card-text d-flex">2021-01-28 </p>
+            <p className="suggest-card-text d-flex">2021-01-28 </p>
           </div>
           <div className="d-flex info">
             <img
@@ -41,7 +41,7 @@ function Card(props) {
               src={devUrl + '/pic/SVG/location.svg'}
               alt=""
             />
-            <p className="card-text">台南市歸仁區歸仁大道100號 </p>
+            <p className="suggest-card-text">台南市歸仁區歸仁大道100號 </p>
           </div>
 
           <div className="d-flex justify-content-end">
