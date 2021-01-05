@@ -2,7 +2,7 @@
 @import '~bootstrap/scss/_Carousel.scss';
 
 .carousel-item {
-  height: calc(90vh - 80px);
+  height: calc(100vh - 80px);
   > .carousel-img {
     object-fit: cover;
     object-position: center;
@@ -37,26 +37,26 @@
   position: relative;
   .class_wave1 {
     position: absolute;
-    top: 207px;
+    bottom: 0;
     width: 100%;
     transform: translateY(3px);
     z-index: 53;
   }
   // border: 1px solid red;
 
-  //   .scroll {
-  //     position: absolute;
-  //     font-family: 'TaipeiSansTCBeta-Bold';
-  //     z-index: 55;
-  //     right: 91px;
-  //     bottom: 48px;
-  //     color: $primary;
-  //     // background: blue;
-  //     text-align: right;
-  //     .c-icon {
-  //       margin-left: 12px;
-  //     }
-  //   }
+  .scroll {
+    position: absolute;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    z-index: 55;
+    right: 91px;
+    bottom: 48px;
+    color: $primary;
+    // background: blue;
+    text-align: right;
+    .c-icon {
+      margin-left: 12px;
+    }
+  }
 }
 
 // .event-search-bar {

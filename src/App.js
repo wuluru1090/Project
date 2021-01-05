@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ClassResult from './pages/Class/ClassResult'
 import ClassSearch from './pages/Class/ClassSearch'
 import MyNavbar from './components/Main/MyNavbar'
+import Footer from './components/Main/Footer'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <ProductMen />
             </Route> */}
           </Switch>
+          <Footer />
         </>
       </Router>
     </>

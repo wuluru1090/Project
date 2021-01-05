@@ -22,7 +22,7 @@ function ClassResultCard() {
               </h5>
 
               <div className="d-flex bbb">
-                <p className="card-text">
+                <p className="card-text font16">
                   這堂課將用系統且完整的方式，深入淺出地分享旅行錄影的技巧，只要善用自己的
                   手機，就能用影片記錄下自己的旅行日記...
                 </p>

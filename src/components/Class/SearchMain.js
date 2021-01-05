@@ -11,8 +11,8 @@ function SearchMain() {
   return (
     <>
       <div className="class-search-wrapper">
-        <div className="d-flex justify-content-between">
-          <div className="bread-crumb">麵包屑放置處</div>
+        <div className="d-flex justify-content-between top-part">
+          <div className="bread-crumb font20">麵包屑放置處</div>
           <div className="d-flex">
             <Selection />
           </div>
@@ -22,7 +22,7 @@ function SearchMain() {
             <Accordion />
           </div>
           <div className="right-side">
-            <div>
+            <div className="font20">
               搜尋結果<span>?</span>筆結果
             </div>
             <div className="search-result">

@@ -1,18 +1,14 @@
 @import '../default.scss';
 $url: 'http://localhost:3000';
 
-body {
-  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC' sans-serif !important;
-}
-
 // 波浪背景1
 .class_wave_background {
-  background: url($url + '/Pic/SVG/wave2.svg');
+  background: url($url + '/Pic/SVG/wave-blue-attbg-1440.svg');
   width: 100%;
-  height: 579px;
   top: 40px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: top;
   .mainclass_wrapper {
     max-width: 1160px;
     margin: 0 auto;

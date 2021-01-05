@@ -47,6 +47,18 @@ function SearchTop() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+
+        <div className="my-container">
+          <div className="scroll">
+            <h6 className="d-inline-block">SCROLL DOWN</h6>
+            <img
+              className="d-inline-block c-icon"
+              src={devUrl + '/Pic/SVG/scroll.svg'}
+              alt=""
+            />
+          </div>
+        </div>
+
         <div className="class_wave1">
           <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" />
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../style/default.scss'
+// import '../../style/default.scss'
 import '../../style/class/main_class.scss'
 import { devUrl } from '../../config'
 import { MdBookmark, MdShare } from 'react-icons/md'
@@ -10,6 +10,7 @@ import Card from '../Class/ClassCard2'
 import GMap from './GMap'
 import Carousel1 from './Carousel1'
 import MyNavbar from '../../components/Main/MyNavbar'
+import Carousel2 from '../../components/Class/Carousel2'
 
 //GMap地圖Pin標記位置
 const location = {
@@ -21,7 +22,7 @@ const location = {
 function ClassMain() {
   return (
     <>
-      <div className="class_wave_background">
+      <div className="class_wave_background test">
         <div className="mainclass_wrapper">
           <div className="page-head">
             <div>
@@ -119,6 +120,7 @@ function ClassMain() {
             <Card />
           </div>
         </div>
+        <Carousel2 />
       </div>
     </>
   )

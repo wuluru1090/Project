@@ -15,7 +15,7 @@ import 'react-accessible-accordion/dist/fancy-example.css'
 
 export default function Example() {
   return (
-    <Accordion className="class_accordion">
+    <Accordion className="class_accordion font20">
       <AccordionItem>
         <AccordionItemHeading>
           <AccordionItemButton>攝影能力</AccordionItemButton>
