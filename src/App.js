@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <>
-        <Event />
+        <SoYa />
       </>
     </Router>
   )
