@@ -7,7 +7,7 @@ function SearchTop() {
   return (
     <>
       <div className="class_search_top_wrapper">
-        <Carousel className="class_search_carousel">
+        <Carousel>
           <Carousel.Item>
             <img
               className="d-block w-100 h-100 carousel-img"
@@ -47,8 +47,8 @@ function SearchTop() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <div className="wave1">
-          {/* <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" /> */}
+        <div className="class_wave1">
+          <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" />
         </div>
       </div>
     </>

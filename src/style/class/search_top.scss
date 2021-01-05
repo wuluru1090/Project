@@ -1,8 +1,8 @@
 @import '../default.scss';
 @import '~bootstrap/scss/_Carousel.scss';
 
-.carousel .carousel-item {
-  height: 100%;
+.carousel-item {
+  height: calc(90vh - 80px);
   > .carousel-img {
     object-fit: cover;
     object-position: center;
@@ -35,14 +35,15 @@
 }
 .class_search_top_wrapper {
   position: relative;
-  // border: 1px solid red;
-  .wave1 {
+  .class_wave1 {
     position: absolute;
-    bottom: -41px;
+    top: 207px;
     width: 100%;
     transform: translateY(3px);
     z-index: 53;
   }
+  // border: 1px solid red;
+
   //   .scroll {
   //     position: absolute;
   //     font-family: 'TaipeiSansTCBeta-Bold';
