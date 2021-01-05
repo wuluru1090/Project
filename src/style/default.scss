@@ -83,8 +83,8 @@ body {
 }
 
 $rose: #f3b4ba;
-$grey-default: #707070;
-$grey-darkest: #212121;
+$gray-default: #707070;
+$gray-darkest: #212121;
 
 body {
   margin: 0;
@@ -195,8 +195,7 @@ body {
   font-size: 10px;
 }
 .my-container {
-  // max-width: (calc(100vw - 150px));
-  max-width: 1440px;
+  max-width: (calc(100vw - 150px));
   margin: 0 auto;
   padding: 0px;
 }

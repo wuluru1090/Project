@@ -1,39 +1,34 @@
 import './index.scss'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
-
-import SoYa from './pages/SoYa/SoYa'
-import Login from './pages/SoYa/Login'
 import Event from './pages/Event/'
-import Signup from './pages/SoYa/Signup'
+import SearchTop from './components/Class/SearchTop'
+import SearchMain from './components/Class/SearchMain'
+import SoYa from './pages/SoYa/SoYa'
 
 function App() {
   return (
-    <Router>
-      <>
-        {/* logo+標頭+導覽列 */}
-        <SoYa />
-        {/* 主內容區 */}
-        <MainContent>
-          <Link to="/">首頁</Link>
-          <Link to="/about">關於我們</Link>
-
-          {/* 以下為匹配路徑對用頁面用的路由列表 */}
+    <>
+      <Router>
+        <>
+          <MyNavbar />
           <Switch>
-            <Route path="/about">
-              <About />
+            <Route path="/event">
+              <Event />
+            </Route>
+            <Route path="/class">
+              <SearchTop />
+              <SearchMain />
             </Route>
             <Route exact path="/">
-              <Home />
+              <SoYa />
             </Route>
           </Switch>
-          {/* end 路由表 */}
-        </MainContent>
-        {/* 頁尾 */}
-        <MyFooter />
-      </>
-    </Router>
+          <Footer />
+        </>
+      </Router>
+    </>
   )
 }
 

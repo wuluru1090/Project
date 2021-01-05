@@ -10,6 +10,7 @@
 
 main > .container {
   padding: 60px 15px 0;
+  border: 1px solid red;
 }
 
 // body {
@@ -23,7 +24,7 @@ main > .container {
 
 .nav1 {
   display: flex;
-  align-items: center;
+  // align-items: center;
   font-size: 16px;
   font-family: TaipeiSansTCBeta;
   margin: 0 auto;

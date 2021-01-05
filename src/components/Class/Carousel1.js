@@ -8,24 +8,24 @@ import '../../style/class/Carousel1.scss'
 function Carousel1() {
   return (
     <>
-      <Carousel className="carousel_block">
-        <div className="carousel">
+      <Carousel className="class_carousel_block">
+        <div className="class_carousel">
           <img src={devUrl + '/pic/pic/栗松溫泉.jpg'} alt="" />
           <p className="legend">栗松溫泉</p>
         </div>
-        <div className="carousel">
+        <div className="class_carousel">
           <img src={devUrl + '/pic/pic/烏嘎彥竹林.jpg'} alt="" />
           <p className="legend">烏嘎彥竹林</p>
         </div>
-        <div className="carousel">
+        <div className="class_carousel">
           <img src={devUrl + '/pic/pic/茶壺山.jpeg'} alt="" />
           <p className="legend">茶壺山</p>
         </div>
-        <div className="carousel">
+        <div className="class_carousel">
           <img src={devUrl + '/pic/pic/高美濕地.jpeg'} alt="" />
           <p className="legend">高美濕地</p>
         </div>
-        <div className="carousel">
+        <div className="class_carousel">
           <img src={devUrl + '/pic/pic/合歡山.jpeg'} alt="" />
           <p className="legend">合歡山</p>
         </div>
