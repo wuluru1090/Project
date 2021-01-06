@@ -6,6 +6,7 @@ import { Card } from 'react-bootstrap'
 import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
 import { devUrl } from '../../config'
 import '../../style/member/member_score.scss'
+import Rating from '../../components/Member/rating'
 
 function MemberMyScore(props) {
   return (
@@ -122,16 +123,9 @@ function MemberMyScore(props) {
                               <figcaption>王陽明</figcaption>
                             </figure>
                           </div>
-                          <div className="d-flex">
+                          <div className="d-flex mem_toscore_table">
                             <p className=" d-flex align-items-center">評分</p>
-
-                            <div className="star">
-                              <MdStarBorder />
-                              <MdStarBorder />
-                              <MdStarBorder />
-                              <MdStarBorder />
-                              <MdStarBorder />
-                            </div>
+                            <Rating />
                           </div>
                           <div className="d-flex">
                             <p className=" d-flex align-items-start">評價</p>

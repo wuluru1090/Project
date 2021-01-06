@@ -7,6 +7,7 @@ import '../../style/member/member_photo.scss'
 import { devUrl } from '../../config'
 import { Card } from 'react-bootstrap'
 import { MdAddCircle } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 function MemberMyPhoto(props) {
   return (
     <>
@@ -54,7 +55,9 @@ function MemberMyPhoto(props) {
                                 ></img>
                                 <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
-                                    <MdAddCircle href="/member/MyPhoto/Pic" />
+                                    <Link to="/member/MyPhoto2">
+                                      <MdAddCircle />
+                                    </Link>
                                   </div>
                                 </figure>
                               </figure>
@@ -84,7 +87,9 @@ function MemberMyPhoto(props) {
                                 ></img>
                                 <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
-                                    <MdAddCircle href="/member/MyPhoto/Pic" />
+                                    <Link to="/member/MyPhoto2">
+                                      <MdAddCircle />
+                                    </Link>
                                   </div>
                                 </figure>
                               </figure>
@@ -114,7 +119,9 @@ function MemberMyPhoto(props) {
                                 ></img>
                                 <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
-                                    <MdAddCircle href="/member/MyPhoto/Pic" />
+                                    <Link to="/member/MyPhoto2">
+                                      <MdAddCircle />
+                                    </Link>
                                   </div>
                                 </figure>
                               </figure>
@@ -144,7 +151,9 @@ function MemberMyPhoto(props) {
                                 ></img>
                                 <figure className="d-flex justify-content-start">
                                   <div className="addphoto ">
-                                    <MdAddCircle href="/member/MyPhoto/Pic" />
+                                    <Link to="/member/MyPhoto2">
+                                      <MdAddCircle />
+                                    </Link>
                                   </div>
                                 </figure>
                               </figure>

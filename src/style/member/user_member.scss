@@ -18,7 +18,7 @@ body {
       .img_box2 {
         align-items: center;
         border-radius: 5px;
-        border: solid 1px $primary-050;
+        border: solid 1px $secondary;
         padding: 8px;
         background-color: #ffffff;
         margin: 0 auto;
@@ -35,18 +35,22 @@ body {
 .footer {
   bottom: 0;
 }
-.btn-mem_view {
-  width: 124.7px;
-  height: 34px;
-  padding: 10px 20px 10px 20px;
-  background-color: $secondary;
-  border: 0;
-  border-radius: 50px;
+
+.mem_namescorh {
+  .btn-mem_view {
+    width: 124.7px;
+    height: 34px;
+    background-color: $secondary;
+    border: 0;
+    border-radius: 50px;
+    // margin: 8px;
+    SVG {
+      margin: 0 8px 0 0;
+    }
+  }
 }
 
 .mem_coll_list {
-  // background: sienna;
-  margin-top: 20px;
   .list-content {
     margin: 0px auto;
     border-bottom: rgba(0, 0, 0, 0.6) 1px solid;
@@ -66,19 +70,23 @@ body {
     .detail {
       margin: 0px;
       padding: 0px;
-      .de {
-        .star {
-        }
-      }
+
       h6 {
         font-family: 'TaipeiSansTCBeta-Bold';
+        margin: 8px 0;
       }
       .subtitle2 {
         margin: 0px;
       }
+      .comments {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
       .host {
         color: $secondary;
         margin-bottom: 8px;
+      }
+      p {
+        padding: 0 0 4px 0;
       }
     }
   }

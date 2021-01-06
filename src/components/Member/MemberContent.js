@@ -3,6 +3,7 @@ import '../../style/default.scss'
 import { Card, Form, Button } from 'react-bootstrap'
 import '../../style/member/member_content.scss'
 import { MdVisibility, MdDone } from 'react-icons/md'
+import { Link } from 'react-router-dom'
 function MemberContent() {
   return (
     <>
@@ -10,10 +11,12 @@ function MemberContent() {
         <Card className="mem_box">
           <Card.Header className="mem_title d-flex justify-content-between">
             <h5>會員資料</h5>
-            <Button onclick="" className="btn-style botton-font btn_icon">
-              <MdVisibility />
-              檢視
-            </Button>
+            <Link to="/see">
+              <Button onclick="" className="btn-style botton-font btn_icon">
+                <MdVisibility />
+                檢視
+              </Button>
+            </Link>
           </Card.Header>
           <Card.Body style={{ padding: '0  38px  43px 42px' }}>
             <Form className="row  d-flex justify-content-start mem_inf">

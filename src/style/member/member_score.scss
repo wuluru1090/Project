@@ -8,7 +8,7 @@
     margin: 0 8px 0 8px;
   }
   p {
-    margin: 5px;
+    margin: 0 8px;
   }
 
   .ScoText {
@@ -30,9 +30,11 @@
   border: 0;
 }
 .mymem_toscore {
-  margin: 0 0 0 16px;
+  margin: 0 0 0 8px;
   .mem_toscore_G {
     figure {
+      padding: 0;
+      margin: 0;
       figcaption {
         padding: 8px 0;
         font-size: 12px;

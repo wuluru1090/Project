@@ -3,8 +3,7 @@ import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import MemberPdCard2 from '../../components/Member/MemberPdCard2'
-import MyNavbar from '../../components/Main/MyNavbar'
-import Footer from '../../components/Main/Footer'
+// import CartNavbarlist from '../../components/Member/Cart_Navbarlist'
 import '../../style/member/member.scss'
 import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
@@ -34,6 +33,7 @@ function MemberMyOrder(props) {
                         style={{ padding: '0  38px  43px 42px' }}
                         className="box "
                       >
+                        {/* <CartNavbarlist /> */}
                         <ul className="row navbar  d-flex align-items-center">
                           <li className=" subtitle1  main_li  d-flex align-items-center">
                             <a href="#">購物車</a>

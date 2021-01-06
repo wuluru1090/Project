@@ -4,6 +4,7 @@ import { MdSearch } from 'react-icons/md'
 import { MdShoppingCart } from 'react-icons/md'
 import { devUrl } from '../../config'
 import '../../style/navbar.scss'
+import { Link } from 'react-router-dom'
 
 import { NavLink } from 'react-router-dom'
 
@@ -49,11 +50,14 @@ function MyNavbar(props) {
               <MdShoppingCart />
             </Nav.Link>
           </Nav>
-          <div className="memberPhoto">
-            <figure>
-              <img src={devUrl + '/Pic/pic/member.jpg'} alt="" />
-            </figure>
-          </div>
+          <Link to="/member">
+            <div className="memberPhoto">
+              <figure>
+                <img src={devUrl + '/Pic/pic/member.jpg'} alt="" />
+              </figure>
+            </div>
+          </Link>
+
           {/* </Navbar.Collapse> */}
         </Navbar>
       </div>

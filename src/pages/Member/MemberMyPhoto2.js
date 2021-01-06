@@ -6,6 +6,7 @@ import '../../style/member/member.scss'
 import '../../style/member/member_photo2.scss'
 import { devUrl } from '../../config'
 import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 function MemberMyPhoto2(props) {
   return (
     <>
@@ -26,37 +27,71 @@ function MemberMyPhoto2(props) {
                     <Card className="mem_box">
                       <Card.Header className="mem_title d-flex justify-content-between">
                         <h5>我的相簿/一日遊是我</h5>
-
-                        <img
-                          className="addphoto2 "
-                          src={devUrl + '/pic/SVG/photoadd2.svg'}
-                          alt="add2"
-                        ></img>
+                        <form>
+                          <input
+                            type="file"
+                            key="input"
+                            style={{ display: 'none' }}
+                          />
+                        </form>
+                        <Link to="/member/MyPhoto">
+                          <img
+                            className="addphoto2"
+                            src={devUrl + '/pic/SVG/photoadd2.svg'}
+                            alt="add2"
+                          ></img>
+                        </Link>
                       </Card.Header>
                       <Card.Body style={{ padding: '14px  42px  14px 42px' }}>
                         <div className="photo_album3 d-flex ">
                           <div className="img_box3  d-flex justify-content-between">
                             <figure className="d-flex flex-wrap">
-                              <img
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
-                              <img
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
-                              <img
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
-                              <img
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
-                              <img
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
+                              <figure>
+                                <img
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption className="d-flex justify-content-center">
+                                  絕美風景照片{' '}
+                                </figcaption>
+                              </figure>
+
+                              <figure>
+                                <img
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption className="d-flex justify-content-center">
+                                  絕美風景照片{' '}
+                                </figcaption>
+                              </figure>
+                              <figure>
+                                <img
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption className="d-flex justify-content-center">
+                                  絕美風景照片{' '}
+                                </figcaption>
+                              </figure>
+                              <figure>
+                                <img
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption className="d-flex justify-content-center">
+                                  絕美風景照片{' '}
+                                </figcaption>
+                              </figure>
+                              <figure>
+                                <img
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption className="d-flex justify-content-center">
+                                  絕美風景照片{' '}
+                                </figcaption>
+                              </figure>
                             </figure>
                           </div>
                         </div>

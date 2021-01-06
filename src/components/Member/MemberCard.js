@@ -4,7 +4,9 @@ import { Card } from 'react-bootstrap'
 import '../../style/member/member_card.scss'
 import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
 import { devUrl } from '../../config'
-
+import Rating from '@material-ui/lab/Rating'
+import StarBorderIcon from '@material-ui/icons/StarBorder'
+import { Link } from 'react-router-dom'
 // var Rating = require('react-rating')
 // React.createElement(Rating)
 function MemberCard() {
@@ -20,30 +22,32 @@ function MemberCard() {
               src={devUrl + '/pic/pic/member.jpg'}
               alt=""
             />
-            <div class="position-relative">
-              <MdCameraAlt
-                className=" position-absolute  translate-middle "
-                style={{
-                  width: '42px',
-                  height: '42px',
-                  top: '40px',
-                  right: '-5px',
-                  color: '#104b6d',
-                }}
-              />
-            </div>
+            <Link to="">
+              <div class="position-relative">
+                <MdCameraAlt
+                  className=" position-absolute  translate-middle "
+                  style={{
+                    width: '42px',
+                    height: '42px',
+                    top: '40px',
+                    right: '-5px',
+                    color: '#104b6d',
+                  }}
+                />
+              </div>
+            </Link>
           </div>
 
           <Card.Body>
             <Card.Text className="d-flex justify-content-center  ">
-              <p className=" d-flex align-items-center">2.5</p>
-
-              <div className="star">
-                <MdStar />
-                <MdStar />
-                <MdStarHalf />
-                <MdStarBorder />
-                <MdStarBorder />
+              <p className=" d-flex align-items-center star_Points">2.5</p>
+              <div>
+                <Rating
+                  name="customized-empty"
+                  defaultValue={5}
+                  precision={0.5}
+                  emptyIcon={<StarBorderIcon fontSize="inherit" />}
+                />
               </div>
             </Card.Text>
           </Card.Body>
