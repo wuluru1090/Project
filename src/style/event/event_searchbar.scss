@@ -1,5 +1,5 @@
 // 導入bootstrap所有的樣式與預設變數
-@import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
 
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
@@ -8,23 +8,25 @@
   font-family: 'Taipei Sans TC Beta';
 }
 
-.searchbar-wrapper {
-  // background: turquoise;
+.event-searchbar-wrapper {
   .search-form {
+    position: relative;
+    // background: #12d097;
     margin: 0px;
+    .searchicon {
+      position: absolute;
+      z-index: 5;
+      left: 12px;
+    }
     .search-input {
+      padding: 5px 0px;
       box-shadow: 0 3px 6px rgba(25, 25, 25, 0.2);
       text-indent: 42px;
+      width: calc(100% - 16px);
     }
   }
 
-  .searchicon {
-    z-index: 5;
-    left: 37px;
-  }
-
   .sub {
-    margin-left: 15px;
     padding: 5px 40px;
     background: #12d0c9;
     color: white;
@@ -36,13 +38,13 @@
     }
   }
 
-  .ta {
+  .control {
     margin-right: 15px;
     margin-top: 18px;
     padding: 5px 20px;
-    box-shadow: 0 3px 6px rgba(25, 25, 25, 0.2);
-    color: #707070;
-    border: 1px solid rgba(25, 25, 25, 0.2);
+    background: #ffffff;
+    box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+    color: #666666;
 
     img {
       margin-right: 10px;

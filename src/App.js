@@ -6,6 +6,7 @@ import MainContent from './components/Main/MainContent'
 import EventAttendant from './components/Event/EventAttendant'
 import Event from './pages/Event/'
 import Album from './pages/Event/EventAlbum'
+import EventAlbumPhoto from './pages/Event/EventAlbumPhoto'
 import EventDetails from './pages/Event/EventDetail'
 import SearchTop from './components/Class/SearchTop'
 import SearchMain from './components/Class/SearchMain'
@@ -29,9 +30,13 @@ function App() {
               <Route path="/class">
                 <MainClass />
               </Route>
+              <Route exact path="/photo">
+                <EventAlbumPhoto />
+              </Route>
               <Route path="/event/album">
                 <Album />
               </Route>
+
               <Route exact path="/">
                 <SoYa />
               </Route>

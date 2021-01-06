@@ -59,29 +59,24 @@
     }
   }
   .event-search-bar {
-    width: 700px;
+    width: 595px;
     position: absolute;
     z-index: 60;
-    top: 336px;
+    top: 290px;
     left: 75px;
-    background: blue;
-    h4 {
-      padding-left: 15px;
+    // background: blue;
+    h3 {
       color: #fff;
-      font-family: 'TaipeiSansTCBeta-Bold';
-      margin-bottom: 20px;
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
       text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
     }
-    .ta {
-      color: #fff;
-      border: 1px solid #fff;
-    }
-    .searchbar {
-      margin-left: 0px;
-    }
-    .ta:hover {
-      color: $secondary;
-      border: 1px solid $secondary;
-    }
+
+    // .searchbar {
+    //   margin-left: 0px;
+    // }
+    // .ta:hover {
+    //   color: $secondary;
+    //   border: 1px solid $secondary;
+    // }
   }
 }

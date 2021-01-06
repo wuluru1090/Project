@@ -50,11 +50,12 @@ function EventMain() {
           </Carousel.Item>
         </Carousel>
 
+        <div className="event-search-bar">
+          <h3>尋找理想中的攝影行程</h3>
+          <SearchbarEvent />
+        </div>
+
         <div className="my-container">
-          <div className="event-search-bar">
-            <h4>尋找理想中的攝影行程</h4>
-            <SearchbarEvent />
-          </div>
           <div className="scroll">
             <h6 className="d-inline-block">SCROLL DOWN</h6>
             <img
