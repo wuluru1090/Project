@@ -24,9 +24,6 @@ function App() {
         <MyNavbar />
         <body>
           <Switch>
-          <Route path="/member/MyScore2">
-              <MemberMyScore />
-            </Route>
             <Route path="/member/MyScore">
               <MemberMyScore />
             </Route>
