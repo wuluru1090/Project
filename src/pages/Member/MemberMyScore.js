@@ -3,7 +3,7 @@ import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import { Card } from 'react-bootstrap'
-import { MdStarBorder } from 'react-icons/md'
+import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
 import { devUrl } from '../../config'
 import '../../style/member/member_score.scss'
 

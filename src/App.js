@@ -4,7 +4,6 @@ import './index.scss'
 
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
-import RatingExampleClearable from './components/Member/RatingExampleClearable'
 
 // 頁面元件
 import MemberHome from './pages/Member/MemberHome'
@@ -24,8 +23,6 @@ function App() {
       <Router>
         <MyNavbar />
         <body>
-          <RatingExampleClearable />
-
           <Switch>
             <Route path="/member/MyScore">
               <MemberMyScore />
