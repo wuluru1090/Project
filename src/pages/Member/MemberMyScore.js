@@ -123,6 +123,7 @@ function MemberMyScore(props) {
                               <figcaption>王陽明</figcaption>
                             </figure>
                           </div>
+
                           <div className="d-flex mem_toscore_table">
                             <p className=" d-flex align-items-center">評分</p>
                             <Rating />

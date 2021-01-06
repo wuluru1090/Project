@@ -20,17 +20,12 @@
   }
 
   .card-title {
-    margin: 0px;
-    margin-top: 3px;
+    margin: 0 0 24px 0;
     font-size: $font-size-base;
     font-family: 'TaipeiSansTCBeta-Bold';
     font-size: 20px;
-    padding: 8px 0;
+    // padding: 8px 0;
     width: 450px;
-  }
-
-  .bbb {
-    margin-bottom: 8px;
   }
 
   .photo {
@@ -64,6 +59,7 @@
   .aaa {
     margin-left: 8px;
   }
+
   .join {
     width: 90px;
     height: 24px;
