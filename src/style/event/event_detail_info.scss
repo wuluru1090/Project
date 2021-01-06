@@ -1,3 +1,5 @@
+@import '../default.scss';
+
 .event-info-card {
   width: 345px;
   // height: 400px;
@@ -17,7 +19,11 @@
   }
 
   .info {
+    color: $gray-default;
     margin-left: 15px;
     line-height: 20px;
+    .small-title {
+      font-family: 'TaipeiSansTCBeta-Bold';
+    }
   }
 }

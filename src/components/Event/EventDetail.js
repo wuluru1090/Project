@@ -10,6 +10,8 @@ import Card from './ClassCard2'
 import GMap from './GMap'
 import Carousel1 from './Carousel1'
 import EventDetailAttendant from './EventDetailAttendant'
+import EventForum from './EventForum'
+import EventRelativeCarousel from './EventRelativeCarousel'
 
 //GMap地圖Pin標記位置
 const location = {
@@ -21,7 +23,7 @@ const location = {
 function EventDetail() {
   return (
     <>
-      <div className="event_wave_background test">
+      <div className="event_wave_background">
         <div className="mainclass_wrapper">
           <div className="page-head">
             <div className="title">
@@ -68,8 +70,7 @@ function EventDetail() {
                 </figure>
               </div>
               <div className="underline-title">
-                <h5 className="class_title">詳細資訊</h5>
-                <div className="line"></div>
+                <span className="detail-title">詳細資訊</span>
               </div>
               <p>
                 攝影，到底應該如何實現。攝影可以說是有著成為常識的趨勢。我們可以很篤定的說，這需要花很多時間來嚴謹地論證。了解清楚攝影到底是一種怎麼樣的存在，是解決一切問題的關鍵。
@@ -79,8 +80,7 @@ function EventDetail() {
                 薩迪相信，你在兩個仇人之間說話要有分寸，以免他們和好後你將無地自容。但願各位能從這段話中獲得心靈上的滋長。在人生的歷程中，攝影的出現是必然的。面對如此難題，我們必須設想周全。金纓曾提出，敗德之事非一，而酗酒者德必敗，傷生之事非一，而好色者生必傷。這句話決定了一切。
               </p>
               <div className="underline-title">
-                <h5 className="class_title">參與者名單</h5>
-                <div className="line"></div>
+                <span className="detail-title">參與者名單</span>
               </div>
               <EventDetailAttendant />
             </div>
@@ -95,20 +95,27 @@ function EventDetail() {
             </div>
           </div>
         </div>
+        {/* 上波浪 */}
         <div className="wave_background2">
-          <div className="gallery_part">
-            <h4>學員攝影作品</h4>
-            <div className="line2"></div>
-            <div className="member_photo_showcase">
-              <Carousel1 />
-            </div>
-          </div>
+          <img src={devUrl + '/Pic/SVG/wave-darker-blue-1440-01.svg'} />
         </div>
-        <div className="mainclass_wrapper">
-          <h5 className="class_suggest">相似課程</h5>
-          <div className="line"></div>
-          <div className="cards">
-            <Card />
+        {/* 討論區 */}
+        <div className="forum-wave-height d-flex justify-content-center">
+          <EventForum />
+        </div>
+
+        {/* 下波浪 */}
+        <div className="wave_background3">
+          <img src={devUrl + '/Pic/SVG/wave-darker-blue-opposite-1440.svg'} />
+        </div>
+        {/* 相似活動 */}
+
+        <div className="mainclass_wrapper relative-event">
+          <div className="underline-title">
+            <span className="detail-title">相似活動</span>
+          </div>
+          <div className="relative-event-carousel">
+            <EventRelativeCarousel />
           </div>
         </div>
       </div>

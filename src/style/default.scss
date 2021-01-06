@@ -47,34 +47,34 @@ $navbar-light-active-color: $secondary;
 @font-face {
   font-family: 'TaipeiSansTCBeta-Regular';
   src: url('./font/TaipeiSansTCBeta-Regular.ttf');
-  unicode-range: U+4E00-9FFF;
+  // unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Bold';
   src: url('./font/TaipeiSansTCBeta-Bold.ttf');
-  unicode-range: U+4E00-9FFF;
+  // unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Light';
   src: url('./font/TaipeiSansTCBeta-Light.ttf');
-  unicode-range: U+4E00-9FFF;
+  // unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'Roboto-light';
   src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-  // unicode-range: U+00-024F;
+  unicode-range: U+00-024F;
   font-weight: 300;
 }
 @font-face {
   font-family: 'Roboto';
   src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-  // unicode-range: U+00-024F;
+  unicode-range: U+00-024F;
   font-weight: 400;
 }
 @font-face {
   font-family: 'Roboto-Bold';
   src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-  // unicode-range: U+00-024F;
+  unicode-range: U+00-024F;
   font-weight: 700;
 }
 h1,
@@ -193,8 +193,8 @@ body {
 }
 .body2 {
   font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
-  font-size: 14rem;
-  letter-spacing: 18px;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 .botton-font {
   font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;

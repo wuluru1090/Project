@@ -4,6 +4,7 @@ $url: 'http://localhost:3000';
 // 波浪背景1
 .event_wave_background {
   background: url($url + '/Pic/SVG/wave-blue-attbg-1440.svg');
+
   width: 100%;
   top: 40px;
   background-repeat: no-repeat;
@@ -13,7 +14,12 @@ $url: 'http://localhost:3000';
     max-width: 1160px;
     margin: 0 auto;
   }
-
+  .wave_background3 {
+    transform: translateY(-5px);
+    img {
+      width: 100%;
+    }
+  }
   // 發起者頭像
   .organizer {
     width: 56px;
@@ -109,6 +115,10 @@ $url: 'http://localhost:3000';
       width: 347px;
       padding: 18px 56px;
       background: $primary-100;
+      transition: 0.5s;
+      &:hover {
+        background: $primary-300;
+      }
     }
     .gmap {
       width: 343px;
@@ -116,18 +126,18 @@ $url: 'http://localhost:3000';
       border-radius: 10px;
     }
   }
-  .class_title {
-    color: $primary;
-    margin-top: 50px;
-    margin-bottom: 0px;
-    font-size: 24px;
-    font-family: 'TaipeiSansTCBeta-Bold';
-  }
 
-  .line {
-    border: 2px solid $primary;
-    width: 96px;
-    margin-bottom: 48px;
+  .underline-title {
+    // background: #12d0c9;
+    margin-top: 50px;
+    .detail-title {
+      color: $primary;
+      font-size: 24px;
+      font-family: 'TaipeiSansTCBeta-Bold';
+      padding-bottom: 5px;
+      text-align: center;
+      border-bottom: 3px solid $primary;
+    }
   }
 
   p {
@@ -135,13 +145,10 @@ $url: 'http://localhost:3000';
     line-height: 28px;
   }
 
-  .wave_background2 {
-    background: url($url + '/Pic/SVG/wave3.svg');
+  .forum-wave-height {
+    background: $primary-200;
     width: 100%;
-    height: 1060px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 1px solid transparent;
+    margin: 0px auto;
   }
 
   h4 {
@@ -160,12 +167,15 @@ $url: 'http://localhost:3000';
     margin-top: 270px;
     // border: 1px solid red;
   }
-
-  .cards {
-    margin-top: 90px;
-    margin-bottom: 10px;
-    display: flex;
-    // height: 400px;
+  .relative-event {
+    transform: translateY(-120px);
+    .underline-title {
+      margin-bottom: 38px;
+    }
+    .relative-event-carousel {
+      margin: auto;
+      display: flex;
+    }
   }
 
   .member_photo_showcase {

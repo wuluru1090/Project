@@ -59,11 +59,12 @@
     }
   }
   .event-search-bar {
+    width: 700px;
     position: absolute;
     z-index: 60;
     top: 336px;
     left: 75px;
-    // background: blue;
+    background: blue;
     h4 {
       padding-left: 15px;
       color: #fff;
@@ -74,9 +75,6 @@
     .ta {
       color: #fff;
       border: 1px solid #fff;
-    }
-    .hot {
-      color: #fff;
     }
     .searchbar {
       margin-left: 0px;
