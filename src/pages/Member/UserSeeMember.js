@@ -2,8 +2,7 @@ import '../../index.scss'
 import React, { useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import { MdVisibility, MdFolderOpen } from 'react-icons/md'
-import Rating from '@material-ui/lab/Rating'
-import StarBorderIcon from '@material-ui/icons/StarBorder'
+import RatingReadOnly from '../../components/Member/rating_readonly'
 import '../../style/member/user_member.scss'
 import { devUrl } from '../../config'
 import { Link } from 'react-router-dom'
@@ -32,18 +31,7 @@ function UserSeeMember(props) {
                     <h5 className="d-flex justify-content-center ">Tina</h5>
 
                     <div className="d-flex justify-content-center  ">
-                      <p className=" d-flex align-items-center star_Points">
-                        2.5
-                      </p>
-
-                      <div>
-                        <Rating
-                          name="customized-empty"
-                          defaultValue={5}
-                          precision={0.5}
-                          emptyIcon={<StarBorderIcon fontSize="inherit" />}
-                        />
-                      </div>
+                      <RatingReadOnly />
                     </div>
                   </div>
 
@@ -170,22 +158,7 @@ function UserSeeMember(props) {
                             className="d-flex justify-content-start"
                             style={{ margin: '0px' }}
                           >
-                            <p
-                              className=" d-flex align-items-center  star_Points"
-                              style={{ margin: '0px' }}
-                            >
-                              2.5
-                            </p>
-                            <div>
-                              <Rating
-                                name="customized-empty"
-                                defaultValue={5}
-                                precision={0.5}
-                                emptyIcon={
-                                  <StarBorderIcon fontSize="inherit" />
-                                }
-                              />
-                            </div>
+                            <RatingReadOnly />
                           </div>
 
                           <div>
@@ -211,36 +184,15 @@ comments"
                               variant="top"
                               src={devUrl + '/pic/pic/member.jpg'}
                               alt=""
-                            />{' '}
+                            />
                           </figure>
                         </Link>
                       </div>
                       <div className="detail d-flex col-10 align-items-center">
                         <div className="de">
                           <h6>陳宇軒</h6>
-                          <div
-                            className="d-flex justify-content-start"
-                            style={{ margin: '0px' }}
-                          >
-                            <p
-                              className=" d-flex align-items-center  star_Points"
-                              style={{ margin: '0px' }}
-                            >
-                              2.5
-                            </p>
-                            <div>
-                              <Rating
-                                name="customized-empty"
-                                defaultValue={5}
-                                precision={0.5}
-                                emptyIcon={
-                                  <StarBorderIcon fontSize="inherit" />
-                                }
-                              />
-                            </div>
-                          </div>
-
-                          <div>
+                          <div className="align-items-center">
+                            <RatingReadOnly />
                             <p
                               className="subtitle2 
 comments"

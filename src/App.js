@@ -24,6 +24,7 @@ function App() {
         <MyNavbar />
         <body>
           <Switch>
+        
             <Route path="/member/MyScore">
               <MemberMyScore />
             </Route>
