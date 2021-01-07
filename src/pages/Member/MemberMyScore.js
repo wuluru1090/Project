@@ -96,55 +96,65 @@ function MemberMyScore(props) {
                             </div>
                           </div>
                         </div>
-                        <br />
-                        <div className="mymem_toscore">
-                          <div className="row mem_toscore_G ">
-                            <figure className="">
-                              <img
-                                className="mem_toscore"
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
-                              <figcaption>王陽明</figcaption>
-                            </figure>
+                        <form>
+                          <div className="mymem_toscore">
+                            <div className="row mem_toscore_G ">
+                              <figure className="">
+                                <img
+                                  className="mem_toscore"
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption>王陽明</figcaption>
+                              </figure>
 
-                            <figure className="">
-                              <img
-                                className="mem_toscore"
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
-                              <figcaption>王陽明</figcaption>
-                            </figure>
-                            <figure className="">
-                              <img
-                                className="mem_toscore"
-                                src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                alt="photo1"
-                              ></img>
-                              <figcaption>王陽明</figcaption>
-                            </figure>
-                          </div>
+                              <figure className="">
+                                <img
+                                  className="mem_toscore"
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption>王陽明</figcaption>
+                              </figure>
+                              <figure className="">
+                                <img
+                                  className="mem_toscore"
+                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                  alt="photo1"
+                                ></img>
+                                <figcaption>王陽明</figcaption>
+                              </figure>
+                            </div>
+                            <div className="score_table">
+                              <div className="d-flex mem_toscore_table">
+                                <p className=" d-flex align-items-center">
+                                  評分
+                                </p>
+                                <Rating />
+                              </div>
+                              <div className="d-flex mem_toscore_table ">
+                                <p className=" d-flex align-items-start">
+                                  評價
+                                </p>
+                                <div class="form-floating">
+                                  <textarea
+                                    className="form-control ScoText"
+                                    placeholder="評價內容"
+                                    id="floatingTextarea2"
+                                  ></textarea>
 
-                          <div className="d-flex mem_toscore_table">
-                            <p className=" d-flex align-items-center">評分</p>
-                            <Rating />
-                          </div>
-                          <div className="d-flex mem_toscore_table">
-                            <p className=" d-flex align-items-start">評價</p>
-                            <div class="form-floating">
-                              <textarea
-                                className="form-control ScoText"
-                                placeholder="評價內容"
-                                id="floatingTextarea2"
-                              ></textarea>
+                                  <br />
+                                  <div className="d-flex justify-content-end">
+                                    <button className="btn_sm join ">
+                                      送出
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                          <br />
-                          <div className="d-flex justify-content-end">
-                            <button className="btn_sm join ">送出</button>
-                          </div>
-                        </div>
+                        </form>
+                        <br />
                       </Card.Body>
                     </Card>
                   </div>
@@ -152,18 +162,7 @@ function MemberMyScore(props) {
               </aside>
             </main>
           </div>
-          {/* 背景icon 需要再研究 */}
-          <div className="bg-couple row d-flex align-items-end ">
-            <figure>
-              <img src={devUrl + '/pic/SVG/couple man.svg'} alt="背景iocn男" />
-            </figure>
-            <figure>
-              <img
-                src={devUrl + '/pic/SVG/couple woman.svg'}
-                alt="背景iocn女"
-              />
-            </figure>
-          </div>
+
           <br />
         </div>
       </body>

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../style/default.scss'
+import UploadButton from './Uploadbutton'
 import { Card } from 'react-bootstrap'
 import '../../style/member/member_card.scss'
 import { MdCameraAlt } from 'react-icons/md'
@@ -20,9 +21,19 @@ function MemberCard() {
               src={devUrl + '/pic/pic/member.jpg'}
               alt=""
             />
-            <Link to="">
-              <div class="position-relative">
+
+            <div class="position-relative">
+              <input
+                accept="image/*"
+                className=""
+                style={{ display: 'none' }}
+                id="iconmemphoto-button-file"
+                type="file"
+              />
+              <label htmlFor="iconmemphoto-button-file">
                 <MdCameraAlt
+                  aria-label="upload picture"
+                  component="span"
                   className=" position-absolute  translate-middle "
                   style={{
                     width: '42px',
@@ -32,8 +43,8 @@ function MemberCard() {
                     color: '#104b6d',
                   }}
                 />
-              </div>
-            </Link>
+              </label>
+            </div>
           </div>
 
           <Card.Body>

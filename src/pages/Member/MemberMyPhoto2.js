@@ -5,8 +5,9 @@ import MemberNavlist from '../../components/Member/MemberNavlist'
 import '../../style/member/member.scss'
 import '../../style/member/member_photo2.scss'
 import { devUrl } from '../../config'
-import { Card } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { MdDelete } from 'react-icons/md'
 function MemberMyPhoto2(props) {
   return (
     <>
@@ -29,71 +30,107 @@ function MemberMyPhoto2(props) {
                         <h5>我的相簿/一日遊是我</h5>
                         <form>
                           <input
-                            type="file"
-                            key="input"
+                            accept="image/*"
+                            className=""
                             style={{ display: 'none' }}
+                            id="iconephoto-button-file"
+                            type="file"
                           />
+                          <label htmlFor="iconephoto-button-file">
+                            <img
+                              className="addphoto2"
+                              src={devUrl + '/pic/SVG/photoadd2.svg'}
+                              alt="add2"
+                            ></img>
+                          </label>
                         </form>
-                        <Link to="/member/MyPhoto">
-                          <img
-                            className="addphoto2"
-                            src={devUrl + '/pic/SVG/photoadd2.svg'}
-                            alt="add2"
-                          ></img>
-                        </Link>
                       </Card.Header>
                       <Card.Body style={{ padding: '14px  42px  14px 42px' }}>
                         <div className="photo_album3 d-flex ">
                           <div className="img_box3  d-flex justify-content-between">
-                            <figure className="d-flex flex-wrap">
-                              <figure>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figcaption className="d-flex justify-content-center">
-                                  絕美風景照片{' '}
-                                </figcaption>
-                              </figure>
-
-                              <figure>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figcaption className="d-flex justify-content-center">
-                                  絕美風景照片{' '}
-                                </figcaption>
-                              </figure>
-                              <figure>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figcaption className="d-flex justify-content-center">
-                                  絕美風景照片{' '}
-                                </figcaption>
-                              </figure>
-                              <figure>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figcaption className="d-flex justify-content-center">
-                                  絕美風景照片{' '}
-                                </figcaption>
-                              </figure>
-                              <figure>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figcaption className="d-flex justify-content-center">
-                                  絕美風景照片{' '}
-                                </figcaption>
-                              </figure>
-                            </figure>
+                            <div className=" d-flex flex-wrap">
+                              <div className="myphoto">
+                                <div className=" d-flex justify-content-end">
+                                  <input type="checkbox" />
+                                </div>
+                                <figure>
+                                  <img
+                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                    alt="photo1"
+                                  ></img>
+                                  <figcaption className="d-flex justify-content-center">
+                                    絕美風景照片
+                                  </figcaption>
+                                </figure>
+                              </div>
+                              <div className="myphoto">
+                                <div className=" d-flex justify-content-end">
+                                  <input type="checkbox" />
+                                </div>
+                                <figure>
+                                  <img
+                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                    alt="photo1"
+                                  ></img>
+                                  <figcaption className="d-flex justify-content-center">
+                                    絕美風景照片
+                                  </figcaption>
+                                </figure>
+                              </div>
+                              <div className="myphoto">
+                                <div className=" d-flex justify-content-end">
+                                  <input type="checkbox" />
+                                </div>
+                                <figure>
+                                  <img
+                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                    alt="photo1"
+                                  ></img>
+                                  <figcaption className="d-flex justify-content-center">
+                                    絕美風景照片
+                                  </figcaption>
+                                </figure>
+                              </div>
+                              <div className="myphoto">
+                                <div className=" d-flex justify-content-end">
+                                  <input type="checkbox" />
+                                </div>
+                                <figure>
+                                  <img
+                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                    alt="photo1"
+                                  ></img>
+                                  <figcaption className="d-flex justify-content-center">
+                                    絕美風景照片
+                                  </figcaption>
+                                </figure>
+                              </div>
+                              <div className="myphoto">
+                                <div className=" d-flex justify-content-end">
+                                  <input type="checkbox" />
+                                </div>
+                                <figure>
+                                  <img
+                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                    alt="photo1"
+                                  ></img>
+                                  <figcaption className="d-flex justify-content-center">
+                                    絕美風景照片
+                                  </figcaption>
+                                </figure>
+                              </div>
+                            </div>
                           </div>
+                        </div>
+
+                        <div className="d-flex justify-content-end">
+                          <Button
+                            onclick=""
+                            className="btn-style botton-font btn_icon mem_card_btn"
+                          >
+                            <MdDelete />
+                            刪除照片
+                          </Button>
                         </div>
                       </Card.Body>
                     </Card>
@@ -101,18 +138,6 @@ function MemberMyPhoto2(props) {
                 </article>
               </aside>
             </main>
-          </div>
-          {/* 背景icon 需要再研究 */}
-          <div className="bg-couple row d-flex align-items-end ">
-            <figure>
-              <img src={devUrl + '/pic/SVG/couple man.svg'} alt="背景iocn男" />
-            </figure>
-            <figure>
-              <img
-                src={devUrl + '/pic/SVG/couple woman.svg'}
-                alt="背景iocn女"
-              />
-            </figure>
           </div>
           <br />
         </div>

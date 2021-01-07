@@ -101,18 +101,6 @@ function MemberMyManagement(props) {
               </aside>
             </main>
           </div>
-          {/* 背景icon 需要再研究 */}
-          <div className="bg-couple row d-flex align-items-end ">
-            <figure>
-              <img src={devUrl + '/pic/SVG/couple man.svg'} alt="背景iocn男" />
-            </figure>
-            <figure>
-              <img
-                src={devUrl + '/pic/SVG/couple woman.svg'}
-                alt="背景iocn女"
-              />
-            </figure>
-          </div>
           <br />
         </div>
       </body>

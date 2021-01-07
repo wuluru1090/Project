@@ -17,6 +17,8 @@ import MemberMyPhoto2 from './pages/Member/MemberMyPhoto2'
 import MemberMyManagement from './pages/Member/MemberMyManagement'
 import MemberMyScore from './pages/Member/MemberMyScore'
 import UserSeeMember from './pages/Member/UserSeeMember'
+import SeeMemberAlbum from './pages/Member/SeeMemberAlbum'
+import UserSeeMemberAlbum from './pages/Member/UserSeeMemberAlbum'
 function App() {
   return (
     <>
@@ -24,7 +26,9 @@ function App() {
         <MyNavbar />
         <body>
           <Switch>
-        
+            <Route path="/see/Album/photo">
+              <UserSeeMemberAlbum />
+            </Route>
             <Route path="/member/MyScore">
               <MemberMyScore />
             </Route>
@@ -53,6 +57,9 @@ function App() {
             </Route>
             <Route path="/member/MyCollection">
               <MemberMyCollection />
+            </Route>
+            <Route path="/see/Album">
+              <SeeMemberAlbum />
             </Route>
             <Route path="/see">
               <UserSeeMember />

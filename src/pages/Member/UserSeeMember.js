@@ -46,7 +46,7 @@ function UserSeeMember(props) {
                   </div>
 
                   <div className="d-flex justify-content-between  photo_album_all flex-wrap">
-                    <Link to="#">
+                    <Link to="/see/Album">
                       <div className="photo_album2">
                         <h6 className="subtitle2 font-bold">
                           綠意盎藍一日遊遊遊遊遊 &nbsp;
@@ -72,7 +72,7 @@ function UserSeeMember(props) {
                       </div>
                     </Link>
 
-                    <Link to="#">
+                    <Link to="/see/Album">
                       <div className="photo_album2">
                         <h6 className="subtitle2 font-bold">
                           綠意盎藍一日遊遊遊遊遊 &nbsp;
@@ -97,7 +97,7 @@ function UserSeeMember(props) {
                         </div>
                       </div>
                     </Link>
-                    <Link to="#">
+                    <Link to="/see/Album">
                       <div className="photo_album2">
                         <h6 className="subtitle2 font-bold">
                           綠意盎藍一日遊遊遊遊遊 &nbsp;

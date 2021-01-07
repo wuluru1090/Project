@@ -12,7 +12,7 @@
   }
 
   .ScoText {
-    width: 640px;
+    width: 700px;
     height: 80px;
   }
 }
@@ -32,11 +32,12 @@
 .mymem_toscore {
   margin: 0 0 0 8px;
   .mem_toscore_G {
+    padding: 8px 0 0 0;
     figure {
       padding: 0;
       margin: 0;
       figcaption {
-        padding: 8px 0;
+        // padding: 8px 0;
         font-size: 12px;
         text-align: center;
       }
