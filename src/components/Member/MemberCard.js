@@ -2,13 +2,11 @@ import React from 'react'
 import '../../style/default.scss'
 import { Card } from 'react-bootstrap'
 import '../../style/member/member_card.scss'
-import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
+import { MdCameraAlt } from 'react-icons/md'
 import { devUrl } from '../../config'
-import Rating from '@material-ui/lab/Rating'
-import StarBorderIcon from '@material-ui/icons/StarBorder'
 import { Link } from 'react-router-dom'
-// var Rating = require('react-rating')
-// React.createElement(Rating)
+import RatingReadOnly from '../../components/Member/rating_readonly'
+
 function MemberCard() {
   return (
     <>
@@ -39,16 +37,8 @@ function MemberCard() {
           </div>
 
           <Card.Body>
-            <Card.Text className="d-flex justify-content-center  ">
-              <p className=" d-flex align-items-center star_Points">2.5</p>
-              <div>
-                <Rating
-                  name="customized-empty"
-                  defaultValue={5}
-                  precision={0.5}
-                  emptyIcon={<StarBorderIcon fontSize="inherit" />}
-                />
-              </div>
+            <Card.Text className="d-flex justify-content-center  align-items-center">
+              <RatingReadOnly />
             </Card.Text>
           </Card.Body>
           {/* <Card.Footer>

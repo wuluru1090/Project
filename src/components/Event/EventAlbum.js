@@ -3,7 +3,6 @@ import '../../style/default.scss'
 import '../../style/event/event_album.scss'
 import { devUrl } from '../../config'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
-import { MdKeyboardArrowRight } from 'react-icons/md'
 
 function EventAlbum() {
   return (
@@ -20,15 +19,24 @@ function EventAlbum() {
             <h5>阿里山國家公園二日遊輕鬆拍</h5>
           </div>
           <div className="button col-3 d-flex justify-content-end align-items-end">
+            <button className="btn rounded-pill upload-button bg-secondary">
+              編輯圖片
+            </button>
             <button className="btn rounded-pill upload-button">上傳圖片</button>
           </div>
         </div>
-
-        <div className="album-slider row">
-          <div className="arrow col d-flex justify-content-center align-items-center">
-            <MdKeyboardArrowLeft size={30} color={'#adcbdd'} />
-          </div>
-          <div className="album-content row col-11">
+        {/* 圖片部分開始 */}
+        <div className="album-slider d-flex justify-content-center">
+          <div className="album-content row">
+            <a href={devUrl + '/photo'} className="photo-card col-4">
+              <figure>
+                <img src="" alt=""></img>
+              </figure>
+              <div>
+                <h6>我是標題</h6>
+                <p className="subtitle1">作者名</p>
+              </div>
+            </a>
             <div className="photo-card col-4">
               <figure>
                 <img src="" alt=""></img>
@@ -83,9 +91,15 @@ function EventAlbum() {
                 <p className="subtitle1">作者名</p>
               </div>
             </div>
-          </div>
-          <div className="arrow col d-flex justify-content-center align-items-center">
-            <MdKeyboardArrowRight size={30} color={'#adcbdd'} />
+            <div className="photo-card col-4">
+              <figure>
+                <img src="" alt=""></img>
+              </figure>
+              <div>
+                <h6>我是標題</h6>
+                <p className="subtitle1">作者名</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -2,11 +2,11 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import { Card } from 'react-bootstrap'
-import { MdStar, MdStarBorder, MdStarHalf, MdCameraAlt } from 'react-icons/md'
+import { Card, Button } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import '../../style/member/member_score.scss'
 import Rating from '../../components/Member/rating'
+import { MdGrade } from 'react-icons/md'
 
 function MemberMyScore(props) {
   return (
@@ -83,12 +83,14 @@ function MemberMyScore(props) {
                                     台南市歸仁區歸仁大道100號
                                   </p>
                                 </div>
-                                <div className="d-flex justify-content-end ">
-                                  <div className="d-flex">
-                                    <button className="btn_sm join">
-                                      我要評價
-                                    </button>
-                                  </div>
+                                <div className="d-flex justify-content-end">
+                                  <Button
+                                    onclick=""
+                                    className="btn-style botton-font btn_icon mem_card_btn"
+                                  >
+                                    <MdGrade />
+                                    我要評價
+                                  </Button>
                                 </div>
                               </div>
                             </div>
@@ -128,7 +130,7 @@ function MemberMyScore(props) {
                             <p className=" d-flex align-items-center">評分</p>
                             <Rating />
                           </div>
-                          <div className="d-flex">
+                          <div className="d-flex mem_toscore_table">
                             <p className=" d-flex align-items-start">評價</p>
                             <div class="form-floating">
                               <textarea

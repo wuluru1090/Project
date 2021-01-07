@@ -5,6 +5,7 @@ import '../../style/member/member_pdcard.scss'
 import { devUrl } from '../../config'
 import '../../style/member/member_content.scss'
 import { MdVisibility, MdBrightnessHigh } from 'react-icons/md'
+import { Button } from 'react-bootstrap'
 function MemberPdCardcoll() {
   return (
     <>
@@ -46,10 +47,14 @@ function MemberPdCardcoll() {
                   />
                   <p className="caption ">台南市歸仁區歸仁大道100號 </p>
                 </div>
-                <div className="d-flex justify-content-end btn_group">
-                  <div className="d-flex">
-                    <button className="btn d-flex join">檢視活動</button>
-                  </div>
+                <div className="d-flex justify-content-end">
+                  <Button
+                    onclick=""
+                    className="btn-style botton-font btn_icon mem_card_btn"
+                  >
+                    <MdVisibility />
+                    活動檢視
+                  </Button>
                 </div>
               </div>
             </div>

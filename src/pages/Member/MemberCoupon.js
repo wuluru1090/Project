@@ -49,9 +49,7 @@ function MemberCoupon(props) {
                               活動滿500折100元
                             </p>
                             <div className="d-flex justify-content-end">
-                              <button className="btn_style r subtitle2 ">
-                                領取
-                              </button>
+                              <button className=" btn_sm join">領取</button>
                             </div>
                           </div>
                           <div className=" coupon  ">
@@ -62,9 +60,7 @@ function MemberCoupon(props) {
                               活動滿500折100元
                             </p>
                             <div className="d-flex justify-content-end">
-                              <button className="btn_style r subtitle2 ">
-                                領取
-                              </button>
+                              <button className="  btn_sm join">領取</button>
                             </div>
                           </div>
                           <div className=" coupon ">
@@ -75,9 +71,7 @@ function MemberCoupon(props) {
                               活動滿500折100元
                             </p>
                             <div className="d-flex justify-content-end">
-                              <button className="btn_style r subtitle2 ">
-                                領取
-                              </button>
+                              <button className=" btn_sm join">領取</button>
                             </div>
                           </div>
                         </div>

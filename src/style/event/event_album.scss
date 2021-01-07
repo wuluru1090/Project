@@ -1,4 +1,4 @@
-@import './default.scss';
+@import '../default.scss';
 
 //EventAlbum
 .album-page {
@@ -19,7 +19,7 @@
       color: white;
       font-size: 14px;
       letter-spacing: 1.92px;
-      margin: 18px;
+      margin: 18px 8px;
 
       &:hover {
         color: white;
@@ -39,6 +39,7 @@
       }
     }
     .album-content {
+      width: 100%;
       flex-wrap: wrap;
       .photo-card {
         cursor: pointer;
