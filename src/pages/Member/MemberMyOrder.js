@@ -3,8 +3,7 @@ import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import MemberPdCard2 from '../../components/Member/MemberPdCard2'
-// import CartNavbarlist from '../../components/Member/Cart_Navbarlist'
-import '../../style/member/member.scss'
+import '../../style/member/member_navbar2.scss'
 import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
 
@@ -32,26 +31,37 @@ function MemberMyOrder(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="navbarbox "
+                        className="navbarbox2 "
                       >
-                        {/* <CartNavbarlist /> */}
-                        <ul className="row navbar  d-flex align-items-center">
+                        <ul className="row navbar2  d-flex align-items-center">
                           <li className=" subtitle1  main_li  d-flex align-items-center">
-                            <a href="#">購物車</a>
+                            <a href="#" className="memnav_alink1">
+                              購物車
+                            </a>
                             <li className=" subtitle1 sublist">
-                              <a href="#">活動</a>
+                              <a href="#" className="memnav_alink2">
+                                活動
+                              </a>
                             </li>
                             <li className=" subtitle1 sublist">
-                              <a href="#">課程</a>
+                              <a href="#" className="memnav_alink2">
+                                課程
+                              </a>
                             </li>
                           </li>
                           <li className=" subtitle1 main_li  d-flex align-items-center">
-                            <a href="#">未付款</a>
+                            <a href="#" className="memnav_alink1">
+                              未付款
+                            </a>
                             <li className=" subtitle1  sublist">
-                              <a href="#">活動</a>
+                              <a href="#" className="memnav_alink2">
+                                活動
+                              </a>
                             </li>
                             <li className=" subtitle1  sublist">
-                              <a href="#">課程</a>
+                              <a href="#" className="memnav_alink2">
+                                課程
+                              </a>
                             </li>
                           </li>
                         </ul>

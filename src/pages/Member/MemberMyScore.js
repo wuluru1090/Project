@@ -6,10 +6,12 @@ import { Card, Button } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import '../../style/member/member_score.scss'
 import Rating from '../../components/Member/rating'
+import '../../style/member/member_navbar2.scss'
+import '../../style/member/member.scss'
 import { MdGrade } from 'react-icons/md'
 
 function MemberMyScore(props) {
-  const [toscore, setToscore] = useState('banana')
+  const [toscore, setToscore] = useState(0)
 
   return (
     <>
@@ -33,14 +35,38 @@ function MemberMyScore(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  42px  43px 42px' }}
-                        className="navbarbox "
+                        className="navbarbox2 "
                       >
-                        <ul className="row navbar  d-flex align-items-center">
-                          <li className=" subtitle1  main_li">
-                            <a href="#">活動</a>
+                        <ul className="row navbar2  d-flex align-items-center">
+                          <li className=" subtitle1  main_li  d-flex align-items-center">
+                            <a href="#" className="memnav_alink1">
+                              未評價
+                            </a>
+                            <li className=" subtitle1 sublist">
+                              <a href="#" className="memnav_alink2">
+                                活動
+                              </a>
+                            </li>
+                            <li className=" subtitle1 sublist">
+                              <a href="#" className="memnav_alink2">
+                                課程
+                              </a>
+                            </li>
                           </li>
-                          <li className=" subtitle1 main_li">
-                            <a href="#">課程</a>
+                          <li className=" subtitle1 main_li  d-flex align-items-center">
+                            <a href="#" className="memnav_alink1">
+                              已評價
+                            </a>
+                            <li className=" subtitle1  sublist">
+                              <a href="#" className="memnav_alink2">
+                                活動
+                              </a>
+                            </li>
+                            <li className=" subtitle1  sublist">
+                              <a href="#" className="memnav_alink2">
+                                課程
+                              </a>
+                            </li>
                           </li>
                         </ul>
                         <br />

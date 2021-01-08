@@ -3,13 +3,12 @@
 .navbarbox {
   .navbar {
     position: absolute;
+    margin: 0 auto;
+    padding: 12px 0px;
     .main_li {
       list-style: none;
-      padding: 5px 20px;
-      .sublist {
-        list-style: none;
+      a {
         padding: 5px 20px;
-        display: none;
       }
     }
   }
@@ -17,75 +16,15 @@
 
 .navbar {
   &:hover {
-    &li {
-      // background-color: $secondary-050;
-      // border-right: solid 2px $secondary-300;
-      // border-left: solid 2px $secondary-300;
-      // color: $secondary-300;
-      // opacity: 0.8;
-    }
     & .main_li {
-      // background-color: $secondary-050;
-      // border-right: solid 2px $secondary-300;
-      // border-left: solid 2px $secondary-300;
-      // color: $secondary-300;
-      // opacity: 0.8;
-
       &:hover {
-        & .sublist {
-          // background-color: $secondary-050;
-          // border-right: solid 2px $secondary-300;
-          // border-left: solid 2px $secondary-300;
-          // color: $secondary-300;
-          // opacity: 0.8;
-          display: block;
+        a {
+          background-color: $secondary-050;
+          border-right: solid 2px $secondary-300;
+          border-left: solid 2px $secondary-300;
+          color: $secondary-300;
         }
       }
     }
   }
 }
-
-// .navbarbox {
-//   .navbar {
-//     position: absolute;
-//     ul {
-//       .main_li {
-//         list-style: none;
-//         padding: 5px 20px;
-//         .sublist {
-//           list-style: none;
-//           padding: 5px 20px;
-//           display: none;
-
-//           a {
-//             border: 0;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// .navbarbox {
-//   .navbar {
-// ul {
-//   .main_li:hover {
-//     background-color: $secondary-050;
-//     border-right: solid 2px $secondary-300;
-//     border-left: solid 2px $secondary-300;
-//     color: $secondary-300;
-//     opacity: 0.8;
-//     .sublist:hover {
-//       background-color: $secondary-050;
-//       border-right: solid 2px $secondary-300;
-//       border-left: solid 2px $secondary-300;
-//       color: $secondary-300;
-//       opacity: 0.8;
-//       display: block;
-//     }
-//   }
-
-//   .main_li :active {
-//     opacity: 1;
-//   }
-// }

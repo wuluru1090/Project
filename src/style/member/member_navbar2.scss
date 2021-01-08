@@ -1,0 +1,56 @@
+@import '../default.scss';
+
+.navbarbox2 {
+  .navbar2 {
+    position: absolute;
+    margin: 0 auto;
+    left: 10px;
+    padding: 12px 43px;
+    .main_li {
+      list-style: none;
+
+      a {
+        padding: 5px 20px;
+      }
+      .sublist {
+        list-style: none;
+        display: none;
+      }
+    }
+  }
+  .navbar2 {
+    &:hover {
+      & .main_li {
+        &:hover {
+          & .memnav_alink1 {
+            background-color: $secondary-050;
+            border-right: solid 2px $secondary-300;
+            border-left: solid 2px $secondary-300;
+            color: $secondary-300;
+          }
+          &:hover {
+            & .sublist {
+              display: block;
+              a {
+                padding: 5px 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main_li {
+  .sublist {
+    &:hover {
+      & .memnav_alink2 {
+        background-color: $secondary-050;
+        border-right: solid 2px $secondary-300;
+        border-left: solid 2px $secondary-300;
+        color: $secondary-300;
+      }
+    }
+  }
+}
