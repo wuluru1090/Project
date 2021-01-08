@@ -31,7 +31,7 @@ function MemberMyOrder(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="box "
+                        className="navbarbox "
                       >
                         {/* <CartNavbarlist /> */}
                         <ul className="row navbar  d-flex align-items-center">

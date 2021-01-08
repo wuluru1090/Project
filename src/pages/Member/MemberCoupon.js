@@ -31,7 +31,7 @@ function MemberCoupon(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="box "
+                        className="navbarbox "
                       >
                         <br />
                         <h6>我的折價券</h6>

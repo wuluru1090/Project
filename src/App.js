@@ -19,6 +19,7 @@ import MemberMyScore from './pages/Member/MemberMyScore'
 import UserSeeMember from './pages/Member/UserSeeMember'
 import SeeMemberAlbum from './pages/Member/SeeMemberAlbum'
 import UserSeeMemberAlbum from './pages/Member/UserSeeMemberAlbum'
+import MemberMyManagementDelete from './pages/Member/MemberMyManagementDelete'
 function App() {
   return (
     <>
@@ -26,6 +27,10 @@ function App() {
         <MyNavbar />
         <body>
           <Switch>
+            <Route path="/member/MyManagement/Delete">
+              <MemberMyManagementDelete />
+            </Route>
+
             <Route path="/see/Album/photo">
               <UserSeeMemberAlbum />
             </Route>

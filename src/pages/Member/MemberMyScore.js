@@ -31,7 +31,7 @@ function MemberMyScore(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  42px  43px 42px' }}
-                        className="box "
+                        className="navbarbox "
                       >
                         <ul className="row navbar  d-flex align-items-center">
                           <li className=" subtitle1  main_li">
@@ -86,7 +86,7 @@ function MemberMyScore(props) {
                                 <div className="d-flex justify-content-end">
                                   <Button
                                     onclick=""
-                                    className="btn-style botton-font btn_icon mem_card_btn"
+                                    className="btn-style botton-font btn_icon mem_card_btn btn_toscore"
                                   >
                                     <MdGrade />
                                     我要評價

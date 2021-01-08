@@ -3,11 +3,11 @@ import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import { Card, Form, Button } from 'react-bootstrap'
-import { MdCreate } from 'react-icons/md'
-import { devUrl } from '../../config'
+import { MdDeleteForever } from 'react-icons/md'
 import '../../style/member/member_score.scss'
+import { devUrl } from '../../config'
 
-function MemberMyManagement(props) {
+function MemberMyManagementDelete(props) {
   return (
     <>
       <body>
@@ -46,55 +46,16 @@ function MemberMyManagement(props) {
                         </ul>
                         <br />
                         <Form className="  mem_inf">
-                          <Form.Group
-                            controlId="formBasicEmail"
-                            className="mem_form"
-                          >
-                            <Form.Label className=" ">
-                              <p className="subtitle1">現有密碼</p>
-                            </Form.Label>
-                            <Form.Control
-                              type="Password"
-                              placeholder="現有密碼"
-                              className="  text_w"
-                            />
-                          </Form.Group>
-                          <Form.Group
-                            controlId="formBasicEmail"
-                            className="mem_form"
-                          >
-                            <Form.Label className="">
-                              <p className="subtitle1">更改密碼</p>
-                            </Form.Label>
-                            <Form.Control
-                              type="Password"
-                              placeholder="更改密碼"
-                              className="  text_w"
-                            />
-                            <div id="Help" className="form-text caption">
-                              請輸入6-12字元，至少包含1個數字、1個字母
-                            </div>
-                          </Form.Group>
-                          <Form.Group
-                            controlId="formBasicEmail"
-                            className="mem_form"
-                          >
-                            <Form.Label className="">
-                              <p className="subtitle1">確認密碼</p>
-                            </Form.Label>
-                            <Form.Control
-                              type="Password"
-                              placeholder="確認密碼"
-                              className="  text_w"
-                            />
-                          </Form.Group>
-                          <div className=" d-flex justify-content-end ">
+                          <div className="d-flex justify-content-between ">
+                            <p style={{ color: '#707070' }}>
+                              刪除你的揪影帳戶與個人資料
+                            </p>
                             <Button
                               onclick=""
                               className="btn-style botton-font btn_icon mem_card_btn  "
                             >
-                              <MdCreate />
-                              確認修改
+                              <MdDeleteForever />
+                              刪除帳號
                             </Button>
                           </div>
                         </Form>
@@ -112,4 +73,4 @@ function MemberMyManagement(props) {
   )
 }
 
-export default MemberMyManagement
+export default MemberMyManagementDelete

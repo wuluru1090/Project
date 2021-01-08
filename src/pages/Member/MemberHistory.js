@@ -31,7 +31,7 @@ function MemberHistory(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="box "
+                        className="navbarbox "
                       >
                         <ul className="row navbar  d-flex align-items-center">
                           <li className=" subtitle1  main_li">

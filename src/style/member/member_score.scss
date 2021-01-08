@@ -1,3 +1,7 @@
+.btn_toscore:active {
+  display: none;
+}
+
 .mymem_toscore {
   padding: 8px;
 
@@ -14,6 +18,35 @@
   .ScoText {
     width: 700px;
     height: 80px;
+  }
+}
+
+.join {
+  width: 70px;
+  height: 24px;
+  border-radius: 50px;
+  font-size: 12px;
+  background: #4f7f9a;
+  color: white;
+  box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+  justify-content: center;
+  align-items: center;
+  border: 0;
+}
+.mymem_toscore {
+  margin: 0 0 0 8px;
+
+  .mem_toscore_G {
+    padding: 8px 0 0 0;
+    figure {
+      padding: 0;
+      margin: 0;
+      figcaption {
+        // padding: 8px 0;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
   }
 }
 
