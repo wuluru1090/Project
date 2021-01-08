@@ -2,6 +2,7 @@ import '../../index.scss'
 import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
+
 import '../../style/member/member.scss'
 import '../../style/member/member_photo.scss'
 import { devUrl } from '../../config'
@@ -35,8 +36,8 @@ function MemberMyPhoto(props) {
                             <h6 className="subtitle2">
                               綠意盎藍一日遊遊遊遊遊
                             </h6>
-                            <div className="img_box">
-                              <figure className="d-flex justify-content-end flex-wrap">
+                            <div className="img_box d-flex align-items-center">
+                              <div className="d-flex justify-content-center flex-wrap">
                                 <img
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
@@ -53,22 +54,22 @@ function MemberMyPhoto(props) {
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
                                 ></img>
-                                <figure className="d-flex justify-content-start">
-                                  <div className="addphoto ">
+                                <figure className="position-relative">
+                                  <div className="addphoto position-absolute ">
                                     <Link to="/member/MyPhoto2">
                                       <MdAddCircle />
                                     </Link>
                                   </div>
                                 </figure>
-                              </figure>
+                              </div>
                             </div>
                           </div>
-                          <div className="photo_album  justify-content-start flex-wrap">
+                          <div className="photo_album  justify-content-start ">
                             <h6 className="subtitle2">
                               綠意盎藍一日遊遊遊遊遊
                             </h6>
-                            <div className="img_box">
-                              <figure className="d-flex justify-content-end flex-wrap">
+                            <div className="img_box d-flex align-items-center">
+                              <div className="d-flex justify-content-center flex-wrap">
                                 <img
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
@@ -85,22 +86,22 @@ function MemberMyPhoto(props) {
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
                                 ></img>
-                                <figure className="d-flex justify-content-start">
-                                  <div className="addphoto ">
+                                <figure className="position-relative">
+                                  <div className="addphoto position-absolute ">
                                     <Link to="/member/MyPhoto2">
                                       <MdAddCircle />
                                     </Link>
                                   </div>
                                 </figure>
-                              </figure>
+                              </div>
                             </div>
                           </div>
-                          <div className="photo_album  justify-content-start flex-wrap">
+                          <div className="photo_album  justify-content-start ">
                             <h6 className="subtitle2">
                               綠意盎藍一日遊遊遊遊遊
                             </h6>
-                            <div className="img_box">
-                              <figure className="d-flex justify-content-end flex-wrap">
+                            <div className="img_box d-flex align-items-center">
+                              <div className="d-flex justify-content-center flex-wrap">
                                 <img
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
@@ -117,46 +118,14 @@ function MemberMyPhoto(props) {
                                   src={devUrl + '/pic/pic/桌布-德國.jpg'}
                                   alt="photo1"
                                 ></img>
-                                <figure className="d-flex justify-content-start">
-                                  <div className="addphoto ">
+                                <figure className="position-relative">
+                                  <div className="addphoto position-absolute ">
                                     <Link to="/member/MyPhoto2">
                                       <MdAddCircle />
                                     </Link>
                                   </div>
                                 </figure>
-                              </figure>
-                            </div>
-                          </div>
-                          <div className="photo_album  justify-content-start flex-wrap">
-                            <h6 className="subtitle2">
-                              綠意盎藍一日遊遊遊遊遊
-                            </h6>
-                            <div className="img_box">
-                              <figure className="d-flex justify-content-end flex-wrap">
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <figure className="d-flex justify-content-start">
-                                  <div className="addphoto ">
-                                    <Link to="/member/MyPhoto2">
-                                      <MdAddCircle />
-                                    </Link>
-                                  </div>
-                                </figure>
-                              </figure>
+                              </div>
                             </div>
                           </div>
                         </div>

@@ -41,6 +41,7 @@ function MemberCard() {
                     top: '40px',
                     right: '-5px',
                     color: '#104b6d',
+                    cursor: ' pointer ',
                   }}
                 />
               </label>

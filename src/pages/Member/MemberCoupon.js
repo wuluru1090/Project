@@ -5,7 +5,7 @@ import MemberNavlist from '../../components/Member/MemberNavlist'
 import '../../style/member/member_coupon.scss'
 import '../../style/member/member_navbar.scss'
 import { Card, Button } from 'react-bootstrap'
-import { MdVisibility } from 'react-icons/md'
+import { MdArchive } from 'react-icons/md'
 import { devUrl } from '../../config'
 
 function MemberCoupon(props) {
@@ -78,7 +78,8 @@ function MemberCoupon(props) {
                         <br />
                         <br />
                         <div className=" d-flex justify-content-end ">
-                          <button className=" btn_style subtitle2 ">
+                          <button className=" btn_style subtitle2 botton-font btn_icon mem_card_btn">
+                            <MdArchive />
                             一鍵領取
                           </button>
                         </div>

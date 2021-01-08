@@ -22,7 +22,9 @@ function MemberContent() {
             <Form className="row  d-flex justify-content-start mem_inf">
               <Form.Group controlId="formBasicEmail" className="mem_form">
                 <Form.Label className="d-flex ">
-                  <p className="subtitle1">*</p>
+                  <p className="subtitle1" style={{ color: '#df3d00' }}>
+                    *
+                  </p>
                   <p className="subtitle1">帳號</p>
                 </Form.Label>
                 <Form.Control
@@ -33,7 +35,9 @@ function MemberContent() {
               </Form.Group>
               <Form.Group controlId="formBasicEmail" className="mem_form">
                 <Form.Label className="d-flex">
-                  <p className="subtitle1">*</p>
+                  <p className="subtitle1" style={{ color: '#df3d00' }}>
+                    *
+                  </p>
                   <p className="subtitle1">名稱</p>
                 </Form.Label>
                 <Form.Control
@@ -44,7 +48,9 @@ function MemberContent() {
               </Form.Group>
               <Form.Group controlId="formBasicEmail" className="mem_form">
                 <Form.Label className="d-flex">
-                  <p className="subtitle1">*</p>
+                  <p className="subtitle1" style={{ color: '#df3d00' }}>
+                    *
+                  </p>
                   <p className="subtitle1">信箱</p>
                 </Form.Label>
                 <Form.Control
@@ -56,7 +62,9 @@ function MemberContent() {
 
               <Form.Group>
                 <Form.Label className="d-flex mem_form">
-                  <p className="subtitle1">*</p>
+                  <p className="subtitle1" style={{ color: '#df3d00' }}>
+                    *
+                  </p>
                   <p className="subtitle1">性別</p>
                 </Form.Label>
                 <Form.Label className="mem_form ">

@@ -41,6 +41,7 @@ function MemberMyPhoto2(props) {
                               className="addphoto2"
                               src={devUrl + '/pic/SVG/photoadd2.svg'}
                               alt="add2"
+                              style={{ cursor: ' pointer ' }}
                             ></img>
                           </label>
                         </form>

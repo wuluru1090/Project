@@ -1,79 +1,54 @@
-.btn_toscore:active {
-  display: none;
-}
+.pd_score {
+  .mymem_toscoreM {
+    // display: none;
+    .mymem_toscore {
+      padding: 8px;
 
-.mymem_toscore {
-  padding: 8px;
+      .mem_toscore {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin: 0 8px 0 8px;
+      }
+      p {
+        margin: 0 8px;
+      }
 
-  .mem_toscore {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    margin: 0 8px 0 8px;
-  }
-  p {
-    margin: 0 8px;
-  }
-
-  .ScoText {
-    width: 700px;
-    height: 80px;
-  }
-}
-
-.join {
-  width: 70px;
-  height: 24px;
-  border-radius: 50px;
-  font-size: 12px;
-  background: #4f7f9a;
-  color: white;
-  box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
-  justify-content: center;
-  align-items: center;
-  border: 0;
-}
-.mymem_toscore {
-  margin: 0 0 0 8px;
-
-  .mem_toscore_G {
-    padding: 8px 0 0 0;
-    figure {
-      padding: 0;
-      margin: 0;
-      figcaption {
-        // padding: 8px 0;
-        font-size: 12px;
-        text-align: center;
+      .ScoText {
+        width: 660px;
+        height: 80px;
+      }
+    }
+    .join {
+      width: 70px;
+      height: 24px;
+      border-radius: 50px;
+      font-size: 12px;
+      background: #4f7f9a;
+      color: white;
+      box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+      justify-content: center;
+      align-items: center;
+      border: 0;
+    }
+    .mymem_toscore {
+      margin: 0 0 0 8px;
+      .mem_toscore_G {
+        padding: 8px 0 0 0;
+        figure {
+          padding: 0;
+          margin: 0;
+          figcaption {
+            // padding: 8px 0;
+            font-size: 12px;
+            text-align: center;
+          }
+        }
       }
     }
   }
-}
 
-.join {
-  width: 70px;
-  height: 24px;
-  border-radius: 50px;
-  font-size: 12px;
-  background: #4f7f9a;
-  color: white;
-  box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
-  justify-content: center;
-  align-items: center;
-  border: 0;
-}
-.mymem_toscore {
-  margin: 0 0 0 8px;
-  .mem_toscore_G {
-    padding: 8px 0 0 0;
-    figure {
-      padding: 0;
-      margin: 0;
-      figcaption {
-        // padding: 8px 0;
-        font-size: 12px;
-        text-align: center;
-      }
-    }
-  }
+  // .btn_toscore:hover {
+  //   display: none;
+  // }
 }

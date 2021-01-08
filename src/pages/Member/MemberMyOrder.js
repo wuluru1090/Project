@@ -20,6 +20,7 @@ function MemberMyOrder(props) {
                 <div>
                   <MemberCard />
                   <br />
+
                   <MemberNavlist />
                 </div>
 

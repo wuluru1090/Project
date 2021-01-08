@@ -2,30 +2,34 @@
 
 body {
   min-height: 100%;
-  .mem_nameandtitle {
-    padding: 16px;
-  }
-  .photo_album_all {
-    width: 900px;
 
-    .photo_album2 {
-      width: 220px;
-      margin: 32px 24px 50px 24px;
+  .user_card_body {
+    padding-bottom: 260px;
+    .mem_nameandtitle {
+      padding: 16px;
+    }
+    .photo_album_all {
+      width: 900px;
 
-      h6 {
-        text-align: center;
-      }
-      .img_box2 {
-        align-items: center;
-        border-radius: 5px;
-        border: solid 1px $secondary;
-        padding: 8px;
-        background-color: #ffffff;
-        margin: 0 auto;
-        img {
-          width: 100px;
-          height: 70px;
-          padding: 5px;
+      .photo_album2 {
+        width: 220px;
+        margin: 32px 24px 50px 24px;
+
+        h6 {
+          text-align: center;
+        }
+        .img_box2 {
+          align-items: center;
+          border-radius: 5px;
+          border: solid 1px $secondary;
+          padding: 8px;
+          background-color: #ffffff;
+          margin: 0 auto;
+          img {
+            width: 100px;
+            height: 70px;
+            padding: 5px;
+          }
         }
       }
     }

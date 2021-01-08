@@ -53,6 +53,7 @@ function MemberMyManagementDelete(props) {
                             <Button
                               onclick=""
                               className="btn-style botton-font btn_icon mem_card_btn  "
+                              style={{ backgroundColor: '#df3d00' }}
                             >
                               <MdDeleteForever />
                               刪除帳號

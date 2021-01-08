@@ -14,7 +14,7 @@ function UserSeeMember(props) {
         <div className="background_wave ">
           <div className="wrapper">
             <main className="container">
-              <aside className="d-flex justify-content-center card_body">
+              <aside className="d-flex justify-content-center user_card_body">
                 <br />
                 <div className="user_mem_card">
                   <div className="d-flex justify-content-center align-items-center user_card">
