@@ -3,9 +3,11 @@ import ClassResultCard from '../Class/ClassResultCard'
 import '../../style/default.scss'
 import '../../style/class/search_main.scss'
 import { devUrl } from '../../config'
+
+// 元件
 import Accordion from './Accordion'
-// import { Dropdown } from 'react-bootstrap'
 import Selection from '../Class/Selection'
+import Pagination from '../Main/Pagination'
 
 function SearchMain() {
   return (
@@ -32,6 +34,9 @@ function SearchMain() {
               <ClassResultCard />
               <ClassResultCard />
               <ClassResultCard />
+            </div>
+            <div className="pagination_block">
+              <Pagination />
             </div>
           </div>
         </div>

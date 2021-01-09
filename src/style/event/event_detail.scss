@@ -2,7 +2,7 @@
 $url: 'http://localhost:3000';
 
 // 波浪背景1
-.class_wave_background {
+.event_wave_background {
   background: url($url + '/Pic/SVG/wave-blue-attbg-1440.svg');
   width: 100%;
   top: 40px;
@@ -12,10 +12,6 @@ $url: 'http://localhost:3000';
   .mainclass_wrapper {
     max-width: 1160px;
     margin: 0 auto;
-  }
-
-  .subtitle1 {
-    font-size: 16px;
   }
 
   // 發起者頭像
@@ -56,10 +52,6 @@ $url: 'http://localhost:3000';
           color: white;
           font-size: 16px;
           text-align: center;
-          &:hover {
-            transform: translateY(2px);
-            box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
-          }
         }
         .save {
           background-color: #f28d61;
@@ -73,7 +65,6 @@ $url: 'http://localhost:3000';
     // 麵包屑
     .bread_crumb {
       margin-top: 43px;
-      font-size: 20px;
     }
   }
 
@@ -83,7 +74,6 @@ $url: 'http://localhost:3000';
 
   .organizer_info > span {
     margin-left: -60px;
-    font-size: 16px;
   }
 
   // 商品圖片
@@ -107,66 +97,46 @@ $url: 'http://localhost:3000';
 
   .features {
     padding-left: 30px;
-    li {
-      font-size: 16px;
-      margin-bottom: 26px;
-    }
   }
   .left_part {
     // border: 1px solid red;
     margin-left: 83px;
     width: 347px;
+    .google-calender {
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
+      margin: 38px 0px;
+      color: white;
+      width: 347px;
+      padding: 18px 56px;
+      background: $primary-100;
+      transition: 0.5s;
+      &:hover {
+        background: $primary-300;
+      }
+    }
     .gmap {
       width: 343px;
       height: 386px;
-      margin-top: 35px;
       border-radius: 10px;
     }
   }
-  .class_title {
-    color: $primary;
-    margin-top: 50px;
-    margin-bottom: 0px;
-    font-size: 24px;
-    font-family: 'TaipeiSansTCBeta-Bold';
-  }
 
-  .line {
-    border: 2px solid $primary;
-    width: 96px;
-    margin-bottom: 48px;
-    margin-top: 5px;
+  .underline-title {
+    // background: #12d0c9;
+    margin-top: 50px;
+    .detail-title {
+      color: $primary;
+      font-size: 24px;
+      font-family: 'TaipeiSansTCBeta-Bold';
+      padding-bottom: 5px;
+      text-align: center;
+      border-bottom: 3px solid $primary;
+    }
   }
 
   p {
     margin: 50px 0px 54px 0px;
     line-height: 28px;
-    font-size: 16px;
-  }
-  // 授課老師資訊欄
-  .teacher {
-    width: 730px;
-    height: 138px;
-    display: flex;
-    .teacher_pic {
-      height: 138px;
-      width: 138px;
-      border-radius: 50%;
-      overflow: hidden;
-      img {
-        width: 100%;
-      }
-    }
-    .teacher_info_block {
-      width: 550px;
-      margin-left: 42px;
-      .class_teacher {
-        font-family: 'TaipeiSansTCBeta-Bold';
-      }
-      .teacher_intro {
-        margin: 0;
-      }
-    }
   }
 
   .wave_background2 {
@@ -211,11 +181,5 @@ $url: 'http://localhost:3000';
     color: $primary;
     font-size: 24px;
     font-family: 'TaipeiSansTCBeta-Bold';
-    margin-top: 40px;
-  }
-
-  .bottom-carousel {
-    // border: 1px solid red;
-    margin-bottom: 80px;
   }
 }

@@ -18,9 +18,18 @@ const SortingOptions = [
     value: 'High2Low',
   },
 ]
+const dropdownStyle = {
+  fontSize: '20px',
+}
 
 const Dropdown1 = () => (
-  <Dropdown placeholder="排序方式" fluid selection options={SortingOptions} />
+  <Dropdown
+    placeholder="排序方式"
+    fluid
+    selection
+    options={SortingOptions}
+    style={dropdownStyle}
+  />
 )
 
 export default Dropdown1

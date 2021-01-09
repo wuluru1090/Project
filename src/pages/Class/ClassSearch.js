@@ -6,6 +6,7 @@ import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
 import SearchTop from '../../components/Class/SearchTop'
 import SearchMain from '../../components/Class/SearchMain'
+import SearchBottom from '../../components/Class/SearchBottom'
 
 function ClassSearch() {
   return (
@@ -13,6 +14,7 @@ function ClassSearch() {
       <Router>
         <SearchTop />
         <SearchMain />
+        <SearchBottom />
       </Router>
     </>
   )
