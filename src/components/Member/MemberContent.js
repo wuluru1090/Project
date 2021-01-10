@@ -97,11 +97,30 @@ function MemberContent() {
               >
                 <Form.Label>攝影經驗</Form.Label>
                 <Form.Control as="select" className="  text_w">
-                  <option className="subtitle1">一年以下</option>
-                  <option className="subtitle1">一年以下</option>
-                  <option className="subtitle1">一年以下</option>
-                  <option className="subtitle1">一年以下</option>
-                  <option className="subtitle1">一年以下</option>
+                  <option className="subtitle1" value="0">
+                    一年以下
+                  </option>
+                  <option className="subtitle1" value="1">
+                    一年
+                  </option>
+                  <option className="subtitle1" value="3">
+                    兩年
+                  </option>
+                  <option className="subtitle1" value="4">
+                    四年
+                  </option>
+                  <option className="subtitle1" value="5">
+                    五年
+                  </option>
+                  <option className="subtitle1" value="6">
+                    六年
+                  </option>
+                  <option className="subtitle1" value="7">
+                    七年
+                  </option>
+                  <option className="subtitle1" value="8">
+                    七年以上
+                  </option>
                 </Form.Control>
               </Form.Group>
 
