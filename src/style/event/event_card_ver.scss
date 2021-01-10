@@ -4,7 +4,7 @@
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
 * {
-  font-size: 16px;
+  // font-size: 16px;
   font-family: 'Taipei Sans TC Beta';
   padding: 0;
   margin: 0;
@@ -20,9 +20,9 @@
     height: 350px;
     border: 1px solid transparent;
 
-    .cardtitle {
+    .card-title {
       font-size: $font-size-base;
-      font-family: 'TaipeiSansTCBeta-Bold';
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
     }
 
     .photo {

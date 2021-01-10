@@ -46,7 +46,9 @@ function EventCardVer() {
             ></img>
           </a>
           <div className="card-body">
-            <h5 className="cardtitle">四草綠意盎然 台南七股一日遊</h5>
+            <h5 className="subtitle1 card-title ">
+              四草綠意盎然 台南七股一日遊
+            </h5>
             <div className="d-flex inform">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
               <p className="card-text">四草綠色隧道 </p>

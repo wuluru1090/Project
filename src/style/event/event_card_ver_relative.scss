@@ -21,9 +21,9 @@
     height: 350px;
     border: 1px solid transparent;
 
-    .cardtitle {
+    .card-title {
       font-size: $font-size-base;
-      font-family: 'TaipeiSansTCBeta-Bold';
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
     }
 
     .photo {

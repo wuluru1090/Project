@@ -133,7 +133,7 @@ $url: 'http://localhost:3000';
     .detail-title {
       color: $primary;
       font-size: 24px;
-      font-family: 'TaipeiSansTCBeta-Bold';
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
       padding-bottom: 5px;
       text-align: center;
       border-bottom: 3px solid $primary;
@@ -154,7 +154,7 @@ $url: 'http://localhost:3000';
   h4 {
     text-align: center;
     color: white;
-    font-family: 'TaipeiSansTCBeta-Bold';
+    font-family: 'TaipeiSansTCBeta-Bold' !important;
   }
 
   .line2 {

@@ -53,7 +53,7 @@ function EventCardHor() {
             </p>
             <div className="d-flex bbb">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
-              <p className="card-text">四草綠色隧道 </p>
+              <p className="subtitle1 card-text ">四草綠色隧道 </p>
             </div>
             <div className="d-flex bbb">
               <img

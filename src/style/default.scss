@@ -47,17 +47,17 @@ $navbar-light-active-color: $secondary;
 @font-face {
   font-family: 'TaipeiSansTCBeta-Regular';
   src: url('./font/TaipeiSansTCBeta-Regular.ttf');
-  // unicode-range: U+4E00-9FFF;
+  unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Bold';
   src: url('./font/TaipeiSansTCBeta-Bold.ttf');
-  // unicode-range: U+4E00-9FFF;
+  unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'TaipeiSansTCBeta-Light';
   src: url('./font/TaipeiSansTCBeta-Light.ttf');
-  // unicode-range: U+4E00-9FFF;
+  unicode-range: U+4E00-9FFF;
 }
 @font-face {
   font-family: 'Roboto-light';
@@ -83,10 +83,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif !important;
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
 }
-body {
-  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif !important;
+html {
+  font-size: 16px;
+  font-family: 'Roboto', 'TaipeiSansTCBeta-Regular', 'Noto Sans TC', sans-serif;
 }
 
 $rose: #f3b4ba;

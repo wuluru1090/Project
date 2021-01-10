@@ -46,7 +46,7 @@ function EventCardVerRelative() {
             ></img>
           </a>
           <div className="card-body">
-            <h5 className="cardtitle">四草綠意盎然 台南七股一日遊</h5>
+            <h5 className="card-title">四草綠意盎然 台南七股一日遊</h5>
             <div className="d-flex inform align-items-center">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
               <span className="card-text">四草綠色隧道 </span>
@@ -65,7 +65,9 @@ function EventCardVerRelative() {
                 src="/pic/svg/location_on-24px.svg"
                 alt=""
               />
-              <span className="card-text">台南市歸仁區歸仁大道100號 </span>
+              <span className="subtitle1 card-text">
+                台南市歸仁區歸仁大道100號{' '}
+              </span>
             </div>
 
             <div className="d-flex justify-content-between buttons">
