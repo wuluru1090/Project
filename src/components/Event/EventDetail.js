@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import '../../style/default.scss'
 import '../../style/event/event_detail.scss'
 import { devUrl } from '../../config'
 import { MdBookmark, MdShare } from 'react-icons/md'
+//DatePicker
+import 'react-modern-calendar-datepicker/lib/DatePicker.css'
+import { Calendar } from 'react-modern-calendar-datepicker'
 
 // 元素
 import EventDetailInfo from './EventDetailInfo'
@@ -21,6 +24,24 @@ const location = {
 }
 
 function EventDetail() {
+  const defaultFrom = {
+    year: 2021,
+    month: 1,
+    day: 10,
+  }
+
+  const defaultTo = {
+    year: 2021,
+    month: 1,
+    day: 13,
+  }
+
+  const defaultRange = {
+    from: defaultFrom,
+    to: defaultTo,
+  }
+
+  const [selectedDayRange, setSelectedDayRange] = useState(defaultRange)
   return (
     <>
       <div className="event_wave_background">
@@ -89,6 +110,14 @@ function EventDetail() {
               <button className="btn rounded-pill google-calender font-bold">
                 <h5>+ 加入Google行事曆</h5>
               </button>
+
+              <Calendar
+                value={selectedDayRange}
+                onChange={setSelectedDayRange}
+                shouldHighlightWeekends
+                calendarClassName="responsive-calendar"
+              />
+
               <div className="gmap">
                 <GMap location={location} zoomLevel={15} />
               </div>
