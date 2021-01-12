@@ -1,0 +1,206 @@
+@import '../default.scss';
+$url: 'http://localhost:3000';
+
+// 波浪背景1
+.event_wave_background {
+  background: url($url + '/Pic/SVG/wave-blue-attbg-1440.svg');
+
+  width: 100%;
+  top: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  .mainclass_wrapper {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .wave_background3 {
+    transform: translateY(-5px);
+    img {
+      width: 100%;
+    }
+  }
+  // 發起者頭像
+  .organizer {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 75px;
+    border: 1px solid gray;
+    img {
+      width: 100%;
+    }
+  }
+
+  // 課程簡易資訊欄大區(含按鈕)
+  .page-head {
+    color: white;
+    padding-top: 42px;
+    .title {
+      h5 {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+    }
+
+    .page-head-part2 {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      // 按鈕區
+      .btn_part {
+        // border:1px solid red;
+        display: flex;
+        align-items: flex-end;
+        .bttn {
+          padding: 5px 20px;
+          color: white;
+          font-size: 16px;
+          text-align: center;
+        }
+        .save {
+          background-color: #f28d61;
+        }
+        .share {
+          background-color: #12d0c9;
+          margin-left: 17px;
+        }
+      }
+    }
+    // 麵包屑
+    .bread_crumb {
+      margin-top: 43px;
+    }
+  }
+
+  .organizer_info {
+    display: flex;
+  }
+
+  .organizer_info > span {
+    margin-left: -60px;
+  }
+
+  // 商品圖片
+  .class_pic {
+    width: 730px;
+    height: 305px;
+    overflow: hidden;
+    border-radius: 10px;
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .page-head-part3 {
+    display: flex;
+    margin-top: 20px;
+    .content_big_part {
+      width: 730px;
+    }
+  }
+
+  .features {
+    padding-left: 30px;
+  }
+  .left_part {
+    // border: 1px solid red;
+    margin-left: 83px;
+    width: 347px;
+    .google-calender {
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
+      margin: 38px 0px;
+      color: white;
+      width: 347px;
+      padding: 18px 56px;
+      background: $primary-100;
+      transition: 0.5s;
+      &:hover {
+        background: $primary-300;
+      }
+    }
+    .gmap {
+      width: 343px;
+      height: 386px;
+      border-radius: 10px;
+    }
+  }
+
+  .underline-title {
+    // background: #12d0c9;
+    margin-top: 50px;
+    .detail-title {
+      color: $primary;
+      font-size: 24px;
+      font-family: 'TaipeiSansTCBeta-Bold' !important;
+      padding-bottom: 5px;
+      text-align: center;
+      border-bottom: 3px solid $primary;
+    }
+  }
+
+  p {
+    margin: 50px 0px 54px 0px;
+    line-height: 28px;
+  }
+
+  .forum-wave-height {
+    background: $primary-200;
+    width: 100%;
+    margin: 0px auto;
+  }
+
+  h4 {
+    text-align: center;
+    color: white;
+    font-family: 'TaipeiSansTCBeta-Bold' !important;
+  }
+
+  .line2 {
+    border: 2px solid white;
+    width: 155px;
+    margin: 0 auto;
+  }
+
+  .gallery_part {
+    margin-top: 270px;
+    // border: 1px solid red;
+  }
+  .relative-event {
+    transform: translateY(-120px);
+    .underline-title {
+      margin-bottom: 38px;
+    }
+    .relative-event-carousel {
+      margin: auto;
+      display: flex;
+    }
+  }
+
+  .member_photo_showcase {
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+
+  .class_suggest {
+    color: $primary;
+    font-size: 24px;
+    font-family: 'TaipeiSansTCBeta-Bold';
+  }
+  .react-calendar {
+    margin-top: 38px !important;
+    padding: 8px !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(0, 0, 0, 0.125) !important;
+    .react-calendar__month-view__weekdays__weekday {
+      padding: 0 !important;
+    }
+    .react-calendar__tile--active {
+      background: $primary-100 !important;
+    }
+    .react-calendar__tile--hasActive {
+      background: $primary-050 !important;
+    }
+  }
+}
