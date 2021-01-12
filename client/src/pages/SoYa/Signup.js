@@ -1,6 +1,6 @@
 import logo from '../../logo.svg'
 import '../../index.scss'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import MyNavbar from '../../components/Main/MyNavbar'
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
@@ -10,9 +10,9 @@ import { FaTwitter } from 'react-icons/fa'
 function Signup() {
   return (
     <>
-      <Router>
-        <MyNavbar />
-      </Router>
+      {/* <Router> */}
+      <MyNavbar />
+      {/* </Router> */}
 
       <div className="signup">
         <div className="signupbox">

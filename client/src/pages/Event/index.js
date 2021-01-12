@@ -6,15 +6,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function Event() {
   return (
-    <Router>
-      <>
-        {/* <MyNavbar /> */}
-        <EventMain />
-        <EventResult />
-        <EventBottom />
-        {/* <Footer /> */}
-      </>
-    </Router>
+    <>
+      <EventMain />
+      <EventResult />
+      <EventBottom />
+    </>
   )
 }
 export default Event

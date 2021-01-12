@@ -1,6 +1,6 @@
 import logo from '../../logo.svg'
 import '../../index.scss'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
@@ -14,17 +14,17 @@ import SoYa5 from '../../components/Soya/SoYa5'
 function SoYa() {
   return (
     <>
-      <Router>
-        {/* <MyNavbar /> */}
-        <SoYa1>
-          <Searchbar />
-        </SoYa1>
-        <SoYa2 />
-        <SoYa3 />
-        <SoYa4 />
-        <SoYa5 />
-        {/* <Footer /> */}
-      </Router>
+      {/* <Router> */}
+      {/* <MyNavbar /> */}
+      <SoYa1>
+        <Searchbar />
+      </SoYa1>
+      <SoYa2 />
+      <SoYa3 />
+      <SoYa4 />
+      <SoYa5 />
+      {/* <Footer /> */}
+      {/* </Router> */}
     </>
   )
 }

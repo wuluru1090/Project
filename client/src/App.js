@@ -12,43 +12,42 @@ import SearchTop from './components/Class/SearchTop'
 import SearchMain from './components/Class/SearchMain'
 import MainClass from './components/Class/MainClass'
 import SoYa from './pages/SoYa/SoYa'
+import Test from './Test'
 
 function App() {
   return (
-    <>
-      <Router>
-        <>
-          <MyNavbar />
-          <MainContent>
-            <Switch>
-              <Route path="/begin">
-                <EventAttendant />
-              </Route>
-              <Route path="/event-search">
-                <Event />
-              </Route>
-              <Route path="/class">
-                <MainClass />
-              </Route>
-              <Route exact path="/photo">
-                <EventAlbumPhoto />
-              </Route>
-              <Route path="/event/album">
-                <Album />
-              </Route>
-
-              <Route exact path="/">
-                <SoYa />
-              </Route>
-              <Route path="/event/:id">
-                <EventDetails />
-              </Route>
-            </Switch>
-          </MainContent>
-          <Footer />
-        </>
-      </Router>
-    </>
+    <Router>
+      <>
+        <MyNavbar />
+        <MainContent>
+          <Switch>
+            <Route path="/event/:id?">
+              <EventDetails />
+              <Test />
+            </Route>
+            <Route path="/begin">
+              <EventAttendant />
+            </Route>
+            <Route path="/event-search">
+              <Event />
+            </Route>
+            <Route path="/class">
+              <MainClass />
+            </Route>
+            <Route exact path="/photo">
+              <EventAlbumPhoto />
+            </Route>
+            <Route path="/event/album">
+              <Album />
+            </Route>
+            <Route exact path="/">
+              <SoYa />
+            </Route>
+          </Switch>
+        </MainContent>
+        <Footer />
+      </>
+    </Router>
   )
 }
 
