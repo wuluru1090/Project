@@ -107,10 +107,10 @@ function ClassMain(props) {
               </div>
               <div className="page-head-part3">
                 <div className="content_big_part">
-                  <div className="class_pic">
-                    <figure>
+                  <div>
+                    <figure className="class_pic">
                       <img
-                        src={devUrl + '/pic/SVG/' + val.class_image}
+                        src={devUrl + '/pic/class/' + val.class_main_pic}
                         alt="課程圖片"
                       />
                     </figure>
@@ -132,7 +132,7 @@ function ClassMain(props) {
                     <div className="teacher_pic">
                       <figure>
                         <img
-                          src={devUrl + '/Pic/pic/' + val.class_teacher_photo}
+                          src={devUrl + '/pic/class/' + val.class_teacher_photo}
                           alt="老師圖片"
                         />
                       </figure>
