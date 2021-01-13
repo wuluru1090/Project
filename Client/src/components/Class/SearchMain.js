@@ -28,8 +28,8 @@ function SearchMain() {
               搜尋結果<span>?</span>筆結果
             </div>
             <div className="search-result">
-              <ClassResultCard className="class_result_card" />
-              {/* <ClassResultCard />
+              {/* <ClassResultCard className="class_result_card" />
+              <ClassResultCard />
               <ClassResultCard />
               <ClassResultCard />
               <ClassResultCard />
