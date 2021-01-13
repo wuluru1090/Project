@@ -14,17 +14,15 @@ import SoYa5 from '../../components/Soya/SoYa5'
 function SoYa() {
   return (
     <>
-      <Router>
-        {/* <MyNavbar /> */}
-        <SoYa1>
-          <Searchbar />
-        </SoYa1>
-        <SoYa2 />
-        <SoYa3 />
-        <SoYa4 />
-        <SoYa5 />
-        {/* <Footer /> */}
-      </Router>
+      {/* <MyNavbar /> */}
+      <SoYa1>
+        <Searchbar />
+      </SoYa1>
+      <SoYa2 />
+      <SoYa3 />
+      <SoYa4 />
+      <SoYa5 />
+      {/* <Footer /> */}
     </>
   )
 }

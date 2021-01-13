@@ -7,9 +7,7 @@ import MainClass from '../../components/Class/MainClass'
 function ClassResult() {
   return (
     <>
-      <Router>
-        <MainClass />
-      </Router>
+      <MainClass />
     </>
   )
 }

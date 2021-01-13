@@ -1,8 +1,9 @@
-import React from 'react'
-// import '../../style/default.scss'
+import React, { useState, useEffect } from 'react'
 import '../../style/class/main_class.scss'
 import { devUrl } from '../../config'
 import { MdBookmark, MdShare } from 'react-icons/md'
+import Axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 // 元素
 import ClassCard from './ClassCard'
@@ -20,135 +21,162 @@ const location = {
   lng: 121.19498,
 }
 
-function ClassMain() {
-  const class_content = {
-    teacher_image: 'member.jpg',
-    teacher: '張思婷',
-    teacher_intro:
-      '驕則失禮，失禮則人離，人離則眾叛。但願諸位理解後能從中有所成長。若發現問題比我們想像的還要深奧，那肯定不簡單。看看別人，再想想自己，會發現問題的核心其實就在你身旁',
-    date: '2020/05/30',
-    title: '這是一個課程標題',
-    class_image: 'class_pic.svg',
-    features: [
-      '我們的導師有多年攝影教學經驗,熟習各主要牌子的相機運作',
-      '課室設有場景供大家即場實習,不用另覓場地',
-      '不定期設有免費的攝影活動供同學參與,增加實戰機會',
-    ],
-    content:
-      '攝影，到底應該如何實現。攝影可以說是有著成為常識的趨勢。我們可以很篤定的說，這需要花很多時間來嚴謹地論證。了解清楚攝影到底是一種怎麼樣的存在，是解決一切問題的關鍵。薩迪相信，你在兩個仇人之間說話要有分寸，以免他們和好後你將無地自容。但願各位能從這段話中獲得心靈上的滋長。在人生的歷程中，攝影的出現是必然的。面對如此難題，我們必須設想周全。金纓曾提出，敗德之事非一，而酗酒者德必敗，傷生之事非一，而好色者生必傷。這句話決定了一切。不要先入為主覺得攝影很複雜，實際上，攝影可能比你想的還要更複雜。既然如此，顧炎武講過一段耐人尋思的話，人生富貴駒過隙，唯有榮名壽金石。這句話改變了我的人生。攝影勢必能夠左右未來。一般來說，我認為，話雖如此，做好攝影這件事，可以說已經成為了全民運動。雨果說過一句發人省思的話，世上只有兩種力量，一種是劍，一。這是撼動人心的。諸葛亮深信，將不可驕，驕則失禮，失禮則人離，人離則眾叛。但願諸位理解後能從中有所成長。若發現問題比我們想像的還要深奧，那肯定不簡單。看看別人，再想想自己，會發現問題的核心其實就在你身旁。攝影，到底應該如何實現。攝影可以說是有著成為常識的趨勢。我們可以很篤定的說，這需要花很多時間來嚴謹地論證。了解清楚攝影到底是一種怎麼樣的存在，是解決一切問題的關鍵。薩迪相信，你在兩個仇人之間說話要有分寸，以免他們和好後你將無地自容。但願各位能從這段話中獲得心靈上的滋長。在人生的歷程中，攝影的出現是必然的。面對如此難題，我們必須設想周全。金纓曾提出，敗德之事非一，而酗酒者德必敗，傷生之事非一，而好色者生必傷。這句話決定了一切。',
+// let dataDB = require('../../data.json')
+// let datadbma = dataDB[2].data
+// { id = 4, data = datadbma, type = 'project_class' }
+function ClassMain(props) {
+  console.log(props)
+  const [classData, setClassData] = useState([])
+
+  function dateConvert(jsonDate) {
+    let json = String(jsonDate).split(' ')
+    let date = new Date(json[0])
+    let dd = date.getDate()
+    let mm = date.getMonth() + 1
+    var yyyy = date.getFullYear()
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+    date = yyyy + '-' + mm + '-' + dd
+    return date
   }
+
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/class/${props.match.params.id}`)
+      .then((response) => {
+        console.log(response.data)
+        setClassData(response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [])
 
   return (
     <>
-      <div className="class_wave_background test">
-        <div className="mainclass_wrapper">
-          <div className="page-head">
+      {classData.map((val) => {
+        console.log(val)
+        return (
+          <div className="class_wave_background test">
+            <div className="mainclass_wrapper">
+              <div className="page-head">
+                <div>
+                  <h6 className="subtitle1">
+                    {dateConvert(val.class_start_date)}&nbsp;~&nbsp;
+                    {dateConvert(val.class_end_date)}
+                  </h6>
+                  <h5>{val.class_name}</h5>
+                </div>
+                <div className="page-head-part2">
+                  <div className="organizer_info">
+                    <div className="organizer">
+                      <figure>
+                        <img
+                          src={devUrl + '/pic/pic/' + val.class_teacher_photo}
+                          alt=""
+                        />
+                      </figure>
+                    </div>
+                    <span>
+                      {val.class_teacher_name}
+                      <br />
+                      <span style={{ fontSize: '12px' }}>發起的活動</span>
+                    </span>
+                  </div>
+                  <div className="btn_part">
+                    <button className="btn bttn save rounded-pill">
+                      <MdBookmark
+                        size={30}
+                        style={{ color: 'white', paddingRight: '6px' }}
+                      />
+                      <span className="align-middle">收藏</span>
+                    </button>
+                    <button className="btn bttn share rounded-pill">
+                      <MdShare
+                        size={30}
+                        style={{ color: 'white', paddingRight: '6px' }}
+                      />
+                      <span className="align-middle">分享</span>
+                    </button>
+                  </div>
+                </div>
+                <div className="bread_crumb">麵包屑放置處</div>
+              </div>
+              <div className="page-head-part3">
+                <div className="content_big_part">
+                  <div className="class_pic">
+                    <figure>
+                      <img
+                        src={devUrl + '/pic/SVG/' + val.class_image}
+                        alt="課程圖片"
+                      />
+                    </figure>
+                  </div>
+                  <h5 className="class_title">課程特色</h5>
+                  <div className="line"></div>
+                  <ul className="features">
+                    <li>{val.class_features1}</li>
+                    <li>{val.class_features2}</li>
+                    <li>{val.class_features3}</li>
+                  </ul>
+                  <h5 className="class_title">課程內容</h5>
+                  <div className="line"></div>
+                  <p dangerouslySetInnerHTML={{ __html: val.class_content }} />
+                  {/* <p>{data[id].class_content}</p> */}
+                  <h5 className="class_title">授課老師</h5>
+                  <div className="line"></div>
+                  <div className="teacher">
+                    <div className="teacher_pic">
+                      <figure>
+                        <img
+                          src={devUrl + '/Pic/pic/' + val.class_teacher_photo}
+                          alt="老師圖片"
+                        />
+                      </figure>
+                    </div>
+                    <div className="teacher_info_block">
+                      <h5 className="class_teacher">
+                        {val.class_teacher_name}
+                      </h5>
+                      <p className="teacher_intro">{val.class_teacher_intro}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="left_part">
+                  <ClassCard />
+                  <div className="gmap">
+                    <GMap location={location} zoomLevel={15} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="wave_background2">
+              <div className="gallery_part">
+                <h4>學員攝影作品</h4>
+                <div className="line2"></div>
+                <div className="member_photo_showcase">
+                  <Carousel1 />
+                </div>
+              </div>
+            </div>
+            <div className="mainclass_wrapper">
+              <h5 className="class_suggest">相似課程</h5>
+              <div className="line"></div>
+              <div className="bottom-carousel">
+                <Carousel2 />
+              </div>
+            </div>
             <div>
-              <h6 className="subtitle1">{class_content.date}</h6>
-              <h5>{class_content.title}</h5>
-            </div>
-            <div className="page-head-part2">
-              <div className="organizer_info">
-                <div className="organizer">
-                  <figure>
-                    <img
-                      src={devUrl + '/Pic/pic/' + class_content.teacher_image}
-                      alt=""
-                    />
-                  </figure>
-                </div>
-                <span>
-                  {class_content.teacher}
-                  <br />
-                  <span style={{ fontSize: '12px' }}>發起的活動</span>
-                </span>
-              </div>
-              <div className="btn_part">
-                <button className="btn bttn save rounded-pill">
-                  <MdBookmark
-                    size={30}
-                    style={{ color: 'white', paddingRight: '6px' }}
-                  />
-                  <span className="align-middle">收藏</span>
-                </button>
-                <button className="btn bttn share rounded-pill">
-                  <MdShare
-                    size={30}
-                    style={{ color: 'white', paddingRight: '6px' }}
-                  />
-                  <span className="align-middle">分享</span>
-                </button>
-              </div>
-            </div>
-            <div className="bread_crumb">麵包屑放置處</div>
-          </div>
-          <div className="page-head-part3">
-            <div className="content_big_part">
-              <div className="class_pic">
-                <figure>
-                  <img
-                    src={devUrl + '/pic/SVG/' + class_content.class_image}
-                    alt="課程圖片"
-                  />
-                </figure>
-              </div>
-              <h5 className="class_title">課程特色</h5>
-              <div className="line"></div>
-              <ul className="features">
-                <li>{class_content.features[0]}</li>
-                <li>{class_content.features[1]}</li>
-                <li>{class_content.features[2]}</li>
-              </ul>
-              <h5 className="class_title">課程內容</h5>
-              <div className="line"></div>
-              <p>{class_content.content}</p>
-              <h5 className="class_title">授課老師</h5>
-              <div className="line"></div>
-              <div className="teacher">
-                <div className="teacher_pic">
-                  <figure>
-                    <img
-                      src={devUrl + '/Pic/pic/' + class_content.teacher_image}
-                      alt="老師圖片"
-                    />
-                  </figure>
-                </div>
-                <div className="teacher_info_block">
-                  <h5 className="class_teacher">{class_content.teacher}</h5>
-                  <p className="teacher_intro">{class_content.teacher_intro}</p>
-                </div>
-              </div>
-            </div>
-            <div className="left_part">
-              <ClassCard />
-              <div className="gmap">
-                <GMap location={location} zoomLevel={15} />
-              </div>
+              <FixedBottom />
             </div>
           </div>
-        </div>
-        <div className="wave_background2">
-          <div className="gallery_part">
-            <h4>學員攝影作品</h4>
-            <div className="line2"></div>
-            <div className="member_photo_showcase">
-              <Carousel1 />
-            </div>
-          </div>
-        </div>
-        <div className="mainclass_wrapper">
-          <h5 className="class_suggest">相似課程</h5>
-          <div className="line"></div>
-          <div className="bottom-carousel">
-            <Carousel2 />
-          </div>
-        </div>
-        <div>
-          <FixedBottom />
-        </div>
-      </div>
+        )
+      })}
     </>
   )
 }
 
-export default ClassMain
+export default withRouter(ClassMain)

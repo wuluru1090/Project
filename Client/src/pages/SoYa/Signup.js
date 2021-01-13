@@ -10,9 +10,7 @@ import { FaTwitter } from 'react-icons/fa'
 function Signup() {
   return (
     <>
-      <Router>
-        <MyNavbar />
-      </Router>
+      <MyNavbar />
 
       <div className="signup">
         <div className="signupbox">

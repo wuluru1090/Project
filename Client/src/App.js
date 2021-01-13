@@ -14,12 +14,13 @@ function App() {
         <>
           <MyNavbar />
           <Switch>
-            <Route path="/class">
-              <ClassResult />
-            </Route>
-            <Route exact path="/event">
+            <Route exact path="/class">
               <ClassSearch />
             </Route>
+            <Route path="/class/:id?">
+              <ClassResult />
+            </Route>
+
             {/* <Route path="/begin">
               <ProductMen />
             </Route>

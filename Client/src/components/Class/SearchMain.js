@@ -29,11 +29,11 @@ function SearchMain() {
             </div>
             <div className="search-result">
               <ClassResultCard className="class_result_card" />
+              {/* <ClassResultCard />
               <ClassResultCard />
               <ClassResultCard />
               <ClassResultCard />
-              <ClassResultCard />
-              <ClassResultCard />
+              <ClassResultCard /> */}
             </div>
             <div className="pagination_block">
               <Pagination />

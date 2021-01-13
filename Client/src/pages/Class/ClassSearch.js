@@ -11,11 +11,9 @@ import SearchBottom from '../../components/Class/SearchBottom'
 function ClassSearch() {
   return (
     <>
-      <Router>
-        <SearchTop />
-        <SearchMain />
-        <SearchBottom />
-      </Router>
+      <SearchTop />
+      <SearchMain />
+      <SearchBottom />
     </>
   )
 }

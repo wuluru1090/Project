@@ -12,9 +12,7 @@ import { FaFacebookF } from 'react-icons/fa'
 function Login() {
   return (
     <>
-      <Router>
-        <MyNavbar1 />
-      </Router>
+      <MyNavbar1 />
 
       <div className="login">
         <div className="loginbox">
