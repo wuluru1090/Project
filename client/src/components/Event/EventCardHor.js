@@ -92,12 +92,20 @@ function EventCardHor(props) {
             </div>
             <div className="d-flex justify-content-between buttons">
               <div className="tag-box">
-                <button className="btn rounded-pill btn-md  tag" type="button">
-                  自然
-                </button>
-                <button className="btn rounded-pill btn-md  tag" type="button">
-                  自然
-                </button>
+                <a
+                  href="#"
+                  className="btn rounded-pill btn-md tag"
+                  type="button"
+                >
+                  {cardInfo.event_type_name}
+                </a>
+                <a
+                  href="#"
+                  className="btn rounded-pill btn-md tag aaa"
+                  type="button"
+                >
+                  {cardInfo.event_theme_name}
+                </a>
               </div>
               <a
                 onClick={() => click2Detail(cardInfo.event_id)}

@@ -1,4 +1,4 @@
-.fixed_bottom {
+.event-fixed_bottom {
   backdrop-filter: blur(100px);
   background: rgba(255, 255, 255, 0.5);
   position: fixed;
@@ -24,8 +24,7 @@
         font-size: 19px;
       }
       .fixed_cart_button {
-        width: 201px;
-        height: 35.51px;
+        padding: 3px 36px;
         color: white;
         background: #104b6d;
         border-radius: 20px;

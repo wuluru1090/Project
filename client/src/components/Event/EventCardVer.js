@@ -115,14 +115,14 @@ function EventCardVer(props) {
                   className="btn rounded-pill btn-md tag"
                   type="button"
                 >
-                  自然
+                  {cardInfo.event_type_name}
                 </a>
                 <a
                   href="#"
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
                 >
-                  自然
+                  {cardInfo.event_theme_name}
                 </a>
               </div>
               <button

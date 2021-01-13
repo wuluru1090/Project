@@ -17,7 +17,7 @@ function EventResult() {
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/eventsearch`)
       .then((response) => {
-        // console.log(response)
+        console.log(response)
         setEventResult(response.data)
       })
       .catch(function (error) {

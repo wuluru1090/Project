@@ -203,6 +203,22 @@ function EventDetail(props) {
                         __html: val.event_details,
                       }}
                     ></div>
+                    <div className="event-tag-box">
+                      <a
+                        href="#"
+                        className="btn rounded-pill btn-md tag"
+                        type="button"
+                      >
+                        {val.event_type_name}
+                      </a>
+                      <a
+                        href="#"
+                        className="btn rounded-pill btn-md tag aaa"
+                        type="button"
+                      >
+                        {val.event_theme_name}
+                      </a>
+                    </div>
                     <div className="underline-title">
                       <span className="detail-title">參與者名單</span>
                     </div>

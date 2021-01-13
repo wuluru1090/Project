@@ -41,10 +41,16 @@ function EventFixedBottom(value) {
 
     return time
   }
+  const left = () => {
+    return (
+      parseInt(bottomData.event_valid_attendents) -
+      JSON.parse(bottomData.event_attendents).length
+    )
+  }
 
   return (
     <>
-      <div className="fixed_bottom">
+      <div className="event-fixed_bottom">
         <div className="d-flex justify-content-between fixed_bottom_wrapper ">
           <div className="fixed_bottom_first">
             <div>
@@ -65,16 +71,25 @@ function EventFixedBottom(value) {
           </div>
           <div className="d-flex align-items-center fixed_bottom_second">
             <div className="fixed_info">
-              <div>NT${bottomData.event_fees}</div>
+              <div>
+                {bottomData.event_fees > 0 ? (
+                  `NT$ ${bottomData.event_fees}`
+                ) : (
+                  <span style={{ color: '#12d0c9' }}>免費</span>
+                )}
+              </div>
               <div>
                 剩下
-                {parseInt(bottomData.event_valid_attendents) -
-                  JSON.parse(bottomData.event_attendents).length}
+                {left() > 0 ? (
+                  left()
+                ) : (
+                  <span style={{ color: '#df3d00' }}>&nbsp;0&nbsp;</span>
+                )}
                 個名額
               </div>
             </div>
-            <button className="btn d-flex align-items-center justify-content-center fixed_cart_button ">
-              加入購物車
+            <button className="btn d-flex align-items-center justify-content-center fixed_cart_button">
+              {left() > 0 ? '加入購物車' : '加入購物車(後補)'}
             </button>
           </div>
         </div>
