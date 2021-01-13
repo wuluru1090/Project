@@ -25,11 +25,13 @@ function EventCardVerRelative() {
             onClick={() => setIsActive(false)}
             style={isActive ? { display: 'inline' } : { display: 'none' }}
           />
-          <img
-            src={devUrl + '/pic/pic/event-slider1.jpg'}
-            className="card-img-top photo"
-            alt="..."
-          />
+          <figure className="event-photo">
+            <img
+              src={devUrl + '/pic/pic/event-slider1.jpg'}
+              className="card-img-top photo"
+              alt="..."
+            />
+          </figure>
           <a href="#">
             <div className="more-att">+3</div>
           </a>

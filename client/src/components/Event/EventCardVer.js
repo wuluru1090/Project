@@ -2,9 +2,36 @@ import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import '../../style/event/event_card_ver.scss'
+import { DateConvert } from '../Main/DateTimeConverter'
+import { useHistory } from 'react-router-dom'
 
-function EventCardVer() {
+// import Axios from 'axios'
+
+function EventCardVer(props) {
+  // console.log(props.initVal)
   const [isActive, setIsActive] = useState(false)
+  const [cardInfo, setCardInfo] = useState(props.initVal)
+
+  let history = useHistory()
+
+  function click2Detail(id) {
+    let stringId = JSON.stringify(id)
+    console.log(stringId)
+    history.push('/event/' + stringId)
+  }
+
+  //天數計算機
+  function isOneDay(date1, date2) {
+    let startDate = date1.split('-')
+    let endDate = date2.split('-')
+
+    console.log(
+      parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+    )
+
+    return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+  }
+
   return (
     <>
       <div className="col-3 d-flex justify-content-center event-card-vertical">
@@ -25,33 +52,31 @@ function EventCardVer() {
             onClick={() => setIsActive(false)}
             style={isActive ? { display: 'inline' } : { display: 'none' }}
           />
+          <figure className="event-photo">
+            <img
+              src={devUrl + '/pic/event/' + cardInfo.event_photo}
+              className="card-img-top photo"
+              alt={cardInfo.event_name}
+            />
+          </figure>
+          {/* 參與者頭像開始 */}
+
+          <div className="more-att">+3</div>
           <img
-            src={devUrl + '/pic/pic/event-slider1.jpg'}
-            className="card-img-top photo"
-            alt="..."
-          />
-          <a href="#">
-            <div className="more-att">+3</div>
-          </a>
-          <a href="#">
-            <img
-              className="second-att"
-              src={devUrl + '/pic/pic/member2.jpg'}
-            ></img>
-          </a>
-          <a href="#">
-            <img
-              className="first-att"
-              src={devUrl + '/pic/pic/member3.jpg'}
-            ></img>
-          </a>
+            className="second-att"
+            src={devUrl + '/pic/pic/member2.jpg'}
+          ></img>
+          <img
+            className="first-att"
+            src={devUrl + '/pic/pic/member3.jpg'}
+          ></img>
+
+          {/* 參與者頭像結束 */}
           <div className="card-body">
-            <h5 className="subtitle1 card-title ">
-              四草綠意盎然 台南七股一日遊
-            </h5>
+            <h5 className="subtitle1 card-title ">{cardInfo.event_name}</h5>
             <div className="d-flex inform">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
-              <p className="card-text">四草綠色隧道 </p>
+              <p className="card-text">{cardInfo.event_location}</p>
             </div>
             <div className="d-flex inform">
               <img
@@ -59,7 +84,20 @@ function EventCardVer() {
                 src="/pic/svg/date_range-24px.svg"
                 alt=""
               />
-              <p className="card-text d-flex">2021-01-28 </p>
+              <p className="card-text d-flex">
+                {isOneDay(
+                  cardInfo.event_start_time,
+                  cardInfo.event_end_time
+                ) ? (
+                  <DateConvert jsonDate={cardInfo.event_start_time} />
+                ) : (
+                  <>
+                    <DateConvert jsonDate={cardInfo.event_start_time} />
+                    <span>&nbsp;~&nbsp;</span>
+                    <DateConvert jsonDate={cardInfo.event_end_time} />
+                  </>
+                )}
+              </p>
             </div>
             <div className="d-flex inform">
               <img
@@ -67,7 +105,7 @@ function EventCardVer() {
                 src="/pic/svg/location_on-24px.svg"
                 alt=""
               />
-              <p className="card-text">台南市歸仁區歸仁大道100號 </p>
+              <p className="card-text">{cardInfo.event_address}</p>
             </div>
 
             <div className="d-flex justify-content-between buttons">
@@ -87,9 +125,12 @@ function EventCardVer() {
                   自然
                 </a>
               </div>
-              <a href="#" className="btn d-flex join">
+              <button
+                onClick={() => click2Detail(cardInfo.event_id)}
+                className="btn d-flex join"
+              >
                 參加活動
-              </a>
+              </button>
             </div>
           </div>
         </div>

@@ -25,7 +25,11 @@ function Searchbar2(props) {
                   aria-label="Search"
                 />
               </div>
-              <button className="btn rounded-pill sub" type="submit">
+              <button
+                onClick={() => {}}
+                className="btn rounded-pill sub"
+                type="submit"
+              >
                 搜尋
               </button>
             </div>

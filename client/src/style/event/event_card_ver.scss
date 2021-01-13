@@ -23,19 +23,28 @@
     .card-title {
       font-size: $font-size-base;
       font-family: 'TaipeiSansTCBeta-Bold' !important;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
-    .photo {
-      // width: 271px;
-      height: 183px;
-      object-fit: fill;
-      z-index: 1;
-      position: relative;
-
-      /* margin-left: 7px; */
+    .event-photo {
+      width: 271px;
+      height: 183px !important;
       margin-top: -38px;
       border-radius: 10px;
+      z-index: 1;
+      background: $primary-050;
+      overflow: hidden;
+      position: relative;
+      // margin-bottom: 0px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
+
     .pushed {
       display: inline;
       z-index: 3;
@@ -54,7 +63,7 @@
       border-radius: 50%;
       margin-top: -20px;
       position: absolute;
-      top: 180px;
+      top: 170px;
       right: 187px;
       z-index: 3;
       background: rgba(0, 0, 0, 0.8);
@@ -68,7 +77,7 @@
       border-radius: 50%;
       margin-top: -20px;
       position: absolute;
-      top: 180px;
+      top: 170px;
       right: 207px;
       z-index: 4;
     }
@@ -78,7 +87,7 @@
       border-radius: 50%;
       margin-top: -20px;
       position: absolute;
-      top: 180px;
+      top: 170px;
       right: 227px;
       z-index: 5;
     }
@@ -91,12 +100,9 @@
     }
 
     .card-body {
-      padding: 18px 0 0 12px;
+      padding: 0px 0px 0px 12px;
     }
 
-    .cardtitle {
-      margin-bottom: 8px;
-    }
     .inform {
       margin-top: 1px;
     }
@@ -105,6 +111,9 @@
       font-size: 12px;
       margin-bottom: 5px;
       align-self: center;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
       /* border:1px solid gray; */
     }

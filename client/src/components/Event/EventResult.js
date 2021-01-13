@@ -1,47 +1,53 @@
 import React, { useState, useEffect } from 'react'
-import EventPagination from './Pagination'
+import EventPagination from './EventPagination'
 import '../../style/default.scss'
 import '../../style/event/event_result.scss'
 import { devUrl } from '../../config'
 import EventCardVer from './EventCardVer'
 import EventCardHor from './EventCardHor'
 
+//connect with backend
+import Axios from 'axios'
+
 function EventResult() {
   const [displayCard, setDisplayCard] = useState(true)
+  const [eventResult, setEventResult] = useState([])
+
+  // 取得後端資料
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/eventsearch`)
+      .then((response) => {
+        // console.log(response)
+        setEventResult(response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [])
 
   const resultCard = (
     <div className="result-card d-flex row justify-content-start">
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
-      <EventCardVer />
+      {eventResult.map((val) => {
+        return <EventCardVer initVal={val} />
+      })}
     </div>
   )
   const resultList = (
     <div className="result-list d-flex justify-content-start flex-wrap">
-      <EventCardHor />
-      <EventCardHor />
-      <EventCardHor />
-      <EventCardHor />
-      <EventCardHor />
-      <EventCardHor />
-      <EventCardHor />
-      <EventCardHor />
+      {eventResult.map((val) => {
+        return <EventCardHor initVal={val} />
+      })}
     </div>
   )
+
   return (
     <>
       <div className="event-container">
         <div className="d-flex result-header justify-content-between">
           <div className="result-word">
-            <h6 className="d-inline-block">搜尋結果 共16筆</h6>
+            <h6 className="d-inline-block">
+              搜尋結果 共{eventResult.length}筆
+            </h6>
           </div>
           <div className="result-icon d-inline-block">
             <img
@@ -85,7 +91,10 @@ function EventResult() {
         <div className="have-result d-flex row justify-content-center">
           {displayCard ? resultCard : resultList}
         </div>
-        <EventPagination />
+
+        {/* <div className="page">
+          <EventPagination />
+        </div> */}
       </div>
     </>
   )

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { DateConvert, TimeConvert } from '../Main/DateTimeConverter'
 import '../../style/default.scss'
 import '../../style/event/event_detail_info.scss'
 import { Card } from 'react-bootstrap'
@@ -6,8 +7,45 @@ import { MdDone, MdAccessTime, MdExplore, MdCall, MdFlag } from 'react-icons/md'
 
 function EventDetailInfo(props) {
   // console.log(props)
-  const [detailInfo, setdetailIfo] = useState(props.initValue)
-  console.log(detailInfo)
+  const [detailInfo, setDetailInfo] = useState(props.initValue)
+  // console.log(detailInfo)
+
+  function isOneDay(date1, date2) {
+    let startDate = date1.split('-')
+    let endDate = date2.split('-')
+    return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+  }
+
+  //單獨轉換json日期
+  function dateConvert(jsonDate) {
+    let json = String(jsonDate).split(' ')
+
+    let date = new Date(json[0])
+    let dd = date.getDate()
+    let mm = date.getMonth() + 1
+
+    let yyyy = date.getFullYear()
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+    date = yyyy + '-' + mm + '-' + dd
+    return date
+  }
+  //單獨轉換json時間
+  function timeConvert(jsonTime) {
+    let json = String(jsonTime).split(' ')
+
+    let time = new Date(json[0])
+    let arrayTime = String(time).split(' ')
+    let takeOutTime = String(arrayTime[4]).split(':')
+    time = takeOutTime[0] + ':' + takeOutTime[1]
+
+    return time
+  }
+
   return (
     <>
       {detailInfo.map((val) => {
@@ -20,8 +58,12 @@ function EventDetailInfo(props) {
                   <div className="subtitle2 font-bold small-title">
                     報名截止：
                   </div>
-                  <div className="subtitle2">2020-12-19</div>
-                  <div className="subtitle2">16:00</div>
+                  <div className="subtitle2">
+                    <DateConvert jsonDate={val.event_deadline_date} />
+                  </div>
+                  <div className="subtitle2">
+                    <TimeConvert jsonTime={val.event_deadline_date} />
+                  </div>
                 </div>
               </div>
               <div className="paragraph d-flex align-items-start">
@@ -30,8 +72,21 @@ function EventDetailInfo(props) {
                   <div className="subtitle2 font-bold small-title">
                     活動時間：
                   </div>
-                  <div className="subtitle2">2020-03-15(一)~2020-03-17(三)</div>
-                  <div className="subtitle2">08:00-21:00</div>
+                  <div className="subtitle2">
+                    {isOneDay(
+                      dateConvert(val.event_start_time),
+                      dateConvert(val.event_end_time)
+                    )
+                      ? `${dateConvert(val.event_start_time)}`
+                      : `${dateConvert(val.event_start_time)} ~ ${dateConvert(
+                          val.event_end_time
+                        )}`}
+                  </div>
+                  <div className="subtitle2">
+                    <TimeConvert jsonTime={val.event_start_time} />
+                    &nbsp;~&nbsp;
+                    <TimeConvert jsonTime={val.event_end_time} />
+                  </div>
                 </div>
               </div>
               <div className="paragraph d-flex align-items-start ">

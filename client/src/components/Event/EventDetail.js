@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
+
 // import '../../style/default.scss'
 import '../../style/event/event_detail.scss'
 import { devUrl } from '../../config'
@@ -17,6 +18,7 @@ import Carousel1 from './Carousel1'
 import EventDetailAttendant from './EventDetailAttendant'
 import EventForum from './EventForum'
 import EventRelativeCarousel from './EventRelativeCarousel'
+import EventFixedBottom from './EventFixedBottom'
 
 //connect with backend
 import Axios from 'axios'
@@ -31,22 +33,70 @@ const location = {
 function EventDetail(props) {
   // console.log(props)
   // console.log(props.match.params.id)
-  const [calenderValue, setcalenderValue] = useState([
-    new Date('2021-01-12'),
+
+  const [eventDataList, setEventDataList] = useState([])
+  const [calenderValue, setCalenderValue] = useState([
+    new Date('2021-01-15'),
     new Date('2021-01-15'),
   ])
-  const [eventDataList, setEventDataList] = useState([])
 
   //取得後端資料
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/event/${props.match.params.id}`)
       .then((response) => {
         setEventDataList(response.data)
+        setCalenderValue([
+          new Date(dateConvert(response.data[0].event_start_time).toString()),
+          new Date(dateConvert(response.data[0].event_end_time).toString()),
+        ])
       })
       .catch(function (error) {
         console.log(error)
       })
   }, [])
+
+  //單獨轉換json日期
+  function dateConvert(jsonDate) {
+    let json = String(jsonDate).split(' ')
+
+    let date = new Date(json[0])
+    let dd = date.getDate()
+    let mm = date.getMonth() + 1
+
+    let yyyy = date.getFullYear()
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+    date = yyyy + '-' + mm + '-' + dd
+    return date
+  }
+  //單獨轉換json時間
+  function timeConvert(jsonTime) {
+    let json = String(jsonTime).split(' ')
+
+    let time = new Date(json[0])
+    let arrayTime = String(time).split(' ')
+    let takeOutTime = String(arrayTime[4]).split(':')
+    time = takeOutTime[0] + ':' + takeOutTime[1]
+
+    return time
+  }
+
+  //天數計算機
+  function isOneDay(date1, date2) {
+    let startDate = date1.split('-')
+    let endDate = date2.split('-')
+    console.log(parseInt(endDate[2]))
+    console.log(parseInt(startDate[2]))
+    console.log(
+      parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+    )
+
+    return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+  }
 
   //google-calendar
   var gapi = window.gapi
@@ -81,14 +131,24 @@ function EventDetail(props) {
       {eventDataList.map((val) => {
         return (
           <>
-            <h3>{val.event_name}</h3>
-
+            <EventFixedBottom value={val} />
             <div className="event_wave_background">
               <div className="mainclass_wrapper">
                 <div className="page-head">
                   <div className="title">
                     <h6 className="subtitle1">
-                      {val.event_start_time}~{val.event_end_time}
+                      {isOneDay(
+                        dateConvert(val.event_start_time),
+                        dateConvert(val.event_end_time)
+                      )
+                        ? `${dateConvert(val.event_start_time)} ${timeConvert(
+                            val.event_start_time
+                          )} ~ ${timeConvert(val.event_end_time)}
+                          `
+                        : `${dateConvert(val.event_start_time)} 
+                      ${timeConvert(val.event_start_time)} ~ 
+                      ${dateConvert(val.event_end_time)} 
+                      ${timeConvert(val.event_end_time)}`}
                     </h6>
                     <h5>{val.event_name}</h5>
                   </div>

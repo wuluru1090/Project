@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config/'
+import { DateConvert } from '../Main/DateTimeConverter'
+import { useHistory } from 'react-router-dom'
 import '../../style/event/event_card_hor.scss'
 
-function EventCardHor() {
+function EventCardHor(props) {
   const [isActive, setIsActive] = useState(false)
+  const [cardInfo, setCardInfo] = useState(props.initVal)
+
+  let history = useHistory()
+  function click2Detail(id) {
+    let stringId = JSON.stringify(id)
+    console.log(stringId)
+    history.push('/event/' + stringId)
+  }
+
   return (
     <>
       <div className="event-card-horizon">
@@ -24,11 +35,13 @@ function EventCardHor() {
               onClick={() => setIsActive(false)}
               style={isActive ? { display: 'inline' } : { display: 'none' }}
             />
-            <img
-              src={devUrl + '/pic/pic/event-slider1.jpg'}
-              className="card-img-top photo"
-              alt="..."
-            />
+            <figure className="card-img-top event-photo">
+              <img
+                src={devUrl + '/pic/event/' + cardInfo.event_photo}
+                className="photo"
+                alt={cardInfo.event_name}
+              />
+            </figure>
             <a href="#">
               <div className="more-att">+3</div>
             </a>
@@ -47,13 +60,17 @@ function EventCardHor() {
           </div>
 
           <div className="card-body">
-            <h5 className="card-title">四草綠意盎然 台南七股一日遊</h5>
-            <p className="t2">
-              位於台南安南區有個熱門景點「四草綠色隧道」，這條台版亞馬遜河有著大自然的奧妙，可以看到鳥類植物等生態形成的樹林景觀。
-            </p>
+            <h5 className="card-title">{cardInfo.event_name}</h5>
+            <div className="t2">
+              {/* {cardInfo.event_details} */}
+              <div
+                dangerouslySetInnerHTML={{ __html: cardInfo.event_details }}
+                className="preview"
+              ></div>
+            </div>
             <div className="d-flex bbb">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
-              <p className="subtitle1 card-text ">四草綠色隧道 </p>
+              <p className="subtitle1 card-text ">{cardInfo.event_location}</p>
             </div>
             <div className="d-flex bbb">
               <img
@@ -61,7 +78,9 @@ function EventCardHor() {
                 src="/pic/svg/date_range-24px.svg"
                 alt=""
               />
-              <p className="card-text d-flex">2021-01-28 </p>
+              <p className="card-text d-flex">
+                <DateConvert jsonDate={cardInfo.event_start_time} />
+              </p>
             </div>
             <div className="d-flex bbb">
               <img
@@ -69,7 +88,7 @@ function EventCardHor() {
                 src="/pic/svg/location_on-24px.svg"
                 alt=""
               />
-              <p className="card-text">台南市歸仁區歸仁大道100號 </p>
+              <p className="card-text">{cardInfo.event_address}</p>
             </div>
             <div className="d-flex justify-content-between buttons">
               <div className="tag-box">
@@ -80,7 +99,10 @@ function EventCardHor() {
                   自然
                 </button>
               </div>
-              <a href={devUrl + '/event/1'} className="btn d-flex join">
+              <a
+                onClick={() => click2Detail(cardInfo.event_id)}
+                className="btn d-flex join"
+              >
                 參加活動
               </a>
             </div>

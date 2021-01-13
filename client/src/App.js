@@ -21,14 +21,13 @@ function App() {
         <MyNavbar />
         <MainContent>
           <Switch>
-            <Route path="/event/:id?">
+            <Route path="/event/:id">
               <EventDetails />
-              <Test />
             </Route>
             <Route path="/begin">
               <EventAttendant />
             </Route>
-            <Route path="/event-search">
+            <Route exact path="/event">
               <Event />
             </Route>
             <Route path="/class">

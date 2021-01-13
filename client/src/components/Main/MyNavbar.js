@@ -34,7 +34,7 @@ function MyNavbar(props) {
             <Nav.Link className="navLink" as={NavLink} to="/begin">
               發起揪影
             </Nav.Link>
-            <Nav.Link className="navLink" as={NavLink} to="/event-search">
+            <Nav.Link className="navLink" as={NavLink} to="/event" exact>
               參加攝影團
             </Nav.Link>
             <Nav.Link className="navLink" as={NavLink} to="/class">
