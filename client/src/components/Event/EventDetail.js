@@ -89,12 +89,6 @@ function EventDetail(props) {
   function isOneDay(date1, date2) {
     let startDate = date1.split('-')
     let endDate = date2.split('-')
-    console.log(parseInt(endDate[2]))
-    console.log(parseInt(startDate[2]))
-    console.log(
-      parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
-    )
-
     return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
   }
 
@@ -154,16 +148,21 @@ function EventDetail(props) {
                   </div>
                   <div className="page-head-part2">
                     <div className="organizer_info d-flex align-items-center">
-                      <div className="organizer">
+                      <div className="organizer d-flex align-items-center">
                         <figure>
-                          <img src={devUrl + '/Pic/pic/member.jpg'} alt="" />
+                          <img
+                            src={`${devUrl}/pic/mem_img/${val.event_host_img}`}
+                            alt=""
+                          />
                         </figure>
                       </div>
-                      <span>
-                        張思婷
-                        <br />
-                        <span style={{ fontSize: '12px' }}>發起的活動</span>
-                      </span>
+                      <div className="host">
+                        <span>
+                          {val.event_host_name}
+                          <br />
+                          <span style={{ fontSize: '12px' }}>發起的活動</span>
+                        </span>
+                      </div>
                     </div>
                     <div className="btn_part">
                       <button className="btn bttn save rounded-pill">
@@ -222,7 +221,7 @@ function EventDetail(props) {
                     <div className="underline-title">
                       <span className="detail-title">參與者名單</span>
                     </div>
-                    <EventDetailAttendant />
+                    <EventDetailAttendant initValue={eventDataList} />
                   </div>
                   <div className="left_part">
                     <EventDetailInfo initValue={eventDataList} />

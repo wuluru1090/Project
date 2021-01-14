@@ -6,9 +6,8 @@ import { Card } from 'react-bootstrap'
 import { MdDone, MdAccessTime, MdExplore, MdCall, MdFlag } from 'react-icons/md'
 
 function EventDetailInfo(props) {
-  // console.log(props)
   const [detailInfo, setDetailInfo] = useState(props.initValue)
-  // console.log(detailInfo)
+  const contact = JSON.parse(detailInfo[0].event_host_contact)
 
   function isOneDay(date1, date2) {
     let startDate = date1.split('-')
@@ -115,8 +114,24 @@ function EventDetailInfo(props) {
                   <div className="subtitle2 font-bold small-title">
                     聯繫主揪：
                   </div>
-                  <div className="subtitle2">line ID：12456892</div>
-                  <div className="subtitle2"></div>
+                  <div className="subtitle2">
+                    {contact.contact_name != ''
+                      ? `聯絡人姓名 : ${contact.contact_name}`
+                      : ''}
+                  </div>
+                  <div className="subtitle2">
+                    {contact.contact_phone != ''
+                      ? `聯絡人電話 : ${contact.contact_phone}`
+                      : ''}
+                  </div>
+                  <div className="subtitle2">
+                    {contact.contact_email != ''
+                      ? `聯絡人信箱 : ${contact.contact_email}`
+                      : ''}
+                  </div>
+                  <div className="subtitle2">
+                    line ID：{contact.contact_lineId}
+                  </div>
                 </div>
               </div>
             </Card.Body>

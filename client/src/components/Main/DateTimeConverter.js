@@ -17,7 +17,7 @@ function dateConvert(jsonDate) {
     mm = '0' + mm
   }
   date = yyyy + '-' + mm + '-' + dd
-  console.log(date)
+  // console.log(date)
   return date
 }
 
