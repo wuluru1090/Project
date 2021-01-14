@@ -149,7 +149,7 @@ $url: 'http://localhost:3000';
       padding-bottom: 5px;
       text-align: center;
       border-bottom: 3px solid $primary;
-      margin-bottom: 50px;
+      // margin-bottom: 50px;
     }
   }
 
@@ -190,6 +190,9 @@ $url: 'http://localhost:3000';
     transform: translateY(-120px);
     .underline-title {
       margin-bottom: 38px;
+      .all {
+        cursor: pointer;
+      }
     }
     .relative-event-carousel {
       margin: auto;

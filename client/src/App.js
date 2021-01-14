@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
 import MainContent from './components/Main/MainContent'
-import EventAttendant from './components/Event/EventAttendant'
+import EventAttendant from './pages/Event/EventAttendant'
 import Event from './pages/Event/'
 import Album from './pages/Event/EventAlbum'
 import EventAlbumPhoto from './pages/Event/EventAlbumPhoto'
@@ -24,9 +24,11 @@ function App() {
             <Route path="/event/:id">
               <EventDetails />
             </Route>
-            <Route path="/begin">
+
+            <Route path="/attendants">
               <EventAttendant />
             </Route>
+
             <Route exact path="/event">
               <Event />
             </Route>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, useHistory } from 'react-router-dom'
 
 // import '../../style/default.scss'
 import '../../style/event/event_detail.scss'
@@ -31,8 +31,7 @@ const location = {
 }
 
 function EventDetail(props) {
-  // console.log(props)
-  // console.log(props.match.params.id)
+  let history = useHistory()
 
   const [eventDataList, setEventDataList] = useState([])
   const [calenderValue, setCalenderValue] = useState([
@@ -189,7 +188,7 @@ function EventDetail(props) {
                       <figure>
                         <img
                           src={`${devUrl}/pic/event/${val.event_photo}`}
-                          alt="課程圖片"
+                          alt="活動圖片"
                         />
                       </figure>
                     </div>
@@ -218,8 +217,17 @@ function EventDetail(props) {
                         {val.event_theme_name}
                       </a>
                     </div>
-                    <div className="underline-title">
-                      <span className="detail-title">參與者名單</span>
+                    <div className="underline-title d-flex justify-content-between align-items-end">
+                      <div className="detail-title">參與者名單</div>
+                      <button
+                        onClick={() => {
+                          console.log(props)
+                          history.push(`${props.location.pathname}/attendants`)
+                        }}
+                        className="btn btn-link all"
+                      >
+                        查看全部
+                      </button>
                     </div>
                     <EventDetailAttendant initValue={eventDataList} />
                   </div>

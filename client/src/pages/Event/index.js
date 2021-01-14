@@ -1,3 +1,4 @@
+import React from 'react'
 import '../../index.scss'
 import EventMain from '../../components/Event/EventMain'
 import EventResult from '../../components/Event/EventResult'
