@@ -16,6 +16,12 @@ function EventCardHor(props) {
     history.push('/event/' + stringId)
   }
 
+  function isOneDay(date1, date2) {
+    let startDate = date1.split('-')
+    let endDate = date2.split('-')
+    return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+  }
+
   return (
     <>
       <div className="event-card-horizon">
@@ -79,7 +85,18 @@ function EventCardHor(props) {
                 alt=""
               />
               <p className="card-text d-flex">
-                <DateConvert jsonDate={cardInfo.event_start_time} />
+                {isOneDay(
+                  cardInfo.event_start_time,
+                  cardInfo.event_end_time
+                ) ? (
+                  <DateConvert jsonDate={cardInfo.event_start_time} />
+                ) : (
+                  <>
+                    <DateConvert jsonDate={cardInfo.event_start_time} />
+                    <span>&nbsp;~&nbsp;</span>
+                    <DateConvert jsonDate={cardInfo.event_end_time} />
+                  </>
+                )}
               </p>
             </div>
             <div className="d-flex bbb">

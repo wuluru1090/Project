@@ -34,8 +34,7 @@ app.get("/api/eventsearch", (req, res) => {
 });
 //活動詳細頁(參加者資訊)
 app.get("/api/attendants", (req, res) => {
-  // console.log(req.query.id);
-  // res.send(req.query.id);
+  console.log(req.query.id);
   const sqlSelect = `SELECT member_id,member_name,member_img FROM member WHERE member_id IN (${req.query.id})`;
   db.query(sqlSelect, (err, result) => {
     res.send(result);

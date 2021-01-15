@@ -31,6 +31,7 @@ const location = {
 }
 
 function EventDetail(props) {
+  console.log(props)
   let history = useHistory()
 
   const [eventDataList, setEventDataList] = useState([])
@@ -220,11 +221,12 @@ function EventDetail(props) {
                     <div className="underline-title d-flex justify-content-between align-items-end">
                       <div className="detail-title">參與者名單</div>
                       <button
+                        // href={`/event/${props.match.params.id}/attendants`}
+                        className="btn btn-link all"
                         onClick={() => {
                           console.log(props)
-                          history.push(`${props.location.pathname}/attendants`)
+                          // props.setEventID(`${val.event_id}`)
                         }}
-                        className="btn btn-link all"
                       >
                         查看全部
                       </button>

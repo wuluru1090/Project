@@ -1,5 +1,6 @@
 import './index.scss'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
 import MainContent from './components/Main/MainContent'
@@ -21,20 +22,22 @@ function App() {
         <MyNavbar />
         <MainContent>
           <Switch>
-            <Route path="/event/:id">
-              <EventDetails />
-            </Route>
-
-            <Route path="/attendants">
+            <Route path="/event/:id/attendants">
               <EventAttendant />
             </Route>
 
+            <Route path="/event/:id">
+              <EventDetails />
+            </Route>
+            {/* event2Att={event2Att} */}
             <Route exact path="/event">
               <Event />
             </Route>
+
             <Route path="/class">
               <MainClass />
             </Route>
+
             <Route exact path="/photo">
               <EventAlbumPhoto />
             </Route>

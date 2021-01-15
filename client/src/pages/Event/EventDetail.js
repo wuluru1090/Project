@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../index.scss'
 import EventDetail from '../../components/Event/EventDetail'
 

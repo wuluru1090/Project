@@ -81,6 +81,13 @@ $url: 'http://localhost:3000';
         border-radius: 50%;
         margin: 0px;
         border: rgba(0, 0, 0, 0.6) 1px solid;
+        overflow: hidden;
+        background: $gray-default;
+        .img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
     .detail {

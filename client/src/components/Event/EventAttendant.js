@@ -1,9 +1,61 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_attendant.scss'
 import { devUrl } from '../../config'
+import { withRouter } from 'react-router-dom'
+import Axios from 'axios'
 
-function EventAttendant() {
+function EventAttendant(props) {
+  const eventId = props.match.params.id
+  const [attendants, setAttendants] = useState([])
+  const [attendantsData, setAttendantsData] = useState([])
+  let eventData = []
+
+  const getData = async () => {
+    await Axios.get(`http://localhost:3001/api/event/${eventId}`).then(
+      (response) => {
+        console.log(JSON.parse(response.data[0].event_attendents))
+        // setAttendants(JSON.parse(response.data[0].event_attendents))
+        eventData = JSON.parse(response.data[0].event_attendents)
+      }
+    )
+    await Axios.get(
+      `http://localhost:3001/api/attendants?id=${attendants.join(',')}`
+    )
+      .then((response) => {
+        console.log(response)
+        // console.log(response.data)
+        setAttendantsData(response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    getData()
+    // Axios.get(`http://localhost:3001/api/event/${eventId}`)
+    //   .then((response) => {
+    //     console.log(JSON.parse(response.data[0].event_attendents))
+    //     setAttendants(JSON.parse(response.data[0].event_attendents))
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error)
+    //   })
+  }, [])
+
+  // useEffect(() => {
+  //   Axios.get(`http://localhost:3001/api/attendants?id=${attendants.join(',')}`)
+  //     .then((response) => {
+  //       console.log(response)
+  //       console.log(response.data)
+  //       setAttendantsData(response.data)
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error)
+  //     })
+  // }, [])
+
   return (
     <>
       <div className="back">
@@ -36,80 +88,36 @@ function EventAttendant() {
                 </div>
               </div>
             </div>
-
-            <div className="list-content row">
-              <div className="pic col-2 d-flex justify-content-start align-items-center">
-                <figure>
-                  <img src="" alt="" />
-                </figure>
-              </div>
-              <div className="detail d-flex col-10 align-items-center">
-                <div className="de">
-                  <h6>陳宇軒</h6>
-                  <p className="subtitle2">1月1日, 12:25</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="list-content row">
-              <div className="pic col-2 d-flex justify-content-start align-items-center">
-                <figure>
-                  <img src="" alt="" />
-                </figure>
-              </div>
-              <div className="detail d-flex col-10 align-items-center">
-                <div className="de">
-                  <h6>陳宇軒</h6>
-                  <p className="subtitle2">1月1日, 12:25</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="list-content row">
-              <div className="pic col-2 d-flex justify-content-start align-items-center">
-                <figure>
-                  <img src="" alt="" />
-                </figure>
-              </div>
-              <div className="detail d-flex col-10 align-items-center">
-                <div className="de">
-                  <h6>陳宇軒</h6>
-                  <p className="subtitle2">1月1日, 12:25</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="list-content row">
-              <div className="pic col-2 d-flex justify-content-start align-items-center">
-                <figure>
-                  <img src="" alt="" />
-                </figure>
-              </div>
-              <div className="detail d-flex col-10 align-items-center">
-                <div className="de">
-                  <h6>陳宇軒</h6>
-                  <p className="subtitle2">1月1日, 12:25</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="list-content row">
-              <div className="pic col-2 d-flex justify-content-start align-items-center">
-                <figure>
-                  <img src="" alt="" />
-                </figure>
-              </div>
-              <div className="detail d-flex col-10 align-items-center">
-                <div className="de">
-                  <h6>陳宇軒</h6>
-                  <p className="subtitle2">1月1日, 12:25</p>
-                </div>
-              </div>
-            </div>
+            {/* {attendantsData.map((val) => {
+              return (
+                <>
+                  <div className="list-content row">
+                    <div className="pic col-2 d-flex justify-content-start align-items-center">
+                      <figure>
+                        {val.member_img != '' ? (
+                          <img
+                            src={`${devUrl}/pic/mem_img/${val.member_img}`}
+                            alt=""
+                          />
+                        ) : (
+                          <img src={`${devUrl}/pic/mem_img/null.png`} alt="" />
+                        )}
+                      </figure>
+                    </div>
+                    <div className="detail d-flex col-10 align-items-center">
+                      <div className="de">
+                        <h6>{val.member_name}</h6>
+                        <p className="subtitle2">1月1日, 12:25</p>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )
+            })} */}
           </div>
         </div>
       </div>
     </>
   )
 }
-export default EventAttendant
+export default withRouter(EventAttendant)

@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
 import '../../style/event/event_detail_attendant.scss'
 import { devUrl } from '../../config'
 import Axios from 'axios'
 
 function EventDetailAttendant(props) {
+  // console.log(props)
   const [detailData, setDetailData] = useState(props.initValue[0])
-  // console.log(detailData)
   const attendants = JSON.parse(detailData.event_attendents)
   const [attendantsData, setAttendantsData] = useState([])
+
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/attendants?id=${attendants.join(',')}`)
       .then((response) => {
+        // console.log(response)
         setAttendantsData(response.data)
       })
       .catch(function (error) {
@@ -59,4 +62,4 @@ function EventDetailAttendant(props) {
   )
 }
 
-export default EventDetailAttendant
+export default withRouter(EventDetailAttendant)

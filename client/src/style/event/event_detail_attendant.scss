@@ -45,5 +45,21 @@ $url: 'http://localhost:3000';
         color: $gray-default;
       }
     }
+    .underline-title {
+      // background: #12d0c9;
+      margin: 50px 0px;
+      .detail-title {
+        color: $primary;
+        font-size: 24px;
+        font-family: 'TaipeiSansTCBeta-Bold' !important;
+        padding-bottom: 5px;
+        text-align: center;
+        border-bottom: 3px solid $primary;
+        // margin-bottom: 50px;
+      }
+      .all {
+        cursor: pointer;
+      }
+    }
   }
 }
