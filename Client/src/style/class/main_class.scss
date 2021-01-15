@@ -27,7 +27,9 @@ $url: 'http://localhost:3000';
     margin-right: 75px;
     border: 1px solid gray;
     img {
+      object-fit: cover;
       width: 100%;
+      height: 100%;
     }
   }
 
@@ -158,6 +160,7 @@ $url: 'http://localhost:3000';
       img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
     }
     .teacher_info_block {

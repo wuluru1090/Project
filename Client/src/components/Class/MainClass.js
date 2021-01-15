@@ -72,14 +72,12 @@ function ClassMain(props) {
                 </div>
                 <div className="page-head-part2">
                   <div className="organizer_info">
-                    <div className="organizer">
-                      <figure>
-                        <img
-                          src={devUrl + '/pic/pic/' + val.class_teacher_photo}
-                          alt=""
-                        />
-                      </figure>
-                    </div>
+                    <figure className="organizer">
+                      <img
+                        src={devUrl + '/pic/class/' + val.class_teacher_photo}
+                        alt=""
+                      />
+                    </figure>
                     <span>
                       {val.class_teacher_name}
                       <br />
@@ -129,14 +127,12 @@ function ClassMain(props) {
                   <h5 className="class_title">授課老師</h5>
                   <div className="line"></div>
                   <div className="teacher">
-                    <div className="teacher_pic">
-                      <figure>
-                        <img
-                          src={devUrl + '/pic/class/' + val.class_teacher_photo}
-                          alt="老師圖片"
-                        />
-                      </figure>
-                    </div>
+                    <figure className="teacher_pic">
+                      <img
+                        src={devUrl + '/pic/class/' + val.class_teacher_photo}
+                        alt="老師圖片"
+                      />
+                    </figure>
                     <div className="teacher_info_block">
                       <h5 className="class_teacher">
                         {val.class_teacher_name}

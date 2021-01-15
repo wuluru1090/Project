@@ -38,11 +38,11 @@ function ClassResultCard(props) {
           <h5 className="card-title">{class_info.class_name}</h5>
 
           <div className="d-flex bbb">
-            {/* <p
+            <p
               className="card-text font16"
               dangerouslySetInnerHTML={{ __html: class_info.class_content }}
-            /> */}
-            <p className="card-text font16">{class_info.class_content}</p>
+            />
+            {/* <p className="card-text font16">{class_info.class_content}</p> */}
           </div>
           <div className="d-flex bbb">
             <img className="icon2" src="/pic/SVG/date_range-24px.svg" alt="" />

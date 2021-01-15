@@ -32,6 +32,15 @@ app.get('/class',(req,res)=>{
     })
 });
 
+app.get('/class/category?id',(req,res)=>{
+    const sqlSelect = 
+    `SELECT main_class.*,class_theme.class_theme_name FROM main_class INNER JOIN class_teacher ON main_class.class_teacher_id = class_teacher.class_teacher_id INNER JOIN class_theme ON main_class.class_theme_id = class_theme.class_theme_id WHERE class_theme_name = ${theme}
+    `;
+    db.query(sqlSelect,(err,result)=>{
+        res.send(result)
+    })
+});
+
 // app.post("/api/insert",(req,res)=>{
 
 //     const movieName = req.body.movieName
