@@ -11,39 +11,42 @@ function SearchTop() {
           <Carousel.Item>
             <img
               className="d-block w-100 h-100 carousel-img"
-              src={devUrl + '/Pic/pic/event-slider1.jpg'}
+              src={devUrl + '/Pic/pic/class_slider1.jpg'}
               alt="First slide"
             />
             <Carousel.Caption>
-              <p className="subtitle1">2021/04/13-2020/04/16</p>
-              <h5>台東大坡池</h5>
-              <p>花蓮六十石山三日行-輕鬆拍</p>
+              <p className="subtitle1">2021/04/13-2021/05/20</p>
+              <h5>食物攝影課程</h5>
+              <p>風格餐桌美食攝影</p>
+              <p>授課老師：克萊德</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={devUrl + '/Pic/pic/event-slider2.jpg'}
+              src={devUrl + '/Pic/pic/class_slider2.jpg'}
               alt="Third slide"
             />
 
             <Carousel.Caption>
-              <p className="subtitle1">2021/03/22</p>
-              <h5>東引三山據點</h5>
-              <p>花蓮六十石山三日行-輕鬆拍</p>
+              <p className="subtitle1">2021/03/22-2021/07/20 </p>
+              <h5>人像攝影課程</h5>
+              <p>日系人像攝影棚拍課程</p>
+              <p>授課老師：阿德</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={devUrl + '/Pic/pic/event-slider3.jpg'}
+              src={devUrl + '/Pic/pic/class_slider3.jpg'}
               alt="Third slide"
             />
 
             <Carousel.Caption>
               <p className="subtitle1">2021/03/22-2020/03/25</p>
-              <h5>嘉義阿里山祝山日出點</h5>
-              <p>花蓮六十石山三日行-輕鬆拍</p>
+              <h5>風景攝影課程</h5>
+              <p>台東三仙台日落攝影課程</p>
+              <p>授課老師：吳東安</p>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

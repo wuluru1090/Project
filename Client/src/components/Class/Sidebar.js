@@ -15,19 +15,35 @@ export default function Sidebar(props) {
   const [ct10, setCt10] = useState(false)
   const [ct11, setCt11] = useState(false)
 
+  function NotChecked() {
+    setCt1(false)
+    setCt2(false)
+    setCt3(false)
+    setCt4(false)
+    setCt5(false)
+    setCt6(false)
+    setCt7(false)
+    setCt8(false)
+    setCt9(false)
+    setCt10(false)
+    setCt11(false)
+  }
+
   function handleChecks() {
     const classThemeList = []
-    // if (ct1) {
-    //   classThemeList.push('全部課程')
-    // }
+    if (ct1) {
+      classThemeList.push('全部課程')
+      props.setTheme(classThemeList)
+      return
+    }
     if (ct2) {
-      classThemeList.push('人像攝影')
+      classThemeList.push('人像')
     }
     if (ct3) {
-      classThemeList.push('風景攝影')
+      classThemeList.push('風景')
     }
     if (ct4) {
-      classThemeList.push('商品攝影')
+      classThemeList.push('商品')
     }
     if (ct5) {
       classThemeList.push('影像編輯')
@@ -36,10 +52,10 @@ export default function Sidebar(props) {
       classThemeList.push('vlog')
     }
     if (ct7) {
-      classThemeList.push('空拍攝影')
+      classThemeList.push('空拍')
     }
     if (ct8) {
-      classThemeList.push('手機攝影')
+      classThemeList.push('手機')
     }
     if (ct9) {
       classThemeList.push('底片沖洗')
@@ -48,7 +64,7 @@ export default function Sidebar(props) {
       classThemeList.push('商業攝影')
     }
     if (ct11) {
-      classThemeList.push('食物攝影')
+      classThemeList.push('食物')
     }
     console.log(classThemeList)
     props.setTheme(classThemeList)
@@ -71,6 +87,7 @@ export default function Sidebar(props) {
               name="photo1"
               value="全部內容"
               onChange={() => {
+                NotChecked()
                 setCt1(!ct1)
               }}
               className="checkbox"
@@ -86,6 +103,7 @@ export default function Sidebar(props) {
               name="photo2"
               value="人像攝影"
               onChange={() => {
+                NotChecked()
                 setCt2(!ct2)
               }}
               className="checkbox"
@@ -101,6 +119,7 @@ export default function Sidebar(props) {
               name="photo3"
               value="風景攝影"
               onChange={() => {
+                NotChecked()
                 setCt3(!ct3)
               }}
               className="checkbox"
@@ -116,6 +135,7 @@ export default function Sidebar(props) {
               name="photo4"
               value="商品攝影"
               onChange={() => {
+                NotChecked()
                 setCt4(!ct4)
               }}
               className="checkbox"
@@ -131,6 +151,7 @@ export default function Sidebar(props) {
               name="photo5"
               value="影像編輯"
               onChange={() => {
+                NotChecked()
                 setCt5(!ct5)
               }}
               className="checkbox"
@@ -146,6 +167,7 @@ export default function Sidebar(props) {
               name="photo6"
               value="vlog"
               onChange={() => {
+                NotChecked()
                 setCt6(!ct6)
               }}
               className="checkbox"
@@ -161,6 +183,7 @@ export default function Sidebar(props) {
               name="photo8"
               value="空拍攝影"
               onChange={() => {
+                NotChecked()
                 setCt7(!ct7)
               }}
               className="checkbox"
@@ -176,6 +199,7 @@ export default function Sidebar(props) {
               name="photo9"
               value="手機攝影"
               onChange={() => {
+                NotChecked()
                 setCt8(!ct8)
               }}
               className="checkbox"
@@ -191,6 +215,7 @@ export default function Sidebar(props) {
               name="photo10"
               value="底片沖洗"
               onChange={() => {
+                NotChecked()
                 setCt9(!ct9)
               }}
               className="checkbox"
@@ -206,6 +231,7 @@ export default function Sidebar(props) {
               name="photo11"
               value="商業攝影"
               onChange={() => {
+                NotChecked()
                 setCt10(!ct10)
               }}
               className="checkbox"
@@ -221,6 +247,7 @@ export default function Sidebar(props) {
               name="photo12"
               value="食物攝影"
               onChange={() => {
+                NotChecked()
                 setCt11(!ct11)
               }}
               className="checkbox"

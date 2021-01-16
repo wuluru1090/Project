@@ -9,10 +9,19 @@ import { withRouter } from 'react-router-dom'
 import ClassCard from './ClassCard'
 import GMap from './GMap'
 import Carousel1 from './Carousel1'
-import MyNavbar from '../../components/Main/MyNavbar'
 import Carousel2 from '../../components/Class/Carousel2'
-import Card from '../Class/ClassCard2'
 import FixedBottom from '../Class/FixedBottom'
+import { Button, Modal, ModalTitle } from 'react-bootstrap'
+import {
+  FacebookShareButton,
+  LineShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  LineIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from 'react-share'
 
 //GMap地圖Pin標記位置
 const location = {
@@ -26,7 +35,13 @@ const location = {
 // { id = 4, data = datadbma, type = 'project_class' }
 function ClassMain(props) {
   console.log(props)
+  // class資料儲存區
   const [classData, setClassData] = useState([])
+
+  // Modal控制區
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   function dateConvert(jsonDate) {
     let json = String(jsonDate).split(' ')
@@ -54,7 +69,6 @@ function ClassMain(props) {
         console.log(error)
       })
   }, [])
-
   return (
     <>
       {classData.map((val) => {
@@ -92,7 +106,10 @@ function ClassMain(props) {
                       />
                       <span className="align-middle">收藏</span>
                     </button>
-                    <button className="btn bttn share rounded-pill">
+                    <button
+                      className="btn bttn share rounded-pill"
+                      onClick={handleShow}
+                    >
                       <MdShare
                         size={30}
                         style={{ color: 'white', paddingRight: '6px' }}
@@ -123,7 +140,6 @@ function ClassMain(props) {
                   <h5 className="class_title">課程內容</h5>
                   <div className="line"></div>
                   <p dangerouslySetInnerHTML={{ __html: val.class_content }} />
-                  {/* <p>{data[id].class_content}</p> */}
                   <h5 className="class_title">授課老師</h5>
                   <div className="line"></div>
                   <div className="teacher">
@@ -147,6 +163,44 @@ function ClassMain(props) {
                     <GMap location={location} zoomLevel={15} />
                   </div>
                 </div>
+
+                {/* modal */}
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton className="border-0">
+                    <Modal.Title>分享</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body className="d-flex justify-content-around">
+                    <LineShareButton
+                      url={String(window.location)}
+                      title="快來參加這個超棒揪影活動"
+                    >
+                      <LineIcon round={true} />
+                    </LineShareButton>
+                    <TwitterShareButton
+                      url={String(window.location)}
+                      title="快來參加這個超棒揪影活動"
+                    >
+                      <TwitterIcon round={true} />
+                    </TwitterShareButton>
+                    <WhatsappShareButton
+                      url={String(window.location)}
+                      title="快來參加這個超棒揪影活動"
+                    >
+                      <WhatsappIcon round={true} />
+                    </WhatsappShareButton>
+                    <FacebookShareButton
+                      url={String(window.location)}
+                      title="快來參加這個超棒揪影活動"
+                    >
+                      <FacebookIcon round={true} />
+                    </FacebookShareButton>
+                  </Modal.Body>
+                  <Modal.Footer className="border-0">
+                    {/* <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button> */}
+                  </Modal.Footer>
+                </Modal>
               </div>
             </div>
             <div className="wave_background2">

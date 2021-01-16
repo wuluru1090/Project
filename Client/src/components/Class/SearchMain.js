@@ -10,28 +10,25 @@ import Selection from '../Class/Selection'
 import Pagination from '../Main/Pagination'
 import ClassResultCard from '../Class/ClassResultCard'
 import Sidebar from '../Class/Sidebar'
+import axios from 'axios'
 
 function SearchMain() {
-  const [searchDatas, setSearchDatas] = useState([])
+  const [allDatas, setAllDatas] = useState([])
+  const [specificDatas, setSpecificDatas] = useState([])
   const [showDatas, setShowDatas] = useState([])
   const [theme, setTheme] = useState([])
-  console.log(theme)
+  const [order, setOrder] = useState(0)
+  const a = theme.join()
+  console.log(a)
+
+  // console.log(`http://localhost:3001/class&orderby=${order}`)
 
   useEffect(() => {
     Axios.get(`http://localhost:3001/class`)
       .then((response) => {
-        // console.log(response.data.length)
-        // setShowDatas(response.data)
-        setSearchDatas(response.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }, [])
-
-  useEffect(() => {
-    Axios.get(`http://localhost:3001/class/category?id=${theme.join(',')}`)
-      .then((response) => {
+        // allDatas是所有檔案
+        console.log(response.data)
+        setAllDatas(response.data)
         setShowDatas(response.data)
       })
       .catch(function (error) {
@@ -39,15 +36,38 @@ function SearchMain() {
       })
   }, [])
 
+  async function display() {
+    const response = await axios.get(
+      "http://localhost:3001/class/category?theme='" +
+        a +
+        "'" +
+        '&orderby=' +
+        order
+    )
+    if (response.data) {
+      setShowDatas(response.data)
+    } else {
+    }
+  }
+
+  useEffect(() => {
+    if (theme.length === 0 || theme.includes('全部課程')) {
+      setShowDatas(allDatas)
+      return
+    }
+    display()
+  }, [theme, order])
+
   // useEffect(() => {
-  //   if (theme.length === 0) {
-  //     setShowDatas(searchDatas)
+  //   if (theme.length === 0 || theme.includes('全部課程')) {
+  //     setShowDatas(allDatas)
+  //     // console.log(searchDatas)
   //   } else {
-  //     const newShowDatas = searchDatas.filter((val) => {
-  //       return theme.includes(val.class_theme_name)
-  //     })
+  //     // const newShowDatas = searchDatas.filter((val) => {
+  //     //   return theme.includes(val.class_theme_name)
+  //     // })
   //     // console.log(newShowDatas)
-  //     setShowDatas(newShowDatas)
+  //     setShowDatas(specificDatas)
   //   }
   // }, [theme])
 
@@ -65,7 +85,7 @@ function SearchMain() {
         <div className="d-flex justify-content-between top-part">
           <div className="bread-crumb font20">麵包屑放置處</div>
           <div className="d-flex">
-            <Selection />
+            <Selection order={order} setOrder={setOrder} />
           </div>
         </div>
         <div className="d-flex main-area">
