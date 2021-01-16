@@ -11,10 +11,12 @@
 .event-searchbar-wrapper {
   .search-form {
     position: relative;
+    width: 100%;
     // background: #12d097;
     margin: 0px;
     .searchicon {
       position: absolute;
+      margin-top: 6px;
       z-index: 5;
       left: 12px;
     }

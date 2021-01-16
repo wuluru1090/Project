@@ -7,7 +7,8 @@ import '../../style/event/event_card_hor.scss'
 
 function EventCardHor(props) {
   const [isActive, setIsActive] = useState(false)
-  const [cardInfo, setCardInfo] = useState(props.initVal)
+  // const [cardInfo, setCardInfo] = useState(props.initVal)
+  const cardInfo = props.initVal
 
   let history = useHistory()
   function click2Detail(id) {

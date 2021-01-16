@@ -26,15 +26,24 @@ app.get("/api/event/:id?", (req, res) => {
 //活動搜尋頁頁資訊(單筆資料)
 app.get("/api/eventsearch", (req, res) => {
   // res.send(req.query.id);
-  const sqlSelect =
-    "SELECT event_id,event_name,event_location,event_start_time,event_end_time,event_address,event_photo,event_details,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ORDER BY event.event_id ASC";
+  const where = [];
+  if (req.query.searchbar)
+    where.push(`event.event_name like '%${req.query.searchbar}%'`);
+  if (req.query.locate) where.push(`event.event_city = ${req.query.locate}`);
+  if (req.query.time) where.push(`event.event_name = ${req.query.time}`);
+  if (req.query.theme) where.push(`event.event_theme = ${req.query.theme}`);
+
+  const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";
+
+  const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql}`;
+  console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
 });
 //活動詳細頁(參加者資訊)
 app.get("/api/attendants", (req, res) => {
-  console.log(req.query.id);
+  // console.log(req.query.id);
   const sqlSelect = `SELECT member_id,member_name,member_img FROM member WHERE member_id IN (${req.query.id})`;
   db.query(sqlSelect, (err, result) => {
     res.send(result);

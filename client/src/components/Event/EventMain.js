@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_main.scss'
 import SearchbarEvent from './SearchbarEvent'
+import EventResult from './EventResult'
 import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
 
 function EventMain() {
+  const [condition, setCondition] = useState({})
+
   return (
     <>
       <div className="event-wrapper">
@@ -52,7 +55,7 @@ function EventMain() {
 
         <div className="event-search-bar">
           <h3>尋找理想中的攝影行程</h3>
-          <SearchbarEvent />
+          <SearchbarEvent setCondition={setCondition} />
         </div>
 
         <div className="my-container">
@@ -70,6 +73,7 @@ function EventMain() {
           <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" />
         </div>
       </div>
+      <EventResult condition={condition} />
     </>
   )
 }

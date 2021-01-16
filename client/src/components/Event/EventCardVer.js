@@ -10,7 +10,8 @@ import { useHistory } from 'react-router-dom'
 function EventCardVer(props) {
   // console.log(props.initVal)
   const [isActive, setIsActive] = useState(false)
-  const [cardInfo, setCardInfo] = useState(props.initVal)
+  // const [cardInfo, setCardInfo] = useState(props.initVal)
+  const cardInfo = props.initVal
 
   let history = useHistory()
 
@@ -29,7 +30,7 @@ function EventCardVer(props) {
 
   return (
     <>
-      <div className="col-3 d-flex justify-content-center event-card-vertical">
+      <div className="event-card-vertical card-wrapper">
         <div className="card box d-flex ccard">
           <img
             src={devUrl + '/Pic/SVG/bookmark.svg'}

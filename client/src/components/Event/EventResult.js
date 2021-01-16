@@ -9,13 +9,21 @@ import EventCardHor from './EventCardHor'
 //connect with backend
 import Axios from 'axios'
 
-function EventResult() {
+function EventResult(props) {
+  console.log(props)
+
+  const { locate = '', searchbar = '', theme = '', time = '' } = props.condition
+
+  const [axiosUrl, setAxiosUrl] = useState('')
+
   const [displayCard, setDisplayCard] = useState(true)
   const [eventResult, setEventResult] = useState([])
 
   // 取得後端資料
   useEffect(() => {
-    Axios.get(`http://localhost:3001/api/eventsearch`)
+    Axios.get(
+      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}`
+    )
       .then((response) => {
         console.log(response)
         setEventResult(response.data)
@@ -23,10 +31,10 @@ function EventResult() {
       .catch(function (error) {
         console.log(error)
       })
-  }, [])
+  }, [locate, searchbar, theme, time])
 
   const resultCard = (
-    <div className="result-card d-flex row justify-content-start">
+    <div className="result-card d-flex flex-wrap justify-content-start">
       {eventResult.map((val) => {
         return <EventCardVer initVal={val} />
       })}
@@ -88,7 +96,7 @@ function EventResult() {
         {/* <div className="no-result">
           <h5>很抱歉，未找到符合的搜尋結果。</h5>
         </div> */}
-        <div className="have-result d-flex row justify-content-center">
+        <div className="have-result d-flex justify-content-center">
           {displayCard ? resultCard : resultList}
         </div>
 

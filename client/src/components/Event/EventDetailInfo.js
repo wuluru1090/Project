@@ -66,6 +66,15 @@ function EventDetailInfo(props) {
                 </div>
               </div>
               <div className="paragraph d-flex align-items-start">
+                <MdDone />
+                <div className="info">
+                  <div className="subtitle2 font-bold small-title">
+                    名額上限：
+                  </div>
+                  <div className="subtitle2">{val.event_limit_number} 人</div>
+                </div>
+              </div>
+              <div className="paragraph d-flex align-items-start">
                 <MdAccessTime />
                 <div className="info">
                   <div className="subtitle2 font-bold small-title">

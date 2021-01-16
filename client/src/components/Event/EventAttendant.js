@@ -7,54 +7,80 @@ import Axios from 'axios'
 
 function EventAttendant(props) {
   const eventId = props.match.params.id
+  const [event, setEvent] = useState({})
   const [attendants, setAttendants] = useState([])
   const [attendantsData, setAttendantsData] = useState([])
-  let eventData = []
+  const [attends, setAttends] = useState([])
+  const [waiting, setWaiting] = useState([])
+
+  //參加狀態
+  const [status, setStatus] = useState('attend')
 
   const getData = async () => {
     await Axios.get(`http://localhost:3001/api/event/${eventId}`).then(
       (response) => {
-        console.log(JSON.parse(response.data[0].event_attendents))
-        // setAttendants(JSON.parse(response.data[0].event_attendents))
-        eventData = JSON.parse(response.data[0].event_attendents)
+        setEvent(response.data[0])
+        // console.log(JSON.parse(response.data[0].event_attendents))
+        setAttendants(JSON.parse(response.data[0].event_attendents))
       }
     )
+  }
+
+  const getAtt = async () => {
     await Axios.get(
       `http://localhost:3001/api/attendants?id=${attendants.join(',')}`
     )
       .then((response) => {
-        console.log(response)
-        // console.log(response.data)
         setAttendantsData(response.data)
+        setAttends(response.data.slice(0, event.event_limit_number - 1))
+        setWaiting(response.data.slice(event.event_limit_number - 1))
       })
       .catch(function (error) {
         console.log(error)
       })
   }
 
+  const statusList = () => {
+    switch (status) {
+      case 'attend':
+        return attends
+      case 'waiting':
+        return waiting
+      case 'cancel':
+        return []
+    }
+  }
+
   useEffect(() => {
     getData()
-    // Axios.get(`http://localhost:3001/api/event/${eventId}`)
-    //   .then((response) => {
-    //     console.log(JSON.parse(response.data[0].event_attendents))
-    //     setAttendants(JSON.parse(response.data[0].event_attendents))
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error)
-    //   })
   }, [])
 
-  // useEffect(() => {
-  //   Axios.get(`http://localhost:3001/api/attendants?id=${attendants.join(',')}`)
-  //     .then((response) => {
-  //       console.log(response)
-  //       console.log(response.data)
-  //       setAttendantsData(response.data)
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error)
-  //     })
-  // }, [])
+  useEffect(() => {
+    if (attendants.length > 0) {
+      getAtt()
+    }
+  }, [attendants])
+
+  const hostInfo = (
+    <div className="list-content row holder">
+      <div className="pic col-2 d-flex justify-content-start align-items-center">
+        <figure>
+          <img
+            className="photo"
+            src={`${devUrl}/pic/mem_img/${event.event_host_img}`}
+            alt=""
+          />
+        </figure>
+      </div>
+      <div className="detail d-flex col-10 align-items-center">
+        <div className="de">
+          <h6>{event.event_host_name}</h6>
+          <p className="subtitle2 host">主揪</p>
+          <p className="subtitle2">1月1日, 12:25</p>
+        </div>
+      </div>
+    </div>
+  )
 
   return (
     <>
@@ -62,33 +88,55 @@ function EventAttendant(props) {
         <div className="att-container content">
           <div className="att-header">
             <h6>2020/03/05-2020/03/17</h6>
-            <h5 className="title">阿里山國家公園二日遊輕鬆拍</h5>
+            <h5 className="title">{event.event_name}</h5>
             <h5 className="title">參與者</h5>
             <div className="status">
               <ul className="d-flex">
-                <li className="subtitle1 selected-status">確定參加 (12)</li>
-                <li className="subtitle1">退出 (5)</li>
-                <li className="subtitle1">候補 (2)</li>
+                <li
+                  className={`subtitle1 ${
+                    status == 'attend' && 'selected-status'
+                  }`}
+                  onClick={() => {
+                    setStatus('attend')
+                  }}
+                >
+                  確定參加 (
+                  {event.event_limit_number >= attendants.length
+                    ? attendants.length
+                    : event.event_limit_number}
+                  )
+                </li>
+                <li
+                  className={`subtitle1 ${
+                    status == 'cancel' && 'selected-status'
+                  }`}
+                  onClick={() => {
+                    setStatus('cancel')
+                  }}
+                >
+                  退出 (5)
+                </li>
+                <li
+                  className={`subtitle1 ${
+                    status == 'waiting' && 'selected-status'
+                  }`}
+                  onClick={() => {
+                    setStatus('waiting')
+                  }}
+                >
+                  候補 (
+                  {event.event_limit_number >= attendants.length
+                    ? 0
+                    : attendants.length - event.event_limit_number}
+                  )
+                </li>
               </ul>
             </div>
           </div>
-
           <div className="list">
-            <div className="list-content row holder">
-              <div className="pic col-2 d-flex justify-content-start align-items-center">
-                <figure>
-                  <img src="" alt="" />
-                </figure>
-              </div>
-              <div className="detail d-flex col-10 align-items-center">
-                <div className="de">
-                  <h6>陳宇軒</h6>
-                  <p className="subtitle2 host">主揪</p>
-                  <p className="subtitle2">1月1日, 12:25</p>
-                </div>
-              </div>
-            </div>
-            {/* {attendantsData.map((val) => {
+            {status == 'attend' && hostInfo}
+
+            {statusList().map((val) => {
               return (
                 <>
                   <div className="list-content row">
@@ -96,11 +144,16 @@ function EventAttendant(props) {
                       <figure>
                         {val.member_img != '' ? (
                           <img
+                            className="photo"
                             src={`${devUrl}/pic/mem_img/${val.member_img}`}
-                            alt=""
+                            alt={val.member_name}
                           />
                         ) : (
-                          <img src={`${devUrl}/pic/mem_img/null.png`} alt="" />
+                          <img
+                            className="photo"
+                            src={`${devUrl}/pic/mem_img/null.png`}
+                            alt={val.member_name}
+                          />
                         )}
                       </figure>
                     </div>
@@ -113,7 +166,7 @@ function EventAttendant(props) {
                   </div>
                 </>
               )
-            })} */}
+            })}
           </div>
         </div>
       </div>

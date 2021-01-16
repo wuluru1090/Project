@@ -11,11 +11,17 @@
   // border: 1px solid;
 }
 .event-card-vertical {
+  .card-wrapper {
+    // background: coral;
+    width: 271px;
+  }
   .card {
     border: 1px solid transparent !important;
+    margin: 32px 9.5px;
   }
 
   .ccard {
+    // background: crimson;
     width: 271px;
     height: 350px;
     border: 1px solid transparent;

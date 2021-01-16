@@ -220,16 +220,16 @@ function EventDetail(props) {
                     </div>
                     <div className="underline-title d-flex justify-content-between align-items-end">
                       <div className="detail-title">參與者名單</div>
-                      <button
-                        // href={`/event/${props.match.params.id}/attendants`}
+                      <a
+                        href={`/event/${props.match.params.id}/attendants`}
                         className="btn btn-link all"
                         onClick={() => {
                           console.log(props)
-                          // props.setEventID(`${val.event_id}`)
                         }}
+                        target="_blank"
                       >
                         查看全部
-                      </button>
+                      </a>
                     </div>
                     <EventDetailAttendant initValue={eventDataList} />
                   </div>
