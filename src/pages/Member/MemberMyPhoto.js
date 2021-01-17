@@ -56,7 +56,7 @@ function MemberMyPhoto(props) {
                                 ></img>
                                 <figure className="position-relative">
                                   <div className="addphoto position-absolute ">
-                                    <Link to="/member/MyPhoto2">
+                                    <Link to="/member/:id/MyPhoto2">
                                       <MdAddCircle />
                                     </Link>
                                   </div>
@@ -88,7 +88,7 @@ function MemberMyPhoto(props) {
                                 ></img>
                                 <figure className="position-relative">
                                   <div className="addphoto position-absolute ">
-                                    <Link to="/member/MyPhoto2">
+                                    <Link to="/member/:id/MyPhoto2">
                                       <MdAddCircle />
                                     </Link>
                                   </div>
@@ -120,7 +120,7 @@ function MemberMyPhoto(props) {
                                 ></img>
                                 <figure className="position-relative">
                                   <div className="addphoto position-absolute ">
-                                    <Link to="/member/MyPhoto2">
+                                    <Link to="/member/:id/MyPhoto2">
                                       <MdAddCircle />
                                     </Link>
                                   </div>

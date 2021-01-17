@@ -4,7 +4,7 @@ import '../../style/member/member_card.scss'
 import '../../style/member/member_pdcard.scss'
 import { devUrl } from '../../config'
 import '../../style/member/member_content.scss'
-import { MdVisibility, MdBrightnessHigh } from 'react-icons/md'
+import { MdVisibility } from 'react-icons/md'
 import { Button } from 'react-bootstrap'
 function MemberPdCardcoll() {
   return (

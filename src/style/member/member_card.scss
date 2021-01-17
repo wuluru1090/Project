@@ -9,6 +9,15 @@
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #ffffff;
 }
+
+.mem_img_box {
+  .mem_img {
+    background-color: $grey-default;
+    border: solid 1px $primary;
+    object-fit: cover;
+  }
+}
+
 .star_Points {
   color: $primary;
   font-family: 'TaipeiSansTCBeta-Bold';

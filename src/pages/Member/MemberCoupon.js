@@ -4,9 +4,8 @@ import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import '../../style/member/member_coupon.scss'
 import '../../style/member/member_navbar.scss'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { MdArchive } from 'react-icons/md'
-import { devUrl } from '../../config'
 
 function MemberCoupon(props) {
   return (

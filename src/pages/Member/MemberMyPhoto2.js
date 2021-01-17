@@ -6,7 +6,6 @@ import '../../style/member/member.scss'
 import '../../style/member/member_photo2.scss'
 import { devUrl } from '../../config'
 import { Card, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import { MdDelete } from 'react-icons/md'
 function MemberMyPhoto2(props) {
   return (
@@ -127,7 +126,7 @@ function MemberMyPhoto2(props) {
                         <div className="d-flex justify-content-end">
                           <Button
                             onclick=""
-                            className="btn-style botton-font btn_icon mem_card_btn"
+                            className="btn-style $botton-font btn_icon mem_card_btn"
                           >
                             <MdDelete />
                             刪除照片

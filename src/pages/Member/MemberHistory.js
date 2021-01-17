@@ -1,14 +1,57 @@
 import '../../index.scss'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MemberPdCardcoll from '../../components/Member/MemberPdCardcoll'
-
+import { MdVisibility } from 'react-icons/md'
+import { Button, Card } from 'react-bootstrap'
 import '../../style/member/member_navbar.scss'
-import { Card } from 'react-bootstrap'
 import { devUrl } from '../../config'
+import Axios from 'axios'
+import { withRouter } from 'react-router-dom'
+import { DateConvert } from '../../components/Main/DateTimeConverter'
 
 function MemberHistory(props) {
+  const [memberevent, setMemberEvent] = useState([])
+  const [events, setEvents] = useState([])
+  const [att, setAtt] = useState([])
+
+  const getEvent = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/get/history/event/${props.match.params.id}`
+    ).then((res) => {
+      if (res.data) {
+        setMemberEvent(res.data[0])
+        console.log(JSON.parse(res.data[0].event_id))
+        setEvents(JSON.parse(res.data[0].event_id))
+      } else {
+        return
+      }
+    })
+  }
+
+  const getAtt = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/history/event/att?id=${events.join(',')}`
+    )
+      .then((res) => {
+        setAtt(res.data)
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    getEvent()
+  }, [])
+
+  useEffect(() => {
+    if (events.length > 0) {
+      getAtt()
+    }
+  }, [events])
+
   return (
     <>
       <body>
@@ -42,7 +85,77 @@ function MemberHistory(props) {
                           </li>
                         </ul>
                         <br />
-                        <MemberPdCardcoll />
+
+                        {att.map((m) => {
+                          return (
+                            <div className="pdCard">
+                              <div className="ccard">
+                                <div className="d-flex dcard">
+                                  <div>
+                                    <img
+                                      src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                      className="card-img-top photo"
+                                      alt="..."
+                                    />
+                                  </div>
+                                  <div className="">
+                                    <div className="card-body">
+                                      <h5 className="card-title">
+                                        {m.event_name}
+                                      </h5>
+
+                                      <div className="d-flex bbb">
+                                        <img
+                                          className="icon"
+                                          src="/pic/svg/photo-camera.svg"
+                                          alt=""
+                                        />
+                                        <p className="caption">
+                                          {m.event_location}
+                                        </p>
+                                      </div>
+                                      <div className="d-flex bbb">
+                                        <img
+                                          className="icon2"
+                                          src="/pic/svg/date_range-24px.svg"
+                                          alt=""
+                                        />
+                                        <p className="caption  d-flex">
+                                          <DateConvert
+                                            jsonDate={m.event_start_time}
+                                          />
+                                          &nbsp;~&nbsp;
+                                          <DateConvert
+                                            jsonDate={m.event_end_time}
+                                          />
+                                        </p>
+                                      </div>
+                                      <div className="d-flex bbb">
+                                        <img
+                                          className="icon3"
+                                          src="/pic/svg/location_on-24px.svg"
+                                          alt=""
+                                        />
+                                        <p className="caption ">
+                                          {m.event_address}
+                                        </p>
+                                      </div>
+                                      <div className="d-flex justify-content-end">
+                                        <Button
+                                          onclick=""
+                                          className="btn-style botton-font btn_icon mem_card_btn"
+                                        >
+                                          <MdVisibility />
+                                          活動檢視
+                                        </Button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        })}
                       </Card.Body>
                     </Card>
                   </div>
@@ -57,4 +170,4 @@ function MemberHistory(props) {
   )
 }
 
-export default MemberHistory
+export default withRouter(MemberHistory)

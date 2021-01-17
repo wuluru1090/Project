@@ -4,8 +4,8 @@ import MemberContent from '../../components/Member/MemberContent'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import '../../style/member/member.scss'
-import { devUrl } from '../../config'
-function MemberHome(props) {
+
+function MemberHome() {
   return (
     <>
       <body>
@@ -15,13 +15,13 @@ function MemberHome(props) {
               <aside className="d-flex justify-content-end">
                 <br />
                 <div>
-                  <MemberCard />
+                  <MemberCard key="" />
                   <br />
-                  <MemberNavlist />
+                  <MemberNavlist key="" />
                 </div>
 
                 <article>
-                  <MemberContent />
+                  <MemberContent key="" />
                 </article>
               </aside>
             </main>

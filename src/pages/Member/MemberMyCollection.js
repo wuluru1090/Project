@@ -1,12 +1,29 @@
 import '../../index.scss'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Axios from 'axios'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MemberPdCardcoll from '../../components/Member/MemberPdCardcoll'
-import { Card } from 'react-bootstrap'
+import { MdVisibility } from 'react-icons/md'
+import { Card, Button } from 'react-bootstrap'
 import { devUrl } from '../../config'
+import { DateConvert } from '../../components/Main/DateTimeConverter'
+import { withRouter } from 'react-router-dom'
 
 function MemberMyCollection(props) {
+  const [memlikeevent, setMemberlikeEvent] = useState([])
+
+  useEffect(() => {
+    Axios.get(
+      `http://localhost:3001/member/get/collection/event/${props.match.params.id}`
+    )
+      .then((res) => {
+        setMemberlikeEvent(res.data)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
+
   return (
     <>
       <body>
@@ -33,14 +50,97 @@ function MemberMyCollection(props) {
                       >
                         <ul className="row navbar  d-flex align-items-center">
                           <li className=" subtitle1  main_li">
-                            <a href="#">活動</a>
+                            <a
+                              href={
+                                devUrl +
+                                `/member/${props.match.params.id}/MyCollection`
+                              }
+                            >
+                              活動
+                            </a>
                           </li>
                           <li className=" subtitle1 main_li">
-                            <a href="#">課程</a>
+                            <a
+                              href={
+                                devUrl +
+                                `/member/${props.match.params.id}/MyCollection/Class`
+                              }
+                            >
+                              課程
+                            </a>
                           </li>
                         </ul>
                         <br />
-                        <MemberPdCardcoll />
+                        {memlikeevent.map((val) => {
+                          return (
+                            <div className="pdCard">
+                              <div className="ccard">
+                                <div className="d-flex dcard">
+                                  <div>
+                                    <img
+                                      src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                      className="card-img-top photo"
+                                      alt="..."
+                                    />
+                                  </div>
+                                  <div className="">
+                                    <div className="card-body">
+                                      <h5 className="card-title">
+                                        {val.event_name}
+                                      </h5>
+
+                                      <div className="d-flex bbb">
+                                        <img
+                                          className="icon"
+                                          src="/pic/svg/photo-camera.svg"
+                                          alt=""
+                                        />
+                                        <p className="caption">
+                                          {val.event_location}
+                                        </p>
+                                      </div>
+                                      <div className="d-flex bbb">
+                                        <img
+                                          className="icon2"
+                                          src="/pic/svg/date_range-24px.svg"
+                                          alt=""
+                                        />
+                                        <p className="caption  d-flex">
+                                          <DateConvert
+                                            jsonDate={val.event_start_time}
+                                          />
+                                          &nbsp;~&nbsp;
+                                          <DateConvert
+                                            jsonDate={val.event_end_time}
+                                          />
+                                        </p>
+                                      </div>
+                                      <div className="d-flex bbb">
+                                        <img
+                                          className="icon3"
+                                          src="/pic/svg/location_on-24px.svg"
+                                          alt=""
+                                        />
+                                        <p className="caption ">
+                                          {val.event_address}
+                                        </p>
+                                      </div>
+                                      <div className="d-flex justify-content-end">
+                                        <Button
+                                          onclick=""
+                                          className="btn-style botton-font btn_icon mem_card_btn"
+                                        >
+                                          <MdVisibility />
+                                          活動檢視
+                                        </Button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        })}
                       </Card.Body>
                     </Card>
                   </div>
@@ -55,4 +155,4 @@ function MemberMyCollection(props) {
   )
 }
 
-export default MemberMyCollection
+export default withRouter(MemberMyCollection)

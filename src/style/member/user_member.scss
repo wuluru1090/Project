@@ -5,8 +5,14 @@ body {
 
   .user_card_body {
     padding-bottom: 260px;
+    img {
+      object-fit: cover;
+    }
+
     .mem_nameandtitle {
       padding: 16px;
+      // width: 350px;
+      text-align: center;
     }
     .photo_album_all {
       width: 900px;
@@ -29,6 +35,7 @@ body {
             width: 100px;
             height: 70px;
             padding: 5px;
+            object-fit: cover;
           }
         }
       }
