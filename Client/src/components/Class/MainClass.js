@@ -22,6 +22,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from 'react-share'
+import Bread from '../Main/BreadCrumb'
 
 //GMap地圖Pin標記位置
 const location = {
@@ -118,7 +119,9 @@ function ClassMain(props) {
                     </button>
                   </div>
                 </div>
-                <div className="bread_crumb">麵包屑放置處</div>
+                <div className="bread_crumb">
+                  <Bread />
+                </div>
               </div>
               <div className="page-head-part3">
                 <div className="content_big_part">

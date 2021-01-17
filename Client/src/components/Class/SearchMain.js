@@ -10,6 +10,7 @@ import Selection from '../Class/Selection'
 import Pagination from '../Main/Pagination'
 import ClassResultCard from '../Class/ClassResultCard'
 import Sidebar from '../Class/Sidebar'
+import Bread from '../Main/BreadCrumb'
 import axios from 'axios'
 
 function SearchMain() {
@@ -83,7 +84,9 @@ function SearchMain() {
     <>
       <div className="class-search-wrapper">
         <div className="d-flex justify-content-between top-part">
-          <div className="bread-crumb font20">麵包屑放置處</div>
+          <div className="bread-crumb font20">
+            <Bread />
+          </div>
           <div className="d-flex">
             <Selection order={order} setOrder={setOrder} />
           </div>
