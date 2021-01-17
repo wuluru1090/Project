@@ -2,9 +2,30 @@ import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import '../../style/event/event_card_ver_relative.scss'
+import { DateConvert } from '../Main/DateTimeConverter'
+import { useHistory } from 'react-router-dom'
 
-function EventCardVerRelative() {
+function EventCardVerRelative(props) {
+  let history = useHistory()
+
+  console.log(props.initValue)
   const [isActive, setIsActive] = useState(false)
+  const cardInfo = props.initValue
+
+  //天數計算機
+  function isOneDay(date1, date2) {
+    let startDate = date1.split('-')
+    let endDate = date2.split('-')
+    return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+  }
+
+  function click2Detail(id) {
+    let stringId = JSON.stringify(id)
+    console.log(stringId)
+    history.push('/event/' + stringId)
+    window.location.reload()
+  }
+
   return (
     <>
       <div className="d-flex justify-content-center event-card-vertical_relative">
@@ -27,9 +48,9 @@ function EventCardVerRelative() {
           />
           <figure className="event-photo">
             <img
-              src={devUrl + '/pic/pic/event-slider1.jpg'}
+              src={devUrl + '/pic/event/' + cardInfo.event_photo}
               className="card-img-top photo"
-              alt="..."
+              alt={cardInfo.event_name}
             />
           </figure>
           <a href="#">
@@ -48,10 +69,10 @@ function EventCardVerRelative() {
             ></img>
           </a>
           <div className="card-body">
-            <h5 className="card-title">四草綠意盎然 台南七股一日遊</h5>
+            <h5 className="card-title">{cardInfo.event_name}</h5>
             <div className="d-flex inform align-items-center">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
-              <span className="card-text">四草綠色隧道 </span>
+              <span className="card-text">{cardInfo.event_location}</span>
             </div>
             <div className="d-flex inform align-items-center">
               <img
@@ -59,7 +80,20 @@ function EventCardVerRelative() {
                 src="/pic/svg/date_range-24px.svg"
                 alt=""
               />
-              <span className="card-text">2021-01-28 </span>
+              <span className="card-text">
+                {isOneDay(
+                  cardInfo.event_start_time,
+                  cardInfo.event_end_time
+                ) ? (
+                  <DateConvert jsonDate={cardInfo.event_start_time} />
+                ) : (
+                  <>
+                    <DateConvert jsonDate={cardInfo.event_start_time} />
+                    <span>&nbsp;~&nbsp;</span>
+                    <DateConvert jsonDate={cardInfo.event_end_time} />
+                  </>
+                )}
+              </span>
             </div>
             <div className="d-flex inform align-items-center">
               <img
@@ -68,7 +102,7 @@ function EventCardVerRelative() {
                 alt=""
               />
               <span className="subtitle1 card-text">
-                台南市歸仁區歸仁大道100號{' '}
+                {cardInfo.event_address}
               </span>
             </div>
 
@@ -79,19 +113,22 @@ function EventCardVerRelative() {
                   className="btn rounded-pill btn-md tag"
                   type="button"
                 >
-                  自然
+                  {cardInfo.event_type_name}
                 </a>
                 <a
                   href="#"
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
                 >
-                  自然
+                  {cardInfo.event_theme_name}
                 </a>
               </div>
-              <a href="#" className="btn d-flex join">
+              <button
+                onClick={() => click2Detail(cardInfo.event_id)}
+                className="btn d-flex join"
+              >
                 參加活動
-              </a>
+              </button>
             </div>
           </div>
         </div>

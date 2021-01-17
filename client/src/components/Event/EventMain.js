@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_main.scss'
 import SearchbarEvent from './SearchbarEvent'
+import ScrollTop from './ScrollTop'
 import EventResult from './EventResult'
 import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
@@ -58,16 +59,7 @@ function EventMain() {
           <SearchbarEvent setCondition={setCondition} />
         </div>
 
-        <div className="my-container">
-          <div className="scroll">
-            <h6 className="d-inline-block">SCROLL DOWN</h6>
-            <img
-              className="d-inline-block c-icon"
-              src={devUrl + '/Pic/SVG/scroll.svg'}
-              alt=""
-            />
-          </div>
-        </div>
+        <ScrollTop />
 
         <div className="wave1">
           <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" />

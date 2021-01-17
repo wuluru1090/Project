@@ -5,7 +5,7 @@ import '../../style/event/event_card_ver.scss'
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
 
-// import Axios from 'axios'
+import Axios from 'axios'
 
 function EventCardVer(props) {
   // console.log(props.initVal)

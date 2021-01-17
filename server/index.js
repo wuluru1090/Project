@@ -23,14 +23,41 @@ app.get("/api/event/:id?", (req, res) => {
     res.send(result);
   });
 });
+
+//活動詳細頁輪播
+app.get("/api/eventsearch/relative", (req, res) => {
+  // console.log(req.query.id);
+  const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name,event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id WHERE event_theme = (${req.query.theme}) LIMIT 6`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
 //活動搜尋頁頁資訊(單筆資料)
 app.get("/api/eventsearch", (req, res) => {
   // res.send(req.query.id);
+  const today = converter(new Date().getTime());
+  function converter(D) {
+    let dateTime = new Date(D);
+    let yyyy = dateTime.getFullYear();
+    let mm = dateTime.getMonth() + 1;
+    let dd = dateTime.getDate();
+    let tt = "23:59:59";
+
+    dateTime = String(yyyy + "/" + mm + "/" + dd + " " + tt);
+    return dateTime;
+  }
+
   const where = [];
   if (req.query.searchbar)
     where.push(`event.event_name like '%${req.query.searchbar}%'`);
   if (req.query.locate) where.push(`event.event_city = ${req.query.locate}`);
-  if (req.query.time) where.push(`event.event_name = ${req.query.time}`);
+  if (req.query.time)
+    where.push(
+      `event.event_start_time BETWEEN '${today}' AND '${converter(
+        req.query.time
+      )}'`
+    );
   if (req.query.theme) where.push(`event.event_theme = ${req.query.theme}`);
 
   const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";

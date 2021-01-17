@@ -70,13 +70,34 @@
       font-family: 'TaipeiSansTCBeta-Bold' !important;
       text-shadow: 1px 1px 0.2em rgb(128, 128, 128);
     }
+  }
+  .fixbutton {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    background: #175fab;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    right: 100px;
+    bottom: 50px;
+    z-index: 99;
+    opacity: 0.5;
+    transition: opacity 0.4s;
+    animation: fadeIn 1s;
 
-    // .searchbar {
-    //   margin-left: 0px;
-    // }
-    // .ta:hover {
-    //   color: $secondary;
-    //   border: 1px solid $secondary;
-    // }
+    &:hover {
+      color: white;
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0.4;
+      }
+    }
   }
 }

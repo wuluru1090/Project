@@ -25,7 +25,7 @@ function EventResult(props) {
       `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}`
     )
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         setEventResult(response.data)
       })
       .catch(function (error) {
@@ -93,12 +93,15 @@ function EventResult(props) {
           </div>
         </div>
         <div className="divider"></div>
-        {/* <div className="no-result">
-          <h5>很抱歉，未找到符合的搜尋結果。</h5>
-        </div> */}
-        <div className="have-result d-flex justify-content-center">
-          {displayCard ? resultCard : resultList}
-        </div>
+        {eventResult.length > 0 ? (
+          <div className="have-result d-flex justify-content-center">
+            {displayCard ? resultCard : resultList}
+          </div>
+        ) : (
+          <div className="no-result">
+            <h5>很抱歉，未找到符合的搜尋結果。</h5>
+          </div>
+        )}
 
         {/* <div className="page">
           <EventPagination />

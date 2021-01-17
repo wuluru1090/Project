@@ -31,6 +31,7 @@ const location = {
 }
 
 function EventDetail(props) {
+  document.documentElement.scrollTop = document.body.scrollTop = 0
   console.log(props)
   let history = useHistory()
 
@@ -273,7 +274,7 @@ function EventDetail(props) {
                   <span className="detail-title">相似活動</span>
                 </div>
                 <div className="relative-event-carousel">
-                  <EventRelativeCarousel />
+                  <EventRelativeCarousel initValue={val.event_theme} />
                 </div>
               </div>
             </div>

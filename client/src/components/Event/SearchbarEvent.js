@@ -10,15 +10,65 @@ function Searchbar2(props) {
   const [locate, setLocate] = useState('')
   const [time, setTime] = useState('')
   const [theme, setTheme] = useState('')
+  const [timeRange, setTimeRange] = useState('')
 
+  //計算日期
+  const today = new Date().getTime()
+  const in1week = new Date(today + 1000 * 60 * 60 * 24 * 7)
+  const in1Month = new Date(today + 1000 * 60 * 60 * 24 * 30)
+  const in3Month = new Date(today + 1000 * 60 * 60 * 24 * 90)
+  const in6Month = new Date(today + 1000 * 60 * 60 * 24 * 180)
+  // converter(in1week)
+  // converter(in1Month)
+  // converter(in3Month)
+  // converter(in6Month)
+
+  //把標準時間成sql dateTime格式
+  function converter(D) {
+    let dateTime = new Date(D)
+    let yyyy = dateTime.getFullYear()
+    let mm = dateTime.getMonth() + 1
+    let dd = dateTime.getDate()
+    let tt = '23:59:59'
+
+    dateTime = String(yyyy + '/' + mm + '/' + dd + ' ' + tt)
+    return dateTime
+  }
+
+  useEffect(() => {
+    switch (time) {
+      case 'inAWeek':
+        console.log(converter(in1week))
+        setTimeRange(in1week)
+        break
+      case 'in1Month':
+        console.log(converter(in1Month))
+        setTimeRange(in1Month)
+        break
+      case 'in3Month':
+        console.log(converter(in3Month))
+        setTimeRange(in3Month)
+        break
+      case 'in6Month':
+        console.log(converter(in6Month))
+        setTimeRange(in6Month)
+        break
+      case '':
+        setTimeRange('')
+    }
+  }, [time])
+
+  //設定條件
   const Condition = () => {
-    // console.log(searchbar, locate, time, theme)
     props.setCondition({
       searchbar: searchbar,
       locate: locate,
-      time: time,
+      time: timeRange,
       theme: theme,
     })
+    var height = window.innerHeight
+    height = height - 60
+    window.scrollTo({ top: height, behavior: 'smooth' })
   }
 
   return (
@@ -40,9 +90,17 @@ function Searchbar2(props) {
                 placeholder="尋找活動"
                 aria-label="Search"
                 onChange={(e) => setSearchbar(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.charCode == 13)
+                    document.getElementById('submitBtn').click()
+                }}
               />
             </div>
-            <button className="btn rounded-pill sub" onClick={Condition}>
+            <button
+              className="btn rounded-pill sub"
+              onClick={Condition}
+              id="submitBtn"
+            >
               搜尋
             </button>
           </div>
@@ -95,11 +153,10 @@ function Searchbar2(props) {
               <option value="" selected>
                 時間
               </option>
-              <option value="1">近一週</option>
-              <option value="2">近一個月</option>
-              <option value="3">近三個月</option>
-              <option value="4">近六個月</option>
-              <option value="5">六個月以上</option>
+              <option value="inAWeek">近一週</option>
+              <option value="in1Month">近一個月</option>
+              <option value="in3Month">近三個月</option>
+              <option value="in6Month">近六個月</option>
             </select>
           </div>
           {/* 時間結束 */}
