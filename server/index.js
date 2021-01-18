@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //活動詳細頁資訊(單筆資料)
 app.get("/api/event/:id?", (req, res) => {
-  // res.send(req.query.id);
   const sqlSelect = `SELECT event.*, event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name, member.member_name AS event_host_name, member.member_img AS event_host_img FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id JOIN member ON event.event_host_id = member.member_id WHERE event_id = ${req.params.id}`;
   db.query(sqlSelect, (err, result) => {
     res.send(result);
@@ -77,21 +76,29 @@ app.get("/api/attendants", (req, res) => {
   });
 });
 
+//活動頁留言板寫入資料
 app.post("/api/comment", (req, res) => {
-  // console.log(req.query.id);
   const commentEventId = req.body.commentEventId;
   const commentMemberId = req.body.commentMemberId;
   const commentContent = req.body.commentContent;
+  const commentTime = req.body.commentTime;
 
   const sqlInsert =
-    "INSERT INTO event_comment (comment_event_id, comment_member_id,comment_content,comment_time) VALUES (?,?,?,?)";
+    "INSERT INTO event_comment (comment_event_id, comment_member_id,comment_content,comment_time) VALUES (?,?,?,NOW())";
   db.query(
     sqlInsert,
-    [commentEventId, commentMemberId, commentContent, NOW()],
+    [commentEventId, commentMemberId, commentContent, commentTime],
     (err, result) => {
       console.log(err);
     }
   );
+});
+//活動頁留言板獲取資料
+app.get("/api/get/comment/:id?", (req, res) => {
+  const sqlSelect = `SELECT event_comment.*,member.member_name AS member_name, member.member_img AS member_img FROM event_comment JOIN member ON event_comment.comment_member_id = member.member_id  WHERE comment_event_id =${req.params.id} ORDER BY comment_time`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
 });
 
 // start express server on port 5000

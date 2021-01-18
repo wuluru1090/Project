@@ -189,7 +189,7 @@ function EventDetail(props) {
                 </div>
                 <div className="page-head-part3">
                   <div className="content_big_part">
-                    <div className="class_pic">
+                    <div className="event_pic">
                       <figure>
                         <img
                           src={`${devUrl}/pic/event/${val.event_photo}`}
@@ -265,9 +265,9 @@ function EventDetail(props) {
                   eventValue={{
                     id: val.event_id,
                     hostId: val.event_host_id,
-                    hostName: val.event_host_name,
-                    hostImg: val.event_host_img,
-                    attendant: val.event_attendants,
+                    // hostName: val.event_host_name,
+                    // hostImg: val.event_host_img,
+                    // attendant: val.event_attendents,
                   }}
                 />
               </div>
