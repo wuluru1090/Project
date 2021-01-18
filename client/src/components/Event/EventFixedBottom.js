@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_fixed_bottom.scss'
-import { DateConvert, TimeConvert } from '../Main/DateTimeConverter'
 
 function EventFixedBottom(value) {
   const bottomData = value.value
@@ -50,7 +49,7 @@ function EventFixedBottom(value) {
 
   return (
     <>
-      <div className="event-fixed_bottom">
+      <div className="event-fixed_bottom" id="bottomBar">
         <div className="d-flex justify-content-between fixed_bottom_wrapper ">
           <div className="fixed_bottom_first">
             <div>

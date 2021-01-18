@@ -19,6 +19,7 @@ import EventDetailAttendant from './EventDetailAttendant'
 import EventForum from './EventForum'
 import EventRelativeCarousel from './EventRelativeCarousel'
 import EventFixedBottom from './EventFixedBottom'
+import EventBreadCrumb from './EventBreadCrumb'
 
 //connect with backend
 import Axios from 'axios'
@@ -31,8 +32,10 @@ const location = {
 }
 
 function EventDetail(props) {
-  document.documentElement.scrollTop = document.body.scrollTop = 0
-  console.log(props)
+  window.scrollTo(0, 0)
+
+  // document.documentElement.scrollTop = document.body.scrollTop = 0
+  // console.log(props)
   let history = useHistory()
 
   const [eventDataList, setEventDataList] = useState([])
@@ -126,10 +129,10 @@ function EventDetail(props) {
       {eventDataList.map((val) => {
         return (
           <>
-            <EventFixedBottom value={val} />
             <div className="event_wave_background">
               <div className="mainclass_wrapper">
                 <div className="page-head">
+                  <EventBreadCrumb initValue={val.event_name} />
                   <div className="title">
                     <h6 className="subtitle1">
                       {isOneDay(
@@ -258,7 +261,15 @@ function EventDetail(props) {
               </div>
               {/* 討論區 */}
               <div className="forum-wave-height d-flex justify-content-center">
-                <EventForum />
+                <EventForum
+                  eventValue={{
+                    id: val.event_id,
+                    hostId: val.event_host_id,
+                    hostName: val.event_host_name,
+                    hostImg: val.event_host_img,
+                    attendant: val.event_attendants,
+                  }}
+                />
               </div>
 
               {/* 下波浪 */}
@@ -277,6 +288,8 @@ function EventDetail(props) {
                   <EventRelativeCarousel initValue={val.event_theme} />
                 </div>
               </div>
+              {/* 底下的bar */}
+              <EventFixedBottom value={val} />
             </div>
           </>
         )

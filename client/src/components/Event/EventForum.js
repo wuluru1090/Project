@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../style/event/event_forum.scss'
 import { devUrl } from '../../config'
+import Axios from 'axios'
 
-function EventForum() {
+function EventForum(props) {
+  // console.group(props)
+  const [commentContent, setCommentContent] = useState('')
+
+  const comment = () => {
+    Axios.post('http://localhost:3001/api/comment', {
+      commentEventId: props.eventValue.id,
+      commentMemberId: 1,
+      commentContent: commentContent,
+    }).then(() => {
+      alert('successful insert')
+    })
+  }
+
   return (
     <>
       <div className="forum">
@@ -92,12 +106,18 @@ function EventForum() {
             cols="50"
             className="my-message"
             placeholder="請在此輸入文字..."
+            onChange={(e) => {
+              setCommentContent(e.target.value)
+            }}
           ></textarea>
-          <form className="d-flex justify-content-end forum-form">
-            <button type="submit" className="btn btn-primary rounded-pill bttn">
+          <div className="d-flex justify-content-end forum-form">
+            <button
+              onClick={comment}
+              className="btn btn-primary rounded-pill bttn"
+            >
               留言
             </button>
-          </form>
+          </div>
         </div>
       </div>
     </>

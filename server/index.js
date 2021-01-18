@@ -63,7 +63,7 @@ app.get("/api/eventsearch", (req, res) => {
   const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";
 
   const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql}`;
-  console.log(sqlSelect);
+  // console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
@@ -75,6 +75,23 @@ app.get("/api/attendants", (req, res) => {
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
+});
+
+app.post("/api/comment", (req, res) => {
+  // console.log(req.query.id);
+  const commentEventId = req.body.commentEventId;
+  const commentMemberId = req.body.commentMemberId;
+  const commentContent = req.body.commentContent;
+
+  const sqlInsert =
+    "INSERT INTO event_comment (comment_event_id, comment_member_id,comment_content,comment_time) VALUES (?,?,?,?)";
+  db.query(
+    sqlInsert,
+    [commentEventId, commentMemberId, commentContent, NOW()],
+    (err, result) => {
+      console.log(err);
+    }
+  );
 });
 
 // start express server on port 5000

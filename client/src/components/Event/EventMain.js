@@ -4,10 +4,12 @@ import '../../style/event/event_main.scss'
 import SearchbarEvent from './SearchbarEvent'
 import ScrollTop from './ScrollTop'
 import EventResult from './EventResult'
+import EventBottom from './EventBottom'
 import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
 
 function EventMain() {
+  window.scrollTo(0, 0)
   const [condition, setCondition] = useState({})
 
   return (
@@ -60,12 +62,13 @@ function EventMain() {
         </div>
 
         <ScrollTop />
-
         <div className="wave1">
           <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" />
         </div>
       </div>
+
       <EventResult condition={condition} />
+      <EventBottom />
     </>
   )
 }

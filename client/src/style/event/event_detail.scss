@@ -10,6 +10,11 @@ $url: 'http://localhost:3000';
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
+
+  .MuiBreadcrumbs-ol {
+    margin-bottom: 24px;
+  }
+
   .mainclass_wrapper {
     max-width: 1160px;
     margin: 0 auto;

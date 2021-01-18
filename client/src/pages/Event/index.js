@@ -9,7 +9,6 @@ function Event() {
   return (
     <>
       <EventMain />
-      <EventBottom />
     </>
   )
 }

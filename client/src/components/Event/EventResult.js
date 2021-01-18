@@ -14,8 +14,6 @@ function EventResult(props) {
 
   const { locate = '', searchbar = '', theme = '', time = '' } = props.condition
 
-  const [axiosUrl, setAxiosUrl] = useState('')
-
   const [displayCard, setDisplayCard] = useState(true)
   const [eventResult, setEventResult] = useState([])
 
@@ -100,6 +98,9 @@ function EventResult(props) {
         ) : (
           <div className="no-result">
             <h5>很抱歉，未找到符合的搜尋結果。</h5>
+            <button className="btn btn-primary rounded-pill" onclick={() => {}}>
+              返回全部活動
+            </button>
           </div>
         )}
 

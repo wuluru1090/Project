@@ -14,14 +14,11 @@ class EventRelativeCarousel extends Component {
     Axios.get(
       `http://localhost:3001/api/eventsearch/relative?theme=${this.props.initValue}`
     ).then((res) => {
-      console.log(res)
+      // console.log(res)
       this.setState({ data: res.data })
     })
   }
   render() {
-    // const { items } = this.state
-    // console.log(this.props)
-
     return (
       <Carousel
         itemsToScroll={1}
