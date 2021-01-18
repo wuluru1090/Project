@@ -4,12 +4,16 @@
 .mymem_toscoreM {
   padding: 20px;
   .mymem_toscore {
-    .mem_toscore {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      margin: 0 8px 0 8px;
+    .mem_score {
+      // margin:px;
+      .mem_toscore {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        margin: 0 24px 0 24px;
+      }
     }
+
     .score_p {
       // margin: 0 8px 0 0px;
       padding: 0 32px 0 0px;

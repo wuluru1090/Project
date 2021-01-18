@@ -137,14 +137,6 @@ function MemberMyjoinin(props) {
                                           <MdVisibility />
                                           活動檢視
                                         </Button>
-
-                                        <Button
-                                          onclick=""
-                                          className="btn-style botton-font btn_icon mem_card_btn btn_edit"
-                                        >
-                                          <MdBrightnessHigh />
-                                          活動編輯
-                                        </Button>
                                       </div>
                                     </div>
                                   </div>
