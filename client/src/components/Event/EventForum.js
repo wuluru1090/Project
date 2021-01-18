@@ -31,7 +31,7 @@ function EventForum(props) {
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/get/comment/${props.eventValue.id}`)
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         setCommentData(response.data)
       })
       .catch(function (error) {

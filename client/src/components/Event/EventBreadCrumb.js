@@ -5,7 +5,7 @@ import Link from '@material-ui/core/Link'
 import '../../style/event/event_bread_crumb.scss'
 
 function EventBreadcrumbs(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <Breadcrumbs aria-label="breadcrumb" className="bread">
       <Link href="/" className="event-link">

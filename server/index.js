@@ -23,6 +23,13 @@ app.get("/api/event/:id?", (req, res) => {
   });
 });
 
+app.get("/api/eventtags/:id?", (req, res) => {
+  const sqlSelect = `SELECT event_tags_relate.*, event_tags.tags_name AS tags_name FROM event_tags_relate JOIN event_tags ON event_tags_relate.event_tags_tags_id = event_tags.tags_id WHERE event_tags_relate.event_tags_event_id = ${req.params.id}`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
 //活動詳細頁輪播
 app.get("/api/eventsearch/relative", (req, res) => {
   // console.log(req.query.id);

@@ -10,9 +10,15 @@ import EventCardHor from './EventCardHor'
 import Axios from 'axios'
 
 function EventResult(props) {
-  console.log(props)
+  // console.log(props)
 
-  const { locate = '', searchbar = '', theme = '', time = '' } = props.condition
+  const {
+    locate = '',
+    searchbar = '',
+    theme = '',
+    time = '',
+    type = '',
+  } = props.condition
 
   const [displayCard, setDisplayCard] = useState(true)
   const [eventResult, setEventResult] = useState([])
@@ -20,7 +26,7 @@ function EventResult(props) {
   // 取得後端資料
   useEffect(() => {
     Axios.get(
-      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}`
+      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}`
     )
       .then((response) => {
         // console.log(response)

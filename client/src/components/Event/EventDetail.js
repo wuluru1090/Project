@@ -43,11 +43,13 @@ function EventDetail(props) {
     new Date('2021-01-15'),
     new Date('2021-01-15'),
   ])
+  const [tags, setTags] = useState([])
 
   //取得後端資料
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/event/${props.match.params.id}`)
       .then((response) => {
+        // console.log(response.data)
         setEventDataList(response.data)
         setCalenderValue([
           new Date(dateConvert(response.data[0].event_start_time).toString()),
@@ -58,6 +60,23 @@ function EventDetail(props) {
         console.log(error)
       })
   }, [])
+
+  const getTag = () => {
+    Axios.get(`http://localhost:3001/api/eventtags/${props.match.params.id}`)
+      .then((response) => {
+        console.log(response.data)
+        setTags(response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    if (eventDataList.length > 0) {
+      getTag()
+    }
+  }, [eventDataList])
 
   //單獨轉換json日期
   function dateConvert(jsonDate) {
@@ -207,20 +226,28 @@ function EventDetail(props) {
                       }}
                     ></div>
                     <div className="event-tag-box">
-                      <a
-                        href="#"
+                      <button
                         className="btn rounded-pill btn-md tag"
                         type="button"
                       >
                         {val.event_type_name}
-                      </a>
-                      <a
-                        href="#"
+                      </button>
+                      <button
                         className="btn rounded-pill btn-md tag aaa"
                         type="button"
                       >
                         {val.event_theme_name}
-                      </a>
+                      </button>
+                      {tags.map((t) => {
+                        return (
+                          <button
+                            className="btn rounded-pill btn-md tag aaa"
+                            type="button"
+                          >
+                            {t.tags_name}
+                          </button>
+                        )
+                      })}
                     </div>
                     <div className="underline-title d-flex justify-content-between align-items-end">
                       <div className="detail-title">參與者名單</div>
@@ -265,9 +292,6 @@ function EventDetail(props) {
                   eventValue={{
                     id: val.event_id,
                     hostId: val.event_host_id,
-                    // hostName: val.event_host_name,
-                    // hostImg: val.event_host_img,
-                    // attendant: val.event_attendents,
                   }}
                 />
               </div>

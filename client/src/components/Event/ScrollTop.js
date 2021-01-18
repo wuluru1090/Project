@@ -19,7 +19,7 @@ const ScrollTop = () => {
 
   // 監聽
   window.addEventListener('scroll', checkScrollTop)
-  console.log(showScroll)
+  // console.log(showScroll)
   return (
     <>
       <button

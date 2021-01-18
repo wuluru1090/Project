@@ -65,6 +65,7 @@ function Searchbar2(props) {
       locate: locate,
       time: timeRange,
       theme: theme,
+      type: '',
     })
     var height = window.innerHeight
     height = height - 60

@@ -4,10 +4,11 @@ import { devUrl } from '../../config/'
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
 import '../../style/event/event_card_hor.scss'
+import Axios from 'axios'
 
 function EventCardHor(props) {
   const [isActive, setIsActive] = useState(false)
-  // const [cardInfo, setCardInfo] = useState(props.initVal)
+  const [tags, setTags] = useState([])
   const cardInfo = props.initVal
 
   let history = useHistory()
@@ -22,6 +23,16 @@ function EventCardHor(props) {
     let endDate = date2.split('-')
     return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
   }
+
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/eventtags/${cardInfo.event_id}`)
+      .then((response) => {
+        setTags(response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [])
 
   return (
     <>
@@ -110,20 +121,25 @@ function EventCardHor(props) {
             </div>
             <div className="d-flex justify-content-between buttons">
               <div className="tag-box">
-                <a
-                  href="#"
-                  className="btn rounded-pill btn-md tag"
-                  type="button"
-                >
+                <button className="btn rounded-pill btn-md tag" type="button">
                   {cardInfo.event_type_name}
-                </a>
-                <a
-                  href="#"
+                </button>
+                <button
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
                 >
                   {cardInfo.event_theme_name}
-                </a>
+                </button>
+                {tags.map((t) => {
+                  return (
+                    <button
+                      className="btn rounded-pill btn-md tag aaa"
+                      type="button"
+                    >
+                      {t.tags_name}
+                    </button>
+                  )
+                })}
               </div>
               <a
                 onClick={() => click2Detail(cardInfo.event_id)}
