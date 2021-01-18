@@ -46,15 +46,19 @@ function MemberMyScore(props) {
   const getEvent = async () => {
     await Axios.get(
       `http://localhost:3001/member/get/history/event/${props.match.params.id}`
-    ).then((res) => {
-      if (res.data) {
+    )
+      .then((res) => {
         setMemberEvent(res.data[0])
-        // console.log(JSON.parse(res.data[0].event_id))
-        setEvents(JSON.parse(res.data[0].event_id))
-      } else {
-        return
-      }
-    })
+        if (res.data) {
+          setEvents(JSON.parse(res.data[0].event_id))
+          console.log(JSON.parse(res.data[0].event_id))
+        } else {
+          return
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   const getAtt = async () => {
@@ -62,8 +66,8 @@ function MemberMyScore(props) {
       `http://localhost:3001/member/history/event/att?id=${events.join(',')}`
     )
       .then((res) => {
+        setAtt(res.data)
         if (res.data) {
-          setAtt(res.data)
           // console.log(res.data)
           // console.log(JSON.parse(res.data[0].event_attendents))
           setAttendants(JSON.parse(res.data[0].event_attendents))
@@ -83,9 +87,11 @@ function MemberMyScore(props) {
       )}`
     )
       .then((res) => {
-        // console.log(res.data)
+        console.log(res.data)
         setAttmem(res.data)
-        // console.log(res.data)
+        // setAttendants(res.data.slice(0, event.event_limit_number - 1))
+        // setWaiting(res.data.slice(event.event_limit_number - 1))
+        console.log(res.data)
       })
       .catch(function (error) {
         console.log(error)
@@ -108,26 +114,39 @@ function MemberMyScore(props) {
     }
   }, [attendants])
 
-  const Submit = () => {
+  useEffect(() => {
+    Axios.get(
+      `http://localhost:3001/member/get/score/mem/${props.match.params.id}`
+    ).then((res) => {
+      setScore(res.data)
+      console.log(res.data)
+    })
+  }, [])
+
+  const submitScore = () => {
     Axios.post('http://localhost:3001/member/score', {
-      member_id: member_id,
-      event_id: event_id,
-      toscore_id: toscore_id,
+      member_id: `${props.match.params.id}`,
+      event_id: events,
+      toscore_id: 49,
       rating: value,
       rating_evaluate: rating_eva,
     }).then(() => {
       setScore([
         ...score,
         {
-          member_id: member_id,
-          event_id: event_id,
-          toscore_id: toscore_id,
+          member_id: `${props.match.params.id}`,
+          event_id: events,
+          toscore_id: 49,
           rating: value,
           rating_evaluate: rating_eva,
         },
       ])
     })
   }
+  // const setToscoreId={
+
+  // }
+
   return (
     <>
       <body>
@@ -162,10 +181,11 @@ function MemberMyScore(props) {
                           </li>
                         </ul>
                         <br />
-                        {att.map((m) => {
-                          return (
-                            <Card.Body style={{ padding: '0' }}>
-                              <Accordion>
+
+                        <Card.Body style={{ padding: '0' }}>
+                          <Accordion>
+                            {att.map((m) => {
+                              return (
                                 <div className="pd_score">
                                   <div className="ccard">
                                     <div className="d-flex dcard">
@@ -239,118 +259,110 @@ function MemberMyScore(props) {
                                     </div>
                                   </div>
                                 </div>
+                              )
+                            })}
 
-                                <Accordion.Collapse eventKey="0">
-                                  <form className="mymem_toscoreM">
-                                    <div className="mymem_toscore">
-                                      <div className="row d-flex justify-content-start mem_score d-flex flex-wrap">
-                                        {attmem.map((val) => {
-                                          return (
-                                            <div className="row mem_toscore_G ">
-                                              <figure className="">
-                                                <img
-                                                  className="mem_toscore"
-                                                  src={
-                                                    devUrl +
-                                                    `/pic/mem_img/${val.member_img}`
-                                                  }
-                                                  alt=""
-                                                  style={{
-                                                    cursor: ' pointer ',
-                                                  }}
-                                                  onChange={(e) => {
-                                                    setMemberId(e.target.value)
-                                                  }}
-                                                ></img>
-                                                <figcaption>
-                                                  {val.member_name}
-                                                </figcaption>
-                                              </figure>
-                                            </div>
-                                          )
-                                        })}
+                            <Accordion.Collapse eventKey="0">
+                              <form className="mymem_toscoreM">
+                                <div className="mymem_toscore">
+                                  <div className="row d-flex justify-content-start mem_score d-flex flex-wrap">
+                                    {attmem.map((val) => {
+                                      return (
+                                        <div className="row mem_toscore_G ">
+                                          <figure className="">
+                                            <img
+                                              className="mem_toscore"
+                                              src={
+                                                devUrl +
+                                                `/pic/mem_img/${val.member_img}`
+                                              }
+                                              alt=""
+                                              id={val.member_id}
+                                              style={{
+                                                cursor: ' pointer ',
+                                              }}
+                                              onClick={(e) => {
+                                                setToscoreId(e.target.value)
+                                              }}
+                                            ></img>
+                                            <figcaption>
+                                              {/* {val.member_id} */}
+                                              {val.member_name}
+                                            </figcaption>
+                                          </figure>
+                                        </div>
+                                      )
+                                    })}
+                                  </div>
+
+                                  <div className="score_table">
+                                    <div>
+                                      <div className="d-flex mem_toscore_table align-items-center ">
+                                        <p className=" d-flex score_p">評分</p>
+                                        <div className=" d-flex row">
+                                          {value !== null && (
+                                            <p
+                                              className=" d-flex align-items-center star_Points
+                                                     "
+                                            >
+                                              <Box sml={2}>
+                                                {
+                                                  labels[
+                                                    hover !== -1 ? hover : value
+                                                  ]
+                                                }
+                                              </Box>
+                                            </p>
+                                          )}
+
+                                          <Rating
+                                            name="hover-feedback"
+                                            value={value}
+                                            precision={0.5}
+                                            onChange={(event, newValue) => {
+                                              setValue(newValue)
+                                            }}
+                                            onChangeActive={(
+                                              event,
+                                              newHover
+                                            ) => {
+                                              setHover(newHover)
+                                            }}
+                                          />
+                                        </div>
                                       </div>
+                                      <div className="d-flex mem_toscore_table ">
+                                        <p className=" d-flex align-items-start score_p">
+                                          評價
+                                        </p>
+                                        <div class="form-floating">
+                                          <textarea
+                                            className="form-control ScoText"
+                                            placeholder="評價內容"
+                                            id="floatingTextarea2"
+                                            onChange={(e) => {
+                                              setRatingEva(e.target.value)
+                                            }}
+                                          ></textarea>
+                                        </div>
+                                      </div>
+                                      <br />
 
-                                      <div className="score_table">
-                                        {att.map((val) => {
-                                          return (
-                                            <div>
-                                              <div className="d-flex mem_toscore_table align-items-center ">
-                                                <p className=" d-flex score_p">
-                                                  評分
-                                                </p>
-                                                <div className=" d-flex row">
-                                                  {value !== null && (
-                                                    <p className=" d-flex align-items-center star_Points">
-                                                      <Box sml={2}>
-                                                        {
-                                                          labels[
-                                                            hover !== -1
-                                                              ? hover
-                                                              : value
-                                                          ]
-                                                        }
-                                                      </Box>
-                                                    </p>
-                                                  )}
-                                                  <Rating
-                                                    name="hover-feedback"
-                                                    value={value}
-                                                    precision={0.5}
-                                                    onChange={(
-                                                      event,
-                                                      newValue
-                                                    ) => {
-                                                      setValue(newValue)
-                                                    }}
-                                                    onChangeActive={(
-                                                      event,
-                                                      newHover
-                                                    ) => {
-                                                      setHover(newHover)
-                                                    }}
-                                                  />
-                                                </div>
-                                              </div>
-                                              <div className="d-flex mem_toscore_table ">
-                                                <p className=" d-flex align-items-start score_p">
-                                                  評價
-                                                </p>
-                                                <div class="form-floating">
-                                                  <textarea
-                                                    className="form-control ScoText"
-                                                    placeholder="評價內容"
-                                                    id="floatingTextarea2"
-                                                    onChange={(e) => {
-                                                      setRatingEva(
-                                                        e.target.value
-                                                      )
-                                                    }}
-                                                  ></textarea>
-                                                </div>
-                                              </div>
-                                              <br />
-                                              <div className="d-flex justify-content-end ">
-                                                <Button
-                                                  className="btn_sm join d-flex  align-items-center justify-content-center"
-                                                  onClick={() => {
-                                                    Submit(val.member_id)
-                                                  }}
-                                                >
-                                                  送出
-                                                </Button>
-                                              </div>
-                                            </div>
-                                          )
-                                        })}
+                                      <div className="d-flex justify-content-end ">
+                                        <Button
+                                          className="btn_sm join d-flex  align-items-center justify-content-center"
+                                          onClick={submitScore}
+                                        >
+                                          送出
+                                        </Button>
                                       </div>
                                     </div>
-                                  </form>
-                                </Accordion.Collapse>
-                              </Accordion>
-                            </Card.Body>
-                          )
-                        })}
+                                  </div>
+                                </div>
+                              </form>
+                            </Accordion.Collapse>
+                          </Accordion>
+                        </Card.Body>
                       </Card.Body>
                     </Card>
                   </div>

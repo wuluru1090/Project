@@ -18,15 +18,19 @@ function MemberHistory(props) {
   const getEvent = async () => {
     await Axios.get(
       `http://localhost:3001/member/get/history/event/${props.match.params.id}`
-    ).then((res) => {
-      if (res.data) {
+    )
+      .then((res) => {
         setMemberEvent(res.data[0])
-        console.log(JSON.parse(res.data[0].event_id))
-        setEvents(JSON.parse(res.data[0].event_id))
-      } else {
-        return
-      }
-    })
+        if (res.data) {
+          console.log(JSON.parse(res.data[0].event_id))
+          setEvents(JSON.parse(res.data[0].event_id))
+        } else {
+          return
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   const getAtt = async () => {

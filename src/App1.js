@@ -31,7 +31,7 @@ function App(props) {
     Axios.get(`http://localhost:3001/member/get`).then((res) => {
       setMember(res.data)
     })
-  })
+  }, [])
   const submitReview = () => {
     Axios.post('http://localhost:3001/api/insert', {
       member_name: member_name,

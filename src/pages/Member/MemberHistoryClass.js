@@ -18,15 +18,19 @@ function MemberHistoryClass(props) {
   const getEvent = async () => {
     await Axios.get(
       `http://localhost:3001/member/get/history/class/${props.match.params.id}`
-    ).then((res) => {
-      if (res.data) {
+    )
+      .then((res) => {
         setMemberClass(res.data[0])
-        console.log(JSON.parse(res.data[0].class_id))
-        setClasses(JSON.parse(res.data[0].class_id))
-      } else {
-        return
-      }
-    })
+        if (res.data) {
+          console.log(JSON.parse(res.data[0].class_id))
+          setClasses(JSON.parse(res.data[0].class_id))
+        } else {
+          return
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
   }
 
   const getAtt = async () => {

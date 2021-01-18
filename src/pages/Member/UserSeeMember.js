@@ -35,20 +35,6 @@ function UserSeeMember(props) {
       })
   }, [])
 
-  // const getAtt = async () => {
-  //   await Axios.get(`http://localhost:3001/get/score/list=${score.join('{}')}`)
-  //     .then((res) => {
-  //       if (res.data) {
-  //         setAtt(res.data)
-  //         console.log(res.data)
-  //       } else {
-  //         return
-  //       }
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error)
-  //     })
-  // }
   return (
     <>
       <body>
@@ -210,7 +196,7 @@ function UserSeeMember(props) {
                               <img
                                 className=" rounded-circle  "
                                 variant="top"
-                                src={devUrl + '/pic/pic/member.jpg'}
+                                src={devUrl + `/pic/mem_img/${s.member_img}`}
                                 alt=""
                               />
                             </figure>
@@ -224,9 +210,21 @@ function UserSeeMember(props) {
                               >
                                 <div className="d-flex justify-content-center  ">
                                   <div className=" d-flex justify-content-center">
-                                    <p className=" d-flex align-items-center star_Points">
-                                      <Box sml={2}>
-                                        {s.member_Average_rating}{' '}
+                                    <p
+                                      className=" d-flex align-items-center star_Points"
+                                      style={{
+                                        margin: '0px',
+                                        padding: '0px',
+                                      }}
+                                    >
+                                      <Box
+                                        sml={2}
+                                        style={{
+                                          margin: '0px',
+                                          padding: '0px',
+                                        }}
+                                      >
+                                        {s.member_Average_rating}
                                       </Box>
                                     </p>
                                     <Rating
@@ -234,6 +232,10 @@ function UserSeeMember(props) {
                                       value={s.member_Average_rating}
                                       precision={0.5}
                                       readOnly
+                                      style={{
+                                        margin: '0px',
+                                        padding: '0px',
+                                      }}
                                     />
                                   </div>
                                 </div>
