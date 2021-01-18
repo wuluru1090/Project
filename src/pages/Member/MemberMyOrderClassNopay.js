@@ -9,6 +9,7 @@ import {
   MdVisibility,
   MdFormatListBulleted,
   MdPlaylistAddCheck,
+  MdShoppingCart,
   MdFormatListNumbered,
 } from 'react-icons/md'
 import { devUrl } from '../../config'
@@ -174,7 +175,7 @@ function MemberMyOrderClassNopay(props) {
                                         })}
                                       </div>
 
-                                      <div className="d-flex justify-content-center align-items-center row order_li">
+                                      <div className="d-flex justify-content-center align-items-start row order_li">
                                         <ul>
                                           <li>
                                             <p>
@@ -193,13 +194,15 @@ function MemberMyOrderClassNopay(props) {
                                             </p>
                                           </li>
                                           <li>
-                                            <p>
-                                              <MdPlaylistAddCheck />
-                                              付款日期&nbsp;:&nbsp;
-                                              <DateConvert
-                                                jsonDate={list.payment_date}
-                                              ></DateConvert>
-                                            </p>
+                                            <Button
+                                              className="btn-style botton-font btn_icon d-flex align-items-center justify-content-center "
+                                              style={{
+                                                backgroundColor: '#12d0c9',
+                                              }}
+                                            >
+                                              <MdShoppingCart />
+                                              前往付款
+                                            </Button>
                                           </li>
                                         </ul>
                                       </div>

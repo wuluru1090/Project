@@ -30,15 +30,15 @@ function MemberMyManagementDelete(props) {
     Axios.delete(`http://localhost:3001/api/delete/${member}`)
     alert('確定要刪除')
   }
-  function deteAcc() {
-    setTimeout(function () {
-      const spinner = (
-        <>
-          <Spinner animation="border" variant="primary" />
-        </>
-      )
-    }, 1000)
-  }
+  // function deteAcc() {
+  //   setTimeout(function () {
+  //     const spinner = (
+  //       <>
+  //         <Spinner animation="border" variant="primary" />
+  //       </>
+  //     )
+  //   }, 1000)
+  // }
 
   return (
     <>
@@ -142,7 +142,7 @@ function MemberMyManagementDelete(props) {
                                         className="btn-style botton-font btn_icon mem_card_btn "
                                         onClick={() => {
                                           deleteAccount(val.member_id)
-                                          deteAcc()
+                                          // deteAcc()
                                         }}
                                       >
                                         確定

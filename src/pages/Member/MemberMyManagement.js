@@ -83,6 +83,8 @@ function MemberMyManagement(props) {
                                   placeholder="現有密碼"
                                   className="  text_w"
                                   aria-describedby="inputGroupPrepend"
+                                  value={val.member_account}
+                                  // onChange=
                                 />
                               </Form.Group>
                               <Form.Group
