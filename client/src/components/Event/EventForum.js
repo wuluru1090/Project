@@ -12,7 +12,7 @@ function EventForum(props) {
   const comment = () => {
     Axios.post('http://localhost:3001/api/comment', {
       commentEventId: props.eventValue.id,
-      commentMemberId: 5,
+      commentMemberId: 13,
       commentContent: commentContent,
       commentTime: new Date(),
     })
@@ -21,11 +21,12 @@ function EventForum(props) {
       ...commentData,
       {
         member_name: '登入的使用者',
-        comment_member_id: 5,
+        comment_member_id: 13,
         comment_content: commentContent,
         comment_time: now.toJSON(),
       },
     ])
+    document.getElementById('commentArea').value = ''
   }
 
   useEffect(() => {

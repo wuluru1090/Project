@@ -12,7 +12,7 @@ class EventRelativeCarousel extends Component {
 
   componentDidMount() {
     Axios.get(
-      `http://localhost:3001/api/eventsearch/relative?theme=${this.props.initValue}`
+      `http://localhost:3001/api/eventsearch/relative?theme=${this.props.initValue.theme}&id=${this.props.initValue.id}`
     ).then((res) => {
       // console.log(res)
       this.setState({ data: res.data })

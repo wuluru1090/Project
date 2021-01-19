@@ -18,10 +18,6 @@ function Searchbar2(props) {
   const in1Month = new Date(today + 1000 * 60 * 60 * 24 * 30)
   const in3Month = new Date(today + 1000 * 60 * 60 * 24 * 90)
   const in6Month = new Date(today + 1000 * 60 * 60 * 24 * 180)
-  // converter(in1week)
-  // converter(in1Month)
-  // converter(in3Month)
-  // converter(in6Month)
 
   //把標準時間成sql dateTime格式
   function converter(D) {

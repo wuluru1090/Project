@@ -68,7 +68,7 @@ function EventMain() {
       </div>
 
       <EventResult condition={condition} />
-      <EventBottom />
+      <EventBottom setCondition={setCondition} />
     </>
   )
 }

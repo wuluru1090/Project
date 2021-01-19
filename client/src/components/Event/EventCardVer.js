@@ -106,20 +106,20 @@ function EventCardVer(props) {
 
             <div className="d-flex justify-content-between buttons">
               <div className="tag-box">
-                <a
-                  href="#"
+                <button
                   className="btn rounded-pill btn-md tag"
                   type="button"
+                  value={cardInfo.event_type_id}
                 >
                   {cardInfo.event_type_name}
-                </a>
-                <a
-                  href="#"
+                </button>
+                <button
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
+                  value={cardInfo.event_theme_id}
                 >
                   {cardInfo.event_theme_name}
-                </a>
+                </button>
               </div>
               <button
                 onClick={() => click2Detail(cardInfo.event_id)}

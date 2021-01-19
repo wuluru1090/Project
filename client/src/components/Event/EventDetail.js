@@ -64,7 +64,7 @@ function EventDetail(props) {
   const getTag = () => {
     Axios.get(`http://localhost:3001/api/eventtags/${props.match.params.id}`)
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         setTags(response.data)
       })
       .catch(function (error) {
@@ -309,7 +309,9 @@ function EventDetail(props) {
                   <span className="detail-title">相似活動</span>
                 </div>
                 <div className="relative-event-carousel">
-                  <EventRelativeCarousel initValue={val.event_theme} />
+                  <EventRelativeCarousel
+                    initValue={{ theme: val.event_theme, id: val.event_id }}
+                  />
                 </div>
               </div>
               {/* 底下的bar */}

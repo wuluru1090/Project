@@ -16,8 +16,6 @@ import SoYa from './pages/SoYa/SoYa'
 import Test from './Test'
 
 function App() {
-  const [eventData, setEventData] = useState([])
-  const [event2Att, setEvent2Att] = useState([])
   return (
     <Router>
       <>

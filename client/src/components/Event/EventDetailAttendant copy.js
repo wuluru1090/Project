@@ -7,62 +7,19 @@ import Axios from 'axios'
 function EventDetailAttendant(props) {
   // console.log(props)
   const [detailData, setDetailData] = useState(props.initValue[0])
-  const [allAttendOrders, setAllAttendOrders] = useState([])
+  const attendants = JSON.parse(detailData.event_attendents)
   const [attendantsData, setAttendantsData] = useState([])
-  const [list, setList] = useState([])
 
-  // const attendants = JSON.parse(detailData.event_attendents)
-  // const [attendantsData, setAttendantsData] = useState([])
-
-  // 取得確定的訂單
   useEffect(() => {
-    Axios.get(`http://localhost:3001/api/eventorder?valid=1`)
+    Axios.get(`http://localhost:3001/api/attendants?id=${attendants.join(',')}`)
       .then((response) => {
-        // console.log(response.data)
-        setAllAttendOrders(response.data)
+        // console.log(response)
+        setAttendantsData(response.data)
       })
       .catch(function (error) {
         console.log(error)
       })
   }, [])
-
-  //取得參加&取消的名單陣列
-
-  var attend = []
-
-  useEffect(() => {
-    if (allAttendOrders.length > 0) {
-      {
-        allAttendOrders.map((val) => {
-          var everyAttendOrderEvent = JSON.parse(val.event_id)
-          // console.log(JSON.parse(val.event_id))
-          if (everyAttendOrderEvent.includes(parseInt(detailData.event_id))) {
-            attend.push(val.id)
-          }
-        })
-      }
-      setAttendantsData(attend)
-    }
-  }, [allAttendOrders])
-
-  useEffect(() => {
-    if (attendantsData.length > 0) {
-      getList()
-    }
-  }, [attendantsData])
-
-  const getList = () => {
-    Axios.get(
-      `http://localhost:3001/api/attendants?id=${attendantsData.join(',')}`
-    )
-      .then((response) => {
-        console.log(response.data)
-        setList(response.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
 
   return (
     <>
@@ -83,7 +40,7 @@ function EventDetailAttendant(props) {
             <div className="subtitle2 identity host caption">主揪</div>
           </div>
         </div>
-        {list.map((val) => {
+        {attendantsData.map((val) => {
           return (
             <div className="attendant-card  d-flex justify-content-center">
               <figure className="detail-attendant-avatar">

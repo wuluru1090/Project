@@ -8,11 +8,10 @@ import Axios from 'axios'
 function EventAttendant(props) {
   const eventId = props.match.params.id
   const [event, setEvent] = useState({})
+  const [attendants, setAttendants] = useState([])
   const [attendantsData, setAttendantsData] = useState([])
-  const [cancelData, setCancelData] = useState([])
   const [attends, setAttends] = useState([])
   const [waiting, setWaiting] = useState([])
-  const [cancelList, setCancelList] = useState([])
 
   //從訂單獲取的狀態
   const [allCancelOrders, setAllCancelOrders] = useState([])
@@ -21,17 +20,15 @@ function EventAttendant(props) {
   //參加狀態
   const [status, setStatus] = useState('attend')
 
-  //取得活動的資料
-  const getData = async () => {
-    await Axios.get(`http://localhost:3001/api/event/${eventId}`).then(
-      (response) => {
-        setEvent(response.data[0])
-      }
-    )
-  }
-  useEffect(() => {
-    getData()
-  }, [])
+  // const getData = async () => {
+  //   await Axios.get(`http://localhost:3001/api/event/${eventId}`).then(
+  //     (response) => {
+  //       setEvent(response.data[0])
+  //       // console.log(JSON.parse(response.data[0].event_attendents))
+  //       setAttendants(JSON.parse(response.data[0].event_attendents))
+  //     }
+  //   )
+  // }
 
   //取得取消的訂單
   const getAttFromOrderCancel = async () => {
@@ -57,12 +54,43 @@ function EventAttendant(props) {
       })
   }
 
+  // const getAtt = async () => {
+  //   await Axios.get(
+  //     `http://localhost:3001/api/attendants?id=${attendants.join(',')}`
+  //   )
+  //     .then((response) => {
+  //       setAttendantsData(response.data)
+  //       setAttends(response.data.slice(0, event.event_limit_number - 1))
+  //       setWaiting(response.data.slice(event.event_limit_number - 1))
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error)
+  //     })
+  // }
+
+  const statusList = () => {
+    switch (status) {
+      case 'attend':
+        return attends
+      case 'waiting':
+        return waiting
+      case 'cancel':
+        return cancel
+    }
+  }
+
   useEffect(() => {
+    // getData()
     getAttFromOrderCancel()
     getAttFromOrderAttend()
   }, [])
 
-  //取得參加&取消的名單陣列
+  // useEffect(() => {
+  //   if (attendants.length > 0) {
+  //     getAtt()
+  //   }
+  // }, [attendants])
+
   var everyCancelOrderEvent = []
   var everyAttendOrderEvent = []
   var cancel = []
@@ -70,6 +98,7 @@ function EventAttendant(props) {
 
   useEffect(() => {
     if (allCancelOrders.length > 0) {
+      // console.log(allCancelOrders)
       {
         allCancelOrders.map((val) => {
           everyCancelOrderEvent = JSON.parse(val.event_id)
@@ -78,10 +107,11 @@ function EventAttendant(props) {
           }
         })
       }
-      setCancelData(cancel)
-      console.log(cancel)
+      // console.log(cancel)
     }
     if (allAttendOrders.length > 0) {
+      // console.log(allAttendOrders)
+
       {
         allAttendOrders.map((val) => {
           everyAttendOrderEvent = JSON.parse(val.event_id)
@@ -96,40 +126,12 @@ function EventAttendant(props) {
 
   useEffect(() => {
     if (attendantsData.length > 0) {
-      getAtt()
-      getCancel()
+      console.log(attendantsData)
+      setAttends(attendantsData.slice(0, event.event_limit_number - 1))
+      setWaiting(attendantsData.slice(event.event_limit_number - 1))
     }
   }, [attendantsData])
 
-  //取得確定參加的名單
-  const getAtt = async () => {
-    await Axios.get(
-      `http://localhost:3001/api/attendants?id=${attendantsData.join(',')}`
-    )
-      .then((response) => {
-        setAttends(response.data.slice(0, event.event_limit_number - 1))
-        setWaiting(response.data.slice(event.event_limit_number - 1))
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
-
-  //取得取消的名單
-  const getCancel = async () => {
-    await Axios.get(
-      `http://localhost:3001/api/attendants?id=${cancelData.join(',')}`
-    )
-      .then((response) => {
-        console.log(response.data)
-        setCancelList(response.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
-
-  //設定主揪的資料
   const hostInfo = (
     <div className="list-content row holder">
       <div className="pic col-2 d-flex justify-content-start align-items-center">
@@ -150,18 +152,6 @@ function EventAttendant(props) {
       </div>
     </div>
   )
-
-  //處理選擇狀態
-  const statusList = () => {
-    switch (status) {
-      case 'attend':
-        return attends
-      case 'waiting':
-        return waiting
-      case 'cancel':
-        return cancelList
-    }
-  }
 
   return (
     <>
@@ -195,7 +185,7 @@ function EventAttendant(props) {
                     setStatus('cancel')
                   }}
                 >
-                  退出 ({cancelData.length})
+                  退出 ({cancel.length})
                 </li>
                 <li
                   className={`subtitle1 ${
