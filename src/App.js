@@ -24,6 +24,7 @@ import MemberMyPhoto from './pages/Member/MemberMyPhoto'
 import MemberMyPhoto2 from './pages/Member/MemberMyPhoto2'
 import MemberMyManagement from './pages/Member/MemberMyManagement'
 import MemberMyScore from './pages/Member/MemberMyScore'
+import MemberMyScoreOk from './pages/Member/MemberMyScoreOk'
 import UserSeeMember from './pages/Member/UserSeeMember'
 import SeeMemberAlbum from './pages/Member/SeeMemberAlbum'
 import UserSeeMemberAlbum from './pages/Member/UserSeeMemberAlbum'
@@ -58,6 +59,9 @@ function App() {
 
             <Route path="/see/:id?/Album/photo">
               <UserSeeMemberAlbum />
+            </Route>
+            <Route path="/member/:id?/MyScoreOk">
+              <MemberMyScoreOk />
             </Route>
             <Route path="/member/:id?/MyScore">
               <MemberMyScore />

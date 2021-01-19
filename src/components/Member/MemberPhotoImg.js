@@ -40,7 +40,6 @@ function MemberPhotoImg(props) {
   function upUp() {
     setTimeout(function () {
       document.getElementById('putmemphoto-button-file').click()
-
       setTimeout(window.location.reload(), 500)
     }, 500)
   }

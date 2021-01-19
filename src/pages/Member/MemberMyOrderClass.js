@@ -10,6 +10,7 @@ import {
   MdFormatListBulleted,
   MdPlaylistAddCheck,
   MdFormatListNumbered,
+  MdDescription,
 } from 'react-icons/md'
 import { devUrl } from '../../config'
 import Axios from 'axios'
@@ -176,6 +177,13 @@ function MemberMyOrderClass(props) {
 
                                       <div className="d-flex justify-content-center align-items-center row order_li">
                                         <ul>
+                                          <li>
+                                            <p>
+                                              <MdDescription />
+                                              訂單編號&nbsp;:&nbsp;
+                                              {list.order_id}
+                                            </p>
+                                          </li>
                                           <li>
                                             <p>
                                               <MdFormatListBulleted />

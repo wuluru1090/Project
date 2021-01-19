@@ -4,8 +4,7 @@ import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import { Card, Button, Accordion } from 'react-bootstrap'
 import { devUrl } from '../../config'
-import '../../style/member/member_score.scss'
-// import Rating from '../../components/Member/rating'
+import '../../style/member/member_scoreok.scss'
 import '../../style/member/member_navbar.scss'
 import '../../style/member/member.scss'
 import { MdGrade } from 'react-icons/md'
@@ -15,20 +14,7 @@ import { DateConvert } from '../../components/Main/DateTimeConverter'
 import Rating from '@material-ui/lab/Rating'
 import Box from '@material-ui/core/Box'
 
-const labels = {
-  0.0: '0.0',
-  0.5: '0.5',
-  1.0: '1.0',
-  1.5: '1.5',
-  2.0: '2.0',
-  2.5: '2.5',
-  3.0: '3.0',
-  3.5: '3.5',
-  4.0: '4.0',
-  4.5: '4.5',
-  5.0: '5.0',
-}
-function MemberMyScore(props) {
+function MemberMyScoreOk(props) {
   const [memberevent, setMemberEvent] = useState([])
   const [events, setEvents] = useState([])
   const [att, setAtt] = useState([])
@@ -42,7 +28,6 @@ function MemberMyScore(props) {
   const [hover, setHover] = React.useState(-1)
   const [attmem, setAttmem] = useState([])
   const [attendants, setAttendants] = useState([])
-  const [attendantsgo, setAttendantsgo] = useState([])
 
   const getEvent = async () => {
     await Axios.get(
@@ -69,10 +54,9 @@ function MemberMyScore(props) {
       .then((res) => {
         setAtt(res.data)
         if (res.data) {
-          console.log(res.data)
-          console.log(JSON.parse(res.data[0].event_attendents))
+          // console.log(res.data)
+          // console.log(JSON.parse(res.data[0].event_attendents))
           setAttendants(JSON.parse(res.data[0].event_attendents))
-          // setAttendantsgo(res.data.slice(0, res.data[0].event_limit_number) - 1)
         } else {
           return
         }
@@ -91,6 +75,7 @@ function MemberMyScore(props) {
       .then((res) => {
         console.log(res.data)
         setAttmem(res.data)
+
         console.log(res.data)
       })
       .catch(function (error) {
@@ -114,38 +99,14 @@ function MemberMyScore(props) {
     }
   }, [attendants])
 
-  // useEffect(() => {
-  //   Axios.get(
-  //     `http://localhost:3001/member/get/score/mem/${props.match.params.id}`
-  //   ).then((res) => {
-  //     setScore(res.data)
-  //     console.log(res.data)
-  //   })
-  // }, [])
-
-  const submitScore = () => {
-    let toScoreId = toscore_id
-    alert('確認送出')
-    setTimeout(window.location.reload(), 500)
-    Axios.post('http://localhost:3001/member/score', {
-      member_id: `${props.match.params.id}`,
-      event_id: events,
-      toscore_id: toscore_id,
-      rating: value.toFixed(1),
-      rating_evaluate: rating_eva,
-    }).then(() => {
-      setScore([
-        ...score,
-        {
-          member_id: `${props.match.params.id}`,
-          event_id: events,
-          toscore_id: toscore_id,
-          rating: value.toFixed(1),
-          rating_evaluate: rating_eva,
-        },
-      ])
+  useEffect(() => {
+    Axios.get(
+      `http://localhost:3001/member/get/score/mem/${props.match.params.id}`
+    ).then((res) => {
+      setScore(res.data)
+      console.log(res.data)
     })
-  }
+  }, [])
 
   return (
     <>
@@ -265,99 +226,103 @@ function MemberMyScore(props) {
                             <Accordion.Collapse eventKey="0">
                               <form className="mymem_toscoreM">
                                 <div className="mymem_toscore">
-                                  <div className="row d-flex justify-content-start mem_score d-flex flex-wrap">
-                                    {attmem.map((val) => {
-                                      return (
-                                        <label htmlFor="toscore">
-                                          <div className="row mem_toscore_G ">
-                                            <figure className="">
-                                              <img
-                                                className="mem_toscore"
-                                                src={
-                                                  devUrl +
-                                                  `/pic/mem_img/${val.member_img}`
-                                                }
-                                                alt=""
-                                                // value={val.member_id}
-                                                // id="memberImg"
-                                                style={{
-                                                  cursor: ' pointer ',
-                                                }}
-                                                onClick={() => {
-                                                  setToscoreId(val.member_id)
-                                                }}
-                                              ></img>
-                                              <figcaption>
-                                                {val.member_name}
-                                              </figcaption>
-                                            </figure>
-                                          </div>
-                                        </label>
-                                      )
-                                    })}
-                                  </div>
-
                                   <div className="score_table">
                                     <div>
-                                      <div className="d-flex mem_toscore_table align-items-center ">
-                                        <p className=" d-flex score_p">評分</p>
-                                        <div className=" d-flex row">
-                                          {value !== null && (
-                                            <p
-                                              className=" d-flex align-items-center star_Points
-                                                     "
-                                            >
-                                              <Box sml={2}>
-                                                {
-                                                  labels[
-                                                    hover !== -1 ? hover : value
-                                                  ]
-                                                }
-                                              </Box>
-                                            </p>
-                                          )}
-
-                                          <Rating
-                                            name="hover-feedback"
-                                            value={value}
-                                            precision={0.5}
-                                            onChange={(event, newValue) => {
-                                              setValue(newValue)
-                                            }}
-                                            onChangeActive={(
-                                              event,
-                                              newHover
-                                            ) => {
-                                              setHover(newHover)
-                                            }}
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="d-flex mem_toscore_table ">
-                                        <p className=" d-flex align-items-start score_p">
-                                          評價
-                                        </p>
-                                        <div class="form-floating">
-                                          <textarea
-                                            className="form-control ScoText"
-                                            placeholder="評價內容"
-                                            id="floatingTextarea2"
-                                            onChange={(e) => {
-                                              setRatingEva(e.target.value)
-                                            }}
-                                          ></textarea>
-                                        </div>
-                                      </div>
-                                      <br />
-
-                                      <div className="d-flex justify-content-end ">
-                                        <Button
-                                          className="btn_sm join d-flex  align-items-center justify-content-center"
-                                          onClick={submitScore}
-                                        >
-                                          送出
-                                        </Button>
-                                      </div>
+                                      {score.map((s) => {
+                                        return (
+                                          <div className="list-content row holder">
+                                            <div className="pic col-2 d-flex justify-content-start align-items-center">
+                                              <figure>
+                                                <img
+                                                  className=" rounded-circle mem_img "
+                                                  style={{
+                                                    width: '80px',
+                                                    height: '80px',
+                                                  }}
+                                                  variant="top"
+                                                  src={
+                                                    devUrl +
+                                                    `/pic/mem_img/${s.member_img}`
+                                                  }
+                                                  alt=""
+                                                />
+                                              </figure>
+                                            </div>
+                                            <div className="detail d-flex col-10 align-items-center">
+                                              <div className="de">
+                                                <h6
+                                                  style={{
+                                                    margin: '8px 0 0 0',
+                                                    padding: '0px',
+                                                  }}
+                                                >
+                                                  {s.member_name}
+                                                </h6>
+                                                <div
+                                                  className="d-flex justify-content-start"
+                                                  style={{ margin: '0px' }}
+                                                >
+                                                  <div className="d-flex justify-content-center  ">
+                                                    <div className=" d-flex justify-content-center">
+                                                      <p
+                                                        className=" d-flex align-items-center star_Points"
+                                                        style={{
+                                                          margin: '0px',
+                                                          padding: '0px',
+                                                        }}
+                                                      >
+                                                        <Box
+                                                          sml={2}
+                                                          style={{
+                                                            margin: '0px',
+                                                            padding: '0px',
+                                                          }}
+                                                        >
+                                                          {s.rating}
+                                                        </Box>
+                                                      </p>
+                                                      <Rating
+                                                        name="read-only"
+                                                        value={s.rating}
+                                                        precision={0.5}
+                                                        readOnly
+                                                        style={{
+                                                          margin: '8px 0',
+                                                          padding: '0px',
+                                                        }}
+                                                      />
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div>
+                                                  <p
+                                                    className="subtitle2 
+                                                   
+comments"
+                                                    style={{
+                                                      margin: '0px',
+                                                      padding: '0px',
+                                                    }}
+                                                  >
+                                                    {s.rating_evaluate}
+                                                  </p>
+                                                  <p
+                                                    className="subtitle2"
+                                                    style={{
+                                                      margin: '8px 0',
+                                                      padding: '0px',
+                                                    }}
+                                                  >
+                                                    <DateConvert
+                                                      jsonDate={s.c_date}
+                                                    ></DateConvert>
+                                                  </p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )
+                                      })}
                                     </div>
                                   </div>
                                 </div>
@@ -380,4 +345,4 @@ function MemberMyScore(props) {
   )
 }
 
-export default withRouter(MemberMyScore)
+export default withRouter(MemberMyScoreOk)

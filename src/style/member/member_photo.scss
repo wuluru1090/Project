@@ -18,12 +18,14 @@
       width: 90px;
       height: 55px;
       padding: 5px;
+      object-fit: cover;
     }
   }
 }
 .addphoto {
-  top: 40px;
-  left: -10px;
+  // position: absolute;
+  bottom: -20%;
+  right: -10%;
 
   SVG {
     width: 40px;

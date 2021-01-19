@@ -10,6 +10,7 @@ import {
   MdFormatListBulleted,
   MdPlaylistAddCheck,
   MdShoppingCart,
+  MdDescription,
   MdFormatListNumbered,
 } from 'react-icons/md'
 import { devUrl } from '../../config'
@@ -181,6 +182,13 @@ function MemberMyOrderEventNopay(props) {
 
                                       <div className="d-flex justify-content-center align-items-start row order_li">
                                         <ul>
+                                          <li>
+                                            <p>
+                                              <MdDescription />
+                                              訂單編號&nbsp;:&nbsp;
+                                              {list.order_id}
+                                            </p>
+                                          </li>
                                           <li>
                                             <p>
                                               <MdFormatListBulleted />
