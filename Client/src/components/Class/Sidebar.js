@@ -66,7 +66,6 @@ export default function Sidebar(props) {
     if (ct11) {
       classThemeList.push('食物')
     }
-    console.log(classThemeList)
     props.setTheme(classThemeList)
   }
 

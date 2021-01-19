@@ -6,6 +6,7 @@ import ClassResult from './pages/Class/ClassResult'
 import ClassSearch from './pages/Class/ClassSearch'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
+import ScrollToTop from './components/Main/ScrollToTop'
 
 function App() {
   return (
@@ -13,21 +14,16 @@ function App() {
       <Router>
         <>
           <MyNavbar />
-          <Switch>
-            <Route exact path="/class">
-              <ClassSearch />
-            </Route>
-            <Route path="/class/:id?">
-              <ClassResult />
-            </Route>
-
-            {/* <Route path="/begin">
-              <ProductMen />
-            </Route>
-            <Route path="/cart">
-              <ProductMen />
-            </Route> */}
-          </Switch>
+          <ScrollToTop>
+            <Switch>
+              <Route exact path="/class">
+                <ClassSearch />
+              </Route>
+              <Route path="/class/:id?">
+                <ClassResult />
+              </Route>
+            </Switch>
+          </ScrollToTop>
           <Footer />
         </>
       </Router>

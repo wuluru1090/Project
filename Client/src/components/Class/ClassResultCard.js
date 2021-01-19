@@ -5,7 +5,6 @@ import { devUrl } from '../../config'
 import { DateConvert } from '../Main/DateTimeConverter'
 
 function ClassResultCard(props) {
-  // console.log(props)
   const [isActive, setIsActive] = useState(false)
   const class_info = props.cardData
 

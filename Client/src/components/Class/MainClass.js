@@ -11,7 +11,8 @@ import GMap from './GMap'
 import Carousel1 from './Carousel1'
 import Carousel2 from '../../components/Class/Carousel2'
 import FixedBottom from '../Class/FixedBottom'
-import { Button, Modal, ModalTitle } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
+import ScrollTop from '../Main/ScrollTop'
 import {
   FacebookShareButton,
   LineShareButton,
@@ -22,28 +23,26 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from 'react-share'
-import Bread from '../Main/BreadCrumb'
+import Bread from '../Class/MyBreadCrumb'
+import Calendar from '../Class/Calendar'
 
-//GMap地圖Pin標記位置
-const location = {
-  address: '320桃園市中壢區中大路300號',
-  lat: 24.96803,
-  lng: 121.19498,
-}
-
-// let dataDB = require('../../data.json')
-// let datadbma = dataDB[2].data
-// { id = 4, data = datadbma, type = 'project_class' }
 function ClassMain(props) {
-  console.log(props)
   // class資料儲存區
   const [classData, setClassData] = useState([])
+  const [theme1, setTheme1] = useState([])
+  const [date, setDate] = useState([])
+
+  //地址存取
+  const [add, setAdd] = useState('')
+  const [lat, setLat] = useState(0)
+  const [lng, setLng] = useState(0)
 
   // Modal控制區
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  //日期轉換器
   function dateConvert(jsonDate) {
     let json = String(jsonDate).split(' ')
     let date = new Date(json[0])
@@ -60,20 +59,57 @@ function ClassMain(props) {
     return date
   }
 
+  // 進入頁面時，抓取特定id的資料
   useEffect(() => {
     Axios.get(`http://localhost:3001/class/${props.match.params.id}`)
       .then((response) => {
-        console.log(response.data)
         setClassData(response.data)
+        setTheme1(response.data[0].class_theme_name)
+        setDate(response.data[0].class_start_date)
+        setAdd(response.data[0].class_address)
       })
       .catch(function (error) {
         console.log(error)
       })
   }, [])
+  // console.log(add)
+
+  //GMap地圖Pin標記位置
+  const location = {
+    address: add.toString(),
+    // address: add,
+    lat: lat,
+    lng: lng,
+  }
+  // console.log(location)
+  console.log(dateConvert(date))
+
+  //地址轉經緯度
+  geoCode()
+  function geoCode() {
+    var insertLocation = location.address
+    // let location = add
+    Axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+      params: {
+        address: `"${insertLocation}"`,
+        key: 'AIzaSyC6QUff0ut3Jr7uZCFw-_u5fdcziRnyr2k',
+      },
+    })
+      .then(function (response) {
+        // 地址的緯度
+        setLat(response.data.results[0].geometry.location.lat)
+        //地址的經度
+        setLng(response.data.results[0].geometry.location.lng)
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error)
+      })
+  }
+
   return (
     <>
       {classData.map((val) => {
-        console.log(val)
         return (
           <div className="class_wave_background test">
             <div className="mainclass_wrapper">
@@ -96,7 +132,7 @@ function ClassMain(props) {
                     <span>
                       {val.class_teacher_name}
                       <br />
-                      <span style={{ fontSize: '12px' }}>發起的活動</span>
+                      <span style={{ fontSize: '12px' }}>老師的課程</span>
                     </span>
                   </div>
                   <div className="btn_part">
@@ -165,6 +201,7 @@ function ClassMain(props) {
                   <div className="gmap">
                     <GMap location={location} zoomLevel={15} />
                   </div>
+                  <Calendar />
                 </div>
 
                 {/* modal */}
@@ -215,16 +252,15 @@ function ClassMain(props) {
                 </div>
               </div>
             </div>
+            <ScrollTop />
             <div className="mainclass_wrapper">
               <h5 className="class_suggest">相似課程</h5>
               <div className="line"></div>
               <div className="bottom-carousel">
-                <Carousel2 />
+                <Carousel2 themeData={theme1} />
               </div>
             </div>
-            <div>
-              <FixedBottom />
-            </div>
+            <FixedBottom />
           </div>
         )
       })}

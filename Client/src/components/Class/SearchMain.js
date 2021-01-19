@@ -1,34 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/class/search_main.scss'
-import { devUrl } from '../../config'
 import Axios from 'axios'
 
 // 元件
-// import Accordion from './Accordion'
 import Selection from '../Class/Selection'
-import Pagination from '../Main/Pagination'
 import ClassResultCard from '../Class/ClassResultCard'
 import Sidebar from '../Class/Sidebar'
-import Bread from '../Main/BreadCrumb'
-import axios from 'axios'
+import Pagination from '../Main/Pagination'
+import Bread from '../Class/MyBreadCrumb'
+import SearchTop from '../Main/ScrollTop'
+import ScrollTop from '../Main/ScrollTop'
 
 function SearchMain() {
   const [allDatas, setAllDatas] = useState([])
-  const [specificDatas, setSpecificDatas] = useState([])
   const [showDatas, setShowDatas] = useState([])
   const [theme, setTheme] = useState([])
   const [order, setOrder] = useState(0)
-  const a = theme.join()
-  console.log(a)
 
-  // console.log(`http://localhost:3001/class&orderby=${order}`)
+  // 分頁
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(10)
+  const a = theme.join()
 
   useEffect(() => {
     Axios.get(`http://localhost:3001/class`)
       .then((response) => {
         // allDatas是所有檔案
-        console.log(response.data)
         setAllDatas(response.data)
         setShowDatas(response.data)
       })
@@ -38,7 +36,7 @@ function SearchMain() {
   }, [])
 
   async function display() {
-    const response = await axios.get(
+    const response = await Axios.get(
       "http://localhost:3001/class/category?theme='" +
         a +
         "'" +
@@ -59,25 +57,25 @@ function SearchMain() {
     display()
   }, [theme, order])
 
-  // useEffect(() => {
-  //   if (theme.length === 0 || theme.includes('全部課程')) {
-  //     setShowDatas(allDatas)
-  //     // console.log(searchDatas)
-  //   } else {
-  //     // const newShowDatas = searchDatas.filter((val) => {
-  //     //   return theme.includes(val.class_theme_name)
-  //     // })
-  //     // console.log(newShowDatas)
-  //     setShowDatas(specificDatas)
-  //   }
-  // }, [theme])
+  //Get Current Page
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = showDatas.slice(indexOfFirstPost, indexOfLastPost)
+
+  //Change Page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   const ClassCard = (
-    <div className="search-result">
-      {showDatas.map((val) => {
-        return <ClassResultCard className="class_result_card" cardData={val} />
-      })}
-    </div>
+    <>
+      <div className="font20">搜尋結果：{showDatas.length}筆</div>
+      <div className="search-result">
+        {currentPosts.map((val) => {
+          return (
+            <ClassResultCard className="class_result_card" cardData={val} />
+          )
+        })}
+      </div>
+    </>
   )
 
   return (
@@ -96,14 +94,16 @@ function SearchMain() {
             <Sidebar setTheme={setTheme} />
           </div>
           <div className="right-side">
-            <div className="font20">搜尋結果：{showDatas.length}筆</div>
             {ClassCard}
-            {/* <ClassResultCard /> */}
-            <div className="pagination_block">
-              <Pagination />
-            </div>
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={showDatas.length}
+              paginate={paginate}
+              className="pagination"
+            />
           </div>
         </div>
+        <ScrollTop />
       </div>
     </>
   )

@@ -1,21 +1,25 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Pagination from '@material-ui/lab/Pagination'
+import { PaginationItem } from 'semantic-ui-react'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      marginTop: theme.spacing(2),
-    },
-  },
-}))
+const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+  const pageNumbers = []
 
-export default function Pagination1() {
-  const classes = useStyles()
-
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+    pageNumbers.push(i)
+  }
   return (
-    <div>
-      <Pagination count={10} shape="rounded" size="large" color="primary" />
-    </div>
+    <nav>
+      <ul className="pagination pagination-lg">
+        {pageNumbers.map((number) => (
+          <li key={number} className="page-item">
+            <a onClick={() => paginate(number)} className="page-link">
+              {number}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }
+
+export default Pagination

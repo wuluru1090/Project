@@ -11,7 +11,7 @@ function SearchTop() {
           <Carousel.Item>
             <img
               className="d-block w-100 h-100 carousel-img"
-              src={devUrl + '/Pic/pic/class_slider1.jpg'}
+              src={devUrl + '/Pic/class/class_slider1.jpg'}
               alt="First slide"
             />
             <Carousel.Caption>
@@ -24,7 +24,7 @@ function SearchTop() {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={devUrl + '/Pic/pic/class_slider2.jpg'}
+              src={devUrl + '/Pic/class/class_slider2.jpg'}
               alt="Third slide"
             />
 
@@ -38,7 +38,7 @@ function SearchTop() {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={devUrl + '/Pic/pic/class_slider3.jpg'}
+              src={devUrl + '/Pic/class/class_slider3.jpg'}
               alt="Third slide"
             />
 

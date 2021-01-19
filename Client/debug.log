@@ -15,3 +15,8 @@
 [0115/094657.844:ERROR:directory_reader_win.cc(43)] FindFirstFile: ╰参тぃ﹚隔畖 (0x3)
 [0116/092926.851:ERROR:directory_reader_win.cc(43)] FindFirstFile: ╰参тぃ﹚隔畖 (0x3)
 [0116/094037.967:ERROR:directory_reader_win.cc(43)] FindFirstFile: ╰参тぃ﹚隔畖 (0x3)
+[0118/104236.278:ERROR:directory_reader_win.cc(43)] FindFirstFile: ╰参тぃ﹚隔畖 (0x3)
+[0118/150324.182:ERROR:process_info.cc(359)] UncheckedAllocate
+[0118/151849.712:ERROR:process_info.cc(359)] UncheckedAllocate
+[0118/214225.083:ERROR:directory_reader_win.cc(43)] FindFirstFile: ╰参тぃ﹚隔畖 (0x3)
+[0119/104724.232:ERROR:directory_reader_win.cc(43)] FindFirstFile: ╰参тぃ﹚隔畖 (0x3)

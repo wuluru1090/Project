@@ -25,6 +25,16 @@ app.get('/class/category',(req,res)=>{
     })
 });
 
+app.get('/class/theme',(req,res)=>{
+    const sqlSelect = 
+    `SELECT main_class.*,class_theme.class_theme_name FROM main_class INNER JOIN class_teacher ON main_class.class_teacher_id = class_teacher.class_teacher_id INNER JOIN class_theme ON main_class.class_theme_id = class_theme.class_theme_id WHERE class_theme_name IN (${req.query.theme}) LIMIT 6
+    `;
+    db.query(sqlSelect,(err,result)=>{
+        res.send(result)
+    })
+});
+
+
 app.get('/class/:id',(req,res)=>{
     const sqlSelect = 
     `SELECT main_class.*,class_teacher.*,class_theme.class_theme_name FROM main_class INNER JOIN class_teacher ON main_class.class_teacher_id = class_teacher.class_teacher_id INNER JOIN class_theme ON main_class.class_theme_id = class_theme.class_theme_id WHERE class_id = ${req.params.id}`;

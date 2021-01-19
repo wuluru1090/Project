@@ -31,7 +31,6 @@ const Dropdown1 = (props) => {
       fluid
       selection
       onChange={(e, { value }) => {
-        console.log(value)
         setValue(value)
         props.setOrder(value)
       }}

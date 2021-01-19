@@ -36,6 +36,8 @@ function FixedBottom(props) {
   return (
     <>
       {fixedBottomData.map((val) => {
+        const val1 = parseInt(val.class_limit)
+        const val2 = parseInt(val.class_attendees)
         return (
           <div className="fixed_bottom">
             <div className="d-flex justify-content-between fixed_bottom_wrapper ">
@@ -49,7 +51,7 @@ function FixedBottom(props) {
               <div className="d-flex align-items-center fixed_bottom_second">
                 <div className="fixed_info">
                   <div>NT${val.class_price}</div>
-                  <div>剩下1個名額</div>
+                  <div>剩下{val1 - val2}個名額</div>
                 </div>
                 <button className="btn d-flex align-items-center justify-content-center fixed_cart_button ">
                   加入購物車
