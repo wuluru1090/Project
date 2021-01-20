@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import '../../style/member/member_navbar2.scss'
-import { Card, Button, Accordion } from 'react-bootstrap'
+import { Card, Button, Accordion, Modal, Spinner } from 'react-bootstrap'
 import {
   MdVisibility,
   MdFormatListBulleted,
@@ -12,6 +12,7 @@ import {
   MdShoppingCart,
   MdFormatListNumbered,
   MdDescription,
+  MdClear,
 } from 'react-icons/md'
 import { devUrl } from '../../config'
 import Axios from 'axios'
@@ -23,6 +24,10 @@ function MemberMyOrderClassNopay(props) {
   const [memberclass, setMemberClass] = useState([])
   const [classes, setClasses] = useState([])
   const [att, setAtt] = useState([])
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   const getClass = async () => {
     await Axios.get(
@@ -201,16 +206,69 @@ function MemberMyOrderClassNopay(props) {
                                               ></TimeConvert> */}
                                             </p>
                                           </li>
-                                          <li>
-                                            <Button
-                                              className="btn-style botton-font btn_icon d-flex align-items-center justify-content-center "
-                                              style={{
-                                                backgroundColor: '#12d0c9',
-                                              }}
-                                            >
-                                              <MdShoppingCart />
-                                              前往付款
-                                            </Button>
+                                          <li className="twobtn">
+                                            <div className="d-flex justify-content-center">
+                                              <Button
+                                                className="btn-style botton-font btn_icon d-flex align-items-center justify-content-center "
+                                                style={{
+                                                  backgroundColor: '#12d0c9',
+                                                }}
+                                              >
+                                                <MdShoppingCart />
+                                                前往付款
+                                              </Button>
+                                              <div className="d-flex justify-content-center">
+                                                <Button
+                                                  onClick={handleShow}
+                                                  className="btn-style botton-font btn_icon mem_card_btn d-flex align-items-center "
+                                                  style={{
+                                                    backgroundColor: '#df3d00',
+                                                  }}
+                                                >
+                                                  <MdClear />
+                                                  取消訂單
+                                                </Button>
+                                              </div>
+                                              <Modal
+                                                show={show}
+                                                onHide={handleClose}
+                                                backdrop="static"
+                                                keyboard={false}
+                                              >
+                                                <Modal.Header closeButton>
+                                                  <Modal.Title>
+                                                    <h5>確定要取消嗎?</h5>
+                                                  </Modal.Title>
+                                                </Modal.Header>
+                                                <Modal.Body>
+                                                  <p>確定後將取消訂單</p>
+                                                </Modal.Body>
+                                                <Modal.Footer>
+                                                  <div className="mem_inf">
+                                                    <Button
+                                                      variant="secondary"
+                                                      onClick={handleClose}
+                                                      className="btn_modal"
+                                                    >
+                                                      離開
+                                                    </Button>
+
+                                                    <Button
+                                                      variant="primary"
+                                                      className="btn_modal "
+                                                      // onClick={() => {
+                                                      //   deleteAccount(
+                                                      //     val.member_id
+                                                      //   )
+
+                                                      // }}
+                                                    >
+                                                      確定
+                                                    </Button>
+                                                  </div>
+                                                </Modal.Footer>
+                                              </Modal>
+                                            </div>
                                           </li>
                                         </ul>
                                       </div>

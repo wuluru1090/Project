@@ -5,6 +5,7 @@ import MemberNavlist from '../../components/Member/MemberNavlist'
 import { Card, Form, Button, Modal, Spinner } from 'react-bootstrap'
 import { MdDeleteForever } from 'react-icons/md'
 import '../../style/member/member_score.scss'
+import '../../style/member/member_modal.scss'
 import { devUrl } from '../../config'
 import Axios from 'axios'
 import { withRouter, Link } from 'react-router-dom'
@@ -132,17 +133,16 @@ function MemberMyManagementDelete(props) {
                                     <Button
                                       variant="secondary"
                                       onClick={handleClose}
-                                      className="btn-style botton-font btn_icon mem_card_btn "
+                                      className="btn_modal"
                                     >
                                       離開
                                     </Button>
                                     <Link to="/home">
                                       <Button
                                         variant="primary"
-                                        className="btn-style botton-font btn_icon mem_card_btn "
+                                        className="btn_modal "
                                         onClick={() => {
                                           deleteAccount(val.member_id)
-                                          // deteAcc()
                                         }}
                                       >
                                         確定

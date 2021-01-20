@@ -4,13 +4,15 @@ import React, { useState, useEffect } from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import '../../style/member/member_navbar2.scss'
-import { Card, Button, Accordion } from 'react-bootstrap'
+
+import { Card, Button, Accordion, Modal, Spinner } from 'react-bootstrap'
 import {
   MdVisibility,
   MdFormatListBulleted,
   MdPlaylistAddCheck,
   MdFormatListNumbered,
   MdDescription,
+  MdClear,
 } from 'react-icons/md'
 import { devUrl } from '../../config'
 import Axios from 'axios'
@@ -25,6 +27,10 @@ function MemberMyOrder(props) {
   const [memberevent, setMemberEvent] = useState([])
   const [events, setEvents] = useState([])
   const [att, setAtt] = useState([])
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   const getEvent = async () => {
     await Axios.get(
@@ -161,7 +167,7 @@ function MemberMyOrder(props) {
                               <Accordion>
                                 <Card>
                                   <Card.Header>
-                                    <div className="order_list d-flex">
+                                    <div className="order_list d-flex position-relative">
                                       <div className="list_img  d-flex justify-content-start  align-items-start  flex-wrap">
                                         {att.map((m) => {
                                           return (
@@ -212,6 +218,65 @@ function MemberMyOrder(props) {
                                                 jsonDate={list.payment_date}
                                               ></DateConvert>
                                             </p>
+                                          </li>
+                                          <li
+                                            className="d-flex justify-content-end position-absolute "
+                                            style={{
+                                              bottom: '8px',
+                                              right: '14px',
+                                            }}
+                                          >
+                                            <div className="d-flex justify-content-end">
+                                              <Button
+                                                onClick={handleShow}
+                                                className="btn-style botton-font btn_icon  d-flex align-items-center "
+                                                style={{
+                                                  backgroundColor: '#df3d00',
+                                                }}
+                                              >
+                                                <MdClear />
+                                                取消訂單
+                                              </Button>
+                                            </div>
+                                            <Modal
+                                              show={show}
+                                              onHide={handleClose}
+                                              backdrop="static"
+                                              keyboard={false}
+                                            >
+                                              <Modal.Header closeButton>
+                                                <Modal.Title>
+                                                  <h5>確定要取消嗎?</h5>
+                                                </Modal.Title>
+                                              </Modal.Header>
+                                              <Modal.Body>
+                                                <p>確定後將取消訂單</p>
+                                              </Modal.Body>
+                                              <Modal.Footer>
+                                                <div className="mem_inf">
+                                                  <Button
+                                                    variant="secondary"
+                                                    onClick={handleClose}
+                                                    className="btn_modal"
+                                                  >
+                                                    離開
+                                                  </Button>
+
+                                                  <Button
+                                                    variant="primary"
+                                                    className="btn_modal "
+                                                    // onClick={() => {
+                                                    //   deleteAccount(
+                                                    //     val.member_id
+                                                    //   )
+
+                                                    // }}
+                                                  >
+                                                    確定
+                                                  </Button>
+                                                </div>
+                                              </Modal.Footer>
+                                            </Modal>
                                           </li>
                                         </ul>
                                       </div>

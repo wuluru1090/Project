@@ -5,13 +5,20 @@
   height: 1px;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.coupon {
-  width: 200px;
-  height: 95px;
-  padding: 5px;
-  background-color: $primary-100;
-  border-radius: 10px;
+.get_coupon {
+  width: 100%;
+  flex-wrap: wrap;
+  flex: content;
 
+  .coupon {
+    width: 230px;
+    height: 110px;
+    padding: 5px;
+    background-color: $primary-100;
+    border-radius: 10px;
+    margin: 8px;
+    // flex-wrap: wrap;
+  }
   .join {
     width: 70px;
     height: 24px;

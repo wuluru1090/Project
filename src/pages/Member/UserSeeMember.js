@@ -14,7 +14,12 @@ function UserSeeMember(props) {
   const [member, setMember] = useState([])
   const [lgShow, setLgShow] = useState(false)
   const [score, setScore] = useState([])
+  const [memberevent, setMemberEvent] = useState([])
+  const [events, setEvents] = useState([])
   const [att, setAtt] = useState([])
+  const [photo, setPhoto] = useState([])
+  const [attphoto, setAttphoto] = useState([])
+
   useEffect(() => {
     Axios.get(`http://localhost:3001/member/get/${props.match.params.id}`)
       .then((res) => {
@@ -34,6 +39,64 @@ function UserSeeMember(props) {
         console.error(error)
       })
   }, [])
+
+  const getEvent = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/get/history/event/${props.match.params.id}`
+    )
+      .then((res) => {
+        setMemberEvent(res.data[0])
+        // console.log(res.data[0])
+        if (res.data) {
+          console.log(JSON.parse(res.data[0].event_id))
+          setEvents(JSON.parse(res.data[0].event_id))
+        } else {
+          return
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  const getAtt = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/history/event/att?id=${events.join(',')}`
+    )
+      .then((res) => {
+        setAtt(res.data)
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  const getPhoto = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/get/event/photo?id=${events.join(',')}`
+    )
+      .then((res) => {
+        setPhoto(res.data)
+        console.log(res.data)
+        setAttphoto(res.data.slice(0, 4))
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    getEvent()
+  }, [])
+
+  useEffect(() => {
+    if (events.length > 0) {
+      getAtt()
+      getPhoto()
+    }
+  }, [events])
 
   return (
     <>
@@ -93,82 +156,34 @@ function UserSeeMember(props) {
                       </div>
 
                       <div className="d-flex justify-content-between  photo_album_all flex-wrap">
-                        <Link to="/see/Album">
-                          <div className="photo_album2">
-                            <h6 className="subtitle2 font-bold">
-                              綠意盎藍一日遊遊遊遊遊 &nbsp;
-                              <MdFolderOpen />
-                            </h6>
+                        {att.map((m) => {
+                          return (
+                            <Link to="/see/Album">
+                              <div className="photo_album2">
+                                <h6 className="subtitle2 font-bold">
+                                  {m.event_name} &nbsp;
+                                  <MdFolderOpen />
+                                </h6>
 
-                            <div className="img_box2">
-                              <div className="">
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
+                                <div className="img_box2">
+                                  <div className="">
+                                    {attphoto.map((p) => {
+                                      return (
+                                        <img
+                                          src={
+                                            devUrl +
+                                            `/pic/mem_img/${p.photo_name}`
+                                          }
+                                          alt="photo1"
+                                        ></img>
+                                      )
+                                    })}
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                        </Link>
-
-                        <Link to="/see/Album">
-                          <div className="photo_album2">
-                            <h6 className="subtitle2 font-bold">
-                              綠意盎藍一日遊遊遊遊遊 &nbsp;
-                              <MdFolderOpen />
-                            </h6>
-
-                            <div className="img_box2">
-                              <div className="">
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
-                        <Link to="/see/Album">
-                          <div className="photo_album2">
-                            <h6 className="subtitle2 font-bold">
-                              綠意盎藍一日遊遊遊遊遊 &nbsp;
-                              <MdFolderOpen />
-                            </h6>
-
-                            <div className="img_box2">
-                              <div className="">
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                                <img
-                                  src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                  alt="photo1"
-                                ></img>
-                              </div>
-                            </div>
-                          </div>
-                        </Link>
+                            </Link>
+                          )
+                        })}
                       </div>
                     </div>
                   </aside>

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import { MdVisibility } from 'react-icons/md'
+import { MdVisibility, MdClear } from 'react-icons/md'
 import { Card, Button } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import { DateConvert } from '../../components/Main/DateTimeConverter'
@@ -74,7 +74,7 @@ function MemberMyCollectionC(props) {
                         {memlikeclass.map((val) => {
                           return (
                             <div className="pdCard">
-                              <div className="ccard">
+                              <div className="ccard position-relative">
                                 <div className="d-flex dcard">
                                   <div>
                                     <img
@@ -83,7 +83,7 @@ function MemberMyCollectionC(props) {
                                       alt="..."
                                     />
                                   </div>
-                                  <div className="">
+                                  <div className="d-flex align-items-center">
                                     <div className="card-body">
                                       <h5 className="card-title">
                                         {val.class_name}
@@ -125,14 +125,35 @@ function MemberMyCollectionC(props) {
                                           {val.class_address}
                                         </p>
                                       </div>
-                                      <div className="d-flex justify-content-end">
-                                        <Button
-                                          onclick=""
-                                          className="btn-style botton-font btn_icon mem_card_btn"
-                                        >
-                                          <MdVisibility />
-                                          活動檢視
-                                        </Button>
+                                      <div
+                                        className="position-absolute"
+                                        style={{
+                                          bottom: '8px',
+                                          right: '10px',
+                                        }}
+                                      >
+                                        <div className="d-flex justify-content-end">
+                                          <Button
+                                            onClick=""
+                                            className="btn-style botton-font btn_icon mem_card_btn d-flex align-items-center "
+                                            style={{
+                                              backgroundColor: '#df3d00',
+                                              marginBottom: '8px',
+                                            }}
+                                          >
+                                            <MdClear />
+                                            取消收藏
+                                          </Button>
+                                        </div>
+                                        <div className="d-flex justify-content-end">
+                                          <Button
+                                            onclick=""
+                                            className="btn-style botton-font btn_icon mem_card_btn"
+                                          >
+                                            <MdVisibility />
+                                            活動檢視
+                                          </Button>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
