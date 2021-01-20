@@ -15,6 +15,14 @@ app.use(cors()); //跨來源資料共用
 app.use(express.json()); //用來解析json檔，因為前端回傳的是json object = app.use(bodyParser.son())
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//活動相簿
+app.get("/api/event/album/:id?", (req, res) => {
+  const sqlSelect = `SELECT photo.*, member.member_name AS member_name FROM photo JOIN member ON photo.member_id = member.member_id WHERE photo.event_id=${req.params.id} AND photo.valid=1 AND photo.photo_show=1`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
 //活動詳細頁資訊(單筆資料)
 app.get("/api/event/:id?", (req, res) => {
   const sqlSelect = `SELECT event.*, event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name, member.member_name AS event_host_name, member.member_img AS event_host_img FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id JOIN member ON event.event_host_id = member.member_id WHERE event_id = ${req.params.id}`;
@@ -33,7 +41,7 @@ app.get("/api/eventtags/:id?", (req, res) => {
 
 //活動詳細頁輪播
 app.get("/api/eventsearch/relative", (req, res) => {
-  console.log(req.query.id, req.query.theme);
+  // console.log(req.query.id, req.query.theme);
   const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name,event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id WHERE event_theme = (${req.query.theme}) and event_id <> (${req.query.id}) ORDER BY RAND() LIMIT 6`;
   // console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
@@ -96,7 +104,7 @@ app.post("/api/comment", (req, res) => {
 
   const sqlInsert =
     "INSERT INTO event_comment (comment_event_id, comment_member_id,comment_content,comment_time) VALUES (?,?,?,NOW())";
-  console.log(sqlInsert);
+  // console.log(sqlInsert);
   db.query(
     sqlInsert,
     [commentEventId, commentMemberId, commentContent, commentTime],
@@ -114,10 +122,10 @@ app.get("/api/get/comment/:id?", (req, res) => {
   });
 });
 
-//獲得訂單
+//獲得訂單(參與者頁面用)
 app.get("/api/eventorder", (req, res) => {
   const sqlSelect = `SELECT * FROM s_event WHERE vaild = ${req.query.valid}`;
-  console.log(sqlSelect);
+  // console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
@@ -155,12 +163,17 @@ app.delete("/api/delete", (req, res) => {
 app.get("/api/save", (req, res) => {
   const eventId = req.query.eventId;
   const memId = req.query.memId;
-  // console.log(eventId, memId);
   const sqlSelect = `SELECT * FROM like_event WHERE event_id=${eventId} AND member_id=${memId}`;
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
 });
+
+// app.get("/api/eventwasbought", (req, res) => {
+//   const eventId = req.query.eventId;
+//   const memberId = req.query.memberId;
+//   const sqlSelect = `SELECT * FROM s_event WHERE id=${memberId} AND  FIND_IN_SET(${eventId}, event_id) > 0`;
+// });
 
 // start express server on port 5000
 app.listen(3001, () => {

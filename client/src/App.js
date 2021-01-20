@@ -26,6 +26,10 @@ function App() {
               <EventAttendant />
             </Route>
 
+            <Route path="/event/:id/album">
+              <Album />
+            </Route>
+
             <Route path="/event/:id">
               <EventDetails />
             </Route>
@@ -41,9 +45,7 @@ function App() {
             <Route exact path="/photo">
               <EventAlbumPhoto />
             </Route>
-            <Route path="/event/album">
-              <Album />
-            </Route>
+
             <Route exact path="/">
               <SoYa />
             </Route>

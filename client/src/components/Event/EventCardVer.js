@@ -19,7 +19,7 @@ function EventCardVer(props) {
     Axios.get(
       `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
     ).then((response) => {
-      console.log(response.data)
+      // console.log(response.data)
       if (response.data.length > 0) setIsActive(true)
     })
   }, [])

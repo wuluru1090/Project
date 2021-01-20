@@ -33,27 +33,29 @@ const location = {
 
 function EventDetail(props) {
   window.scrollTo(0, 0)
-  let history = useHistory()
+  const eventId = props.match.params.id
+  const loginId = 1
 
   //是否收藏
   const [isActive, setIsActive] = useState(false)
-  const loginId = 1
 
+  //設定活動&日曆資料
   const [eventDataList, setEventDataList] = useState([])
   const [calenderValue, setCalenderValue] = useState([
     new Date('2021-01-15'),
     new Date('2021-01-15'),
   ])
+  //設定標籤
   const [tags, setTags] = useState([])
-  const [eventId, setEventId] = useState('')
 
-  //取得後端資料
+  //設定是否購買過活動
+  const [bought, setBought] = useState(true)
+
+  //取得後端活動資料
   useEffect(() => {
-    Axios.get(`http://localhost:3001/api/event/${props.match.params.id}`)
+    Axios.get(`http://localhost:3001/api/event/${eventId}`)
       .then((response) => {
-        console.log(response.data[0].event_id)
         setEventDataList(response.data)
-        setEventId(JSON.parse(response.data[0].event_id))
         setCalenderValue([
           new Date(dateConvert(response.data[0].event_start_time).toString()),
           new Date(dateConvert(response.data[0].event_end_time).toString()),
@@ -65,7 +67,7 @@ function EventDetail(props) {
   }, [])
 
   const getTag = () => {
-    Axios.get(`http://localhost:3001/api/eventtags/${props.match.params.id}`)
+    Axios.get(`http://localhost:3001/api/eventtags/${eventId}`)
       .then((response) => {
         // console.log(response.data)
         setTags(response.data)
@@ -74,12 +76,18 @@ function EventDetail(props) {
         console.log(error)
       })
   }
-
+  //取得標籤資料
   useEffect(() => {
     if (eventDataList.length > 0) {
       getTag()
     }
   }, [eventDataList])
+
+  // useEffect(() => {
+  //   Axios.get(
+  //     `http://localhost:3001/api/eventwasbought?eventId=${eventId}&valid=1&memberId=${loginId}`
+  //   ).then((response) => {})
+  // })
 
   //單獨轉換json日期
   function dateConvert(jsonDate) {
@@ -147,15 +155,13 @@ function EventDetail(props) {
 
   //確認是否有收藏
   useEffect(() => {
-    if (eventId !== '') {
-      Axios.get(
-        `http://localhost:3001/api/save?eventId=${eventId}&memId=${loginId}`
-      ).then((response) => {
-        console.log(response.data)
-        if (response.data.length > 0) setIsActive(true)
-      })
-    }
-  }, [eventId])
+    Axios.get(
+      `http://localhost:3001/api/save?eventId=${eventId}&memId=${loginId}`
+    ).then((response) => {
+      // console.log(response.data)
+      if (response.data.length > 0) setIsActive(true)
+    })
+  }, [])
 
   const writeLike = () => {
     // if (!isActive)
@@ -169,6 +175,14 @@ function EventDetail(props) {
     Axios.delete(
       `http://localhost:3001/api/delete?eventId=${eventId}&memId=${loginId}`
     )
+  }
+
+  let history = useHistory()
+
+  function click2Album(id) {
+    let stringId = JSON.stringify(id)
+    console.log(stringId)
+    history.push('/event/' + id + '/album')
   }
 
   return (
@@ -306,11 +320,8 @@ function EventDetail(props) {
                     <div className="underline-title d-flex justify-content-between align-items-end">
                       <div className="detail-title">參與者名單</div>
                       <a
-                        href={`/event/${props.match.params.id}/attendants`}
+                        href={`/event/${eventId}/attendants`}
                         className="btn btn-link all"
-                        onClick={() => {
-                          console.log(props)
-                        }}
                         target="_blank"
                       >
                         查看全部
@@ -326,8 +337,27 @@ function EventDetail(props) {
                     <button
                       onClick={handleClick}
                       className="btn rounded-pill google-calender font-bold"
+                      style={
+                        bought === false
+                          ? { display: 'inline' }
+                          : { display: 'none' }
+                      }
                     >
                       <h5>+ 加入Google行事曆</h5>
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        click2Album(eventId)
+                      }}
+                      className="btn rounded-pill google-calender font-bold"
+                      style={
+                        bought === true
+                          ? { display: 'inline' }
+                          : { display: 'none' }
+                      }
+                    >
+                      <h5>前往活動相簿</h5>
                     </button>
 
                     <div className="gmap">

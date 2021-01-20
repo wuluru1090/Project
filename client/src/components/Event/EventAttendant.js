@@ -37,7 +37,6 @@ function EventAttendant(props) {
   const getAttFromOrderCancel = async () => {
     await Axios.get(`http://localhost:3001/api/eventorder?valid=0`)
       .then((response) => {
-        // console.log(response.data)
         setAllCancelOrders(response.data)
       })
       .catch(function (error) {
@@ -183,7 +182,7 @@ function EventAttendant(props) {
                 >
                   確定參加 (
                   {event.event_limit_number >= attendantsData.length
-                    ? attendantsData.length
+                    ? attendantsData.length + 1
                     : event.event_limit_number}
                   )
                 </li>

@@ -3,7 +3,14 @@ import { DateConvert, TimeConvert } from '../Main/DateTimeConverter'
 import '../../style/default.scss'
 import '../../style/event/event_detail_info.scss'
 import { Card } from 'react-bootstrap'
-import { MdDone, MdAccessTime, MdExplore, MdCall, MdFlag } from 'react-icons/md'
+import {
+  MdDone,
+  MdAccessTime,
+  MdExplore,
+  MdCall,
+  MdFlag,
+  MdPerson,
+} from 'react-icons/md'
 
 function EventDetailInfo(props) {
   const [detailInfo, setDetailInfo] = useState(props.initValue)
@@ -66,7 +73,7 @@ function EventDetailInfo(props) {
                 </div>
               </div>
               <div className="paragraph d-flex align-items-start">
-                <MdDone />
+                <MdPerson />
                 <div className="info">
                   <div className="subtitle2 font-bold small-title">
                     名額上限：
