@@ -10,6 +10,7 @@ function EventCardHor(props) {
   const [isActive, setIsActive] = useState(false)
   const [tags, setTags] = useState([])
   const cardInfo = props.initVal
+  const loginId = 1
 
   let history = useHistory()
   function click2Detail(id) {
@@ -24,15 +25,29 @@ function EventCardHor(props) {
     return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
   }
 
+  //確認是否有收藏
   useEffect(() => {
-    Axios.get(`http://localhost:3001/api/eventtags/${cardInfo.event_id}`)
-      .then((response) => {
-        setTags(response.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+    Axios.get(
+      `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
+    ).then((response) => {
+      console.log(response.data)
+      if (response.data.length > 0) setIsActive(true)
+    })
   }, [])
+
+  const writeLike = () => {
+    // if (!isActive)
+    Axios.post('http://localhost:3001/api/save', {
+      likeEventId: cardInfo.event_id,
+      likeMemberId: 1,
+    })
+  }
+  const deleteLike = () => {
+    // if (isActive)
+    Axios.delete(
+      `http://localhost:3001/api/delete?eventId=${cardInfo.event_id}&memId=1`
+    )
+  }
 
   return (
     <>
@@ -43,17 +58,26 @@ function EventCardHor(props) {
               src={devUrl + '/Pic/SVG/bookmark.svg'}
               className="bookmark"
               alt="..."
-              onClick={() => setIsActive(true)}
+              onClick={() => {
+                setIsActive(true)
+                writeLike()
+              }}
               style={isActive ? { display: 'none' } : { display: 'inline' }}
             />
             <img
               src={devUrl + '/Pic/SVG/bookmark-pushed.svg'}
               className="bookmark"
               alt="..."
-              onClick={() => setIsActive(false)}
+              onClick={() => {
+                setIsActive(false)
+                deleteLike()
+              }}
               style={isActive ? { display: 'inline' } : { display: 'none' }}
             />
-            <figure className="card-img-top event-photo">
+            <figure
+              className="card-img-top event-photo"
+              onClick={() => click2Detail(cardInfo.event_id)}
+            >
               <img
                 src={devUrl + '/pic/event/' + cardInfo.event_photo}
                 className="photo"
@@ -77,7 +101,10 @@ function EventCardHor(props) {
             </a>
           </div>
 
-          <div className="card-body">
+          <div
+            className="card-body"
+            onClick={() => click2Detail(cardInfo.event_id)}
+          >
             <h5 className="card-title">{cardInfo.event_name}</h5>
             <div className="t2">
               {/* {cardInfo.event_details} */}

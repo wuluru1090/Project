@@ -56,7 +56,7 @@ function EventDetailAttendant(props) {
       `http://localhost:3001/api/attendants?id=${attendantsData.join(',')}`
     )
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         setList(response.data)
       })
       .catch(function (error) {

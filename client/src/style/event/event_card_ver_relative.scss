@@ -14,6 +14,14 @@
   .card {
     border: 1px solid transparent !important;
     background: transparent !important;
+    cursor: pointer;
+    &:hover {
+      .event-photo {
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
   }
 
   .ccard {
@@ -35,10 +43,16 @@
       background: $primary-050;
       overflow: hidden;
       position: relative;
+      cursor: pointer;
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: 0.7s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
     .pushed {

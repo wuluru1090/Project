@@ -123,6 +123,45 @@ app.get("/api/eventorder", (req, res) => {
   });
 });
 
+//收藏
+app.post("/api/save", (req, res) => {
+  const likeEventId = req.body.likeEventId;
+
+  const likeMemberId = req.body.likeMemberId;
+
+  const memberLike = 1;
+
+  const sqlInsert =
+    "INSERT INTO like_event (member_id,event_id,member_like) VALUES (?,?,?)";
+  db.query(
+    sqlInsert,
+    [likeMemberId, likeEventId, memberLike],
+    (err, result) => {
+      console.log(err);
+    }
+  );
+});
+//刪除收藏
+app.delete("/api/delete", (req, res) => {
+  const eventId = req.query.eventId;
+  const memId = req.query.memId;
+  const sqlDelete = `Delete FROM like_event WHERE event_id=${eventId} AND member_id=${memId}`;
+  db.query(sqlDelete, (err, result) => {
+    if (err) console.log(err);
+  });
+});
+
+//查是否有收藏
+app.get("/api/save", (req, res) => {
+  const eventId = req.query.eventId;
+  const memId = req.query.memId;
+  // console.log(eventId, memId);
+  const sqlSelect = `SELECT * FROM like_event WHERE event_id=${eventId} AND member_id=${memId}`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
 // start express server on port 5000
 app.listen(3001, () => {
   console.log("server started on port 5000");

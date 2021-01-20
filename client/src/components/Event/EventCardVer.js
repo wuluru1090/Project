@@ -8,12 +8,21 @@ import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
 
 function EventCardVer(props) {
-  // console.log(props.initVal)
   const [isActive, setIsActive] = useState(false)
-  // const [cardInfo, setCardInfo] = useState(props.initVal)
   const cardInfo = props.initVal
+  const loginId = 1
 
   let history = useHistory()
+
+  //確認是否有收藏
+  useEffect(() => {
+    Axios.get(
+      `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
+    ).then((response) => {
+      console.log(response.data)
+      if (response.data.length > 0) setIsActive(true)
+    })
+  }, [])
 
   function click2Detail(id) {
     let stringId = JSON.stringify(id)
@@ -28,6 +37,20 @@ function EventCardVer(props) {
     return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
   }
 
+  const writeLike = () => {
+    // if (!isActive)
+    Axios.post('http://localhost:3001/api/save', {
+      likeEventId: cardInfo.event_id,
+      likeMemberId: loginId,
+    })
+  }
+  const deleteLike = () => {
+    // if (isActive)
+    Axios.delete(
+      `http://localhost:3001/api/delete?eventId=${cardInfo.event_id}&memId=${loginId}`
+    )
+  }
+
   return (
     <>
       <div className="event-card-vertical card-wrapper">
@@ -36,8 +59,13 @@ function EventCardVer(props) {
             src={devUrl + '/Pic/SVG/bookmark.svg'}
             className="bookmark un-pushed"
             alt="..."
-            onClick={() => setIsActive(true)}
-            style={isActive ? { display: 'none' } : { display: 'inline' }}
+            onClick={() => {
+              setIsActive(true)
+              writeLike()
+            }}
+            style={
+              isActive === false ? { display: 'inline' } : { display: 'none' }
+            }
             id="inactive"
           />
           <img
@@ -45,10 +73,18 @@ function EventCardVer(props) {
             className="bookmark pushed"
             alt="..."
             id="active"
-            onClick={() => setIsActive(false)}
-            style={isActive ? { display: 'inline' } : { display: 'none' }}
+            onClick={() => {
+              setIsActive(false)
+              deleteLike()
+            }}
+            style={
+              isActive === true ? { display: 'inline' } : { display: 'none' }
+            }
           />
-          <figure className="event-photo">
+          <figure
+            className="event-photo"
+            onClick={() => click2Detail(cardInfo.event_id)}
+          >
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
               className="card-img-top photo"
@@ -68,7 +104,10 @@ function EventCardVer(props) {
           ></img>
 
           {/* 參與者頭像結束 */}
-          <div className="card-body">
+          <div
+            className="card-body"
+            onClick={() => click2Detail(cardInfo.event_id)}
+          >
             <h5 className="subtitle1 card-title ">{cardInfo.event_name}</h5>
             <div className="d-flex inform">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />

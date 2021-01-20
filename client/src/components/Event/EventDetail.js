@@ -33,10 +33,11 @@ const location = {
 
 function EventDetail(props) {
   window.scrollTo(0, 0)
-
-  // document.documentElement.scrollTop = document.body.scrollTop = 0
-  // console.log(props)
   let history = useHistory()
+
+  //是否收藏
+  const [isActive, setIsActive] = useState(false)
+  const loginId = 1
 
   const [eventDataList, setEventDataList] = useState([])
   const [calenderValue, setCalenderValue] = useState([
@@ -44,13 +45,15 @@ function EventDetail(props) {
     new Date('2021-01-15'),
   ])
   const [tags, setTags] = useState([])
+  const [eventId, setEventId] = useState('')
 
   //取得後端資料
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/event/${props.match.params.id}`)
       .then((response) => {
-        // console.log(response.data)
+        console.log(response.data[0].event_id)
         setEventDataList(response.data)
+        setEventId(JSON.parse(response.data[0].event_id))
         setCalenderValue([
           new Date(dateConvert(response.data[0].event_start_time).toString()),
           new Date(dateConvert(response.data[0].event_end_time).toString()),
@@ -142,6 +145,32 @@ function EventDetail(props) {
     })
   }
 
+  //確認是否有收藏
+  useEffect(() => {
+    if (eventId !== '') {
+      Axios.get(
+        `http://localhost:3001/api/save?eventId=${eventId}&memId=${loginId}`
+      ).then((response) => {
+        console.log(response.data)
+        if (response.data.length > 0) setIsActive(true)
+      })
+    }
+  }, [eventId])
+
+  const writeLike = () => {
+    // if (!isActive)
+    Axios.post('http://localhost:3001/api/save', {
+      likeEventId: eventId,
+      likeMemberId: loginId,
+    })
+  }
+  const deleteLike = () => {
+    // if (isActive)
+    Axios.delete(
+      `http://localhost:3001/api/delete?eventId=${eventId}&memId=${loginId}`
+    )
+  }
+
   return (
     <>
       {/* <div> */}
@@ -188,12 +217,37 @@ function EventDetail(props) {
                       </div>
                     </div>
                     <div className="btn_part">
-                      <button className="btn bttn save rounded-pill">
+                      <button
+                        className="btn bttn save rounded-pill"
+                        style={
+                          isActive === false
+                            ? { display: 'inline' }
+                            : { display: 'none' }
+                        }
+                        onClick={() => {
+                          setIsActive(true)
+                          writeLike()
+                        }}
+                      >
                         <MdBookmark
                           size={30}
                           style={{ color: 'white', paddingRight: '6px' }}
                         />
                         <span className="align-middle">收藏</span>
+                      </button>
+                      <button
+                        className="btn bttn save rounded-pill"
+                        style={
+                          isActive === true
+                            ? { display: 'inline' }
+                            : { display: 'none' }
+                        }
+                        onClick={() => {
+                          setIsActive(false)
+                          deleteLike()
+                        }}
+                      >
+                        <span className="align-middle">取消收藏</span>
                       </button>
                       <button className="btn bttn share rounded-pill">
                         <MdShare

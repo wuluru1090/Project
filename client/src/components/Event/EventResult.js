@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import EventPagination from './EventPagination'
 import '../../style/default.scss'
 import '../../style/event/event_result.scss'
 import { devUrl } from '../../config'
 import EventCardVer from './EventCardVer'
 import EventCardHor from './EventCardHor'
+import Pagination from '../Main/Pagination'
 
 //connect with backend
 import Axios from 'axios'
@@ -37,16 +37,23 @@ function EventResult(props) {
       })
   }, [locate, searchbar, theme, time])
 
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(12)
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = eventResult.slice(indexOfFirstPost, indexOfLastPost)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
   const resultCard = (
     <div className="result-card d-flex flex-wrap justify-content-start">
-      {eventResult.map((val) => {
+      {currentPosts.map((val) => {
         return <EventCardVer initVal={val} />
       })}
     </div>
   )
   const resultList = (
     <div className="result-list d-flex justify-content-start flex-wrap">
-      {eventResult.map((val) => {
+      {currentPosts.map((val) => {
         return <EventCardHor initVal={val} />
       })}
     </div>
@@ -110,9 +117,14 @@ function EventResult(props) {
           </div>
         )}
 
-        {/* <div className="page">
-          <EventPagination />
-        </div> */}
+        <div className="page ">
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={eventResult.length}
+            paginate={paginate}
+            className="pagination"
+          />
+        </div>
       </div>
     </>
   )

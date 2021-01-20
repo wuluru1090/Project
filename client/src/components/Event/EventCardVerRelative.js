@@ -4,9 +4,11 @@ import { devUrl } from '../../config'
 import '../../style/event/event_card_ver_relative.scss'
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
+import Axios from 'axios'
 
 function EventCardVerRelative(props) {
   let history = useHistory()
+  const loginId = 1
 
   // console.log(props.initValue)
   const [isActive, setIsActive] = useState(false)
@@ -24,6 +26,30 @@ function EventCardVerRelative(props) {
     // console.log(stringId)
     history.push('/event/' + stringId)
     window.location.reload()
+  }
+
+  //確認是否有收藏
+  useEffect(() => {
+    Axios.get(
+      `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
+    ).then((response) => {
+      // console.log(response.data)
+      if (response.data.length > 0) setIsActive(true)
+    })
+  }, [])
+
+  const writeLike = () => {
+    // if (!isActive)
+    Axios.post('http://localhost:3001/api/save', {
+      likeEventId: cardInfo.event_id,
+      likeMemberId: 1,
+    }).then(alert('success!'))
+  }
+  const deleteLike = () => {
+    // if (isActive)
+    Axios.delete(
+      `http://localhost:3001/api/delete?eventId=${cardInfo.event_id}&memId=1`
+    ).then(alert('刪除成功!'))
   }
 
   return (
@@ -46,7 +72,10 @@ function EventCardVerRelative(props) {
             onClick={() => setIsActive(false)}
             style={isActive ? { display: 'inline' } : { display: 'none' }}
           />
-          <figure className="event-photo">
+          <figure
+            className="event-photo"
+            onClick={() => click2Detail(cardInfo.event_id)}
+          >
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
               className="card-img-top photo"
@@ -68,7 +97,10 @@ function EventCardVerRelative(props) {
               src={devUrl + '/pic/pic/member3.jpg'}
             ></img>
           </a>
-          <div className="card-body">
+          <div
+            className="card-body"
+            onClick={() => click2Detail(cardInfo.event_id)}
+          >
             <h5 className="card-title">{cardInfo.event_name}</h5>
             <div className="d-flex inform align-items-center">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
