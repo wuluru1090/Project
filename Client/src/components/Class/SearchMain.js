@@ -9,7 +9,6 @@ import ClassResultCard from '../Class/ClassResultCard'
 import Sidebar from '../Class/Sidebar'
 import Pagination from '../Main/Pagination'
 import Bread from '../Class/MyBreadCrumb'
-import SearchTop from '../Main/ScrollTop'
 import ScrollTop from '../Main/ScrollTop'
 
 function SearchMain() {
@@ -45,7 +44,6 @@ function SearchMain() {
     )
     if (response.data) {
       setShowDatas(response.data)
-    } else {
     }
   }
 

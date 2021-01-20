@@ -6,6 +6,7 @@ import Axios from 'axios'
 
 function Carousel2(props) {
   const [carouselData, setCarouselData] = useState([])
+  const classCId = props.classCId
 
   useEffect(() => {
     Axios.get(`http://localhost:3001/class/theme?theme='${props.themeData}'`)
@@ -20,7 +21,7 @@ function Carousel2(props) {
   const CarouselCard = carouselData.map((val) => {
     return (
       <div className="carousel2_block">
-        <Card calData={val} />
+        <Card calData={val} classCaId={classCId} />
       </div>
     )
   })

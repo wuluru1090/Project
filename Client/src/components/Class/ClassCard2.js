@@ -1,29 +1,56 @@
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
 import '../../style/class/class_card2.scss'
+import Axios from 'axios'
 import { DateConvert } from '../Main/DateTimeConverter'
 
 function Card(props) {
   const cardInfo = props.calData
+  const carouselClassId = props.classCaId
   const [isActive, setIsActive] = useState(false)
+
+  const addFavorites = () => {
+    Axios.post('http://localhost:3001/class/favorites', {
+      member_id: 101,
+      class_id: carouselClassId,
+      member_like: 1,
+    }).then(() => {
+      alert('收藏成功')
+    })
+  }
+
+  const deleteFavorites = () => {
+    Axios.delete(`http://localhost:3001/class/delete/${carouselClassId}`).then(
+      () => {
+        alert('取消收藏')
+      }
+    )
+  }
 
   return (
     <>
       <div className="card class_suggest_card">
-        {/* 標籤加註 */}
+        {/* 未收藏 */}
         <img
           src={devUrl + '/pic/SVG/bookmark-24px.svg'}
           className="tag un-pushed"
           alt="..."
-          onClick={() => setIsActive(true)}
+          onClick={() => {
+            setIsActive(true)
+            addFavorites()
+          }}
           style={isActive ? { display: 'none' } : { display: 'inline' }}
           id="inactive"
         />
+        {/* 已收藏 */}
         <img
           src={devUrl + '/pic/SVG/bookmark-pushed.svg'}
           className="tag pushed"
           alt="..."
-          onClick={() => setIsActive(false)}
+          onClick={() => {
+            setIsActive(false)
+            deleteFavorites()
+          }}
           style={isActive ? { display: 'inline' } : { display: 'none' }}
           id="active"
         />

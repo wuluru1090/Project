@@ -31,6 +31,7 @@ function ClassMain(props) {
   const [classData, setClassData] = useState([])
   const [theme1, setTheme1] = useState([])
   const [date, setDate] = useState([])
+  const [classId, setClassId] = useState([])
 
   //地址存取
   const [add, setAdd] = useState('')
@@ -59,6 +60,22 @@ function ClassMain(props) {
     return date
   }
 
+  const addFavorites = () => {
+    Axios.post('http://localhost:3001/class/favorites', {
+      member_id: 101,
+      class_id: classId,
+      member_like: 1,
+    }).then(() => {
+      alert('收藏成功')
+    })
+  }
+
+  const deleteFavorites = () => {
+    Axios.delete(`http://localhost:3001/class/delete/${classId}`).then(() => {
+      alert('取消收藏')
+    })
+  }
+
   // 進入頁面時，抓取特定id的資料
   useEffect(() => {
     Axios.get(`http://localhost:3001/class/${props.match.params.id}`)
@@ -67,22 +84,19 @@ function ClassMain(props) {
         setTheme1(response.data[0].class_theme_name)
         setDate(response.data[0].class_start_date)
         setAdd(response.data[0].class_address)
+        setClassId(response.data[0].class_id)
       })
       .catch(function (error) {
         console.log(error)
       })
   }, [])
-  // console.log(add)
 
   //GMap地圖Pin標記位置
   const location = {
     address: add.toString(),
-    // address: add,
     lat: lat,
     lng: lng,
   }
-  // console.log(location)
-  console.log(dateConvert(date))
 
   //地址轉經緯度
   geoCode()
@@ -136,12 +150,25 @@ function ClassMain(props) {
                     </span>
                   </div>
                   <div className="btn_part">
-                    <button className="btn bttn save rounded-pill">
+                    <button
+                      className="btn bttn save rounded-pill"
+                      onClick={addFavorites}
+                    >
                       <MdBookmark
                         size={30}
                         style={{ color: 'white', paddingRight: '6px' }}
                       />
-                      <span className="align-middle">收藏</span>
+                      <span className="align-middle"> 收藏</span>
+                    </button>
+                    <button
+                      className="btn bttn save rounded-pill"
+                      onClick={deleteFavorites}
+                    >
+                      <MdBookmark
+                        size={30}
+                        style={{ color: 'white', paddingRight: '6px' }}
+                      />
+                      <span className="align-middle">取消收藏</span>
                     </button>
                     <button
                       className="btn bttn share rounded-pill"
@@ -257,7 +284,7 @@ function ClassMain(props) {
               <h5 className="class_suggest">相似課程</h5>
               <div className="line"></div>
               <div className="bottom-carousel">
-                <Carousel2 themeData={theme1} />
+                <Carousel2 themeData={theme1} classCId={classId} />
               </div>
             </div>
             <FixedBottom />
