@@ -48,7 +48,7 @@ function SearchMain() {
   }
 
   useEffect(() => {
-    if (theme.length === 0 || theme.includes('全部課程')) {
+    if (theme.includes('全部課程')) {
       setShowDatas(allDatas)
       return
     }

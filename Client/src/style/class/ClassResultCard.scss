@@ -8,6 +8,12 @@
   height: 204px;
   padding: 14px 14px 14px 0;
   position: relative;
+  &:hover {
+    .img {
+      transform: scale(1.2);
+    }
+  }
+
   .card-body {
     padding-top: 0;
   }
@@ -59,7 +65,7 @@
     height: 50px;
     z-index: 400;
     position: absolute;
-    left: 210px;
+    left: 220px;
     top: 10px;
   }
 

@@ -32,6 +32,8 @@ function ClassMain(props) {
   const [theme1, setTheme1] = useState([])
   const [date, setDate] = useState([])
   const [classId, setClassId] = useState([])
+  const [isActive, setIsActive] = useState(false)
+  const [className, setClassName] = useState([])
 
   //地址存取
   const [add, setAdd] = useState('')
@@ -85,6 +87,7 @@ function ClassMain(props) {
         setDate(response.data[0].class_start_date)
         setAdd(response.data[0].class_address)
         setClassId(response.data[0].class_id)
+        setClassName(response.data[0].class_name)
       })
       .catch(function (error) {
         console.log(error)
@@ -152,7 +155,15 @@ function ClassMain(props) {
                   <div className="btn_part">
                     <button
                       className="btn bttn save rounded-pill"
-                      onClick={addFavorites}
+                      style={
+                        isActive === false
+                          ? { display: 'inline' }
+                          : { display: 'none' }
+                      }
+                      onClick={() => {
+                        setIsActive(true)
+                        addFavorites()
+                      }}
                     >
                       <MdBookmark
                         size={30}
@@ -162,12 +173,16 @@ function ClassMain(props) {
                     </button>
                     <button
                       className="btn bttn save rounded-pill"
-                      onClick={deleteFavorites}
+                      style={
+                        isActive === true
+                          ? { display: 'inline' }
+                          : { display: 'none' }
+                      }
+                      onClick={() => {
+                        setIsActive(false)
+                        deleteFavorites()
+                      }}
                     >
-                      <MdBookmark
-                        size={30}
-                        style={{ color: 'white', paddingRight: '6px' }}
-                      />
                       <span className="align-middle">取消收藏</span>
                     </button>
                     <button
@@ -183,7 +198,7 @@ function ClassMain(props) {
                   </div>
                 </div>
                 <div className="bread_crumb">
-                  <Bread />
+                  <Bread className={className} />
                 </div>
               </div>
               <div className="page-head-part3">
