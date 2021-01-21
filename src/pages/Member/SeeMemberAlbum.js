@@ -1,10 +1,77 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_album.scss'
 import { devUrl } from '../../config'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
-import { Link } from 'react-router-dom'
-function SeeMemberAlbum() {
+import { Link, withRouter } from 'react-router-dom'
+import Axios from 'axios'
+import { DateConvert } from '../../components/Main/DateTimeConverter'
+
+function SeeMemberAlbum(props) {
+  const [memberevent, setMemberEvent] = useState([])
+  const [events, setEvents] = useState([])
+  const [att, setAtt] = useState([])
+  const [photo, setPhoto] = useState([])
+  const [attphoto, setAttphoto] = useState([])
+  const [addphoto, setAddphoto] = useState([])
+
+  const getEvent = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/get/history/event/${props.match.params.id}`
+    )
+      .then((res) => {
+        setMemberEvent(res.data[0])
+        // console.log(res.data[0])
+        if (res.data) {
+          console.log(JSON.parse(res.data[0].event_id))
+          setEvents(JSON.parse(res.data[0].event_id))
+        } else {
+          return
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  const getAtt = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/history/event/att?id=${events.join(',')}`
+    )
+      .then((res) => {
+        setAtt(res.data)
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  const getPhoto = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/get/event/photo?id=${events.join(
+        ','
+      )}&member=${props.match.params.id}`
+    )
+      .then((res) => {
+        setPhoto(res.data)
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    getEvent()
+  }, [])
+
+  useEffect(() => {
+    if (events.length > 0) {
+      getAtt()
+      getPhoto()
+    }
+  }, [events])
   return (
     <>
       <div className="album-page">
@@ -16,83 +83,47 @@ function SeeMemberAlbum() {
         </div>
 
         <div className="title row">
-          <div className="word col-9">
-            <h6>2020/03/05-2020/03/17</h6>
-            <h5>阿里山國家公園二日遊輕鬆拍</h5>
-          </div>
+          {att.map((m) => {
+            return (
+              <div className="word col-9">
+                <h6>
+                  <DateConvert jsonDate={m.event_start_time} />
+                  &nbsp;~&nbsp;
+                  <DateConvert jsonDate={m.event_end_time} />
+                </h6>
+                <h5>{m.event_name}</h5>
+              </div>
+            )
+          })}
         </div>
+
         {/* 圖片部分開始 */}
+
         <div className="album-slider d-flex justify-content-center">
           <div className="album-content row">
-            <a href={devUrl + '/see/Album/photo'} className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </a>
-
-            <div className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </div>
-            <div className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </div>
-            <div className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </div>
-            <div className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </div>
-            <div className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </div>
-            <div className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </div>
-            <div className="photo-card col-4">
-              <figure>
-                <img src="" alt=""></img>
-              </figure>
-              <div>
-                <h6>我是標題</h6>
-              </div>
-            </div>
+            {photo.length > 0 ? (
+              photo.map((p) => {
+                return (
+                  <div className="photo-card col-4">
+                    <figure>
+                      <img
+                        src={`${devUrl}/pic/event_pic/${p.photo_name}`}
+                        alt=""
+                      ></img>
+                    </figure>
+                    {/* <div>
+                      <p className="subtitle1">by&nbsp;&nbsp;{p.member_name}</p>
+                    </div> */}
+                  </div>
+                )
+              })
+            ) : (
+              <div style={{ fontSize: '18px' }}>尚無照片顯示</div>
+            )}
           </div>
         </div>
       </div>
     </>
   )
 }
-export default SeeMemberAlbum
+export default withRouter(SeeMemberAlbum)

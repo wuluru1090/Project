@@ -56,6 +56,7 @@ function MemberCoupon(props) {
           member_id: `${props.match.params.id}`,
           coupon_name: coupon.coupon_name,
           coupon_content: coupon.coupon_content,
+          valid: 1,
         },
       ])
       // setCouponNew([

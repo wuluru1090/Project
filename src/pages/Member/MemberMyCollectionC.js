@@ -11,7 +11,6 @@ import { withRouter } from 'react-router-dom'
 
 function MemberMyCollectionC(props) {
   const [memlikeclass, setMemberlikeClass] = useState([])
-  const [classid, setClassid] = useState([])
 
   useEffect(() => {
     Axios.get(
@@ -27,8 +26,9 @@ function MemberMyCollectionC(props) {
   }, [])
 
   const deletelike = (classId) => {
-    console.log(classId)
-    Axios.delete(`http://localhost:3001/api/delete/class`)
+    Axios.delete(
+      `http://localhost:3001/api/delete/classlike?classId=${classId}&member=${props.match.params.id}`
+    )
     alert('取消收藏')
     console.log(classId)
   }
