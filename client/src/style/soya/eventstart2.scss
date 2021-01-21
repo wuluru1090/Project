@@ -1,0 +1,255 @@
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+@import '../default.scss';
+
+$url: "http://localhost:3000";
+
+
+ 
+  .eventstart{
+
+ 
+
+    .wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .cover-fit {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .main1,.main2,.main3,.main4{
+      
+      .evstart2cont{
+        margin: 200px 238px 0 238px;
+        // border: 1px solid;
+
+
+        .evstart2titlebox{
+          // border: 1px solid;
+          // width: 40%;
+          width: 376px;
+
+          .evstart2titleboxbox{
+            position: relative;
+            
+            
+            .evstart2titleiconbox{
+              // border: 1px solid;
+              
+
+              .evstart2titleicon{
+                width: 30px;
+                height: 30px;
+                color: $primary-600;
+                position: absolute;
+                left: 70px;
+                top: 35px;
+              }
+            }
+
+            .evstart2title{
+              margin:0 auto;
+              
+              .evstart2title2{
+                text-align: center;
+                font-size: $h4-font-size;
+                font-family: 'TaipeiSansTCBeta-Bold';
+                color: $primary-600;
+              }
+              
+              .evstart2title1{
+                text-align: center;
+                font-size: $h4-font-size;
+                font-family: 'Roboto';
+                font-weight: 700;
+                color: $primary-600;
+              }
+            }
+         
+          }
+
+          .step1imgg{
+           margin:30px auto 40px auto;
+          }
+
+          .step1content{
+            font-size: $font-size-base;
+            font-family: 'TaipeiSansTCBeta-Regular';
+            color: $gray-darkest;
+          }
+        }
+      }
+
+      .evstart2formbox{
+
+        .cardboxmargin{
+          
+          // border: 1px solid;
+          margin-right: 15px;
+          
+        }
+
+        .card{
+            background: rgba($primary-100,1.0);
+            box-shadow: 0 3px 6px rgba(#000,0.2);
+            margin-bottom: 20px;
+            width: 490px;
+            
+            
+        }
+        .cardposition{
+          position: relative;
+
+          .puzzle2step1{
+            position: absolute;
+            bottom: 0;
+            left: -80px;
+            z-index: -1;
+            width: 150px;
+            height: 160px;
+
+          
+          }
+
+        }
+
+
+
+        .cardposition2{
+          position: relative;
+          .puzzle3step2{
+            position: absolute;
+            bottom: -30px;
+            right: -145px;
+            width: 150px;
+            height: 150px;
+            
+          }
+        }
+
+
+        .eventstartbtn{
+          background:$primary-400;
+          color: white;
+          font-size: $h5-font-size;
+          font-family: 'TaipeiSansTCBeta-Regular';
+          margin: 0 auto;
+          padding: 12px 60px;
+         
+        }
+
+        .checkboxname{
+          justify-content: flex-start;
+          align-items: center;
+          // border: 1px solid;
+          margin:0 0 5px 7px;
+        
+          // width: 300px;
+
+          input{
+            width: 50px;
+            margin:0;
+          }
+
+          .checkboxnamename{
+            margin-left: -10px;
+            font-size: 14px;
+            font-family: 'TaipeiSansTCBeta-Regular';
+            color: $gray-darkest;
+          }
+        }
+
+        .contentboxinput{
+            // border: 1px solid;
+            justify-content: center;
+
+
+            .inputbox{
+              margin-bottom: 37px;
+            }
+            
+
+ 
+
+            input{
+                margin: 0 auto;
+                width: 240px;
+            }
+
+            .starbox{
+                
+                margin-right: 28px;
+                justify-content: flex-end;
+                // border: 1px solid;
+                width: 90px;
+
+                
+
+
+                .starafter{
+                    // border: 1px solid;
+                    line-height: 38px;
+                    
+                    font-size: $font-size-base;
+                    font-family: 'TaipeiSansTCBeta-Regular';
+                    color: $gray-darkest;
+                  
+                }
+
+                .staraftername{
+                  position: relative;
+                  span{
+                    position: absolute;
+                    right:0;
+                    top: 20px;
+                  }
+                }
+                .startitle{
+                    line-height: 38px;
+                    color: red;
+                
+                }
+            }
+
+            .starbox2{
+              width: 104px;
+            }
+          
+          
+        }
+      }
+    }
+    .main2{
+      background: $primary-100;
+      
+
+      .eventwave2{
+        margin:0 auto;
+        
+        img{
+          width: 100%;
+          transform: translateY(-7px);
+        }
+      }
+
+      .circle2step2{
+        margin-left: 140px;
+      }
+
+      .eventwave3{
+        margin:0 auto;
+        
+        img{
+          width: 100%;
+          transform: translateY(2px);
+          
+        }
+      }
+    }
+
+
+
+  }

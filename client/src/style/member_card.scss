@@ -1,0 +1,86 @@
+@import 'default.scss';
+
+//card
+.mem_card {
+  width: 278px;
+  height: 268px;
+  padding: 30px 0 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+}
+
+.star {
+  svg {
+    color: $yellow;
+    width: 24.2px;
+    height: 23.2px;
+  }
+}
+
+//navlist
+
+.mem_navlist {
+  width: 278px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+}
+.mem_navlist_icon {
+  position: relative;
+  .mem_listbar {
+    background-color: $secondary-700;
+    width: 8px;
+    height: 38px;
+    // margin: 0 10px 0 0;
+    position: absolute;
+    opacity: 0;
+    left: 30px;
+  }
+}
+
+.mem_navlist_icon:hover {
+  .mem_listbar {
+    opacity: 0.5;
+  }
+}
+.mem_navlist_icon:active {
+  .mem_listbar {
+    opacity: 1;
+  }
+}
+.mem_navlist_icon {
+  svg {
+    color: $primary;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px 5px 0;
+  }
+}
+
+.mem_navlist_icon:hover {
+  display: block;
+  svg {
+    color: $secondary-700;
+    opacity: 0.5;
+  }
+  h6 {
+    color: $secondary-700;
+    opacity: 0.5;
+  }
+}
+
+.mem_navlist_icon:active {
+  display: block;
+  svg {
+    color: $secondary-700;
+    opacity: 1;
+    font-family: 'TaipeiSansTCBeta-Regular';
+  }
+  h6 {
+    color: $secondary-700;
+    opacity: 1;
+    font-family: 'TaipeiSansTCBeta-Regular';
+  }
+}

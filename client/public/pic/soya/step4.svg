@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="228.692" height="48" viewBox="0 0 228.692 48">
+  <g id="Group_793" data-name="Group 793" transform="translate(-605.889 -5059.71)">
+    <g id="Group_641" data-name="Group 641" transform="translate(293.322 3905)">
+      <g id="Group_586" data-name="Group 586" transform="translate(-1621.353 1320.71) rotate(-90)">
+        <line id="Line_35" data-name="Line 35" y2="212" transform="translate(142.21 1942.531)" fill="none" stroke="#707070" stroke-width="2"/>
+        <g id="Group_506" data-name="Group 506" transform="translate(118 1933.919)">
+          <path id="Path_601" data-name="Path 601" d="M24,0A24,24,0,1,1,0,24,24,24,0,0,1,24,0Z" fill="#88adc2"/>
+        </g>
+        <g id="Group_577" data-name="Group 577" transform="translate(118 1994.149)">
+          <path id="Path_601-2" data-name="Path 601" d="M24,0A24,24,0,1,1,0,24,24,24,0,0,1,24,0Z" fill="#88adc2"/>
+        </g>
+        <g id="Group_578" data-name="Group 578" transform="translate(118 2054.38)">
+          <path id="Path_601-3" data-name="Path 601" d="M24,0A24,24,0,1,1,0,24,24,24,0,0,1,24,0Z" fill="#88adc2"/>
+        </g>
+        <g id="Group_579" data-name="Group 579" transform="translate(118 2114.611)">
+          <path id="Path_601-4" data-name="Path 601" d="M24,0A24,24,0,1,1,0,24,24,24,0,0,1,24,0Z" transform="translate(0 0)" fill="#175fab"/>
+        </g>
+      </g>
+      <text id="_1" data-name="1" transform="translate(332 1185)" fill="#fffefe" font-size="16" font-family="TaipeiSansTCBeta-Bold, Taipei Sans TC Beta" font-weight="700" letter-spacing="0.06em"><tspan x="0" y="0">1</tspan></text>
+      <text id="_2" data-name="2" transform="translate(392 1185)" fill="#fffefe" font-size="16" font-family="TaipeiSansTCBeta-Bold, Taipei Sans TC Beta" font-weight="700" letter-spacing="0.06em"><tspan x="0" y="0">2</tspan></text>
+      <text id="_3" data-name="3" transform="translate(452 1185)" fill="#fffefe" font-size="16" font-family="TaipeiSansTCBeta-Bold, Taipei Sans TC Beta" font-weight="700" letter-spacing="0.06em"><tspan x="0" y="0">3</tspan></text>
+      <text id="_4" data-name="4" transform="translate(512 1185)" fill="#fffefe" font-size="16" font-family="TaipeiSansTCBeta-Bold, Taipei Sans TC Beta" font-weight="700" letter-spacing="0.06em"><tspan x="0" y="0">4</tspan></text>
+    </g>
+  </g>
+</svg>
