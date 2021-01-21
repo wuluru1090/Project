@@ -1,5 +1,5 @@
 import '../../index.scss'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import '../../style/member/member.scss'
@@ -7,7 +7,104 @@ import '../../style/member/member_photo2.scss'
 import { devUrl } from '../../config'
 import { Card, Button } from 'react-bootstrap'
 import { MdDelete } from 'react-icons/md'
+import { withRouter } from 'react-router-dom'
+import Axios from 'axios'
+import { DateConvert } from '../../components/Main/DateTimeConverter'
+
 function MemberMyPhoto2(props) {
+  const [memberevent, setMemberEvent] = useState([])
+  const [events, setEvents] = useState([])
+  const [att, setAtt] = useState([])
+  const [photo, setPhoto] = useState([])
+  const [attphoto, setAttphoto] = useState([])
+  const [addphoto, setAddphoto] = useState([])
+
+  const getEvent = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/get/history/event/${props.match.params.id}`
+    )
+      .then((res) => {
+        setMemberEvent(res.data[0])
+        // console.log(res.data[0])
+        if (res.data) {
+          console.log(JSON.parse(res.data[0].event_id))
+          setEvents(JSON.parse(res.data[0].event_id))
+        } else {
+          return
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  const getAtt = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/history/event/att?id=${events.join(',')}`
+    )
+      .then((res) => {
+        setAtt(res.data)
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  const getPhoto = async () => {
+    await Axios.get(
+      `http://localhost:3001/member/get/event/photo?id=${events.join(
+        ','
+      )}&member=${props.match.params.id}`
+    )
+      .then((res) => {
+        setPhoto(res.data)
+        console.log(res.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
+
+  useEffect(() => {
+    getEvent()
+  }, [])
+
+  useEffect(() => {
+    if (events.length > 0) {
+      getAtt()
+      getPhoto()
+    }
+  }, [events])
+
+  const postphoto = (event_id) => {
+    // console.log(event_id)
+    console.log(addphoto)
+
+    Axios.post('http://localhost:3001/member/photo', {
+      event_id: event_id,
+      member_id: `${props.match.params.id}`,
+      // photo_show: coupon.coupon_name,
+      photo_name: addphoto,
+    }).then((res) => {
+      setAttphoto([
+        ...addphoto,
+        {
+          event_id: event_id,
+          member_id: `${props.match.params.id}`,
+          photo_name: addphoto,
+        },
+      ])
+    })
+  }
+
+  function upUp() {
+    setTimeout(function () {
+      document.getElementById('photo-button').click()
+      // setTimeout(window.location.reload(), 500)
+    }, 500)
+  }
+
   return (
     <>
       <body>
@@ -25,100 +122,76 @@ function MemberMyPhoto2(props) {
                 <article>
                   <div className="container ">
                     <Card className="mem_box">
-                      <Card.Header className="mem_title d-flex justify-content-between">
-                        <h5>我的相簿/一日遊是我</h5>
-                        <form>
-                          <input
-                            accept="image/*"
-                            className=""
-                            style={{ display: 'none' }}
-                            id="iconephoto-button-file"
-                            type="file"
-                          />
-                          <label htmlFor="iconephoto-button-file">
-                            <img
-                              className="addphoto2"
-                              src={devUrl + '/pic/SVG/photoadd2.svg'}
-                              alt="add2"
-                              style={{ cursor: ' pointer ' }}
-                            ></img>
-                          </label>
-                        </form>
-                      </Card.Header>
+                      {att.map((m) => {
+                        return (
+                          <Card.Header className="mem_title d-flex justify-content-between">
+                            <h5>我的相簿/{m.event_name}</h5>
+                            <form>
+                              <input
+                                accept="image/*"
+                                className=""
+                                style={{ display: 'none' }}
+                                id="postphoto-button-file"
+                                type="file"
+                                name="files"
+                                onChange={(e) => {
+                                  setAddphoto(e.target.value.split('\\').pop())
+                                  upUp(m.event_id)
+                                }}
+                              />
+                              <label htmlFor="postphoto-button-file">
+                                <img
+                                  className="addphoto2"
+                                  src={devUrl + '/pic/SVG/photoadd2.svg'}
+                                  alt="add2"
+                                  style={{ cursor: ' pointer ' }}
+                                ></img>
+                              </label>
+                            </form>
+                            <input
+                              accept="image/*"
+                              className=""
+                              style={{ display: 'none' }}
+                              id="photo-button"
+                              type="button"
+                              value="上傳"
+                              onClick={() => {
+                                postphoto(m.event_id)
+                              }}
+                            />
+                          </Card.Header>
+                        )
+                      })}
+
                       <Card.Body style={{ padding: '14px  42px  14px 42px' }}>
                         <div className="photo_album3 d-flex ">
                           <div className="img_box3  d-flex justify-content-between">
                             <div className=" d-flex flex-wrap">
-                              <div className="myphoto">
-                                <div className=" d-flex justify-content-end">
-                                  <input type="checkbox" />
-                                </div>
-                                <figure>
-                                  <img
-                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                    alt="photo1"
-                                  ></img>
-                                  <figcaption className="d-flex justify-content-center">
-                                    絕美風景照片
-                                  </figcaption>
-                                </figure>
-                              </div>
-                              <div className="myphoto">
-                                <div className=" d-flex justify-content-end">
-                                  <input type="checkbox" />
-                                </div>
-                                <figure>
-                                  <img
-                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                    alt="photo1"
-                                  ></img>
-                                  <figcaption className="d-flex justify-content-center">
-                                    絕美風景照片
-                                  </figcaption>
-                                </figure>
-                              </div>
-                              <div className="myphoto">
-                                <div className=" d-flex justify-content-end">
-                                  <input type="checkbox" />
-                                </div>
-                                <figure>
-                                  <img
-                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                    alt="photo1"
-                                  ></img>
-                                  <figcaption className="d-flex justify-content-center">
-                                    絕美風景照片
-                                  </figcaption>
-                                </figure>
-                              </div>
-                              <div className="myphoto">
-                                <div className=" d-flex justify-content-end">
-                                  <input type="checkbox" />
-                                </div>
-                                <figure>
-                                  <img
-                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                    alt="photo1"
-                                  ></img>
-                                  <figcaption className="d-flex justify-content-center">
-                                    絕美風景照片
-                                  </figcaption>
-                                </figure>
-                              </div>
-                              <div className="myphoto">
-                                <div className=" d-flex justify-content-end">
-                                  <input type="checkbox" />
-                                </div>
-                                <figure>
-                                  <img
-                                    src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                    alt="photo1"
-                                  ></img>
-                                  <figcaption className="d-flex justify-content-center">
-                                    絕美風景照片
-                                  </figcaption>
-                                </figure>
-                              </div>
+                              {photo.map((p) => {
+                                return (
+                                  <div className="myphoto">
+                                    <div className=" d-flex justify-content-end">
+                                      <input type="checkbox" />
+                                    </div>
+
+                                    <img
+                                      // src={
+                                      //   devUrl +
+                                      //   `pic/event_photo/${p.photo_name}`
+                                      // }
+                                      src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                      alt="photo1"
+                                    ></img>
+
+                                    <figcaption className="d-flex justify-content-center">
+                                      {/* <h6>{p.photo_name}</h6> */}
+                                    </figcaption>
+                                    <p className="d-flex justify-content-end">
+                                      {/* <DateConvert jsonDate={p.c_date} /> */}
+                                    </p>
+                                  </div>
+                                )
+                              })}
                             </div>
                           </div>
                         </div>
@@ -146,4 +219,4 @@ function MemberMyPhoto2(props) {
   )
 }
 
-export default MemberMyPhoto2
+export default withRouter(MemberMyPhoto2)

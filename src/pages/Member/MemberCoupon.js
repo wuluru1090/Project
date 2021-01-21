@@ -40,23 +40,34 @@ function MemberCoupon(props) {
       })
   }, [])
 
-  const UpdateCoupon = (coupon_id) => {
+  const addCoupon = (coupon_id) => {
     console.log(coupon_id)
 
-    Axios.put('http://localhost:3001/member/update/coupon', {
+    Axios.post('http://localhost:3001/member/coupon', {
       coupon_id: coupon_id,
       member_id: `${props.match.params.id}`,
+      coupon_name: coupon.coupon_name,
+      coupon_content: coupon.coupon_content,
     }).then((res) => {
-      setCouponNew(
-        couponnew.map((get) => {
-          return get.coupon_id === coupon_id
-            ? {
-                coupon_id: get.coupon_id,
-                member_id: `${props.match.params.id}`,
-              }
-            : get
-        })
-      )
+      setCoupon([
+        ...coupon,
+        {
+          coupon_id: coupon_id,
+          member_id: `${props.match.params.id}`,
+          coupon_name: coupon.coupon_name,
+          coupon_content: coupon.coupon_content,
+        },
+      ])
+      // setCouponNew([
+      //   ...couponnew,
+      //   {
+      //     coupon_id: coupon_id,
+      //     member_id: `${props.match.params.id}`,
+      //     coupon_name: couponnew.coupon_name,
+      //     coupon_content: couponnew.coupon_content,
+      //     valid: 0,
+      //   },
+      // ])
     })
   }
 
@@ -132,7 +143,7 @@ function MemberCoupon(props) {
                                     <button
                                       className=" btn_sm join"
                                       onClick={() => {
-                                        UpdateCoupon(get.coupon_id)
+                                        addCoupon(get.coupon_id)
                                       }}
                                     >
                                       領取

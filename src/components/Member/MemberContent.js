@@ -8,13 +8,13 @@ import { withRouter, Link } from 'react-router-dom'
 import { devUrl } from '../../config'
 function MemberContent(props) {
   const [member, setMember] = useState([])
-  const [member_id, setMember_id] = useState('')
+  // const [member_id, setMember_id] = useState('')
   const [member_name, setMember_name] = useState('')
-  const [member_email, setMember_email] = useState('')
-  const [member_account, setMember_account] = useState('')
-  const [member_gender, setMember_gender] = useState('')
+  // const [member_email, setMember_email] = useState('')
+  // const [member_account, setMember_account] = useState('')
+  // const [member_gender, setMember_gender] = useState('')
   const [member_phone, setMember_phone] = useState('')
-  const [member_birthday, setMember_birthday] = useState('')
+  // const [member_birthday, setMember_birthday] = useState('')
   const [member_ex, setMember_ex] = useState('')
   const [member_about, setMember_about] = useState('')
 
@@ -217,7 +217,7 @@ function MemberContent(props) {
                       as="select"
                       className="  text_w"
                       name="member_ex"
-                      Value={m.member_ex}
+                      value={m.member_ex}
                       onChange={(e) => {
                         setMember_ex(e.target.value)
                       }}

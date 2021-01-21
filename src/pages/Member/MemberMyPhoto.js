@@ -52,7 +52,9 @@ function MemberMyPhoto(props) {
 
   const getPhoto = async () => {
     await Axios.get(
-      `http://localhost:3001/member/get/event/photo?id=${events.join(',')}`
+      `http://localhost:3001/member/get/event/photo?id=${events.join(
+        ','
+      )}&member=${props.match.params.id}`
     )
       .then((res) => {
         setPhoto(res.data)
@@ -112,7 +114,7 @@ function MemberMyPhoto(props) {
                                         <img
                                           src={
                                             devUrl +
-                                            `/pic/mem_img/${p.photo_name}`
+                                            `pic/event_photo/${p.photo_name}`
                                           }
                                           alt="photo1"
                                         ></img>

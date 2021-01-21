@@ -11,6 +11,7 @@ import { withRouter } from 'react-router-dom'
 
 function MemberMyCollectionC(props) {
   const [memlikeclass, setMemberlikeClass] = useState([])
+  const [classid, setClassid] = useState([])
 
   useEffect(() => {
     Axios.get(
@@ -18,11 +19,19 @@ function MemberMyCollectionC(props) {
     )
       .then((res) => {
         setMemberlikeClass(res.data)
+        // console.log(memlikeclass)
       })
       .catch((error) => {
         console.error(error)
       })
   }, [])
+
+  const deletelike = (classId) => {
+    console.log(classId)
+    Axios.delete(`http://localhost:3001/api/delete/class`)
+    alert('取消收藏')
+    console.log(classId)
+  }
 
   return (
     <>
@@ -134,7 +143,9 @@ function MemberMyCollectionC(props) {
                                       >
                                         <div className="d-flex justify-content-end">
                                           <Button
-                                            onClick=""
+                                            onClick={() => {
+                                              deletelike(val.class_id)
+                                            }}
                                             className="btn-style botton-font btn_icon mem_card_btn d-flex align-items-center "
                                             style={{
                                               backgroundColor: '#df3d00',

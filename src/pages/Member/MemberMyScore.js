@@ -42,7 +42,8 @@ function MemberMyScore(props) {
   const [hover, setHover] = React.useState(-1)
   const [attmem, setAttmem] = useState([])
   const [attendants, setAttendants] = useState([])
-  const [attendantsgo, setAttendantsgo] = useState([])
+  // const [event_limit, setEventlimit] = useState('')
+  // const [attendantsgo, setAttendantsgo] = useState('')
 
   const getEvent = async () => {
     await Axios.get(
@@ -68,11 +69,16 @@ function MemberMyScore(props) {
     )
       .then((res) => {
         setAtt(res.data)
+        console.log(res.data)
         if (res.data) {
           console.log(res.data)
           console.log(JSON.parse(res.data[0].event_attendents))
           setAttendants(JSON.parse(res.data[0].event_attendents))
-          // setAttendantsgo(res.data.slice(0, res.data[0].event_limit_number) - 1)
+          // console.log(res.data[0].event_limit_number)
+          // setEventlimit(res.data[0].event_limit_number)
+          // setAttendantsgo(res.data.slice(0, event_limit) - 1)
+          // console.log(res.data.slice(0, event_limit) - 1)
+          // console.log(attendantsgo)
         } else {
           return
         }
@@ -278,8 +284,6 @@ function MemberMyScore(props) {
                                                   `/pic/mem_img/${val.member_img}`
                                                 }
                                                 alt=""
-                                                // value={val.member_id}
-                                                // id="memberImg"
                                                 style={{
                                                   cursor: ' pointer ',
                                                 }}

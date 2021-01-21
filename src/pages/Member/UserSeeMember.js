@@ -74,7 +74,9 @@ function UserSeeMember(props) {
 
   const getPhoto = async () => {
     await Axios.get(
-      `http://localhost:3001/member/get/event/photo?id=${events.join(',')}`
+      `http://localhost:3001/member/get/event/photo?id=${events.join(
+        ','
+      )}&member=${props.match.params.id}`
     )
       .then((res) => {
         setPhoto(res.data)
