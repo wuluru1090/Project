@@ -181,7 +181,7 @@ function EventDetail(props) {
 
   function click2Album(id) {
     let stringId = JSON.stringify(id)
-    console.log(stringId)
+    // console.log(stringId)
     history.push('/event/' + id + '/album')
   }
 

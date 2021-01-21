@@ -44,7 +44,6 @@ function EventAlbum(props) {
       `http://localhost:3001/api/event/memberalbum?eventId=${eventId}&memberId=${loginId}`
     )
       .then((response) => {
-        // console.log(response.data)
         setMemberImg(response.data)
       })
       .catch(function (error) {
@@ -87,25 +86,28 @@ function EventAlbum(props) {
     return date
   }
 
-  const [updateList, setUpdateList] = useState([])
-  const [deleteList, setDeleteList] = useState([])
+  var updateList = []
+  var deleteList = []
+
+  const [status, setStatus] = useState('unupload')
   //上傳函式
   const add2Update = (photoId) => {
     alert(photoId)
-    // console.log(typeof photoId)
-    console.log(Array.isArray(updateList))
     if (!updateList.includes(photoId)) {
-      console.log('yes')
-      // setUpdateList([...updateList, photoId])
-      // console.log(updateList)
-      // console.log([...updateList, photoId])
+      updateList = [...updateList, photoId]
+    } else {
+      const newList = updateList.filter((v) => v !== photoId)
+      updateList = newList
     }
-    // else {
-    //   const newList = updateList.filter((v) => v !== photoId)
-    //   setUpdateList(newList)
-    //   console.log(updateList)
-    // }
   }
+
+  useEffect(() => {
+    if (memberImg.length > 0) {
+      memberImg.map((val) => {})
+    }
+  }, [memberImg])
+
+  const save = () => {}
 
   return (
     <>
@@ -194,9 +196,10 @@ function EventAlbum(props) {
                   className="image col-4"
                   onClick={() => {
                     // alert(val.photo_id)
+                    // add2Update(val.photo_id)
                   }}
                 >
-                  <figure>
+                  <figure id={val.photo_id}>
                     <img
                       src={`${devUrl}/pic/event_pic/${val.photo_name}`}
                       alt=""
@@ -206,12 +209,12 @@ function EventAlbum(props) {
                 </div>
               ) : (
                 <div
-                  className="image col-4"
+                  className="image col-4 {update?}"
                   onClick={() => {
                     add2Update(val.photo_id)
                   }}
                 >
-                  <figure>
+                  <figure id={val.photo_id}>
                     <img
                       src={`${devUrl}/pic/event_pic/${val.photo_name}`}
                       alt=""
@@ -239,6 +242,9 @@ function EventAlbum(props) {
             variant="primary"
             className="btn rounded-pill align-items-center d-flex"
             style={{ padding: '8px 16px' }}
+            onClick={() => {
+              save()
+            }}
           >
             <MdSave size={30} style={{ color: 'white', paddingRight: '6px' }} />
             儲存

@@ -49,6 +49,18 @@ function EventCardHor(props) {
     )
   }
 
+  //取得活動標籤
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/eventtags/${cardInfo.event_id}`)
+      .then((response) => {
+        // console.log(response.data)
+        setTags(response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [])
+
   return (
     <>
       <div className="event-card-horizon">

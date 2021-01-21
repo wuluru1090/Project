@@ -28,7 +28,7 @@ app.get("/api/event/memberalbum", (req, res) => {
   const eventId = req.query.eventId;
   const memberId = req.query.memberId;
   const sqlSelect = `SELECT photo.*, member.member_name AS member_name FROM photo JOIN member ON photo.member_id = member.member_id WHERE photo.event_id=${eventId} AND photo.member_id = ${memberId} AND photo.valid=1`;
-  console.log(sqlSelect);
+  // console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });

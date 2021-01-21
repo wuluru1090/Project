@@ -101,11 +101,9 @@
         }
       }
     }
-    .imagehover {
-      &:hover {
-        border: 3px solid $primary-100;
-        border-radius: 5px;
-      }
+    .image-selected {
+      border: 3px solid $primary-100;
+      border-radius: 5px;
     }
   }
 }

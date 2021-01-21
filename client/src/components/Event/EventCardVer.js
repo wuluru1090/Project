@@ -26,7 +26,7 @@ function EventCardVer(props) {
 
   function click2Detail(id) {
     let stringId = JSON.stringify(id)
-    console.log(stringId)
+    // console.log(stringId)
     history.push('/event/' + stringId)
   }
 
