@@ -42,16 +42,15 @@ function MyNavbar(props) {
             </Nav.Link>
           </Nav>
           <Nav className="nav2">
-            <Nav.Link className="icon" href="#">
-              <MdSearch />
-            </Nav.Link>
             <Nav.Link className="icon" href="cart">
               <MdShoppingCart />
             </Nav.Link>
           </Nav>
           <div className="memberPhoto">
             <figure>
-              <img src={devUrl + '/Pic/pic/member.jpg'} alt="" />
+              <a href="member">
+                <img src={devUrl + '/Pic/pic/member.jpg'} alt="" />
+              </a>
             </figure>
           </div>
           {/* </Navbar.Collapse> */}

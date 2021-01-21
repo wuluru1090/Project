@@ -9,8 +9,9 @@
   padding: 14px 14px 14px 0;
   position: relative;
   &:hover {
-    .img {
+    .card-img-top {
       transform: scale(1.2);
+      transition: 0.7s;
     }
   }
 
@@ -58,7 +59,11 @@
     object-fit: fill;
     border-radius: 10px;
     z-index: 1;
-    // border: 2px solid red;
+    overflow: hidden;
+    .card-img-top {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .tag {

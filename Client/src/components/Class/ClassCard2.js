@@ -54,11 +54,13 @@ function Card(props) {
           style={isActive ? { display: 'inline' } : { display: 'none' }}
           id="active"
         />
-        <img
-          src={devUrl + '/pic/class/' + cardInfo.class_main_pic}
-          className="card-img-top photo"
-          alt="..."
-        />
+        <figure className="photo">
+          <img
+            src={devUrl + '/pic/class/' + cardInfo.class_main_pic}
+            className="card-img-top"
+            alt="..."
+          />
+        </figure>
         {/* 輪播卡片 */}
         <div className="card-body">
           <h5 className="cardtitle">{cardInfo.class_name}</h5>

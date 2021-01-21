@@ -33,11 +33,13 @@ function ClassResultCard(props) {
   return (
     <>
       <div className="class_result_card d-flex">
-        <img
-          src={devUrl + '/pic/class/' + class_info.class_main_pic}
-          className="card-img-top photo"
-          alt="..."
-        />
+        <figure className="photo">
+          <img
+            src={devUrl + '/pic/class/' + class_info.class_main_pic}
+            className="card-img-top"
+            alt="..."
+          />
+        </figure>
         {/* 未收藏 */}
         <img
           src={devUrl + '/pic/SVG/bookmark-24px.svg'}
