@@ -3,17 +3,33 @@ $url: 'http://localhost:3000';
 
 //EventAttendant
 
+<<<<<<< HEAD
+=======
+.att-wave-height {
+  background: $primary-200;
+  height: 160px;
+}
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 .att-container {
   width: 740px;
   margin: 0px auto;
   // background: cadetblue;
 }
 .back {
+<<<<<<< HEAD
+=======
+  // position: relative;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   background-image: url($url + '/Pic/SVG/wave-blue-attbg-1440.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: top;
+<<<<<<< HEAD
   min-height: 100vh;
+=======
+
+  // height: 200vh;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   .content {
     // position: absolute;
     padding: 62px 0px 120px 0px;
@@ -40,14 +56,21 @@ $url: 'http://localhost:3000';
       padding: 0px;
       li {
         margin-top: 3px;
+<<<<<<< HEAD
         padding: 9px 24px;
+=======
+        padding: 9px 12px;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
         cursor: pointer;
       }
       .selected-status {
         border-bottom: $secondary 5px solid;
         color: $secondary;
         font-family: 'TaipeiSansTCBeta-Bold';
+<<<<<<< HEAD
         transform: translateY(-3px);
+=======
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
       }
     }
   }
@@ -61,7 +84,10 @@ $url: 'http://localhost:3000';
 .list {
   // background: sienna;
   margin-top: 20px;
+<<<<<<< HEAD
   // background: chartreuse;
+=======
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   .list-content {
     height: 112px;
     max-width: 740px;
@@ -77,6 +103,7 @@ $url: 'http://localhost:3000';
         border-radius: 50%;
         margin: 0px;
         border: rgba(0, 0, 0, 0.6) 1px solid;
+<<<<<<< HEAD
         overflow: hidden;
         background: $gray-default;
       }
@@ -87,6 +114,10 @@ $url: 'http://localhost:3000';
       object-fit: cover;
       cursor: pointer;
     }
+=======
+      }
+    }
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     .detail {
       margin: 0px;
       padding: 0px;

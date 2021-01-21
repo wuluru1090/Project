@@ -6,6 +6,7 @@
 [0103/101929.385:ERROR:directory_reader_win.cc(43)] FindFirstFile: 嚙緣嚙諄找不嚙踝蕭嚙踝蕭w嚙踝蕭嚙踝蕭嚙罵嚙瘠 (0x3)
 [0103/192507.921:ERROR:directory_reader_win.cc(43)] FindFirstFile: 嚙緣嚙諄找不嚙踝蕭嚙踝蕭w嚙踝蕭嚙踝蕭嚙罵嚙瘠 (0x3)
 [0104/090825.050:ERROR:directory_reader_win.cc(43)] FindFirstFile: 嚙緣嚙諄找不嚙踝蕭嚙踝蕭w嚙踝蕭嚙踝蕭嚙罵嚙瘠 (0x3)
+<<<<<<< HEAD
 s[0112/104316.907:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
 [0113/185441.584:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
 [0116/092554.721:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
@@ -13,3 +14,10 @@ s[0112/104316.907:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指
 [0119/095642.492:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
 [0120/211558.408:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
 [0121/175651.655:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
+=======
+s[0108/115938.686:ERROR:directory_reader_win.cc(43)] FindFirstFile: 嚙緣嚙諄找不嚙踝蕭嚙踝蕭w嚙踝蕭嚙踝蕭嚙罵嚙瘠 (0x3)
+[0114/104731.514:ERROR:directory_reader_win.cc(43)] FindFirstFile: 嚙緣嚙諄找不嚙踝蕭嚙踝蕭w嚙踝蕭嚙踝蕭嚙罵嚙瘠 (0x3)
+[0119/103243.828:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
+[0120/204227.951:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
+[0121/103032.485:ERROR:directory_reader_win.cc(43)] FindFirstFile: 系統找不到指定的路徑。 (0x3)
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4

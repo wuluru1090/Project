@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config/'
+<<<<<<< HEAD
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
 import '../../style/event/event_card_hor.scss'
@@ -61,6 +62,12 @@ function EventCardHor(props) {
       })
   }, [])
 
+=======
+import '../../style/event/event_card_hor.scss'
+
+function EventCardHor() {
+  const [isActive, setIsActive] = useState(false)
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   return (
     <>
       <div className="event-card-horizon">
@@ -70,16 +77,21 @@ function EventCardHor(props) {
               src={devUrl + '/Pic/SVG/bookmark.svg'}
               className="bookmark"
               alt="..."
+<<<<<<< HEAD
               onClick={() => {
                 setIsActive(true)
                 writeLike()
               }}
+=======
+              onClick={() => setIsActive(true)}
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
               style={isActive ? { display: 'none' } : { display: 'inline' }}
             />
             <img
               src={devUrl + '/Pic/SVG/bookmark-pushed.svg'}
               className="bookmark"
               alt="..."
+<<<<<<< HEAD
               onClick={() => {
                 setIsActive(false)
                 deleteLike()
@@ -96,6 +108,16 @@ function EventCardHor(props) {
                 alt={cardInfo.event_name}
               />
             </figure>
+=======
+              onClick={() => setIsActive(false)}
+              style={isActive ? { display: 'inline' } : { display: 'none' }}
+            />
+            <img
+              src={devUrl + '/pic/pic/event-slider1.jpg'}
+              className="card-img-top photo"
+              alt="..."
+            />
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
             <a href="#">
               <div className="more-att">+3</div>
             </a>
@@ -113,6 +135,7 @@ function EventCardHor(props) {
             </a>
           </div>
 
+<<<<<<< HEAD
           <div
             className="card-body"
             onClick={() => click2Detail(cardInfo.event_id)}
@@ -128,6 +151,16 @@ function EventCardHor(props) {
             <div className="d-flex bbb">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
               <p className="subtitle1 card-text ">{cardInfo.event_location}</p>
+=======
+          <div className="card-body">
+            <h5 className="card-title">四草綠意盎然 台南七股一日遊</h5>
+            <p className="t2">
+              位於台南安南區有個熱門景點「四草綠色隧道」，這條台版亞馬遜河有著大自然的奧妙，可以看到鳥類植物等生態形成的樹林景觀。
+            </p>
+            <div className="d-flex bbb">
+              <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
+              <p className="card-text">四草綠色隧道 </p>
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
             </div>
             <div className="d-flex bbb">
               <img
@@ -135,6 +168,7 @@ function EventCardHor(props) {
                 src="/pic/svg/date_range-24px.svg"
                 alt=""
               />
+<<<<<<< HEAD
               <p className="card-text d-flex">
                 {isOneDay(
                   cardInfo.event_start_time,
@@ -149,6 +183,9 @@ function EventCardHor(props) {
                   </>
                 )}
               </p>
+=======
+              <p className="card-text d-flex">2021-01-28 </p>
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
             </div>
             <div className="d-flex bbb">
               <img
@@ -156,6 +193,7 @@ function EventCardHor(props) {
                 src="/pic/svg/location_on-24px.svg"
                 alt=""
               />
+<<<<<<< HEAD
               <p className="card-text">{cardInfo.event_address}</p>
             </div>
             <div className="d-flex justify-content-between buttons">
@@ -184,6 +222,20 @@ function EventCardHor(props) {
                 onClick={() => click2Detail(cardInfo.event_id)}
                 className="btn d-flex join"
               >
+=======
+              <p className="card-text">台南市歸仁區歸仁大道100號 </p>
+            </div>
+            <div className="d-flex justify-content-between buttons">
+              <div className="tag-box">
+                <button className="btn rounded-pill btn-md  tag" type="button">
+                  自然
+                </button>
+                <button className="btn rounded-pill btn-md  tag" type="button">
+                  自然
+                </button>
+              </div>
+              <a href={devUrl + '/event/1'} className="btn d-flex join">
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                 參加活動
               </a>
             </div>

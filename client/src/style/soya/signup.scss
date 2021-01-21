@@ -9,12 +9,20 @@ $url: "http://localhost:3000";
     max-width: 1440px;
     margin: 0 auto;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   
   
 
 
 .signup{
+<<<<<<< HEAD
     // height: 100vh;
+=======
+    // height: 150vh;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     
     background:url($url + "/pic/soya/flipdark.png") no-repeat;
     
@@ -54,9 +62,16 @@ $url: "http://localhost:3000";
         .contentboxinput{
             // border: 1px solid;
             justify-content: center;
+<<<<<<< HEAD
 
             input{
                 margin: 0 auto 37px auto;
+=======
+            margin-bottom: 37px;
+
+            input{
+                margin: 0 auto 0px auto;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                 width: 240px;
             }
             select{

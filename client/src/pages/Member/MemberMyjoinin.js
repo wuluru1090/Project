@@ -3,8 +3,11 @@ import React from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
 import MemberPdCard from '../../components/Member/MemberPdCard'
+<<<<<<< HEAD
 import MyNavbar from '../../components/Main/MyNavbar'
 import Footer from '../../components/Main/Footer'
+=======
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 import '../../style/member_navbar.scss'
 import { Card, Button } from 'react-bootstrap'
 import { MdVisibility } from 'react-icons/md'
