@@ -1,0 +1,45 @@
+// 導入bootstrap所有的樣式與預設變數
+@import '~bootstrap/scss/bootstrap.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+.querenbutton {
+  margin-top: 48px;
+  .b1 {
+    width: 1160px;
+    height: 50px;
+    margin: auto;
+    justify-content: flex-end;
+
+    .confirmbutton1 {
+      width: 90px;
+      height: 24px;
+      border-radius: 50px;
+      font-size: 12px;
+      background: #104b6d;
+      color: white;
+      box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        color: white;
+      }
+    }
+    .confirmbutton2 {
+      width: 90px;
+      height: 24px;
+      border-radius: 50px;
+      font-size: 12px;
+      background: #12d0c9;
+      color: white;
+      box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+      justify-content: center;
+      align-items: center;
+      margin-left: 28px;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
