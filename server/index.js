@@ -23,6 +23,17 @@ app.get("/api/event/album/:id?", (req, res) => {
   });
 });
 
+//會員相簿照片
+app.get("/api/event/memberalbum", (req, res) => {
+  const eventId = req.query.eventId;
+  const memberId = req.query.memberId;
+  const sqlSelect = `SELECT photo.*, member.member_name AS member_name FROM photo JOIN member ON photo.member_id = member.member_id WHERE photo.event_id=${eventId} AND photo.member_id = ${memberId} AND photo.valid=1`;
+  console.log(sqlSelect);
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
 //活動詳細頁資訊(單筆資料)
 app.get("/api/event/:id?", (req, res) => {
   const sqlSelect = `SELECT event.*, event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name, member.member_name AS event_host_name, member.member_img AS event_host_img FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id JOIN member ON event.event_host_id = member.member_id WHERE event_id = ${req.params.id}`;
