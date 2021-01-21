@@ -1,0 +1,109 @@
+@import '../default.scss';
+
+//EventAlbum
+.album-page {
+  max-width: calc(100% - 240px);
+  margin: 0px auto;
+  min-height: 100vh;
+  .go-back {
+    margin: 28px 0px 42px 0px;
+    font-size: 16px;
+  }
+  .title {
+    h6 {
+      margin-bottom: 8px;
+    }
+    .upload-button {
+      background: $primary;
+      padding: 8px 16px;
+      border: 1px transparent;
+      color: white;
+      font-size: 14px;
+      letter-spacing: 1.92px;
+      margin: 18px 8px;
+
+      &:hover {
+        color: white;
+        background: #4f7f9a;
+      }
+    }
+  }
+  .album-slider {
+    margin: 50px auto;
+    // background: slategray;
+    .arrow {
+      transition: 0.5s;
+      padding: 0px;
+      cursor: pointer;
+      &:hover {
+        background: rgba(112, 112, 112, 0.1);
+      }
+    }
+    .album-content {
+      width: 100%;
+      flex-wrap: wrap;
+      .photo-card {
+        cursor: pointer;
+        margin-bottom: 20px;
+        figure {
+          height: 28vh;
+          background: gray;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-body {
+  // margin: 12px 9px 12px 9px;
+
+  .photo-content {
+    flex-wrap: wrap;
+    // border: 2px solid red;
+    margin-top: 24px;
+
+    .image {
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      figure {
+        height: 172px;
+        background: gray;
+        position: relative;
+        transition: 0.4s;
+        overflow: hidden;
+
+        &:hover {
+          border: 3px solid $primary-100;
+          border-radius: 5px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .gray {
+          position: absolute;
+          height: 172px;
+          width: 100%;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+    .image-selected {
+      border: 3px solid $primary-100;
+      border-radius: 5px;
+    }
+  }
+}

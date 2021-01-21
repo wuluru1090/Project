@@ -1,0 +1,12 @@
+@import '../default.scss';
+.event-link {
+  color: $primary;
+  font-size: 16px;
+  &:active,
+  &:visited {
+    color: $primary-400;
+  }
+  &:link {
+    text-decoration: none;
+  }
+}
