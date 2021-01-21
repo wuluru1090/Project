@@ -21,6 +21,7 @@
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+<<<<<<< HEAD
     "google-map-react": "^2.1.9",
     "jquery": "^3.5.1",
     "lab": "^18.0.2",
@@ -32,6 +33,17 @@
     "react-accessible-accordion": "^3.3.3",
     "react-bootstrap": "^1.4.0",
     "react-calendar": "^3.3.0",
+=======
+    "formik": "2.1.5",
+    "google-map-react": "^2.1.9",
+    "jquery": "^3.5.1",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.2.1",
+    "react": "^17.0.1",
+    "react-accessible-accordion": "^3.3.3",
+    "react-bootstrap": "^1.4.0",
+    "react-client-session": "0.0.7",
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.1",
     "react-elastic-carousel": "^0.10.0",
@@ -40,12 +52,22 @@
     "react-responsive-carousel": "^3.2.11",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+<<<<<<< HEAD
+=======
+    "react-skrollr": "^1.0.4",
+    "react-slick": "^0.27.14",
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     "react-spinners": "^0.9.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.1",
     "styled-components": "^5.2.1",
+<<<<<<< HEAD
     "ui": "^0.2.4",
     "web-vitals": "^0.2.4"
+=======
+    "web-vitals": "^0.2.4",
+    "yup": "0.29.3"
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   },
   "scripts": {
     "start": "react-scripts start",

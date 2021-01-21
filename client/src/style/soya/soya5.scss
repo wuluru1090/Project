@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
@@ -160,3 +161,243 @@ $url: 'http://localhost:3000';
     }
   }
 }
+=======
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+@import '../default.scss';
+
+$url: "http://localhost:3000";
+
+
+
+
+  .wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+
+
+  .soya5{
+    box-sizing: border-box;
+    //   border: 1px solid;
+    margin-top: -5px;
+
+      .container-fluid{
+            padding-left: 0;
+            padding-right: 0;
+      }
+      
+      .cover-fit {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .classbox{
+        margin: 0 140px 40px 140px;
+        // border: 1px solid;
+
+
+        .classtitle{
+            font-size: $h4-font-size;
+            font-family: 'TaipeiSansTCBeta-Bold';
+            color:$primary-300;
+        }
+        .classtitleline{
+            width: 150px;
+            border-top: 5px solid $primary-300;
+            margin-left: 1px;
+            margin-bottom: 30px;
+        }
+
+        .classcontentbox{
+            justify-content: space-between;
+
+
+            .classcontent_left{
+
+
+                .classcontentimg{
+                    width: 765px;
+                    height: 535px;
+                    margin-bottom: 25px;
+
+                    img{
+                        border-radius: 10px;
+                    }
+                    
+                }
+
+                .classcontenttitle{
+                    font-size: $h6-font-size;
+                    font-family: 'TaipeiSansTCBeta-Bold';
+                    margin-bottom: 10px;
+                    width: 70%;
+                    color:$gray-darkest;
+                }
+
+                .classcontenttext{
+                    font-size: $font-size-base;
+                    width: 70%;
+                    margin-bottom: 10px;
+                    font-family: 'TaipeiSansTCBeta-Regular';
+                    color:$gray-default;
+                    
+                }
+
+                .classcontentinfobox{
+                    // border: 1px solid;
+                    width: 765px;
+                    justify-content: space-between;
+
+
+                    .classcontentinfoicon{
+                        align-items: center;
+                        font-size: 12px;
+                        color:$gray-default;
+
+
+                        .MdDateRangeicon{
+                            margin-right: 5px;
+                            color:$gray-default;
+                        }
+
+                      
+                    }
+
+                    .classcontentinfobutton{
+                        margin-top: 6px;
+                        height: 30px;
+                        padding: 9px 34px;
+                        background:$primary-300;
+                        border: none;
+                        color: white;
+                        align-items: center;
+                    }
+                }
+            }
+
+
+            .classcontent_right{
+                // border: 1px solid;
+                position: relative;
+                margin-right: -5px;
+
+                .rec-carousel{
+                    // position: relative;
+                    .rec-slider-container{
+                        width: 350px;
+                        margin:0;
+                    }
+                    
+
+
+                    .rec.rec-arrow {
+                        box-shadow: 0 0 0 white;
+                        outline: none;
+                        background: transparent;
+
+                        &:hover{
+                            background: transparent;
+                        }
+                    }
+
+                    .rec-arrow-up{
+                        position: absolute;
+                        left:calc(50% - 25px);
+                        top: -54px;
+                    }
+                    .rec-arrow-down{
+                        position: absolute;
+                        left:calc(50% - 25px);
+                        bottom: -20px;
+                    }
+
+                   
+                    .lgksPe, .iLquPE{
+                        color: $primary-100;
+                        background: transparent;
+                        position: absolute;
+                        
+                    }
+                  
+
+                }
+                .rec-pagination{
+                    display: none;
+                }
+
+           
+             
+              
+
+                .caroarrowup{
+                    font-size: 46px;
+                    color:$primary-100;
+                    position: absolute;
+                    top: -40px;
+                    left: calc(50% - 23px);
+                }
+                .caroarrowdown{
+                    font-size: 46px;
+                    color:$primary-100;
+                    position: absolute;
+                    bottom: -10px;
+                    left: calc(50% - 23px);
+                }
+
+
+                .classcontentcaro{
+                    width: 340px;
+                    height: 146px;
+                    border-radius: 10px;
+                    margin-bottom: 25px;
+                    position: relative;
+                    background:black;
+                }
+                .classcontentcaroimg{
+                    border-radius: 10px;
+
+                    &:hover{
+                        opacity: 0.7;
+                        transition: 0.4s;
+                    }
+                }
+
+                .classcontentcarotheme{
+                    color: white;
+                    font-size: 12px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    font-family: 'TaipeiSansTCBeta-Regular';
+                    
+    
+                }
+            }
+        }
+          
+
+
+        .classmoreclassbox{
+            align-items: flex-end;
+
+
+            .classmoreclass{
+                font-size: $h6-font-size;
+                color: rgba($color: #000000, $alpha: 0.7);
+            }
+
+            .classmoreclassline{
+                width: 80px;
+                border-top: 3px solid rgba($color: #000000, $alpha: 0.7);
+            }
+        }
+      }
+     
+     
+  }
+
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4

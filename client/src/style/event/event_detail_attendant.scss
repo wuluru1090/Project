@@ -4,9 +4,13 @@ $url: 'http://localhost:3000';
 .detail-attendant-wrapper {
   // background: chocolate;
   width: 730px;
+<<<<<<< HEAD
   height: 480px;
   margin: 36px 0px 0px 0px;
   overflow: hidden;
+=======
+  margin: 36px 0px 0px 0px;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   .attendant-card {
     position: relative;
     width: 153px;
@@ -21,15 +25,23 @@ $url: 'http://localhost:3000';
       width: 95px;
       height: 95px;
       border-radius: 50%;
+<<<<<<< HEAD
       background: url($url + '/pic/mem_img/null.png');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
+=======
+      background: yellowgreen;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
       top: 18px;
       left: calc(50% - 47.5px);
       overflow: hidden;
       img {
+<<<<<<< HEAD
         width: 100%;
+=======
+        widows: 100%;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
         height: 100%;
         object-fit: cover;
         object-position: center center;
@@ -45,6 +57,7 @@ $url: 'http://localhost:3000';
         color: $gray-default;
       }
     }
+<<<<<<< HEAD
     .underline-title {
       // background: #12d0c9;
       margin: 50px 0px;
@@ -61,5 +74,7 @@ $url: 'http://localhost:3000';
         cursor: pointer;
       }
     }
+=======
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   }
 }

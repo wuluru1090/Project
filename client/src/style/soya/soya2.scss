@@ -40,6 +40,10 @@ $url: "http://localhost:3000";
         color: $primary-050;
         margin-bottom: 8px;
         font-family: 'TaipeiSansTCBeta-Bold';
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
         
       }
 
@@ -86,7 +90,11 @@ $url: "http://localhost:3000";
         }
 
         &:hover .themepicturetitle{
+<<<<<<< HEAD
           display:block;
+=======
+          opacity: 1;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
           transition:  0.5s;
           z-index: 1;
         }
@@ -95,9 +103,16 @@ $url: "http://localhost:3000";
       }
       .themepicturetitle{
         position: absolute;
+<<<<<<< HEAD
         left: 31%;
         top: 45%;
         display: none;
+=======
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
         color: white;
         font-family: 'TaipeiSansTCBeta-Bold';
         

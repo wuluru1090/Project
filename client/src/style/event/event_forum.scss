@@ -18,7 +18,10 @@ $url: 'http://localhost:3000';
       // box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
       .host {
         color: $secondary;
+<<<<<<< HEAD
         margin: 0px;
+=======
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
       }
       .attendants {
         color: $gray-default;
@@ -27,10 +30,13 @@ $url: 'http://localhost:3000';
         font-family: 'TaipeiSansTCBeta-Bold';
         margin-right: 8px;
       }
+<<<<<<< HEAD
       .timestamp {
         font-size: 12px;
         color: $gray-default;
       }
+=======
+>>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     }
     .talk-attendant-avatar {
       width: 68px;
