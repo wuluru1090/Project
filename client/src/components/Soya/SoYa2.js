@@ -7,7 +7,7 @@ function SoYa2(props) {
   return (
     <>
       <main className="d-flex soya2 wrapper">
-        <div className="lovebox">
+        <div className="lovebox" style={{ color: '#ffffff' }}>
           <p className="lovetitle font-bold">任選您喜愛的攝影主題</p>
           <div className="topline"></div>
           <p className="lovepara">

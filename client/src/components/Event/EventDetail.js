@@ -12,9 +12,7 @@ import Calendar from 'react-calendar'
 
 // 元素
 import EventDetailInfo from './EventDetailInfo'
-import Card from './ClassCard2'
 import GMap from './GMap'
-import Carousel1 from './Carousel1'
 import EventDetailAttendant from './EventDetailAttendant'
 import EventForum from './EventForum'
 import EventRelativeCarousel from './EventRelativeCarousel'

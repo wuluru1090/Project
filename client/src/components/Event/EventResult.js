@@ -11,6 +11,7 @@ import Axios from 'axios'
 
 function EventResult(props) {
   // console.log(props)
+  Axios.defaults.withCredentials = true
 
   const {
     locate = '',
@@ -29,7 +30,7 @@ function EventResult(props) {
       `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}`
     )
       .then((response) => {
-        // console.log(response)
+        console.log(response)
         setEventResult(response.data)
       })
       .catch(function (error) {

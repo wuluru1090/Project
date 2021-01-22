@@ -96,21 +96,6 @@ function EventCardHor(props) {
                 alt={cardInfo.event_name}
               />
             </figure>
-            <a href="#">
-              <div className="more-att">+3</div>
-            </a>
-            <a href="#">
-              <img
-                className="second-att"
-                src={devUrl + '/pic/pic/member2.jpg'}
-              ></img>
-            </a>
-            <a href="#">
-              <img
-                className="first-att"
-                src={devUrl + '/pic/pic/member3.jpg'}
-              ></img>
-            </a>
           </div>
 
           <div

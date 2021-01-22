@@ -17,9 +17,6 @@ import Event from './pages/Event/'
 import Album from './pages/Event/EventAlbum'
 import EventAlbumPhoto from './pages/Event/EventAlbumPhoto'
 import EventDetails from './pages/Event/EventDetail'
-// import SearchTop from './components/Class/SearchTop'
-// import SearchMain from './components/Class/SearchMain'
-import MainClass from './components/Class/MainClass'
 import SoYa from './pages/SoYa/SoYa'
 
 import Login from './pages/SoYa/Login'
@@ -30,7 +27,6 @@ import Logout from './components/Soya/Logout'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Formika from './pages/SoYa/Formika'
 import AutoTop from './components/Soya/AutoTop'
-import MemberEventManage from './pages/Member/MemberEventManage'
 
 function App() {
   // 會員認証範例
@@ -70,9 +66,6 @@ function App() {
                 <Route path="/eventstart">
                   <EventStart isAuth={isAuth} setIsAuth={setIsAuth} />
                 </Route>
-                <Route path="/eventstartdata/get/:id">
-                  <MemberEventManage />
-                </Route>
 
                 {/* 活動頁面開始 */}
                 <Route path="/event/:id/attendants">
@@ -91,11 +84,6 @@ function App() {
                   <EventAlbumPhoto />
                 </Route>
                 {/* 活動頁面結束 */}
-
-                {/* 課程頁面開始 */}
-                <Route path="/class">
-                  <MainClass isAuth={isAuth} />
-                </Route>
               </Switch>
             </AutoTop>
           </MainContent>

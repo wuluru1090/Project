@@ -11,7 +11,14 @@ const db = mysql.createPool({
   database: "final_project",
 });
 
-app.use(cors()); //跨來源資料共用
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    withCredentials: false,
+    credentials: true,
+  })
+); //跨來源資料共用
 app.use(express.json()); //用來解析json檔，因為前端回傳的是json object = app.use(bodyParser.son())
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -223,7 +230,7 @@ app.use(
 
 // 註冊資料進資料庫
 app.post("/register", (req, res) => {
-  console.log(req.body.username);
+  // console.log(req.body.username);
 
   const name = req.body.name;
   const username = req.body.username;
@@ -272,7 +279,7 @@ app.post("/login", (req, res) => {
 
       if (result.length > 0) {
         req.session.user = result;
-        console.log(req.session.user);
+        // console.log(req.session.user);
         res.send(result);
       } else {
         res.send({ message: "錯誤的帳號或密碼" });
@@ -283,7 +290,7 @@ app.post("/login", (req, res) => {
 
 // 發起活動頁進資料庫
 app.post("/eventform", (req, res) => {
-  console.log(JSON.stringify(req.body.event_host_contact));
+  // console.log(JSON.stringify(req.body.event_host_contact));
 
   const event_host_contact = JSON.stringify(req.body.event_host_contact);
   const startDate = req.body.startDate;
@@ -307,7 +314,7 @@ app.post("/eventform", (req, res) => {
 
   const memberid = req.body.memberid;
 
-  console.log(memberid);
+  // console.log(memberid);
 
   db.query(
     "INSERT INTO event_tags (tags_name) VALUES (?)",
@@ -354,7 +361,7 @@ app.get("/cityya", (req, res) => {
 // 標籤map
 app.get("/tagss", (req, res) => {
   db.query("SELECT * FROM event_tags WHERE 1", (err, result) => {
-    console.log(result);
+    // console.log(result);
     res.send(result);
   });
 });
@@ -364,7 +371,7 @@ app.get("/eventstartdata/get/:id", (req, res) => {
   const sqlselect = `SELECT * FROM event WHERE event_id = ${req.params.id}`;
   db.query(sqlselect, (err, result) => {
     res.send(result);
-    console.log(result);
+    // console.log(result);
   });
 });
 
