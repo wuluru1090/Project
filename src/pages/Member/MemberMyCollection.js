@@ -24,6 +24,14 @@ function MemberMyCollection(props) {
       })
   }, [])
 
+  const deletelike = (eventId) => {
+    Axios.delete(
+      `http://localhost:3001/api/delete/eventlike?eventId=${eventId}&member=${props.match.params.id}`
+    )
+    alert('取消收藏')
+    console.log(eventId)
+  }
+
   return (
     <>
       <body>
@@ -134,7 +142,9 @@ function MemberMyCollection(props) {
                                       >
                                         <div className="d-flex justify-content-end">
                                           <Button
-                                            onClick=""
+                                            onClick={() => {
+                                              deletelike(val.event_id)
+                                            }}
                                             className="btn-style botton-font btn_icon mem_card_btn d-flex align-items-center "
                                             style={{
                                               backgroundColor: '#df3d00',
