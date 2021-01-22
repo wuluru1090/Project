@@ -1,139 +1,97 @@
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
-$url: "http://localhost:3000";
+$url: 'http://localhost:3000';
 
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 
-  
-  .wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
+.signup {
+  // height: 150vh;
+
+  background: url($url + '/pic/soya/flipdark.png') no-repeat;
+
+  background-size: cover;
+
+  .cover-fit {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
-<<<<<<< HEAD
-=======
 
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-  
-  
+  .cardboxmargin {
+    margin-top: 160px;
+    // width: 500px;
+    margin-bottom: 90px;
 
-
-.signup{
-<<<<<<< HEAD
-    // height: 100vh;
-=======
-    // height: 150vh;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-    
-    background:url($url + "/pic/soya/flipdark.png") no-repeat;
-    
-    background-size: cover;
-
-
-        .cover-fit {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-
-
-        .cardboxmargin{
-            margin-top: 160px;
-            // width: 500px;
-            margin-bottom: 90px;
-        
-        .card{
-            background: rgba(white,0.8);
-            box-shadow: 0 3px 6px rgba(#000,0.2);
-        }
-
-
-        .signuptitle{
-            margin: 0 auto;
-            font-family: "Roboto";
-            font-size: $h4-font-size;
-            font-weight: bold;
-            color: #707070;
-            // border: 1px solid
-            padding-bottom: 30px;
-        }
-
-        
-
-        .contentboxinput{
-            // border: 1px solid;
-            justify-content: center;
-<<<<<<< HEAD
-
-            input{
-                margin: 0 auto 37px auto;
-=======
-            margin-bottom: 37px;
-
-            input{
-                margin: 0 auto 0px auto;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-                width: 240px;
-            }
-            select{
-                width: 240px;
-            }
-
-            .custom-radio{
-                height: 48px;
-                align-items: center;
-                margin-right: 80px;
-               
-            }
-
-            .starbox{
-                margin-right: 28px;
-                justify-content: flex-end;
-                // border: 1px solid;
-                width: 100px;
-
-
-                .starafter{
-                    // border: 1px solid;
-                    line-height: 48px;
-                    
-                    font-size: $h6-font-size;
-                    font-family: 'TaipeiSansTCBeta-Regular';
-                    color: #707070;
-                   
-                }
-                .startitle{
-                    line-height: 48px;
-                    color: red;
-                
-                }
-            }
-            
-
-        }
-
-        
-       
-        
-
-      
-
-    
-
-
-        .signupbtnsignup{
-            
-            margin: 0 15px;
-            background:$primary-400;
-            border-radius: 5px;
-            color: white;
-            font-size: $h6-font-size;
-            font-family: 'TaipeiSansTCBeta-Regular';
-            box-shadow: 0 3px 6px rgba(#000,0.2);
-            margin: 0 auto 10px auto;
-
-            width: 51%;
-           
-        }
-
+    .card {
+      background: rgba(white, 0.8);
+      box-shadow: 0 3px 6px rgba(#000, 0.2);
     }
+
+    .signuptitle {
+      margin: 0 auto;
+      font-family: 'Roboto';
+      font-size: $h4-font-size;
+      font-weight: bold;
+      color: #707070;
+      // border: 1px solid
+      padding-bottom: 30px;
+    }
+
+    .contentboxinput {
+      // border: 1px solid;
+      justify-content: center;
+      margin-bottom: 37px;
+
+      input {
+        margin: 0 auto 0px auto;
+        width: 240px;
+      }
+      select {
+        width: 240px;
+      }
+
+      .custom-radio {
+        height: 48px;
+        align-items: center;
+        margin-right: 80px;
+      }
+
+      .starbox {
+        margin-right: 28px;
+        justify-content: flex-end;
+        // border: 1px solid;
+        width: 100px;
+
+        .starafter {
+          // border: 1px solid;
+          line-height: 48px;
+
+          font-size: $h6-font-size;
+          font-family: 'TaipeiSansTCBeta-Regular';
+          color: #707070;
+        }
+        .startitle {
+          line-height: 48px;
+          color: red;
+        }
+      }
+    }
+
+    .signupbtnsignup {
+      margin: 0 15px;
+      background: $primary-400;
+      border-radius: 5px;
+      color: white;
+      font-size: $h6-font-size;
+      font-family: 'TaipeiSansTCBeta-Regular';
+      box-shadow: 0 3px 6px rgba(#000, 0.2);
+      margin: 0 auto 10px auto;
+
+      width: 51%;
+    }
+  }
 }

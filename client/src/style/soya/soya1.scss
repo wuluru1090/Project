@@ -1,150 +1,107 @@
-
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
-$url: "http://localhost:3000";
+$url: 'http://localhost:3000';
 
-
-
-<<<<<<< HEAD
-  
-  .soya1 {
-    height: 920px;
-    padding-top: 275px;
-    background: url($url + "/pic/soya/Group778.png");
-    background-size: cover;
-    box-sizing: border-box;
-=======
 #skrollrbg1,
 #skrollrbg2,
 #skrollrbg3,
-#skrollrbg4
- {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 910px;
-    background: url($url + '/pic/soya/skrollrpage1bg4.png') repeat 0 0;
-    // background-position: 0px 0px;
+#skrollrbg4 {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 910px;
+  background: url($url + '/pic/soya/skrollrpage1bg4.png') repeat 0 0;
+  // background-position: 0px 0px;
 }
 
 #skrollrbg2 {
-    z-index: -2;
+  z-index: -2;
 
-    background: url($url + '/pic/soya/skrollrpage1bg3.png') repeat 0 0;
+  background: url($url + '/pic/soya/skrollrpage1bg3.png') repeat 0 0;
 }
 
 #skrollrbg3 {
-    z-index: -3;
+  z-index: -3;
 
-    background: url($url + '/pic/soya/skrollrpage1bg2.png') repeat 0 0;
+  background: url($url + '/pic/soya/skrollrpage1bg2.png') repeat 0 0;
 }
 #skrollrbg4 {
-    z-index: -4;
+  z-index: -4;
 
-    background: url($url + '/pic/soya/skrollrpage1bg1.png') repeat 0 0;
+  background: url($url + '/pic/soya/skrollrpage1bg1.png') repeat 0 0;
 }
-  
-  .soya1 {
-    position: relative;
-    height: 920px;
-    padding-top: 275px;
-    // background: url($url + "/pic/soya/Group778.png");
-    // background-size: cover;
-    // box-sizing: border-box;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 
+.soya1 {
+  position: relative;
+  height: 920px;
+  padding-top: 275px;
+  // background: url($url + "/pic/soya/Group778.png");
+  // background-size: cover;
+  // box-sizing: border-box;
 
-      
-    .wrapper {
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-    
-    .cover-fit {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-
-
-
-   
-    .marginbox{
-        margin-left: 32px; 
-    }
-    .page1titlebox {
-      background: rgba(255, 255, 255, 0.77);
-      width: 54%;
-      height: 337px;
-      margin-left: 76px;
-    }
-  
-    .page1title {
-      font-size: 60px;
-      padding: 58px 0 0 0px;
-      color: #707070;
-      font-family: 'TaipeiSansTCBeta-Bold';
-<<<<<<< HEAD
-    }
-    .fixbutton {
-      width: 80px;
-      height: 80px;
-      font-size: 20px;
-      background: #175FAB;
-      color: white;
-      cursor: pointer;
-      border-radius: 40px;
-      text-decoration: none;
-      line-height: 80px;
-      justify-content: center;
-      right: 100px;
-      bottom: 50px;
-      z-index: 99;
-=======
-      // font-family: 'roboto';
-      
-
-    }
-    .fixbutton {
-      width: 70px;
-      height: 70px;
-      font-size: 20px;
-      background: #175FAB;
-      color: white;
-      justify-content: center;
-      align-items: center;
-      right: 100px;
-      bottom: 50px;
-      z-index: 99;
-      opacity: 0.5;
-      transition: opacity 0.4s;
-      animation: fadeIn 1s;
-
-      &:hover{
-        color: white;
-        opacity: 1
-        ;
-      }
-
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 0.5;
-        }
-      }
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-      
-    }
-    .wave{
-      margin-top: 25px;
-      padding-left: 0;
-      padding-right: 0;
-    }
- 
-
+  .wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
   }
+
+  .cover-fit {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .marginbox {
+    margin-left: 32px;
+  }
+  .page1titlebox {
+    background: rgba(255, 255, 255, 0.77);
+    width: 54%;
+    height: 337px;
+    margin-left: 76px;
+  }
+
+  .page1title {
+    font-size: 60px;
+    padding: 58px 0 0 0px;
+    color: #707070;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    // font-family: 'roboto';
+  }
+  .fixbutton {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    background: #175fab;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    right: 100px;
+    bottom: 50px;
+    z-index: 99;
+    opacity: 0.5;
+    transition: opacity 0.4s;
+    animation: fadeIn 1s;
+
+    &:hover {
+      color: white;
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+  }
+  .wave {
+    margin-top: 25px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -1,65 +1,51 @@
-
-
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
-<<<<<<< HEAD
-* {
-    font-size: 16px;
+.searchbar {
+  .searchbar2 {
+    box-shadow: 0 3px 6px rgba(25, 25, 25, 0.2);
+    text-indent: 42px;
   }
-=======
 
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-  
-  .searchbar {
-    .searchbar2 {
-      box-shadow: 0 3px 6px rgba(25, 25, 25, 0.2);
-      text-indent: 42px;
-    }
-  
-    .searchicon {
-      z-index: 5;
-      left: 20px;
-      color:red;
-    }
-  
-    .sub {
-      margin-left: 15px;
-      padding: 5px 40px;
-      background: #12D0C9;
+  .searchicon {
+    z-index: 5;
+    left: 20px;
+    color: red;
+  }
+
+  .sub {
+    margin-left: 15px;
+    padding: 5px 40px;
+    background: #12d0c9;
+    color: white;
+    box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+
+    &:hover {
       color: white;
-      box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
-    
-  
-      &:hover {
-        color: white;
-        background: #4F7F9A;
-      }
-    }
-  
-    .ta {
-      margin-right: 15px;
-      margin-top: 18px;
-      padding: 4px 20px;
-      color: #104B6D;
-      border: 1px solid #104B6D;
-      font-size: 14px;
-      font-family: 'TaipeiSansTCBeta-Regular';
-<<<<<<< HEAD
-=======
-
-      &:hover{
-        background: $secondary-200;
-        color: white;
-        border: 1px solid $secondary-200;
-      }
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-    }
-  
-    .hot {
-      margin-top: 18px;
-      padding: 5px 0px 5px 0;
-      color: #104B6D;
-      font-family: 'TaipeiSansTCBeta-Regular';
+      background: #4f7f9a;
     }
   }
+
+  .ta {
+    margin-right: 15px;
+    margin-top: 18px;
+    padding: 4px 20px;
+    color: #104b6d;
+    border: 1px solid #104b6d;
+    font-size: 14px;
+    font-family: 'TaipeiSansTCBeta-Regular';
+
+    &:hover {
+      background: $secondary-200;
+      color: white;
+      border: 1px solid $secondary-200;
+    }
+  }
+
+  .hot {
+    margin-top: 18px;
+    padding: 5px 0px 5px 0;
+    color: #104b6d;
+    font-family: 'TaipeiSansTCBeta-Regular';
+  }
+}

@@ -9,11 +9,8 @@ import {
   MdKeyboardArrowDown,
 } from 'react-icons/md'
 
-<<<<<<< HEAD
-=======
 import CarouselItem from './CarouselItem'
 
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 function SoYa5(props) {
   return (
     <>
@@ -58,55 +55,6 @@ function SoYa5(props) {
               </div>
             </div>
             <div className="classcontent_right">
-<<<<<<< HEAD
-              <div className="classcontentcaro">
-                <Link to="#">
-                  <img
-                    src={devUrl + '/pic/soya/page4img2.png'}
-                    alt="classcontentcaroimg"
-                    className="cover-fit classcontentcaroimg"
-                  />
-                  <div className="classcontentcarotheme">商業攝影</div>
-                </Link>
-              </div>
-              <div className="classcontentcaro">
-                <Link to="#">
-                  <img
-                    src={devUrl + '/pic/soya/themepicture2.png'}
-                    alt="classcontentcaroimg"
-                    className="cover-fit classcontentcaroimg"
-                  />
-                  <div className="classcontentcarotheme">商業攝影</div>
-                </Link>
-              </div>
-              <div className="classcontentcaro">
-                <Link to="#">
-                  <img
-                    src={devUrl + '/pic/soya/pag4img3.png'}
-                    alt="classcontentcaroimg"
-                    className="cover-fit classcontentcaroimg"
-                  />
-                  <div className="classcontentcarotheme">商業攝影</div>
-                </Link>
-              </div>
-              <div className="classcontentcaro">
-                <Link to="#">
-                  <img
-                    src={devUrl + '/pic/soya/classcontentimg3.png'}
-                    alt="classcontentcaroimg"
-                    className="cover-fit classcontentcaroimg"
-                  />
-                  <div className="classcontentcarotheme">商業攝影</div>
-                </Link>
-              </div>
-              <MdKeyboardArrowUp className="caroarrowup" />
-              <MdKeyboardArrowDown className="caroarrowdown" />
-            </div>
-          </div>
-          <div className="classmoreclassbox d-flex flex-column">
-            <div className="classmoreclass">更多課程</div>
-            <div className="classmoreclassline"></div>
-=======
               <CarouselItem />
             </div>
           </div>
@@ -115,7 +63,6 @@ function SoYa5(props) {
               <div className="classmoreclass">更多課程</div>
               <div className="classmoreclassline"></div>
             </Link>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
           </div>
         </div>
       </div>

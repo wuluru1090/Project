@@ -15,7 +15,6 @@
   margin: 9px auto;
   // background: #add0e4;
   width: 1160px;
-<<<<<<< HEAD
   cursor: pointer;
   &:hover {
     .event-photo {
@@ -24,8 +23,6 @@
       }
     }
   }
-=======
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 
   .bookmark {
     height: 50px;
@@ -35,7 +32,6 @@
     position: absolute;
     cursor: pointer;
   }
-<<<<<<< HEAD
   .event-photo {
     width: 271px;
     height: 183px;
@@ -53,16 +49,6 @@
     }
   }
 
-=======
-  .photo {
-    width: 271px;
-    height: 183px;
-    object-fit: fill;
-    margin: 18px 17px 0px 0px;
-    border-radius: 10px;
-    z-index: 1;
-  }
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   .more-att {
     width: 31px;
     height: 31px;
@@ -70,16 +56,11 @@
     margin-top: -20px;
     position: absolute;
     top: 180px;
-<<<<<<< HEAD
     left: 53px;
     z-index: 3;
     background: $primary-700;
     color: white;
     padding: 4px 0px 4px 7px;
-=======
-    left: 50px;
-    z-index: 3;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   }
   .second-att {
     width: 31px;
@@ -111,7 +92,6 @@
   }
 
   .t2 {
-<<<<<<< HEAD
     width: 100%;
     font-size: 14px;
     margin: 12px 0px;
@@ -120,11 +100,6 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-=======
-    font-size: 14px;
-    margin-top: 10px;
-    margin-bottom: 10px;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   }
   .bbb {
     margin-bottom: 8px;

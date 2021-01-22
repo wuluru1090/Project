@@ -1,127 +1,88 @@
-
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
-$url: "http://localhost:3000";
+$url: 'http://localhost:3000';
 
-
-  
- 
 .wrapper {
   max-width: 1440px;
   margin: 0 auto;
 }
 
+.soya2 {
+  height: 600px;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
 
-
-  .soya2{
-    height: 600px;
-    justify-content: space-between;
+  .cover-fit {
+    height: 100%;
     width: 100%;
-    box-sizing: border-box;
-
-
-    
-  
-    
-    .cover-fit {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .lovebox{
-      width: 30%;
-      padding-top: 232px;
-      margin-left: 140px;
-
-      .lovetitle{
-        font-size: $h4-font-size;
-        color: $primary-050;
-        margin-bottom: 8px;
-        font-family: 'TaipeiSansTCBeta-Bold';
-<<<<<<< HEAD
-=======
-      
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-        
-      }
-
-      .topline{
-        width: 155px;
-        border-top: 5px solid $primary-050;
-        margin-left: 2px;
-      }
-
-      .lovepara{
-        margin-top: 45px;
-        color: $primary-050;
-        font-size: $h6-font-size;
-        font-family: 'TaipeiSansTCBeta-Regular';
-      }
-    }
-   
-    
-    .sudoku{
-  
-      // border: 1px solid;
-      margin-right: 140px;
-      width: 40%;
-
-      
-      
-
-
-
-      .themepic{
-        width: 100%;
-        height: 170px;
-        padding: 0;
-        margin: 0 15px 35px 20px;
-        border-radius: 10px;
-        position: relative;
-        background: black;
-        opacity: 1;
-        
-        
-        &:hover .themepicture{
-          opacity: 0.5;
-          transition: 0.5s;
-        }
-
-        &:hover .themepicturetitle{
-<<<<<<< HEAD
-          display:block;
-=======
-          opacity: 1;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-          transition:  0.5s;
-          z-index: 1;
-        }
-
-        
-      }
-      .themepicturetitle{
-        position: absolute;
-<<<<<<< HEAD
-        left: 31%;
-        top: 45%;
-        display: none;
-=======
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        opacity: 0;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
-        color: white;
-        font-family: 'TaipeiSansTCBeta-Bold';
-        
-      }
-      .themepicture{
-        border-radius: 10px;
-      }
-   
-    }
-    
-    
+    object-fit: cover;
   }
+
+  .lovebox {
+    width: 30%;
+    padding-top: 232px;
+    margin-left: 140px;
+
+    .lovetitle {
+      font-size: $h4-font-size;
+      color: $primary-050;
+      margin-bottom: 8px;
+      font-family: 'TaipeiSansTCBeta-Bold';
+    }
+
+    .topline {
+      width: 155px;
+      border-top: 5px solid $primary-050;
+      margin-left: 2px;
+    }
+
+    .lovepara {
+      margin-top: 45px;
+      color: $primary-050;
+      font-size: $h6-font-size;
+      font-family: 'TaipeiSansTCBeta-Regular';
+    }
+  }
+
+  .sudoku {
+    // border: 1px solid;
+    margin-right: 140px;
+    width: 40%;
+
+    .themepic {
+      width: 100%;
+      height: 170px;
+      padding: 0;
+      margin: 0 15px 35px 20px;
+      border-radius: 10px;
+      position: relative;
+      background: black;
+      opacity: 1;
+
+      &:hover .themepicture {
+        opacity: 0.5;
+        transition: 0.5s;
+      }
+
+      &:hover .themepicturetitle {
+        opacity: 1;
+        transition: 0.5s;
+        z-index: 1;
+      }
+    }
+    .themepicturetitle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      color: white;
+      font-family: 'TaipeiSansTCBeta-Bold';
+    }
+    .themepicture {
+      border-radius: 10px;
+    }
+  }
+}

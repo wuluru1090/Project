@@ -4,18 +4,13 @@
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
 * {
-<<<<<<< HEAD
   // font-size: 16px;
-=======
-  font-size: 16px;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   font-family: 'Taipei Sans TC Beta';
   padding: 0;
   margin: 0;
   // border: 1px solid;
 }
 .event-card-vertical {
-<<<<<<< HEAD
   .card-wrapper {
     // background: coral;
     width: 271px;
@@ -35,18 +30,10 @@
 
   .ccard {
     // background: crimson;
-=======
-  .card {
-    border: 1px solid transparent !important;
-  }
-
-  .ccard {
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     width: 271px;
     height: 350px;
     border: 1px solid transparent;
 
-<<<<<<< HEAD
     .card-title {
       font-size: $font-size-base;
       font-family: 'TaipeiSansTCBeta-Bold' !important;
@@ -73,24 +60,6 @@
       }
     }
 
-=======
-    .cardtitle {
-      font-size: $font-size-base;
-      font-family: 'TaipeiSansTCBeta-Bold';
-    }
-
-    .photo {
-      // width: 271px;
-      height: 183px;
-      object-fit: fill;
-      z-index: 1;
-      position: relative;
-
-      /* margin-left: 7px; */
-      margin-top: -38px;
-      border-radius: 10px;
-    }
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     .pushed {
       display: inline;
       z-index: 3;
@@ -109,11 +78,7 @@
       border-radius: 50%;
       margin-top: -20px;
       position: absolute;
-<<<<<<< HEAD
       top: 170px;
-=======
-      top: 180px;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
       right: 187px;
       z-index: 3;
       background: rgba(0, 0, 0, 0.8);
@@ -127,11 +92,7 @@
       border-radius: 50%;
       margin-top: -20px;
       position: absolute;
-<<<<<<< HEAD
       top: 170px;
-=======
-      top: 180px;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
       right: 207px;
       z-index: 4;
     }
@@ -141,11 +102,7 @@
       border-radius: 50%;
       margin-top: -20px;
       position: absolute;
-<<<<<<< HEAD
       top: 170px;
-=======
-      top: 180px;
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
       right: 227px;
       z-index: 5;
     }
@@ -158,18 +115,9 @@
     }
 
     .card-body {
-<<<<<<< HEAD
       padding: 0px 0px 0px 12px;
     }
 
-=======
-      padding: 18px 0 0 12px;
-    }
-
-    .cardtitle {
-      margin-bottom: 8px;
-    }
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     .inform {
       margin-top: 1px;
     }
@@ -178,12 +126,9 @@
       font-size: 12px;
       margin-bottom: 5px;
       align-self: center;
-<<<<<<< HEAD
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-=======
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 
       /* border:1px solid gray; */
     }

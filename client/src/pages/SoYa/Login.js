@@ -1,9 +1,5 @@
 import logo from '../../logo.svg'
 import '../../index.scss'
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import MyNavbar1 from '../../components/Soya/MyNavbar1'
-=======
 import {
   BrowserRouter as Router,
   Route,
@@ -15,7 +11,6 @@ import {
 } from 'react-router-dom'
 import Axios from 'axios'
 
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
 import '../../style/soya/login.scss'
@@ -23,15 +18,6 @@ import { FaTwitter } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
 
-<<<<<<< HEAD
-function Login() {
-  return (
-    <>
-      {/* <Router> */}
-      <MyNavbar1 />
-      {/* </Router> */}
-
-=======
 function Login(props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -75,29 +61,21 @@ function Login(props) {
 
   return (
     <>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
       <div className="login">
         <div className="loginbox">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-6 cardboxmargin">
-<<<<<<< HEAD
-                <form className="card p-5">
-=======
                 <div className="card p-5">
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   <div className="logintitle">Login</div>
                   <div className="col-12">
                     <input
                       type="text"
                       className="form-control form-control-lg card-input"
                       placeholder="請輸入帳號"
-<<<<<<< HEAD
-=======
                       onChange={(e) => {
                         setUsername(e.target.value)
                       }}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                     />
                   </div>
 
@@ -106,12 +84,9 @@ function Login(props) {
                       type="text"
                       className="form-control form-control-lg card-input loginpass"
                       placeholder="請輸入密碼"
-<<<<<<< HEAD
-=======
                       onChange={(e) => {
                         setPassword(e.target.value)
                       }}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                     />
                   </div>
 
@@ -132,16 +107,6 @@ function Login(props) {
                       Twitter
                     </button>
                   </div>
-<<<<<<< HEAD
-                  <button className="btn loginbtnlogin">登入</button>
-                  <div className="noaccount d-flex">
-                    還沒有帳戶嗎?
-                    <Link to="#" alt="123" className="signupbtn d-flex">
-                      註冊
-                    </Link>
-                  </div>
-                </form>
-=======
 
                   <button onClick={login} className="btn loginbtnlogin">
                     登入
@@ -162,7 +127,6 @@ function Login(props) {
                     </NavLink>
                   </div>
                 </div>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
               </div>
             </div>
           </div>
@@ -172,8 +136,4 @@ function Login(props) {
   )
 }
 
-<<<<<<< HEAD
-export default Login
-=======
 export default withRouter(Login)
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4

@@ -1,12 +1,5 @@
 import './index.scss'
-<<<<<<< HEAD
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import React, { useState } from 'react'
-import MyNavbar from './components/Main/MyNavbar'
-import Footer from './components/Main/Footer'
-import MainContent from './components/Main/MainContent'
-import EventAttendant from './pages/Event/EventAttendant'
-=======
+
 import {
   BrowserRouter as Router,
   Route,
@@ -14,66 +7,25 @@ import {
   Link,
   NavLink,
 } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
 import MainContent from './components/Main/MainContent'
-import EventAttendant from './components/Event/EventAttendant'
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
+import EventAttendant from './pages/Event/EventAttendant'
+
 import Event from './pages/Event/'
 import Album from './pages/Event/EventAlbum'
 import EventAlbumPhoto from './pages/Event/EventAlbumPhoto'
 import EventDetails from './pages/Event/EventDetail'
-import SearchTop from './components/Class/SearchTop'
-import SearchMain from './components/Class/SearchMain'
+// import SearchTop from './components/Class/SearchTop'
+// import SearchMain from './components/Class/SearchMain'
 import MainClass from './components/Class/MainClass'
 import SoYa from './pages/SoYa/SoYa'
-<<<<<<< HEAD
-import Test from './Test'
 
-function App() {
-  return (
-    <Router>
-      <>
-        <MyNavbar />
-        <MainContent>
-          <Switch>
-            <Route path="/event/:id/attendants">
-              <EventAttendant />
-            </Route>
-
-            <Route path="/event/:id/album">
-              <Album />
-            </Route>
-
-            <Route path="/event/:id">
-              <EventDetails />
-            </Route>
-            {/* event2Att={event2Att} */}
-            <Route exact path="/event">
-              <Event />
-            </Route>
-
-            <Route path="/class">
-              <MainClass />
-            </Route>
-
-            <Route exact path="/photo">
-              <EventAlbumPhoto />
-            </Route>
-
-            <Route exact path="/">
-              <SoYa />
-            </Route>
-          </Switch>
-        </MainContent>
-        <Footer />
-      </>
-    </Router>
-=======
 import Login from './pages/SoYa/Login'
 import Signup from './pages/SoYa/Signup'
 import EventStart from './pages/SoYa/EventStart'
-import React, { useState, useEffect } from 'react'
+
 import Logout from './components/Soya/Logout'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Formika from './pages/SoYa/Formika'
@@ -96,30 +48,16 @@ function App() {
           <MainContent>
             <AutoTop>
               <Switch>
-                <Route path="/begin">
-                  <EventAttendant />
-                </Route>
-                <Route path="/event-search">
+                {/* <Route path="/event-search">
                   <Event isAuth={isAuth} setIsAuth={setIsAuth} />
                 </Route>
-                <Route path="/class">
-                  <MainClass isAuth={isAuth} />
-                </Route>
-                <Route exact path="/photo">
-                  <EventAlbumPhoto />
-                </Route>
-                <Route path="/event/album">
-                  <Album />
-                </Route>
+                 */}
+
+                {/* 首頁 */}
                 <Route exact path="/">
                   <SoYa />
                 </Route>
-                <Route path="/event/:id">
-                  <EventDetails />
-                </Route>
-                <Route path="/eventstartdata/get/:id">
-                  <MemberEventManage />
-                </Route>
+
                 <Route path="/login">
                   <Login isAuth={isAuth} setIsAuth={setIsAuth} />
                 </Route>
@@ -132,6 +70,32 @@ function App() {
                 <Route path="/eventstart">
                   <EventStart isAuth={isAuth} setIsAuth={setIsAuth} />
                 </Route>
+                <Route path="/eventstartdata/get/:id">
+                  <MemberEventManage />
+                </Route>
+
+                {/* 活動頁面開始 */}
+                <Route path="/event/:id/attendants">
+                  <EventAttendant />
+                </Route>
+                <Route path="/event/:id/album">
+                  <Album />
+                </Route>
+                <Route path="/event/:id">
+                  <EventDetails />
+                </Route>
+                <Route exact path="/event">
+                  <Event />
+                </Route>
+                <Route exact path="/photo">
+                  <EventAlbumPhoto />
+                </Route>
+                {/* 活動頁面結束 */}
+
+                {/* 課程頁面開始 */}
+                <Route path="/class">
+                  <MainClass isAuth={isAuth} />
+                </Route>
               </Switch>
             </AutoTop>
           </MainContent>
@@ -139,7 +103,6 @@ function App() {
         </>
       </Router>
     </>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   )
 }
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_main.scss'
@@ -6,22 +5,13 @@ import SearchbarEvent from './SearchbarEvent'
 import ScrollTop from './ScrollTop'
 import EventResult from './EventResult'
 import EventBottom from './EventBottom'
-=======
-import React from 'react'
-import '../../style/default.scss'
-import '../../style/event/event_main.scss'
-import SearchbarEvent from './SearchbarEvent'
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
 import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
 
 function EventMain() {
-<<<<<<< HEAD
   window.scrollTo(0, 0)
   const [condition, setCondition] = useState({})
 
-=======
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   return (
     <>
       <div className="event-wrapper">
@@ -68,37 +58,17 @@ function EventMain() {
 
         <div className="event-search-bar">
           <h3>尋找理想中的攝影行程</h3>
-<<<<<<< HEAD
           <SearchbarEvent setCondition={setCondition} />
         </div>
 
         <ScrollTop />
-=======
-          <SearchbarEvent />
-        </div>
-
-        <div className="my-container">
-          <div className="scroll">
-            <h6 className="d-inline-block">SCROLL DOWN</h6>
-            <img
-              className="d-inline-block c-icon"
-              src={devUrl + '/Pic/SVG/scroll.svg'}
-              alt=""
-            />
-          </div>
-        </div>
-
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
         <div className="wave1">
           <img src={devUrl + '/Pic/SVG/wave-white-1440.svg'} alt="" />
         </div>
       </div>
-<<<<<<< HEAD
 
       <EventResult condition={condition} />
       <EventBottom setCondition={setCondition} />
-=======
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
     </>
   )
 }

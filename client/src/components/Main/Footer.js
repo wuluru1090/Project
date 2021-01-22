@@ -81,54 +81,30 @@ function Footer() {
               <ul className="nav d-flex justify-content-around">
                 <li>
                   <img
-<<<<<<< HEAD
-                    className="nav-link icon"
-                    src={devUrl + '/pic/SVG/FB.svg'}
-                    alt=""
-=======
                     className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/FB.svg'}
                     alt="FB"
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   ></img>
                 </li>
                 <li>
                   <img
-<<<<<<< HEAD
-                    className="nav-link icon"
-                    src={devUrl + '/pic/SVG/ig.svg'}
-                    alt=""
-=======
                     className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/ig.svg'}
                     alt="IG"
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   ></img>
                 </li>
                 <li>
                   <img
-<<<<<<< HEAD
-                    className="nav-link icon"
-                    src={devUrl + '/pic/SVG/Twitter.svg'}
-                    alt=""
-=======
                     className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/Twitter.svg'}
                     alt="Twitter"
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   ></img>
                 </li>
                 <li>
                   <img
-<<<<<<< HEAD
-                    className="nav-link icon"
-                    src={devUrl + '/pic/SVG/Pinterst.svg'}
-                    alt=""
-=======
                     className="nav-link footer_icon"
                     src={devUrl + '/pic/SVG/Pinterst.svg'}
                     alt="Pinterst"
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   ></img>
                 </li>
               </ul>

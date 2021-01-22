@@ -18,51 +18,30 @@ function SoYa2(props) {
           <div className="row">
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture1.png'}
-=======
                 <p className="themepicturetitle botton-font nnn1">風景攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/pag4img3.png'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
             </div>
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture2.png'}
-=======
                 <p className="themepicturetitle botton-font nnn2">人像攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/themepicture1.png'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
             </div>
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture1.png'}
-=======
                 <p className="themepicturetitle botton-font nnn3">商業攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/battleo.jpg'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
@@ -71,51 +50,30 @@ function SoYa2(props) {
           <div className="row">
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture4.png'}
-=======
                 <p className="themepicturetitle botton-font nnn4">生態攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/fourgress1.jpg'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
             </div>
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture1.svg'}
-=======
                 <p className="themepicturetitle botton-font nnn5">建築攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/cheapcircle.jpg'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
             </div>
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture3.png'}
-=======
                 <p className="themepicturetitle botton-font nnn8">夜景攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/themepicture2.png'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
@@ -124,51 +82,30 @@ function SoYa2(props) {
           <div className="row">
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture1.svg'}
-=======
                 <p className="themepicturetitle botton-font nnn9">人文攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/deerhigh.gif'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
             </div>
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/classcontentimg4.png'}
-=======
                 <p className="themepicturetitle botton-font nnn10">手機攝影</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/classcontentimg3.png'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>
             </div>
             <div className="col themepic">
               <Link to="#">
-<<<<<<< HEAD
-                <p className="themepicturetitle botton-font">人像攝影</p>
-                <img
-                  className="themepicture cover-fit"
-                  src={devUrl + '/pic/soya/themepicture1.svg'}
-=======
                 <p className="themepicturetitle botton-font nnn12">其他</p>
                 <img
                   className="themepicture cover-fit"
                   src={devUrl + '/pic/soya/oldstation.jpg'}
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                   alt="themepicture"
                 />
               </Link>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import '../../style/event/event_card_ver_relative.scss'
-<<<<<<< HEAD
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
@@ -53,11 +52,6 @@ function EventCardVerRelative(props) {
     ).then(alert('刪除成功!'))
   }
 
-=======
-
-function EventCardVerRelative() {
-  const [isActive, setIsActive] = useState(false)
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
   return (
     <>
       <div className="d-flex justify-content-center event-card-vertical_relative">
@@ -78,7 +72,6 @@ function EventCardVerRelative() {
             onClick={() => setIsActive(false)}
             style={isActive ? { display: 'inline' } : { display: 'none' }}
           />
-<<<<<<< HEAD
           <figure
             className="event-photo"
             onClick={() => click2Detail(cardInfo.event_id)}
@@ -89,13 +82,6 @@ function EventCardVerRelative() {
               alt={cardInfo.event_name}
             />
           </figure>
-=======
-          <img
-            src={devUrl + '/pic/pic/event-slider1.jpg'}
-            className="card-img-top photo"
-            alt="..."
-          />
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
           <a href="#">
             <div className="more-att">+3</div>
           </a>
@@ -111,7 +97,6 @@ function EventCardVerRelative() {
               src={devUrl + '/pic/pic/member3.jpg'}
             ></img>
           </a>
-<<<<<<< HEAD
           <div
             className="card-body"
             onClick={() => click2Detail(cardInfo.event_id)}
@@ -120,13 +105,6 @@ function EventCardVerRelative() {
             <div className="d-flex inform align-items-center">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
               <span className="card-text">{cardInfo.event_location}</span>
-=======
-          <div className="card-body">
-            <h5 className="cardtitle">四草綠意盎然 台南七股一日遊</h5>
-            <div className="d-flex inform align-items-center">
-              <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
-              <span className="card-text">四草綠色隧道 </span>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
             </div>
             <div className="d-flex inform align-items-center">
               <img
@@ -134,7 +112,6 @@ function EventCardVerRelative() {
                 src="/pic/svg/date_range-24px.svg"
                 alt=""
               />
-<<<<<<< HEAD
               <span className="card-text">
                 {isOneDay(
                   cardInfo.event_start_time,
@@ -149,9 +126,6 @@ function EventCardVerRelative() {
                   </>
                 )}
               </span>
-=======
-              <span className="card-text">2021-01-28 </span>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
             </div>
             <div className="d-flex inform align-items-center">
               <img
@@ -159,13 +133,9 @@ function EventCardVerRelative() {
                 src="/pic/svg/location_on-24px.svg"
                 alt=""
               />
-<<<<<<< HEAD
               <span className="subtitle1 card-text">
                 {cardInfo.event_address}
               </span>
-=======
-              <span className="card-text">台南市歸仁區歸仁大道100號 </span>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
             </div>
 
             <div className="d-flex justify-content-between buttons">
@@ -175,18 +145,13 @@ function EventCardVerRelative() {
                   className="btn rounded-pill btn-md tag"
                   type="button"
                 >
-<<<<<<< HEAD
                   {cardInfo.event_type_name}
-=======
-                  自然
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
                 </a>
                 <a
                   href="#"
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
                 >
-<<<<<<< HEAD
                   {cardInfo.event_theme_name}
                 </a>
               </div>
@@ -196,14 +161,6 @@ function EventCardVerRelative() {
               >
                 參加活動
               </button>
-=======
-                  自然
-                </a>
-              </div>
-              <a href="#" className="btn d-flex join">
-                參加活動
-              </a>
->>>>>>> 903f70c83b1325388a24207e9da433c16f0aa1e4
             </div>
           </div>
         </div>
