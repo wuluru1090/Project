@@ -135,10 +135,24 @@ function MemberMyScoreOk(props) {
                       >
                         <ul className="row navbar d-flex align-items-center">
                           <li className=" subtitle1  main_li  d-flex align-items-center">
-                            <a href="#">未評價</a>
+                            <a
+                              href={
+                                devUrl +
+                                `/member/${props.match.params.id}/MyScore`
+                              }
+                            >
+                              未評價
+                            </a>
                           </li>
                           <li className=" subtitle1 main_li  d-flex align-items-center">
-                            <a href="#">已評價</a>
+                            <a
+                              href={
+                                devUrl +
+                                `/member/${props.match.params.id}/MyScoreOk`
+                              }
+                            >
+                              已評價
+                            </a>
                           </li>
                         </ul>
                         <br />
