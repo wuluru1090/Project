@@ -75,6 +75,24 @@ function MemberMyOrderClass(props) {
     }
   }, [classes])
 
+  const delorder = (order_id) => {
+    console.log(order_id)
+
+    Axios.put('http://localhost:3001/member/update/classorder', {
+      order_id: order_id,
+    }).then((res) => {
+      setMemberClassorder(
+        memberclassorder.map((list) => {
+          return list.order_id === order_id
+            ? {
+                order_id: list.order_id,
+              }
+            : list
+        })
+      )
+    })
+  }
+
   return (
     <>
       <body>
@@ -157,224 +175,232 @@ function MemberMyOrderClass(props) {
                           </li>
                         </ul>
                         <br />
-                        {memberclassorder.map((list) => {
-                          return (
-                            <div className="ordercard">
-                              <Accordion>
-                                <Card>
-                                  <Card.Header>
-                                    <div className="order_list d-flex position-relative">
-                                      <div className="list_img  d-flex justify-content-start  align-items-start  flex-wrap">
-                                        {att.map((m) => {
-                                          return (
-                                            <div className="d-flex  align-items-center justify-content-center">
-                                              <img
-                                                src={
-                                                  devUrl +
-                                                  '/pic/pic/桌布-德國.jpg'
-                                                }
-                                                alt="..."
-                                              />
-                                            </div>
-                                          )
-                                        })}
-                                      </div>
+                        {memberclassorder.length > 0 ? (
+                          <div>
+                            {memberclassorder.map((list) => {
+                              return (
+                                <div className="ordercard">
+                                  <Accordion>
+                                    <Card>
+                                      <Card.Header>
+                                        <div className="order_list d-flex position-relative">
+                                          <div className="list_img  d-flex justify-content-start  align-items-start  flex-wrap">
+                                            {att.map((m) => {
+                                              return (
+                                                <div className="d-flex  align-items-center justify-content-center">
+                                                  <img
+                                                    src={
+                                                      devUrl +
+                                                      `/pic/class/${m.class_main_pic}`
+                                                    }
+                                                    alt="..."
+                                                  />
+                                                </div>
+                                              )
+                                            })}
+                                          </div>
 
-                                      <div className="d-flex justify-content-center align-items-center row order_li">
-                                        <ul>
-                                          <li>
-                                            <p>
-                                              <MdDescription />
-                                              訂單編號&nbsp;:&nbsp;
-                                              {list.order_id}
-                                            </p>
-                                          </li>
-                                          <li>
-                                            <p>
-                                              <MdFormatListBulleted />
-                                              訂單成立時間&nbsp;:&nbsp;
-                                              <DateConvert
-                                                jsonDate={
-                                                  list.order_create_time
-                                                }
-                                              ></DateConvert>
-                                              {/* <TimeConvert
+                                          <div className="d-flex justify-content-center align-items-center row order_li">
+                                            <ul>
+                                              <li>
+                                                <p>
+                                                  <MdDescription />
+                                                  訂單編號&nbsp;:&nbsp;
+                                                  {list.order_id}
+                                                </p>
+                                              </li>
+                                              <li>
+                                                <p>
+                                                  <MdFormatListBulleted />
+                                                  訂單成立時間&nbsp;:&nbsp;
+                                                  <DateConvert
+                                                    jsonDate={
+                                                      list.order_create_time
+                                                    }
+                                                  ></DateConvert>
+                                                  {/* <TimeConvert
                                                 jsonTime={
                                                   list.order_create_time
                                                 }
                                               ></TimeConvert> */}
-                                            </p>
-                                          </li>
-                                          <li>
-                                            <p>
-                                              <MdPlaylistAddCheck />
-                                              付款日期&nbsp;:&nbsp;
-                                              <DateConvert
-                                                jsonDate={list.payment_date}
-                                              ></DateConvert>
-                                            </p>
-                                          </li>
-                                          <li
-                                            className="d-flex justify-content-end position-absolute "
-                                            style={{
-                                              bottom: '8px',
-                                              right: '14px',
-                                            }}
-                                          >
-                                            <div className="d-flex justify-content-end">
-                                              <Button
-                                                onClick={handleShow}
-                                                className="btn-style botton-font btn_icon  d-flex align-items-center "
+                                                </p>
+                                              </li>
+                                              <li>
+                                                <p>
+                                                  <MdPlaylistAddCheck />
+                                                  付款日期&nbsp;:&nbsp;
+                                                  <DateConvert
+                                                    jsonDate={list.payment_date}
+                                                  ></DateConvert>
+                                                </p>
+                                              </li>
+                                              <li
+                                                className="d-flex justify-content-end position-absolute "
                                                 style={{
-                                                  backgroundColor: '#df3d00',
+                                                  bottom: '8px',
+                                                  right: '14px',
                                                 }}
                                               >
-                                                <MdClear />
-                                                取消訂單
-                                              </Button>
-                                            </div>
-                                            <Modal
-                                              show={show}
-                                              onHide={handleClose}
-                                              backdrop="static"
-                                              keyboard={false}
-                                            >
-                                              <Modal.Header closeButton>
-                                                <Modal.Title>
-                                                  <h5>確定要取消嗎?</h5>
-                                                </Modal.Title>
-                                              </Modal.Header>
-                                              <Modal.Body>
-                                                <p>確定後將取消訂單</p>
-                                              </Modal.Body>
-                                              <Modal.Footer>
-                                                <div className="mem_inf">
+                                                <div className="d-flex justify-content-end">
                                                   <Button
-                                                    variant="secondary"
-                                                    onClick={handleClose}
-                                                    className="btn_modal"
+                                                    onClick={handleShow}
+                                                    className="btn-style botton-font btn_icon  d-flex align-items-center "
+                                                    style={{
+                                                      backgroundColor:
+                                                        '#df3d00',
+                                                    }}
                                                   >
-                                                    離開
-                                                  </Button>
-
-                                                  <Button
-                                                    variant="primary"
-                                                    className="btn_modal "
-                                                    // onClick={() => {
-                                                    //   deleteAccount(
-                                                    //     val.member_id
-                                                    //   )
-
-                                                    // }}
-                                                  >
-                                                    確定
+                                                    <MdClear />
+                                                    取消訂單
                                                   </Button>
                                                 </div>
-                                              </Modal.Footer>
-                                            </Modal>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                    </div>
-
-                                    <Accordion.Toggle
-                                      as={Button}
-                                      variant="link"
-                                      eventKey="0"
-                                      className="float-right"
-                                    >
-                                      <Button className="btn-style botton-font btn_icon mem_card_btn btn_toscore">
-                                        <MdFormatListNumbered />
-                                        詳細資訊
-                                      </Button>
-                                    </Accordion.Toggle>
-                                  </Card.Header>
-                                  <Accordion.Collapse eventKey="0">
-                                    <Card.Body>
-                                      {att.map((m) => {
-                                        return (
-                                          <div className="pdCard2">
-                                            <div className="ccard">
-                                              <div className="d-flex dcard">
-                                                <div>
-                                                  <img
-                                                    src={
-                                                      devUrl +
-                                                      '/pic/pic/桌布-德國.jpg'
-                                                    }
-                                                    className="card-img-top photo"
-                                                    alt="..."
-                                                  />
-                                                </div>
-                                                <div className="">
-                                                  <div className="card-body">
-                                                    <h5 className="card-title">
-                                                      {m.class_name}
-                                                    </h5>
-
-                                                    <div className="d-flex bbb">
-                                                      <img
-                                                        className="icon"
-                                                        src="/pic/svg/photo-camera.svg"
-                                                        alt=""
-                                                      />
-                                                      <p className="caption">
-                                                        {m.class_place}
-                                                      </p>
-                                                    </div>
-                                                    <div className="d-flex bbb">
-                                                      <img
-                                                        className="icon2"
-                                                        src="/pic/svg/date_range-24px.svg"
-                                                        alt=""
-                                                      />
-                                                      <p className="caption  d-flex">
-                                                        <DateConvert
-                                                          jsonDate={
-                                                            m.class_start_date
-                                                          }
-                                                        />
-                                                        &nbsp;~&nbsp;
-                                                        <DateConvert
-                                                          jsonDate={
-                                                            m.class_end_date
-                                                          }
-                                                        />
-                                                      </p>
-                                                    </div>
-                                                    <div className="d-flex bbb">
-                                                      <img
-                                                        className="icon3"
-                                                        src="/pic/svg/location_on-24px.svg"
-                                                        alt=""
-                                                      />
-                                                      <p className="caption ">
-                                                        {m.class_address}
-                                                      </p>
-                                                    </div>
-                                                    <div className="d-flex justify-content-end">
+                                                <Modal
+                                                  show={show}
+                                                  onHide={handleClose}
+                                                  backdrop="static"
+                                                  keyboard={false}
+                                                >
+                                                  <Modal.Header closeButton>
+                                                    <Modal.Title>
+                                                      <h5>確定要取消嗎?</h5>
+                                                    </Modal.Title>
+                                                  </Modal.Header>
+                                                  <Modal.Body>
+                                                    <p>確定後將取消訂單</p>
+                                                  </Modal.Body>
+                                                  <Modal.Footer>
+                                                    <div className="mem_inf">
                                                       <Button
-                                                        onclick=""
-                                                        className="btn-style botton-font btn_icon mem_card_btn"
+                                                        variant="secondary"
+                                                        onClick={handleClose}
+                                                        className="btn_modal"
                                                       >
-                                                        <MdVisibility />
-                                                        活動檢視
+                                                        離開
                                                       </Button>
+
+                                                      <Button
+                                                        variant="primary"
+                                                        className="btn_modal "
+                                                        onClick={() => {
+                                                          delorder(
+                                                            list.order_id
+                                                          )
+                                                        }}
+                                                      >
+                                                        確定
+                                                      </Button>
+                                                    </div>
+                                                  </Modal.Footer>
+                                                </Modal>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+
+                                        <Accordion.Toggle
+                                          as={Button}
+                                          variant="link"
+                                          eventKey="0"
+                                          className="float-right"
+                                        >
+                                          <Button className="btn-style botton-font btn_icon mem_card_btn btn_toscore">
+                                            <MdFormatListNumbered />
+                                            詳細資訊
+                                          </Button>
+                                        </Accordion.Toggle>
+                                      </Card.Header>
+                                      <Accordion.Collapse eventKey="0">
+                                        <Card.Body>
+                                          {att.map((m) => {
+                                            return (
+                                              <div className="pdCard2">
+                                                <div className="ccard">
+                                                  <div className="d-flex dcard">
+                                                    <div>
+                                                      <img
+                                                        src={
+                                                          devUrl +
+                                                          `/pic/class/${m.class_main_pic}`
+                                                        }
+                                                        className="card-img-top photo"
+                                                        alt="..."
+                                                      />
+                                                    </div>
+                                                    <div className="">
+                                                      <div className="card-body">
+                                                        <h5 className="card-title">
+                                                          {m.class_name}
+                                                        </h5>
+
+                                                        <div className="d-flex bbb">
+                                                          <img
+                                                            className="icon"
+                                                            src="/pic/svg/photo-camera.svg"
+                                                            alt=""
+                                                          />
+                                                          <p className="caption">
+                                                            {m.class_place}
+                                                          </p>
+                                                        </div>
+                                                        <div className="d-flex bbb">
+                                                          <img
+                                                            className="icon2"
+                                                            src="/pic/svg/date_range-24px.svg"
+                                                            alt=""
+                                                          />
+                                                          <p className="caption  d-flex">
+                                                            <DateConvert
+                                                              jsonDate={
+                                                                m.class_start_date
+                                                              }
+                                                            />
+                                                            &nbsp;~&nbsp;
+                                                            <DateConvert
+                                                              jsonDate={
+                                                                m.class_end_date
+                                                              }
+                                                            />
+                                                          </p>
+                                                        </div>
+                                                        <div className="d-flex bbb">
+                                                          <img
+                                                            className="icon3"
+                                                            src="/pic/svg/location_on-24px.svg"
+                                                            alt=""
+                                                          />
+                                                          <p className="caption ">
+                                                            {m.class_address}
+                                                          </p>
+                                                        </div>
+                                                        <div className="d-flex justify-content-end">
+                                                          <Button
+                                                            onclick=""
+                                                            className="btn-style botton-font btn_icon mem_card_btn"
+                                                          >
+                                                            <MdVisibility />
+                                                            活動檢視
+                                                          </Button>
+                                                        </div>
+                                                      </div>
                                                     </div>
                                                   </div>
                                                 </div>
                                               </div>
-                                            </div>
-                                          </div>
-                                        )
-                                      })}
-                                    </Card.Body>
-                                  </Accordion.Collapse>
-                                </Card>
-                              </Accordion>
-                            </div>
-                          )
-                        })}
+                                            )
+                                          })}
+                                        </Card.Body>
+                                      </Accordion.Collapse>
+                                    </Card>
+                                  </Accordion>
+                                </div>
+                              )
+                            })}
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: '32px' }}>
+                            <p>沒有訂單資訊趕快去精選課程看看吧</p>
+                          </div>
+                        )}
                       </Card.Body>
                     </Card>
                   </div>

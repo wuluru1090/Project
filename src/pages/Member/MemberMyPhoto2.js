@@ -18,6 +18,7 @@ function MemberMyPhoto2(props) {
   const [photo, setPhoto] = useState([])
   const [attphoto, setAttphoto] = useState([])
   const [addphoto, setAddphoto] = useState([])
+  const [photoid, setPhotoid] = useState([])
 
   const getEvent = async () => {
     await Axios.get(
@@ -98,6 +99,14 @@ function MemberMyPhoto2(props) {
     })
   }
 
+  const delphoto = () => {
+    console.log(photoid)
+
+    Axios.put('http://localhost:3001/member/update/photo', {
+      photo_id: photoid,
+    }).then((res) => {})
+  }
+
   function upUp() {
     setTimeout(function () {
       document.getElementById('photo-button').click()
@@ -171,7 +180,13 @@ function MemberMyPhoto2(props) {
                                 return (
                                   <div className="myphoto">
                                     <div className=" d-flex justify-content-end">
-                                      <input type="checkbox" />
+                                      <input
+                                        type="checkbox"
+                                        onChange={(e) => {
+                                          setPhotoid(e.target.value)
+                                        }}
+                                        value={p.photo_id}
+                                      />
                                     </div>
 
                                     <img
@@ -198,7 +213,7 @@ function MemberMyPhoto2(props) {
 
                         <div className="d-flex justify-content-end">
                           <Button
-                            onclick=""
+                            onClick={delphoto}
                             className="btn-style $botton-font btn_icon mem_card_btn"
                           >
                             <MdDelete />

@@ -112,7 +112,10 @@ function MemberHistoryClass(props) {
                                   <div className="d-flex dcard">
                                     <div>
                                       <img
-                                        src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                        src={
+                                          devUrl +
+                                          `/pic/class/${m.class_main_pic}`
+                                        }
                                         className="card-img-top photo"
                                         alt="..."
                                       />

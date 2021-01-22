@@ -72,6 +72,7 @@ function MemberMyjoinin(props) {
                           </li>
                         </ul>
                         <br />
+
                         {memjoinin.map((val) => {
                           return (
                             <div className="pdCard">
