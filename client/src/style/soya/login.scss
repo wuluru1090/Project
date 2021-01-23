@@ -3,7 +3,15 @@
 
 $url: "http://localhost:3000";
 
+.btnstartjoinnn{
+    color: $primary-600 !important;
+    font-family: 'TaipeiSansTCBeta-Regular';
+    box-shadow: none !important;
 
+    &:hover{
+        color: $primary-200 !important;
+    }
+}
 .loginoutbtn{
  
   box-shadow: 0 0 1px transparent !important;

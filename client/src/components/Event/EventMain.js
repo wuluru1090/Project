@@ -8,9 +8,12 @@ import EventBottom from './EventBottom'
 import { devUrl } from '../../config'
 import { Carousel } from 'react-bootstrap'
 
-function EventMain() {
+function EventMain(props) {
   window.scrollTo(0, 0)
   const [condition, setCondition] = useState({})
+
+  //首頁搜尋欄子傳子
+  const { conditionsobad } = props
 
   return (
     <>
@@ -67,7 +70,7 @@ function EventMain() {
         </div>
       </div>
 
-      <EventResult condition={condition} />
+      <EventResult condition={condition} conditionsobad={conditionsobad} />
       <EventBottom setCondition={setCondition} />
     </>
   )

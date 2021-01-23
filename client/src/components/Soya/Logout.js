@@ -27,6 +27,7 @@ function Logout(props) {
       .then(() => {
         props.history.push('/')
         setTimeout(window.location.reload(), 1)
+        setTimeout(alert('登出成功'), 3000)
       })
   }
 

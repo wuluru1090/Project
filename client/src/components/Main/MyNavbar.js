@@ -4,9 +4,12 @@ import { MdSearch } from 'react-icons/md'
 import { MdShoppingCart } from 'react-icons/md'
 import { devUrl } from '../../config'
 import '../../style/navbar.scss'
+
+// 有改一點樣式
 import '../../style/soya/login.scss'
 import Axios from 'axios'
 import Logout from '../Soya/Logout'
+import { Modal, Button } from 'react-bootstrap'
 
 import {
   BrowserRouter as Router,
@@ -19,10 +22,17 @@ import {
 } from 'react-router-dom'
 
 function MyNavbar(props) {
+  // 登入狀態
   const { isAuth, setIsAuth } = props
-  const [member, setMember] = useState()
 
+  // 拿到會員id
+  const [member, setMember] = useState()
   const [memberidd, setMemberidd] = useState('')
+
+  //保護頁面
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   Axios.defaults.withCredentials = true
 
@@ -67,9 +77,44 @@ function MyNavbar(props) {
           {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
           {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
-            <Nav.Link className="navLink" as={NavLink} to="/begin">
-              發起揪影
-            </Nav.Link>
+            {props.isAuth ? (
+              <Nav.Link className="navLink" as={NavLink} to="/eventstart">
+                發起揪影
+              </Nav.Link>
+            ) : (
+              <button
+                className="navLink btn btnstartjoinnn"
+                as={NavLink}
+                onClick={handleShow}
+              >
+                發起揪影
+              </button>
+            )}
+            <Modal
+              show={show}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>尚未登入會員</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>您必須先登入會員，才能發起活動</Modal.Body>
+              <Modal.Footer>
+                <Button
+                  style={{ color: 'white' }}
+                  variant="secondary"
+                  onClick={handleClose}
+                >
+                  關閉
+                </Button>
+                <Link to="/login">
+                  <Button variant="primary" onClick={handleClose}>
+                    登入會員
+                  </Button>
+                </Link>
+              </Modal.Footer>
+            </Modal>
             <Nav.Link className="navLink" as={NavLink} to="/event" exact>
               參加攝影團
             </Nav.Link>

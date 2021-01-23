@@ -5,10 +5,12 @@ import EventMain from '../../components/Event/EventMain'
 import EventBottom from '../../components/Event/EventBottom'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-function Event() {
+function Event(props) {
+  //首頁搜尋欄子傳子
+  const { conditionsobad } = props
   return (
     <>
-      <EventMain />
+      <EventMain conditionsobad={conditionsobad} />
     </>
   )
 }

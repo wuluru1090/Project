@@ -32,6 +32,10 @@ function App() {
   // 會員認証範例
   const [isAuth, setIsAuth] = useState(false)
 
+  //首頁搜尋欄&主題子傳子
+  const [conditionsobad, setConditionsobad] = useState({})
+  // console.log(conditionsobad)
+
   useEffect(() => {
     console.log(isAuth)
   }, [isAuth])
@@ -51,7 +55,7 @@ function App() {
 
                 {/* 首頁 */}
                 <Route exact path="/">
-                  <SoYa />
+                  <SoYa isAuth={isAuth} setConditionsobad={setConditionsobad} />
                 </Route>
 
                 <Route path="/login">
@@ -78,7 +82,7 @@ function App() {
                   <EventDetails />
                 </Route>
                 <Route exact path="/event">
-                  <Event />
+                  <Event conditionsobad={conditionsobad} />
                 </Route>
                 <Route exact path="/photo">
                   <EventAlbumPhoto />

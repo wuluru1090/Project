@@ -23,7 +23,7 @@ function SoYa5(props) {
           <div className="classcontentbox d-flex">
             <div className="classcontent_left">
               <div className="classcontentimg">
-                <Link to="#">
+                <Link to="/class/23">
                   <img
                     className="cover-fit"
                     src={devUrl + '/pic/soya/classcontentimg1.png'}
@@ -38,7 +38,7 @@ function SoYa5(props) {
                 這堂課將用系統且完整的方式，深入淺出地分享旅行錄影的技巧，只要善用自己的手機，
                 就能用影片記錄下自己的旅行日記。
               </div>
-              <div className="classcontentinfobox d-flex">
+              <div className="classcontentinfobox d-flex align-items-end">
                 <div className="classcontentinfo">
                   <div className="classcontentinfoicon d-flex">
                     <MdDateRange className="MdDateRangeicon" />
@@ -49,17 +49,19 @@ function SoYa5(props) {
                     桃園市中壢區中北路200號
                   </div>
                 </div>
-                <button className="btn classcontentinfobutton caption rounded-pill d-flex">
-                  參加課程
-                </button>
+                <Link to="/class/23" style={{ textDecoration: 'none' }}>
+                  <button className="btn classcontentinfobutton caption rounded-pill d-flex">
+                    參加課程
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="classcontent_right">
-              <CarouselItem />
+              <CarouselItem className="carousefont" />
             </div>
           </div>
           <div className="classmoreclassbox d-flex flex-column">
-            <Link to="#" style={{ textDecoration: 'none' }}>
+            <Link to="/class" style={{ textDecoration: 'none' }}>
               <div className="classmoreclass">更多課程</div>
               <div className="classmoreclassline"></div>
             </Link>

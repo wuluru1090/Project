@@ -74,16 +74,26 @@ $url: 'http://localhost:3000';
       }
     }
     .themepicturetitle {
+      width: 100%;
+      height: 100%;
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      // left: 50%;
+      // top: 50%;
+      // transform: translate(-50%, -50%);
       opacity: 0;
       color: white;
       font-family: 'TaipeiSansTCBeta-Bold';
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // border: 1px solid;
+
+      
     }
     .themepicture {
       border-radius: 10px;
+      cursor: pointer;
     }
   }
 }

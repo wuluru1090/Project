@@ -5,9 +5,9 @@ const cors = require("cors");
 const mysql = require("mysql");
 
 const db = mysql.createPool({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "root",
-  password: "12345",
+  password: "",
   database: "final_project",
 });
 
@@ -315,6 +315,7 @@ app.post("/eventform", (req, res) => {
   const memberid = req.body.memberid;
 
   // console.log(memberid);
+  res.send("no way")
 
   db.query(
     "INSERT INTO event_tags (tags_name) VALUES (?)",
@@ -346,6 +347,7 @@ app.post("/eventform", (req, res) => {
     ],
     (err, result) => {
       console.log(err);
+      
     }
   );
 });

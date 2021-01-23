@@ -13,6 +13,22 @@ function EventResult(props) {
   // console.log(props)
   Axios.defaults.withCredentials = true
 
+  // 搜尋欄子傳子判斷式
+  if (props.conditionsobad.searchbar !== '') {
+    props.condition.searchbar = props.conditionsobad.searchbar
+    props.conditionsobad.searchbar = ''
+  } else {
+    props.conditionsobad.searchbar = ''
+  }
+
+  // 主題子傳子判斷式
+  if (props.conditionsobad.theme !== '') {
+    props.condition.theme = props.conditionsobad.theme
+    props.conditionsobad.theme = ''
+  } else {
+    props.conditionsobad.theme = ''
+  }
+
   const {
     locate = '',
     searchbar = '',
