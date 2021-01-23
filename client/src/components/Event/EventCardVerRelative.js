@@ -73,17 +73,30 @@ function EventCardVerRelative(props) {
             style={isActive ? { display: 'inline' } : { display: 'none' }}
           />
           <figure
-            className="event-photo card-img-top"
+            className="event-photo"
             onClick={() => click2Detail(cardInfo.event_id)}
           >
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
-              className="photo"
+              className="card-img-top photo"
               alt={cardInfo.event_name}
-              style={{ marginTop: '0px' }}
             />
           </figure>
-
+          <a href="#">
+            <div className="more-att">+3</div>
+          </a>
+          <a href="#">
+            <img
+              className="second-att"
+              src={devUrl + '/pic/pic/member2.jpg'}
+            ></img>
+          </a>
+          <a href="#">
+            <img
+              className="first-att"
+              src={devUrl + '/pic/pic/member3.jpg'}
+            ></img>
+          </a>
           <div
             className="card-body"
             onClick={() => click2Detail(cardInfo.event_id)}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_main.scss'
 import SearchbarEvent from './SearchbarEvent'
-import ScrollTop from './ScrollTop'
+import ScrollTop from '../Main/ScrollTop'
 import EventResult from './EventResult'
 import EventBottom from './EventBottom'
 import { devUrl } from '../../config'
@@ -11,6 +11,7 @@ import { Carousel } from 'react-bootstrap'
 function EventMain() {
   window.scrollTo(0, 0)
   const [condition, setCondition] = useState({})
+  const [clean, setClean] = useState(false)
 
   return (
     <>

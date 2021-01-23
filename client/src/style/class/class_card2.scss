@@ -7,6 +7,13 @@
   width: 271px;
   height: 320x;
   border-radius: 10px !important;
+  &:hover {
+    .card-img-top {
+      transform: scale(1.2);
+      transition: 0.7s;
+      border: 1px solid red;
+    }
+  }
 
   .cardtitle {
     font-size: 16px;
@@ -18,9 +25,13 @@
     height: 183px;
     object-fit: fill;
     z-index: 1;
-    // position: relative;
     margin-top: -50px;
     border-radius: 10px;
+    overflow: hidden;
+    .card-img-top {
+      width: 100%;
+      height: 100%;
+    }
   }
   .tag {
     height: 50px;
@@ -66,13 +77,17 @@
     margin-bottom: 10px;
   }
 
+  .address {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .suggest-card-text {
     font-size: 12px;
     margin-bottom: 5px;
     align-self: center;
     margin-top: 0px;
-
-    /* border:1px solid gray; */
   }
 
   .ggg {
@@ -104,6 +119,10 @@
     &:hover {
       transform: translateY(2px);
       box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
+    }
+    a {
+      text-decoration: none;
+      color: white;
     }
   }
 

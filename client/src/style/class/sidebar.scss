@@ -1,0 +1,20 @@
+.class_search_sidebar {
+  font-size: 20px;
+  font-family: 'TaipeiSansTCBeta-Regular';
+  width: 227px;
+  .class_theme_topic {
+    background: #104b6d;
+    color: white;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    // padding: 10px 30px;
+  }
+  li {
+    padding: 10px 30px;
+    input {
+      margin-right: 15px;
+    }
+  }
+}

@@ -17,11 +17,14 @@ import Event from './pages/Event/'
 import Album from './pages/Event/EventAlbum'
 import EventAlbumPhoto from './pages/Event/EventAlbumPhoto'
 import EventDetails from './pages/Event/EventDetail'
-import SoYa from './pages/SoYa/SoYa'
 
+import SoYa from './pages/SoYa/SoYa'
 import Login from './pages/SoYa/Login'
 import Signup from './pages/SoYa/Signup'
 import EventStart from './pages/SoYa/EventStart'
+
+import ClassResult from './pages/Class/ClassResult'
+import ClassSearch from './pages/Class/ClassSearch'
 
 import Logout from './components/Soya/Logout'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
@@ -71,6 +74,9 @@ function App() {
                 <Route path="/event/:id/attendants">
                   <EventAttendant />
                 </Route>
+                <Route path="/event/:id/album/:photo">
+                  <EventAlbumPhoto />
+                </Route>
                 <Route path="/event/:id/album">
                   <Album />
                 </Route>
@@ -80,10 +86,16 @@ function App() {
                 <Route exact path="/event">
                   <Event />
                 </Route>
-                <Route exact path="/photo">
-                  <EventAlbumPhoto />
-                </Route>
                 {/* 活動頁面結束 */}
+
+                {/* 課程頁面開始 */}
+                <Route exact path="/class">
+                  <ClassSearch />
+                </Route>
+                <Route path="/class/:id?">
+                  <ClassResult />
+                </Route>
+                {/* 課程頁面結束 */}
               </Switch>
             </AutoTop>
           </MainContent>

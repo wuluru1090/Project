@@ -128,11 +128,12 @@ $url: 'http://localhost:3000';
     .google-calender {
       font-family: 'TaipeiSansTCBeta-Bold' !important;
       margin: 38px 0px;
-      color: white;
       width: 347px;
       padding: 18px 56px;
       background: $primary-100;
+      color: white;
       transition: 0.5s;
+      border-radius: 10px;
       &:hover {
         background: $primary-300;
       }
@@ -173,6 +174,20 @@ $url: 'http://localhost:3000';
     background: $primary-200;
     width: 100%;
     margin: 0px auto;
+  }
+
+  .scroll {
+    position: absolute;
+    font-family: 'Roboto-Bold';
+    z-index: 55;
+    right: 91px;
+    bottom: 48px;
+    color: $primary;
+    // background: blue;
+    text-align: right;
+    .c-icon {
+      margin-left: 12px;
+    }
   }
 
   h4 {

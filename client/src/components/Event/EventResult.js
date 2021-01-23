@@ -5,13 +5,14 @@ import { devUrl } from '../../config'
 import EventCardVer from './EventCardVer'
 import EventCardHor from './EventCardHor'
 import Pagination from '../Main/Pagination'
+import { withRouter, useHistory } from 'react-router-dom'
 
 //connect with backend
 import Axios from 'axios'
 
 function EventResult(props) {
   // console.log(props)
-  Axios.defaults.withCredentials = true
+  let history = useHistory()
 
   const {
     locate = '',
@@ -30,7 +31,7 @@ function EventResult(props) {
       `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}`
     )
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         setEventResult(response.data)
       })
       .catch(function (error) {
@@ -110,11 +111,18 @@ function EventResult(props) {
             {displayCard ? resultCard : resultList}
           </div>
         ) : (
-          <div className="no-result">
+          <div className="no-result ">
             <h5>很抱歉，未找到符合的搜尋結果。</h5>
-            <button className="btn btn-primary rounded-pill" onclick={() => {}}>
-              返回全部活動
-            </button>
+            <div className="d-flex justify-content-center">
+              <button
+                className="btn btn-primary rounded-pill"
+                onClick={() => {
+                  window.location.reload()
+                }}
+              >
+                返回全部活動
+              </button>
+            </div>
           </div>
         )}
 
@@ -131,4 +139,4 @@ function EventResult(props) {
   )
 }
 
-export default EventResult
+export default withRouter(EventResult)

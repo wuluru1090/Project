@@ -14,6 +14,10 @@ $url: 'http://localhost:3000';
     margin: 0 auto;
   }
 
+  .subtitle1 {
+    font-size: 16px;
+  }
+
   // 發起者頭像
   .organizer {
     width: 56px;
@@ -23,13 +27,21 @@ $url: 'http://localhost:3000';
     margin-right: 75px;
     border: 1px solid gray;
     img {
+      object-fit: cover;
       width: 100%;
+      height: 100%;
     }
   }
 
   // 課程簡易資訊欄大區(含按鈕)
   .page-head {
+    color: white;
     padding-top: 42px;
+    .title {
+      h5 {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+    }
 
     .page-head-part2 {
       display: flex;
@@ -42,12 +54,17 @@ $url: 'http://localhost:3000';
         display: flex;
         align-items: flex-end;
         .bttn {
-          width: 91px;
-          height: 36px;
-          border-radius: 50px;
-          background-color: #f28d61;
-          border: 1px solid transparent;
+          padding: 5px 20px;
           color: white;
+          font-size: 16px;
+          text-align: center;
+          &:hover {
+            transform: translateY(2px);
+            box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
+          }
+        }
+        .save {
+          background-color: #f28d61;
         }
         .share {
           background-color: #12d0c9;
@@ -58,6 +75,7 @@ $url: 'http://localhost:3000';
     // 麵包屑
     .bread_crumb {
       margin-top: 43px;
+      font-size: 20px;
     }
   }
 
@@ -67,6 +85,7 @@ $url: 'http://localhost:3000';
 
   .organizer_info > span {
     margin-left: -60px;
+    font-size: 16px;
   }
 
   // 商品圖片
@@ -76,7 +95,9 @@ $url: 'http://localhost:3000';
     overflow: hidden;
     border-radius: 10px;
     img {
-      object-fit: contain;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -90,6 +111,10 @@ $url: 'http://localhost:3000';
 
   .features {
     padding-left: 30px;
+    li {
+      font-size: 16px;
+      margin-bottom: 26px;
+    }
   }
   .left_part {
     // border: 1px solid red;
@@ -98,8 +123,22 @@ $url: 'http://localhost:3000';
     .gmap {
       width: 343px;
       height: 386px;
-      margin-top: 35px;
+      margin: 38px 0px;
       border-radius: 10px;
+    }
+    .react-calendar {
+      padding: 8px !important;
+      border-radius: 10px !important;
+      border: 1px solid rgba(0, 0, 0, 0.125) !important;
+      .react-calendar__month-view__weekdays__weekday {
+        padding: 0 !important;
+      }
+      .react-calendar__tile--active {
+        background: $primary-100 !important;
+      }
+      .react-calendar__tile--hasActive {
+        background: $primary-050 !important;
+      }
     }
   }
   .class_title {
@@ -114,11 +153,13 @@ $url: 'http://localhost:3000';
     border: 2px solid $primary;
     width: 96px;
     margin-bottom: 48px;
+    margin-top: 5px;
   }
 
   p {
     margin: 50px 0px 54px 0px;
     line-height: 28px;
+    font-size: 16px;
   }
   // 授課老師資訊欄
   .teacher {
@@ -132,6 +173,8 @@ $url: 'http://localhost:3000';
       overflow: hidden;
       img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
     .teacher_info_block {
@@ -188,5 +231,41 @@ $url: 'http://localhost:3000';
     color: $primary;
     font-size: 24px;
     font-family: 'TaipeiSansTCBeta-Bold';
+    margin-top: 40px;
+  }
+
+  .bottom-carousel {
+    // border: 1px solid red;
+    margin-bottom: 80px;
+  }
+
+  .fixbutton {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    background: #175fab;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    bottom: 200px;
+    z-index: 99;
+    opacity: 0.5;
+    transition: opacity 0.4s;
+    animation: fadeIn 1s;
+
+    &:hover {
+      color: white;
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
   }
 }

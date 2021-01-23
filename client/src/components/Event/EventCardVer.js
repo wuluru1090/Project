@@ -82,16 +82,28 @@ function EventCardVer(props) {
             }
           />
           <figure
-            className="event-photo card-img-top"
+            className="event-photo"
             onClick={() => click2Detail(cardInfo.event_id)}
           >
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
-              className="photo"
+              className="card-img-top photo"
               alt={cardInfo.event_name}
             />
           </figure>
+          {/* 參與者頭像開始 */}
 
+          <div className="more-att">+3</div>
+          <img
+            className="second-att"
+            src={devUrl + '/pic/pic/member2.jpg'}
+          ></img>
+          <img
+            className="first-att"
+            src={devUrl + '/pic/pic/member3.jpg'}
+          ></img>
+
+          {/* 參與者頭像結束 */}
           <div
             className="card-body"
             onClick={() => click2Detail(cardInfo.event_id)}
