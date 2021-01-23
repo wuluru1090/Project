@@ -23,6 +23,25 @@ app.get("/api/event/album/:id?", (req, res) => {
   });
 });
 
+//加入活動照片
+app.put("/api/event/eventaddphoto", (req, res) => {
+  const sqlUpdate = `UPDATE photo SET photo_show = 1 WHERE photo_id IN (${req.query.photoId})`;
+  db.query(sqlUpdate, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+
+app.put("/api/event/eventdeletephoto", (req, res) => {
+  const sqlUpdate = `UPDATE photo SET photo_show = 0 WHERE photo_id IN (${req.query.photoId})`;
+  db.query(sqlUpdate, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+
 //會員相簿照片
 app.get("/api/event/memberalbum", (req, res) => {
   const eventId = req.query.eventId;
@@ -60,7 +79,7 @@ app.get("/api/eventsearch/relative", (req, res) => {
   });
 });
 
-//活動搜尋頁頁資訊(單筆資料)
+//活動搜尋頁資訊
 app.get("/api/eventsearch", (req, res) => {
   // res.send(req.query.id);
   const today = converter(new Date().getTime());

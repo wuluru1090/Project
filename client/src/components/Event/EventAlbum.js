@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_album.scss'
 import { devUrl } from '../../config'
-import { withRouter } from 'react-router-dom'
+import { withRouter, useHistory } from 'react-router-dom'
 import { MdKeyboardArrowLeft, MdImage, MdSave, MdCancel } from 'react-icons/md'
 import Axios from 'axios'
 import Modal from 'react-bootstrap/Modal'
@@ -13,6 +13,8 @@ function EventAlbum(props) {
   const eventId = props.match.params.id
   window.sessionStorage.setItem('logIn', '4')
   const loginId = window.sessionStorage.getItem('logIn')
+  let history = useHistory()
+
   // console.log(loginId)
 
   //預設顯示的相簿
@@ -26,9 +28,10 @@ function EventAlbum(props) {
 
   //react-bootstrap modal
   const [lgShow, setLgShow] = useState(false)
+  const handleClose = () => setLgShow(false)
 
   //取得所有照片資料
-  useEffect(() => {
+  const getAllPhoto = () => {
     Axios.get(`http://localhost:3001/api/event/album/${eventId}`)
       .then((response) => {
         setDefaultPhoto(response.data)
@@ -36,10 +39,10 @@ function EventAlbum(props) {
       .catch(function (error) {
         console.log(error)
       })
-  }, [])
+  }
 
-  // 取得會員照片資料
-  useEffect(() => {
+  //取得會員照片狀態
+  const getMemberPhoto = () => {
     Axios.get(
       `http://localhost:3001/api/event/memberalbum?eventId=${eventId}&memberId=${loginId}`
     )
@@ -49,6 +52,12 @@ function EventAlbum(props) {
       .catch(function (error) {
         console.log(error)
       })
+  }
+
+  //初始狀態
+  useEffect(() => {
+    getAllPhoto()
+    getMemberPhoto()
   }, [])
 
   //取的活動資料
@@ -92,7 +101,7 @@ function EventAlbum(props) {
   const [status, setStatus] = useState('unupload')
   //上傳函式
   const add2Update = (photoId) => {
-    alert(photoId)
+    // alert(photoId)
     if (!updateList.includes(photoId)) {
       updateList = [...updateList, photoId]
     } else {
@@ -101,13 +110,38 @@ function EventAlbum(props) {
     }
   }
 
-  useEffect(() => {
-    if (memberImg.length > 0) {
-      memberImg.map((val) => {})
+  const add2Delete = (photoId) => {
+    if (!deleteList.includes(photoId)) {
+      deleteList = [...deleteList, photoId]
+    } else {
+      const newList = deleteList.filter((v) => v !== photoId)
+      deleteList = newList
     }
-  }, [memberImg])
+    console.log(deleteList)
+  }
 
-  const save = () => {}
+  const save = () => {
+    Axios.put(
+      `http://localhost:3001/api/event/eventaddphoto?photoId=${updateList.join(
+        ','
+      )}`
+    ).then((response) => {
+      console.log(response)
+    })
+    Axios.put(
+      `http://localhost:3001/api/event/eventdeletephoto?photoId=${deleteList.join(
+        ','
+      )}`
+    ).then((response) => {
+      console.log(response)
+    })
+  }
+
+  //檢視大圖
+  const click2big = (photoName) => {
+    let stringId = JSON.stringify(photoName)
+    history.push('/event/' + eventId + '/album/' + photoName)
+  }
 
   return (
     <>
@@ -139,7 +173,7 @@ function EventAlbum(props) {
               size={30}
               style={{ color: 'white', paddingRight: '6px' }}
             />
-            <span>上傳圖片</span>
+            <span>編輯我的圖片</span>
           </button>
         </div>
         {/* 圖片部分開始 */}
@@ -149,7 +183,12 @@ function EventAlbum(props) {
               defaultPhoto.map((val) => {
                 return (
                   <>
-                    <div className="photo-card col-4">
+                    <div
+                      className="photo-card col-4"
+                      onClick={() => {
+                        click2big(val.photo_name)
+                      }}
+                    >
                       <figure>
                         <img
                           src={`${devUrl}/pic/event_pic/${val.photo_name}`}
@@ -188,37 +227,68 @@ function EventAlbum(props) {
         </Modal.Header>
 
         <Modal.Body>
-          <div>從我的相簿中選擇上傳</div>
+          <div>
+            活動相簿裡的圖片預設是與會員相簿裡同名活動相簿中的圖面相同。您可以在此選擇相片並按下儲存以決定您的圖片在此相簿的可見狀態。
+          </div>
           <div className="photo-content d-flex flex-wrap row">
             {memberImg.map((val) => {
               return val.photo_show == 1 ? (
                 <div
                   className="image col-4"
-                  onClick={() => {
-                    // alert(val.photo_id)
-                    // add2Update(val.photo_id)
+                  onClick={(e) => {
+                    e.preventDefault()
+                    add2Delete(val.photo_id)
+                    if (document.querySelector(`#figure${val.photo_id}`)) {
+                      if (deleteList.includes(val.photo_id)) {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '不可見'
+                      } else {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '可見'
+                      }
+                    }
                   }}
                 >
-                  <figure id={val.photo_id}>
+                  <figure>
                     <img
                       src={`${devUrl}/pic/event_pic/${val.photo_name}`}
                       alt=""
                     />
-                    <div className="gray">已上傳</div>
+                    <div className="gray" id={'figure' + val.photo_id}>
+                      可見
+                    </div>
                   </figure>
                 </div>
               ) : (
                 <div
-                  className="image col-4 {update?}"
-                  onClick={() => {
+                  className="image col-4 "
+                  onClick={(e) => {
+                    e.preventDefault()
                     add2Update(val.photo_id)
+                    if (document.querySelector(`#figure${val.photo_id}`)) {
+                      if (updateList.includes(val.photo_id)) {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '可見'
+                      } else {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '不可見'
+                      }
+                    }
                   }}
                 >
-                  <figure id={val.photo_id}>
+                  <figure>
                     <img
                       src={`${devUrl}/pic/event_pic/${val.photo_name}`}
                       alt=""
+                      className="d-flex justify-content-center align-items-center"
                     />
+                    <div className="gray" id={'figure' + val.photo_id}>
+                      不可見
+                    </div>
                   </figure>
                 </div>
               )
@@ -243,7 +313,12 @@ function EventAlbum(props) {
             className="btn rounded-pill align-items-center d-flex"
             style={{ padding: '8px 16px' }}
             onClick={() => {
-              save()
+              let saveNClose = async () => {
+                await save()
+                await handleClose()
+                window.location.reload()
+              }
+              saveNClose()
             }}
           >
             <MdSave size={30} style={{ color: 'white', paddingRight: '6px' }} />

@@ -9,6 +9,7 @@ import { MdBookmark, MdShare } from 'react-icons/md'
 //DatePicker
 import 'react-calendar/dist/Calendar.css'
 import Calendar from 'react-calendar'
+import ScrollTop from '../Main/ScrollTop'
 
 // 元素
 import EventDetailInfo from './EventDetailInfo'
@@ -21,15 +22,21 @@ import EventRelativeCarousel from './EventRelativeCarousel'
 import EventFixedBottom from './EventFixedBottom'
 import EventBreadCrumb from './EventBreadCrumb'
 
+// 分享
+import { Modal } from 'react-bootstrap'
+import {
+  FacebookShareButton,
+  LineShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  LineIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from 'react-share'
+
 //connect with backend
 import Axios from 'axios'
-
-//GMap地圖Pin標記位置
-const location = {
-  address: '320桃園市中壢區中大路300號',
-  lat: 24.96803,
-  lng: 121.19498,
-}
 
 function EventDetail(props) {
   window.scrollTo(0, 0)
@@ -50,6 +57,18 @@ function EventDetail(props) {
 
   //設定是否購買過活動
   const [bought, setBought] = useState(true)
+
+  // Modal控制區
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
+  //GMap地圖Pin標記位置
+  const location = {
+    address: '320桃園市中壢區中大路300號',
+    lat: 24.96803,
+    lng: 121.19498,
+  }
 
   //取得後端活動資料
   useEffect(() => {
@@ -263,7 +282,10 @@ function EventDetail(props) {
                       >
                         <span className="align-middle">取消收藏</span>
                       </button>
-                      <button className="btn bttn share rounded-pill">
+                      <button
+                        className="btn bttn share rounded-pill"
+                        onClick={handleShow}
+                      >
                         <MdShare
                           size={30}
                           style={{ color: 'white', paddingRight: '6px' }}
@@ -404,7 +426,50 @@ function EventDetail(props) {
           </>
         )
       })}
-      {/* </div> */}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton className="border-0">
+          <Modal.Title
+            style={{
+              fontSize: '24px',
+              margin: '18px 26px',
+              fontFamily: 'TaipeiSansTCBeta-Bold',
+            }}
+          >
+            分享活動
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="d-flex justify-content-around">
+          <LineShareButton
+            url={String(window.location)}
+            title="快來參加這個超棒揪影活動"
+          >
+            <LineIcon round={true} />
+          </LineShareButton>
+          <TwitterShareButton
+            url={String(window.location)}
+            title="快來參加這個超棒揪影活動"
+          >
+            <TwitterIcon round={true} />
+          </TwitterShareButton>
+          <WhatsappShareButton
+            url={String(window.location)}
+            title="快來參加這個超棒揪影活動"
+          >
+            <WhatsappIcon round={true} />
+          </WhatsappShareButton>
+          <FacebookShareButton
+            url={String(window.location)}
+            title="快來參加這個超棒揪影活動"
+          >
+            <FacebookIcon round={true} />
+          </FacebookShareButton>
+        </Modal.Body>
+        <Modal.Footer className="border-0">
+          {/* <Button variant="secondary" onClick={handleClose}>
+                      Close
+                    </Button> */}
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }
