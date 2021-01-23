@@ -98,44 +98,54 @@ function MemberMyPhoto(props) {
                       <Card.Header className="mem_title d-flex justify-content-between">
                         <h5>我的相簿</h5>
                       </Card.Header>
-                      {att.map((m) => {
-                        return (
-                          <Card.Body
-                            style={{ padding: '14px  42px  43px 42px' }}
-                          >
-                            <div className="d-flex justify-content-between flex-wrap">
-                              <div className="photo_album  justify-content-start ">
-                                <h6 className="subtitle2">{m.event_name}</h6>
+                      {att.length > 0 ? (
+                        <div>
+                          {att.map((m) => {
+                            return (
+                              <Card.Body
+                                style={{ padding: '14px  42px  43px 42px' }}
+                              >
+                                <div className="d-flex justify-content-between flex-wrap">
+                                  <div className="photo_album  justify-content-start ">
+                                    <h6 className="subtitle2">
+                                      {m.event_name}
+                                    </h6>
 
-                                <div className="img_box d-flex align-items-center position-relative">
-                                  <div className="d-flex justify-content-center flex-wrap">
-                                    {attphoto.map((p) => {
-                                      return (
-                                        <img
-                                          src={
-                                            devUrl +
-                                            `pic/event_photo/${p.photo_name}`
-                                          }
-                                          alt="photo1"
-                                        ></img>
-                                      )
-                                    })}
-                                  </div>
-                                  <figure className="position-absolute addphoto">
-                                    <div className="">
-                                      <div>
-                                        <Link to="/member/:id/MyPhoto2">
-                                          <MdAddCircle className="justify-content-center" />
-                                        </Link>
+                                    <div className="img_box d-flex align-items-center position-relative">
+                                      <div className="d-flex justify-content-center flex-wrap">
+                                        {attphoto.map((p) => {
+                                          return (
+                                            <img
+                                              src={
+                                                devUrl +
+                                                `pic/event_photo/${p.photo_name}`
+                                              }
+                                              alt="photo1"
+                                            ></img>
+                                          )
+                                        })}
                                       </div>
+                                      <figure className="position-absolute addphoto">
+                                        <div className="">
+                                          <div>
+                                            <Link to="/member/:id/MyPhoto2">
+                                              <MdAddCircle className="justify-content-center" />
+                                            </Link>
+                                          </div>
+                                        </div>
+                                      </figure>
                                     </div>
-                                  </figure>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                          </Card.Body>
-                        )
-                      })}
+                              </Card.Body>
+                            )
+                          })}
+                        </div>
+                      ) : (
+                        <div style={{ margin: '32px' }}>
+                          <p>目前沒有已完成的活動，尚未建立相簿</p>
+                        </div>
+                      )}
                     </Card>
                   </div>
                 </article>

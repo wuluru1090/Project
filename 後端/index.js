@@ -271,21 +271,20 @@ app.get('/member/get/:id',(req,res)=>{
 })
 })
 
-app.put("/member/update/photo",(req,res)=>{
-
-  const vaild= 0;
-  const photo_id= req.body.photo_id;
-  const sqlUpdate="UPDATE s_class SET vaild=? WHERE photo_id ON ${photo_id} ";
-  console.log(sqlUpdate)
-  db.query(sqlUpdate,[vaild,photo_id],
-      (err, result) => {
-          if (err) {
-            console.log(err);
-          } else {
-            res.send(result);
-          }
-})
-})
+// app.put("/member/update/photo",(req,res)=>{
+//   const valid= 0;
+//   const photo_id= req.body.photoid;
+//   const sqlUpdate="UPDATE photo SET valid=0 WHERE photo_id = ? ";
+//   console.log(sqlUpdate)
+//   db.query(sqlUpdate,[valid,photo_id],
+//       (err, result) => {
+//           if (err) {
+//             console.log(err);
+//           } else {
+//             res.send(result);
+//           }
+// })
+// })
 
 app.put("/member/update/classorder",(req,res)=>{
 

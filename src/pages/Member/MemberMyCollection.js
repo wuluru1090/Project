@@ -30,6 +30,7 @@ function MemberMyCollection(props) {
     )
     alert('取消收藏')
     console.log(eventId)
+    setTimeout(window.location.reload(), 500)
   }
 
   return (
@@ -79,99 +80,109 @@ function MemberMyCollection(props) {
                           </li>
                         </ul>
                         <br />
-                        {memlikeevent.map((val) => {
-                          return (
-                            <div className="pdCard ">
-                              <div className="ccard position-relative">
-                                <div className="d-flex dcard">
-                                  <div>
-                                    <img
-                                      src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                      className="card-img-top photo"
-                                      alt="..."
-                                    />
-                                  </div>
-                                  <div className="d-flex align-items-center">
-                                    <div className="card-body ">
-                                      <h5 className="card-title">
-                                        {val.event_name}
-                                      </h5>
+                        {memlikeevent.length > 0 ? (
+                          <div>
+                            {memlikeevent.map((val) => {
+                              return (
+                                <div className="pdCard ">
+                                  <div className="ccard position-relative">
+                                    <div className="d-flex dcard">
+                                      <div>
+                                        <img
+                                          src={
+                                            devUrl + '/pic/pic/桌布-德國.jpg'
+                                          }
+                                          className="card-img-top photo"
+                                          alt="..."
+                                        />
+                                      </div>
+                                      <div className="d-flex align-items-center">
+                                        <div className="card-body ">
+                                          <h5 className="card-title">
+                                            {val.event_name}
+                                          </h5>
 
-                                      <div className="d-flex bbb">
-                                        <img
-                                          className="icon"
-                                          src="/pic/svg/photo-camera.svg"
-                                          alt=""
-                                        />
-                                        <p className="caption">
-                                          {val.event_location}
-                                        </p>
-                                      </div>
-                                      <div className="d-flex bbb">
-                                        <img
-                                          className="icon2"
-                                          src="/pic/svg/date_range-24px.svg"
-                                          alt=""
-                                        />
-                                        <p className="caption  d-flex">
-                                          <DateConvert
-                                            jsonDate={val.event_start_time}
-                                          />
-                                          &nbsp;~&nbsp;
-                                          <DateConvert
-                                            jsonDate={val.event_end_time}
-                                          />
-                                        </p>
-                                      </div>
-                                      <div className="d-flex bbb">
-                                        <img
-                                          className="icon3"
-                                          src="/pic/svg/location_on-24px.svg"
-                                          alt=""
-                                        />
-                                        <p className="caption ">
-                                          {val.event_address}
-                                        </p>
-                                      </div>
-                                      <div
-                                        className="position-absolute"
-                                        style={{
-                                          bottom: '8px',
-                                          right: '10px',
-                                        }}
-                                      >
-                                        <div className="d-flex justify-content-end">
-                                          <Button
-                                            onClick={() => {
-                                              deletelike(val.event_id)
-                                            }}
-                                            className="btn-style botton-font btn_icon mem_card_btn d-flex align-items-center "
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon"
+                                              src="/pic/svg/photo-camera.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption">
+                                              {val.event_location}
+                                            </p>
+                                          </div>
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon2"
+                                              src="/pic/svg/date_range-24px.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption  d-flex">
+                                              <DateConvert
+                                                jsonDate={val.event_start_time}
+                                              />
+                                              &nbsp;~&nbsp;
+                                              <DateConvert
+                                                jsonDate={val.event_end_time}
+                                              />
+                                            </p>
+                                          </div>
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon3"
+                                              src="/pic/svg/location_on-24px.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption ">
+                                              {val.event_address}
+                                            </p>
+                                          </div>
+                                          <div
+                                            className="position-absolute"
                                             style={{
-                                              backgroundColor: '#df3d00',
-                                              marginBottom: '8px',
+                                              bottom: '8px',
+                                              right: '10px',
                                             }}
                                           >
-                                            <MdClear />
-                                            取消收藏
-                                          </Button>
-                                        </div>
-                                        <div className="d-flex justify-content-end">
-                                          <Button
-                                            onclick=""
-                                            className="btn-style botton-font btn_icon mem_card_btn"
-                                          >
-                                            <MdVisibility />
-                                            活動檢視
-                                          </Button>
+                                            <div className="d-flex justify-content-end">
+                                              <Button
+                                                onClick={() => {
+                                                  deletelike(val.event_id)
+                                                }}
+                                                className="btn-style botton-font btn_icon mem_card_btn d-flex align-items-center "
+                                                style={{
+                                                  backgroundColor: '#df3d00',
+                                                  marginBottom: '8px',
+                                                }}
+                                              >
+                                                <MdClear />
+                                                取消收藏
+                                              </Button>
+                                            </div>
+                                            <div className="d-flex justify-content-end">
+                                              <Button
+                                                onclick=""
+                                                className="btn-style botton-font btn_icon mem_card_btn"
+                                              >
+                                                <MdVisibility />
+                                                活動檢視
+                                              </Button>
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          )
-                        })}
+                              )
+                            })}
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: '32px' }}>
+                            <p>目前無收藏活動</p>
+                          </div>
+                        )}
                       </Card.Body>
                     </Card>
                   </div>

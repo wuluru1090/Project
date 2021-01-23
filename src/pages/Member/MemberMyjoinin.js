@@ -72,85 +72,94 @@ function MemberMyjoinin(props) {
                           </li>
                         </ul>
                         <br />
-
-                        {memjoinin.map((val) => {
-                          return (
-                            <div className="pdCard">
-                              <div className="ccard">
-                                <div className="d-flex dcard">
-                                  <div>
-                                    <img
-                                      src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                      className="card-img-top photo"
-                                      alt="..."
-                                    />
-                                  </div>
-                                  <div className="">
-                                    <div className="card-body">
-                                      <h5 className="card-title">
-                                        {val.event_name}
-                                      </h5>
-
-                                      <div className="d-flex bbb">
+                        {memjoinin.length > 0 ? (
+                          <div>
+                            {memjoinin.map((val) => {
+                              return (
+                                <div className="pdCard">
+                                  <div className="ccard">
+                                    <div className="d-flex dcard">
+                                      <div>
                                         <img
-                                          className="icon"
-                                          src="/pic/svg/photo-camera.svg"
-                                          alt=""
+                                          src={
+                                            devUrl + '/pic/pic/桌布-德國.jpg'
+                                          }
+                                          className="card-img-top photo"
+                                          alt="..."
                                         />
-                                        <p className="caption">
-                                          {val.event_location}
-                                        </p>
                                       </div>
-                                      <div className="d-flex bbb">
-                                        <img
-                                          className="icon2"
-                                          src="/pic/svg/date_range-24px.svg"
-                                          alt=""
-                                        />
-                                        <p className="caption  d-flex">
-                                          <DateConvert
-                                            jsonDate={val.event_start_time}
-                                          />
-                                          &nbsp;~&nbsp;
-                                          <DateConvert
-                                            jsonDate={val.event_end_time}
-                                          />
-                                        </p>
-                                      </div>
-                                      <div className="d-flex bbb">
-                                        <img
-                                          className="icon3"
-                                          src="/pic/svg/location_on-24px.svg"
-                                          alt=""
-                                        />
-                                        <p className="caption ">
-                                          {val.event_address}
-                                        </p>
-                                      </div>
-                                      <div className="d-flex justify-content-end btn_group">
-                                        <Button
-                                          onclick=""
-                                          className="btn-style botton-font btn_icon mem_card_btn"
-                                        >
-                                          <MdVisibility />
-                                          活動檢視
-                                        </Button>
+                                      <div className="">
+                                        <div className="card-body">
+                                          <h5 className="card-title">
+                                            {val.event_name}
+                                          </h5>
 
-                                        <Button
-                                          onclick=""
-                                          className="btn-style botton-font btn_icon mem_card_btn btn_edit"
-                                        >
-                                          <MdBrightnessHigh />
-                                          活動編輯
-                                        </Button>
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon"
+                                              src="/pic/svg/photo-camera.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption">
+                                              {val.event_location}
+                                            </p>
+                                          </div>
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon2"
+                                              src="/pic/svg/date_range-24px.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption  d-flex">
+                                              <DateConvert
+                                                jsonDate={val.event_start_time}
+                                              />
+                                              &nbsp;~&nbsp;
+                                              <DateConvert
+                                                jsonDate={val.event_end_time}
+                                              />
+                                            </p>
+                                          </div>
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon3"
+                                              src="/pic/svg/location_on-24px.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption ">
+                                              {val.event_address}
+                                            </p>
+                                          </div>
+                                          <div className="d-flex justify-content-end btn_group">
+                                            <Button
+                                              onclick=""
+                                              className="btn-style botton-font btn_icon mem_card_btn"
+                                            >
+                                              <MdVisibility />
+                                              活動檢視
+                                            </Button>
+
+                                            <Button
+                                              onclick=""
+                                              className="btn-style botton-font btn_icon mem_card_btn btn_edit"
+                                            >
+                                              <MdBrightnessHigh />
+                                              活動編輯
+                                            </Button>
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
-                          )
-                        })}
+                              )
+                            })}
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: '32px' }}>
+                            <p>沒有舉辦揪影，趕快去發起活動吧</p>
+                          </div>
+                        )}
                       </Card.Body>
                     </Card>
                   </div>

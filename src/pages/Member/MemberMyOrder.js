@@ -85,15 +85,8 @@ function MemberMyOrder(props) {
     Axios.put('http://localhost:3001/member/update/eventorder', {
       order_id: order_id,
     }).then((res) => {
-      setMemberEventorder(
-        membereventorder.map((list) => {
-          return list.order_id === order_id
-            ? {
-                order_id: list.order_id,
-              }
-            : list
-        })
-      )
+      setShow(false)
+      setTimeout(window.location.reload(), 500)
     })
   }
 

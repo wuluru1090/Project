@@ -159,83 +159,94 @@ function MemberMyScoreOk(props) {
 
                         <Card.Body style={{ padding: '0' }}>
                           <Accordion>
-                            {att.map((m) => {
-                              return (
-                                <div className="pd_score">
-                                  <div className="ccard">
-                                    <div className="d-flex dcard">
-                                      <div>
-                                        <img
-                                          src={
-                                            devUrl + '/pic/pic/桌布-德國.jpg'
-                                          }
-                                          className="card-img-top photo"
-                                          alt="..."
-                                        />
-                                      </div>
-                                      <div className="">
-                                        <div className="card-body">
-                                          <h5 className="card-title">
-                                            {m.event_name}
-                                          </h5>
-                                          <div className="d-flex bbb">
-                                            <img
-                                              className="icon"
-                                              src="/pic/svg/photo-camera.svg"
-                                              alt=""
-                                            />
-                                            <p className="caption">
-                                              {m.event_location}
-                                            </p>
-                                          </div>
-                                          <div className="d-flex bbb">
-                                            <img
-                                              className="icon2"
-                                              src="/pic/svg/date_range-24px.svg"
-                                              alt=""
-                                            />
-                                            <p className="caption  d-flex">
-                                              <DateConvert
-                                                jsonDate={m.event_start_time}
-                                              />
-                                              &nbsp;~&nbsp;
-                                              <DateConvert
-                                                jsonDate={m.event_end_time}
-                                              />
-                                            </p>
-                                          </div>
-                                          <div className="d-flex bbb">
-                                            <img
-                                              className="icon3"
-                                              src="/pic/svg/location_on-24px.svg"
-                                              alt=""
-                                            />
-                                            <p className="caption ">
-                                              {m.event_address}
-                                            </p>
-                                          </div>
-                                        </div>
-
-                                        <div className=" d-flex justify-content-end">
+                            {att.length > 0 ? (
+                              <div>
+                                {att.map((m) => {
+                                  return (
+                                    <div className="pd_score">
+                                      <div className="ccard">
+                                        <div className="d-flex dcard">
                                           <div>
-                                            <Accordion.Toggle
-                                              as={Button}
-                                              variant="link"
-                                              eventKey="0"
-                                            >
-                                              <Button className="btn-style botton-font btn_icon mem_card_btn btn_toscore">
-                                                <MdGrade />
-                                                我要評價
-                                              </Button>
-                                            </Accordion.Toggle>
+                                            <img
+                                              src={
+                                                devUrl +
+                                                '/pic/pic/桌布-德國.jpg'
+                                              }
+                                              className="card-img-top photo"
+                                              alt="..."
+                                            />
+                                          </div>
+                                          <div className="">
+                                            <div className="card-body">
+                                              <h5 className="card-title">
+                                                {m.event_name}
+                                              </h5>
+                                              <div className="d-flex bbb">
+                                                <img
+                                                  className="icon"
+                                                  src="/pic/svg/photo-camera.svg"
+                                                  alt=""
+                                                />
+                                                <p className="caption">
+                                                  {m.event_location}
+                                                </p>
+                                              </div>
+                                              <div className="d-flex bbb">
+                                                <img
+                                                  className="icon2"
+                                                  src="/pic/svg/date_range-24px.svg"
+                                                  alt=""
+                                                />
+                                                <p className="caption  d-flex">
+                                                  <DateConvert
+                                                    jsonDate={
+                                                      m.event_start_time
+                                                    }
+                                                  />
+                                                  &nbsp;~&nbsp;
+                                                  <DateConvert
+                                                    jsonDate={m.event_end_time}
+                                                  />
+                                                </p>
+                                              </div>
+                                              <div className="d-flex bbb">
+                                                <img
+                                                  className="icon3"
+                                                  src="/pic/svg/location_on-24px.svg"
+                                                  alt=""
+                                                />
+                                                <p className="caption ">
+                                                  {m.event_address}
+                                                </p>
+                                              </div>
+                                            </div>
+
+                                            <div className=" d-flex justify-content-end">
+                                              <div>
+                                                <Accordion.Toggle
+                                                  as={Button}
+                                                  variant="link"
+                                                  eventKey="0"
+                                                >
+                                                  <Button className="btn-style botton-font btn_icon mem_card_btn btn_toscore">
+                                                    <MdGrade />
+                                                    我要評價
+                                                  </Button>
+                                                </Accordion.Toggle>
+                                              </div>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </div>
-                              )
-                            })}
+                                  )
+                                })}
+                              </div>
+                            ) : (
+                              <div style={{ marginTop: '32px' }}>
+                                <p>無活動評論紀錄</p>
+                              </div>
+                            )}
 
                             <Accordion.Collapse eventKey="0">
                               <form className="mymem_toscoreM">

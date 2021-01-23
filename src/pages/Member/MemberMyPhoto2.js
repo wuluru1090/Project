@@ -18,7 +18,7 @@ function MemberMyPhoto2(props) {
   const [photo, setPhoto] = useState([])
   const [attphoto, setAttphoto] = useState([])
   const [addphoto, setAddphoto] = useState([])
-  const [photoid, setPhotoid] = useState([])
+  const [photo_id, setPhotoid] = useState([])
 
   const getEvent = async () => {
     await Axios.get(
@@ -99,11 +99,13 @@ function MemberMyPhoto2(props) {
     })
   }
 
+  //目前無法即使顯示即刪除
   const delphoto = () => {
-    console.log(photoid)
+    console.log(photo_id)
 
     Axios.put('http://localhost:3001/member/update/photo', {
-      photo_id: photoid,
+      photo_id: photo_id,
+      valid: 0,
     }).then((res) => {})
   }
 
@@ -176,37 +178,47 @@ function MemberMyPhoto2(props) {
                         <div className="photo_album3 d-flex ">
                           <div className="img_box3  d-flex justify-content-between">
                             <div className=" d-flex flex-wrap">
-                              {photo.map((p) => {
-                                return (
-                                  <div className="myphoto">
-                                    <div className=" d-flex justify-content-end">
-                                      <input
-                                        type="checkbox"
-                                        onChange={(e) => {
-                                          setPhotoid(e.target.value)
-                                        }}
-                                        value={p.photo_id}
-                                      />
-                                    </div>
+                              {photo.length > 0 ? (
+                                <div>
+                                  {photo.map((p) => {
+                                    return (
+                                      <div className="myphoto">
+                                        <div className=" d-flex justify-content-end">
+                                          <input
+                                            type="checkbox"
+                                            onChange={(e) => {
+                                              setPhotoid(e.target.value)
+                                            }}
+                                            value={p.photo_id}
+                                          />
+                                        </div>
 
-                                    <img
-                                      // src={
-                                      //   devUrl +
-                                      //   `pic/event_photo/${p.photo_name}`
-                                      // }
-                                      src={devUrl + '/pic/pic/桌布-德國.jpg'}
-                                      alt="photo1"
-                                    ></img>
+                                        <img
+                                          // src={
+                                          //   devUrl +
+                                          //   `pic/event_photo/${p.photo_name}`
+                                          // }
+                                          src={
+                                            devUrl + '/pic/pic/桌布-德國.jpg'
+                                          }
+                                          alt="photo1"
+                                        ></img>
 
-                                    <figcaption className="d-flex justify-content-center">
-                                      {/* <h6>{p.photo_name}</h6> */}
-                                    </figcaption>
-                                    <p className="d-flex justify-content-end">
-                                      {/* <DateConvert jsonDate={p.c_date} /> */}
-                                    </p>
-                                  </div>
-                                )
-                              })}
+                                        <figcaption className="d-flex justify-content-center">
+                                          {/* <h6>{p.photo_name}</h6> */}
+                                        </figcaption>
+                                        <p className="d-flex justify-content-end">
+                                          {/* <DateConvert jsonDate={p.c_date} /> */}
+                                        </p>
+                                      </div>
+                                    )
+                                  })}
+                                </div>
+                              ) : (
+                                <div style={{ margin: '32px' }}>
+                                  <p>尚未上傳照片趕快上傳吧</p>
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>

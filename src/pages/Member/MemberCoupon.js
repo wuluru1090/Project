@@ -12,6 +12,7 @@ import Axios from 'axios'
 function MemberCoupon(props) {
   const [couponnew, setCouponNew] = useState([])
   const [coupon, setCoupon] = useState([])
+  const [couponall, setCouponAll] = useState([])
   // const[ ]
 
   useEffect(() => {
@@ -46,8 +47,8 @@ function MemberCoupon(props) {
     Axios.post('http://localhost:3001/member/coupon', {
       coupon_id: coupon_id,
       member_id: `${props.match.params.id}`,
-      coupon_name: coupon.coupon_name,
-      coupon_content: coupon.coupon_content,
+      // coupon_name: coupon.coupon_name,
+      // coupon_content: coupon.coupon_content,
     }).then((res) => {
       setCoupon([
         ...coupon,
@@ -59,17 +60,36 @@ function MemberCoupon(props) {
           valid: 1,
         },
       ])
-      // setCouponNew([
-      //   ...couponnew,
-      //   {
-      //     coupon_id: coupon_id,
-      //     member_id: `${props.match.params.id}`,
-      //     coupon_name: couponnew.coupon_name,
-      //     coupon_content: couponnew.coupon_content,
-      //     valid: 0,
-      //   },
-      // ])
+      setTimeout(window.location.reload(), 500)
     })
+  }
+
+  const addallCoupon = (couponnew) => {
+    console.log(couponnew)
+    for (var i = 0; i < couponnew.length; i++) {
+      // }
+      // if (couponnew.length > 0) {
+      let getcouponid = couponnew[i].coupon_id
+      console.log(getcouponid)
+      Axios.post('http://localhost:3001/member/coupon', {
+        coupon_id: getcouponid,
+        member_id: `${props.match.params.id}`,
+        coupon_name: coupon.coupon_name,
+        coupon_content: coupon.coupon_content,
+      }).then((res) => {
+        // setCoupon([
+        //   ...coupon,
+        //   {
+        //     coupon_id: getcouponid,
+        //     member_id: `${props.match.params.id}`,
+        //     coupon_name: coupon.coupon_name,
+        //     coupon_content: coupon.coupon_content,
+        //     valid: 1,
+        //   },
+        // ])
+      })
+    }
+    setTimeout(window.location.reload(), 500)
   }
 
   return (
@@ -159,7 +179,12 @@ function MemberCoupon(props) {
                         <br />
                         <br />
                         <div className=" d-flex justify-content-end ">
-                          <button className=" btn_style subtitle2 botton-font btn_icon mem_card_btn">
+                          <button
+                            className=" btn_style subtitle2 botton-font btn_icon mem_card_btn"
+                            onClick={() => {
+                              addallCoupon(couponnew)
+                            }}
+                          >
                             <MdArchive />
                             一鍵領取
                           </button>

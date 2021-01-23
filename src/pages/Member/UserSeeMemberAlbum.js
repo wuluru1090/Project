@@ -3,16 +3,24 @@ import MemberAlbumPhotoCarousel from '../../components/Member/MemberAlbumPhotoCa
 import '../../style/event/event_inspect_photo.scss'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import { Link } from 'react-router-dom'
-function UserSeeMemberAlbum() {
+import { withRouter, useHistory } from 'react-router-dom'
+function UserSeeMemberAlbum(props) {
+  window.scrollTo(0, 0)
+  let history = useHistory()
   return (
     <>
       <div className="inspect-photo-wrapper">
-        <Link to="/see/Album">
-          <a href="#" className="go-back d-flex align-items-center">
-            <MdKeyboardArrowLeft />
-            <div>回到相簿</div>
-          </a>
-        </Link>
+        <div className="btn-div">
+          {/* <button
+            className="go-back d-flex align-items-center"
+            onClick={() => {
+              history.goBack()
+            }}
+          > */}
+          <MdKeyboardArrowLeft />
+          <div>回到相簿</div>
+          {/* </button> */}
+        </div>
 
         <div className="photo-carousel">
           <MemberAlbumPhotoCarousel />
@@ -22,4 +30,4 @@ function UserSeeMemberAlbum() {
   )
 }
 
-export default UserSeeMemberAlbum
+export default withRouter(UserSeeMemberAlbum)

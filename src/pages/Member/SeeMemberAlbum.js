@@ -3,7 +3,7 @@ import '../../style/default.scss'
 import '../../style/event/event_album.scss'
 import { devUrl } from '../../config'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter, useHistory } from 'react-router-dom'
 import Axios from 'axios'
 import { DateConvert } from '../../components/Main/DateTimeConverter'
 
@@ -14,6 +14,8 @@ function SeeMemberAlbum(props) {
   const [photo, setPhoto] = useState([])
   const [attphoto, setAttphoto] = useState([])
   const [addphoto, setAddphoto] = useState([])
+  window.scrollTo(0, 0)
+  let history = useHistory()
 
   const getEvent = async () => {
     await Axios.get(
@@ -77,9 +79,9 @@ function SeeMemberAlbum(props) {
       <div className="album-page">
         <div className="go-back d-flex align-items-center">
           <MdKeyboardArrowLeft />
-          <Link to="/see">
+          <a href={devUrl + `/see/${props.match.params.id}`}>
             <div>回到會員頁</div>
-          </Link>
+          </a>
         </div>
 
         <div className="title row">
