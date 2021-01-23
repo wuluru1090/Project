@@ -309,6 +309,7 @@ function MemberMyScore(props) {
                                                   `/pic/mem_img/${val.member_img}`
                                                 }
                                                 alt=""
+                                                title={val.member_name}
                                                 style={{
                                                   cursor: ' pointer ',
                                                 }}

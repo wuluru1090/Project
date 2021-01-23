@@ -160,7 +160,7 @@ function UserSeeMember(props) {
                       <div className="d-flex justify-content-between  photo_album_all flex-wrap">
                         {att.map((m) => {
                           return (
-                            <Link to="/see/Album">
+                            <Link to="/see/:id/Album/:id">
                               <div className="photo_album2">
                                 <h6 className="subtitle2 font-bold">
                                   {m.event_name} &nbsp;

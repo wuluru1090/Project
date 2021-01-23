@@ -53,12 +53,6 @@ function MemberMyOrderEventNopay(props) {
       })
   }
 
-  const delnopayorder = (order_id) => {
-    console.log(order_id)
-
-    Axios.put('http://localhost:3001/member/update/eventorder', {})
-  }
-
   const getAtt = async () => {
     await Axios.get(
       `http://localhost:3001/member/order/event/pay/att?id=${events.join(',')}`
@@ -88,7 +82,6 @@ function MemberMyOrderEventNopay(props) {
 
   const delnopayorder = (order_id) => {
     console.log(order_id)
-
     Axios.put('http://localhost:3001/member/update/eventorder', {
       order_id: order_id,
     }).then((res) => {
