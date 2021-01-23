@@ -9,31 +9,16 @@ const db = mysql.createConnection({
   password: "123456",
   database: "test",
 });
+
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.get('/member/get/:id',(req,res)=>{
-  const sqlSelect=` SELECT * FROM member WHERE member_id  = ${req.params.id}  `;
-  db.query(sqlSelect,(err,result)=>{
-  res.send(result);
-})
-})
 
-// app.delete('/api/delete/class'),(req,res)=>{
-//   const classId =req.params.classId;
-//   console.log(classId)
-//   // const member_id =req.params.member_id;
-//   const sqlDelete =`DELETE FROM like_class WHERE member_id=101 AND class_id =1 `
-//   console.log(sqlDelete)
-//   db.query(sqlDelete,class_id,(err,result)=>{
-//     console(result)
-//     if(err) console.log(err)
-//     res.json({
-//       state:"success"
-//     })
-//   })
-// }
+
+
+
+
 
 app.post("/member/coupon",(req,res)=>{
   const coupon_id = req.body.coupon_id;
@@ -134,7 +119,7 @@ app.get('/member/get/event_host/finish/:id',(req,res)=>{
 })
 
 app.get('/member/get/history/event/:id',(req,res)=>{
-  const sqlSelect=` SELECT s_event.event_id, s_event.id FROM s_event WHERE id = ${req.params.id}   `;
+  const sqlSelect=` SELECT s_event.event_id, s_event.id FROM s_event WHERE id = ${req.params.id}  AND vaild= 1 `;
 
 
   db.query(sqlSelect,(err,result)=>{
@@ -161,7 +146,7 @@ app.get('/member/history/event/att/mem',(req,res)=>{
 })
 
 app.get('/member/get/history/class/:id',(req,res)=>{
-  const sqlSelect=` SELECT s_class.class_id, s_class.id FROM s_class WHERE id = ${req.params.id} `;
+  const sqlSelect=` SELECT s_class.class_id, s_class.id FROM s_class WHERE id = ${req.params.id}  AND vaild= 1`;
   db.query(sqlSelect,(err,result)=>{
   res.send(result);
 })
@@ -176,7 +161,7 @@ app.get('/member/history/class/att',(req,res)=>{
 })
 })
 app.get('/member/get/order/event/:id',(req,res)=>{
-  const sqlSelect=` SELECT  * FROM  s_event WHERE id  = ${req.params.id} AND order_paid=1 `;
+  const sqlSelect=` SELECT  * FROM  s_event WHERE id  = ${req.params.id} AND order_paid=1  AND vaild= 1`;
 
 
 
@@ -195,7 +180,7 @@ app.get('/member/order/event/att',(req,res)=>{
 })
 
 app.get('/member/get/order/class/:id',(req,res)=>{
-  const sqlSelect=` SELECT  * FROM  s_class WHERE id  = ${req.params.id} AND order_paid=1 `;
+  const sqlSelect=` SELECT  * FROM  s_class WHERE id  = ${req.params.id} AND order_paid=1 AND vaild= 1`;
 
 
 
@@ -214,7 +199,7 @@ app.get('/member/order/class/att',(req,res)=>{
 })
 
 app.get('/member/get/order/event/pay/:id',(req,res)=>{
-  const sqlSelect=` SELECT  * FROM  s_event WHERE id  = ${req.params.id} AND order_paid=0 `;
+  const sqlSelect=` SELECT  * FROM  s_event WHERE id  = ${req.params.id} AND order_paid=0  AND vaild= 1`;
 
 
   db.query(sqlSelect,(err,result)=>{
@@ -232,7 +217,7 @@ app.get('/member/order/event/pay/att',(req,res)=>{
 })
 
 app.get('/member/get/order/class/pay/:id',(req,res)=>{
-  const sqlSelect=` SELECT * FROM  s_class WHERE id  = ${req.params.id} AND order_paid=0 `;
+  const sqlSelect=` SELECT * FROM  s_class WHERE id  = ${req.params.id} AND order_paid = 0  AND vaild= 1`;
 
 
 
@@ -279,14 +264,60 @@ app.get('/member/get/event/photo',(req,res)=>{
     }
 })
 })
+app.get('/member/get/:id',(req,res)=>{
+  const sqlSelect=` SELECT * FROM member WHERE member_id  = ${req.params.id}  `;
+  db.query(sqlSelect,(err,result)=>{
+  res.send(result);
+})
+})
 
+app.put("/member/update/photo",(req,res)=>{
 
+  const vaild= 0;
+  const photo_id= req.body.photo_id;
+  const sqlUpdate="UPDATE s_class SET vaild=? WHERE photo_id ON ${photo_id} ";
+  console.log(sqlUpdate)
+  db.query(sqlUpdate,[vaild,photo_id],
+      (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(result);
+          }
+})
+})
 
+app.put("/member/update/classorder",(req,res)=>{
 
+  const vaild= 0;
+  const order_id= req.body.order_id;
+  const sqlUpdate="UPDATE s_class SET vaild=? WHERE order_id=? ";
+  console.log(sqlUpdate)
+  db.query(sqlUpdate,[vaild,order_id],
+      (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(result);
+          }
+})
+})
 
+app.put("/member/update/eventorder",(req,res)=>{
 
-
-
+  const vaild= 0;
+  const order_id= req.body.order_id;
+  const sqlUpdate="UPDATE s_event SET vaild=? WHERE order_id=? ";
+  console.log(sqlUpdate)
+  db.query(sqlUpdate,[vaild,order_id],
+      (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(result);
+          }
+})
+})
 
 
 
@@ -341,6 +372,30 @@ const sqlInsert="INSERT INTO score (member_id ,event_id,toscore_id,rating,rating
 
 })
 
+
+app.delete('/api/delete/classlike',(req,res)=>{
+  const sqlDelete =`DELETE FROM like_class WHERE class_id =${req.query.classId}  AND member_id=${req.query.member}`
+  console.log(sqlDelete)
+  res.send(JSON.stringify({result:'ok'}))
+  db.query(sqlDelete,(err,result)=>{
+    if(err) console.log(err)
+    // res.json({
+    //   state:"success"
+    // })
+  })
+})
+
+app.delete('/api/delete/eventlike',(req,res)=>{
+  const sqlDelete =`DELETE FROM like_event WHERE event_id =${req.query.eventId}  AND member_id=${req.query.member}`
+  console.log(sqlDelete)
+  res.send(JSON.stringify({result:'ok'}))
+  db.query(sqlDelete,(err,result)=>{
+    if(err) console.log(err)
+    // res.json({
+    //   state:"success"
+    // })
+  })
+})
 
 
 
