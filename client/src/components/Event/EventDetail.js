@@ -39,9 +39,19 @@ import {
 import Axios from 'axios'
 
 function EventDetail(props) {
+  // console.log(props)
   window.scrollTo(0, 0)
   const eventId = props.match.params.id
-  const loginId = 1
+  const isAuth = props.isAuth
+  const [loginId, setLogInId] = useState()
+
+  // 是否是登入狀態
+  useEffect(() => {
+    if (isAuth === true) {
+      const id = window.sessionStorage.getItem('useriddd')
+      setLogInId(id)
+    }
+  }, [isAuth])
 
   //是否收藏
   const [isActive, setIsActive] = useState(false)
@@ -200,7 +210,6 @@ function EventDetail(props) {
 
   function click2Album(id) {
     let stringId = JSON.stringify(id)
-    // console.log(stringId)
     history.push('/event/' + id + '/album')
   }
 
@@ -259,8 +268,12 @@ function EventDetail(props) {
                             : { display: 'none' }
                         }
                         onClick={() => {
-                          setIsActive(true)
-                          writeLike()
+                          if (loginId) {
+                            setIsActive(true)
+                            writeLike()
+                          } else {
+                            alert('請先登入!')
+                          }
                         }}
                       >
                         <MdBookmark

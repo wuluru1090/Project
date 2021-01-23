@@ -8,7 +8,7 @@ import Axios from 'axios'
 
 function EventCardVerRelative(props) {
   let history = useHistory()
-  const loginId = 1
+  const loginId = window.sessionStorage.getItem('useriddd')
 
   // console.log(props.initValue)
   const [isActive, setIsActive] = useState(false)
@@ -33,20 +33,17 @@ function EventCardVerRelative(props) {
     Axios.get(
       `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
     ).then((response) => {
-      // console.log(response.data)
       if (response.data.length > 0) setIsActive(true)
     })
   }, [])
 
   const writeLike = () => {
-    // if (!isActive)
     Axios.post('http://localhost:3001/api/save', {
       likeEventId: cardInfo.event_id,
       likeMemberId: 1,
     }).then(alert('success!'))
   }
   const deleteLike = () => {
-    // if (isActive)
     Axios.delete(
       `http://localhost:3001/api/delete?eventId=${cardInfo.event_id}&memId=1`
     ).then(alert('刪除成功!'))
@@ -60,7 +57,14 @@ function EventCardVerRelative(props) {
             src={devUrl + '/Pic/SVG/bookmark.svg'}
             className="bookmark un-pushed"
             alt="..."
-            onClick={() => setIsActive(true)}
+            onClick={() => {
+              if (loginId) {
+                setIsActive(true)
+                writeLike()
+              } else {
+                alert('請先登入!')
+              }
+            }}
             style={isActive ? { display: 'none' } : { display: 'inline' }}
             id="inactive"
           />
@@ -69,7 +73,14 @@ function EventCardVerRelative(props) {
             className="bookmark pushed"
             alt="..."
             id="active"
-            onClick={() => setIsActive(false)}
+            onClick={() => {
+              if (loginId) {
+                setIsActive(false)
+                deleteLike()
+              } else {
+                alert('請先登入!')
+              }
+            }}
             style={isActive ? { display: 'inline' } : { display: 'none' }}
           />
           <figure

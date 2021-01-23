@@ -10,7 +10,7 @@ function EventCardHor(props) {
   const [isActive, setIsActive] = useState(false)
   const [tags, setTags] = useState([])
   const cardInfo = props.initVal
-  const loginId = 1
+  const loginId = window.sessionStorage.getItem('useriddd')
 
   let history = useHistory()
   function click2Detail(id) {
@@ -71,8 +71,12 @@ function EventCardHor(props) {
               className="bookmark"
               alt="..."
               onClick={() => {
-                setIsActive(true)
-                writeLike()
+                if (loginId) {
+                  setIsActive(true)
+                  writeLike()
+                } else {
+                  alert('請先登入!')
+                }
               }}
               style={isActive ? { display: 'none' } : { display: 'inline' }}
             />
@@ -81,8 +85,12 @@ function EventCardHor(props) {
               className="bookmark"
               alt="..."
               onClick={() => {
-                setIsActive(false)
-                deleteLike()
+                if (loginId) {
+                  setIsActive(false)
+                  deleteLike()
+                } else {
+                  alert('請先登入!')
+                }
               }}
               style={isActive ? { display: 'inline' } : { display: 'none' }}
             />

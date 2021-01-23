@@ -1,6 +1,12 @@
 import logo from '../../logo.svg'
 import '../../index.scss'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  withRouter,
+} from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
 import { GiWoodenSign } from 'react-icons/gi'
@@ -120,7 +126,9 @@ function EventStart(props) {
       acttags: acttags,
       memberid: memberidd,
     }).then((response) => {
-      console.log(response)
+      // console.log(response)
+      props.history.push('/')
+      alert('建立活動成功')
     })
   }
 
@@ -139,15 +147,15 @@ function EventStart(props) {
     setActupload(e.target.result)
   }
 
-  if (isAuth === false) {
-    return (
-      <>
-        {/* <Redirect to="/login" /> */}
-        <h1>此頁面此限會員登入後觀看</h1>
-        <Link to="/login">到會員登入頁</Link>
-      </>
-    )
-  }
+  // if (isAuth === false) {
+  //   return (
+  //     <>
+  //       {/* <Redirect to="/login" /> */}
+  //       <h1>此頁面此限會員登入後觀看</h1>
+  //       <Link to="/login">到會員登入頁</Link>
+  //     </>
+  //   )
+  // }
 
   return (
     <>
@@ -872,14 +880,14 @@ function EventStart(props) {
                 </div>
 
                 <div className="d-flex gotoactbox">
-                  <Link to="/">
-                    <button
-                      onClick={eventform}
-                      className="btn gotoact rounded-pill"
-                    >
-                      建立活動
-                    </button>
-                  </Link>
+                  {/* <Link to="/"> */}
+                  <button
+                    onClick={eventform}
+                    className="btn gotoact rounded-pill"
+                  >
+                    建立活動
+                  </button>
+                  {/* </Link> */}
                 </div>
 
                 <div className="step4smguy1box">
@@ -905,4 +913,4 @@ function EventStart(props) {
   )
 }
 
-export default EventStart
+export default withRouter(EventStart)

@@ -5,7 +5,7 @@ const cors = require("cors");
 const mysql = require("mysql");
 
 const db = mysql.createPool({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "root",
   password: "12345",
   database: "final_project",
@@ -289,7 +289,7 @@ app.post("/login", (req, res) => {
     "SELECT * FROM member WHERE member_account = ? AND member_password = ?",
     [username, password],
     (err, result) => {
-      console.log({ err: err });
+      // console.log({ err: err });
 
       if (result.length > 0) {
         req.session.user = result;
@@ -329,6 +329,7 @@ app.post("/eventform", (req, res) => {
   const memberid = req.body.memberid;
 
   // console.log(memberid);
+  res.send("no way");
 
   db.query(
     "INSERT INTO event_tags (tags_name) VALUES (?)",
@@ -444,7 +445,7 @@ app.post("/class/favorites", (req, res) => {
 // 刪除我的收藏
 app.delete("/class/delete/:classId", (req, res) => {
   const sqlDelete = `DELETE FROM like_class WHERE member_id=101 AND class_id=${req.params.classId}`;
-  console.log(sqlDelete);
+  // console.log(sqlDelete);
   db.query(sqlDelete, (err, result) => {
     console.log(result);
     res.json({

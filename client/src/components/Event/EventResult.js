@@ -14,6 +14,22 @@ function EventResult(props) {
   // console.log(props)
   let history = useHistory()
 
+  // 搜尋欄子傳子判斷式
+  if (props.conditionsobad.searchbar !== '') {
+    props.condition.searchbar = props.conditionsobad.searchbar
+    props.conditionsobad.searchbar = ''
+  } else {
+    props.conditionsobad.searchbar = ''
+  }
+
+  // 主題子傳子判斷式
+  if (props.conditionsobad.theme !== '') {
+    props.condition.theme = props.conditionsobad.theme
+    props.conditionsobad.theme = ''
+  } else {
+    props.conditionsobad.theme = ''
+  }
+
   const {
     locate = '',
     searchbar = '',
@@ -49,14 +65,14 @@ function EventResult(props) {
   const resultCard = (
     <div className="result-card d-flex flex-wrap justify-content-start">
       {currentPosts.map((val) => {
-        return <EventCardVer initVal={val} />
+        return <EventCardVer initVal={val} isAuth={props.isAuth} />
       })}
     </div>
   )
   const resultList = (
     <div className="result-list d-flex justify-content-start flex-wrap">
       {currentPosts.map((val) => {
-        return <EventCardHor initVal={val} />
+        return <EventCardHor initVal={val} isAuth={props.isAuth} />
       })}
     </div>
   )

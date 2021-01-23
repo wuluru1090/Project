@@ -4,8 +4,10 @@ import '../../style/soya/soya1.scss'
 import { Link } from 'react-router-dom'
 import ScrollTop from '../Main/ScrollTop'
 import { ParallaxProvider, Parallax } from 'react-skrollr'
+import Searchbar from '../../components/Soya/Searchbar'
 
 function SoYa1(props) {
+  const { setConditionsobad } = props
   return (
     <>
       <div className="soya1" id="soya1">
@@ -50,7 +52,9 @@ function SoYa1(props) {
           <div className="page1titlebox">
             <div className="marginbox">
               <h2 className="page1title  d-flex">尋找理想中的攝影行程</h2>
-              <div>{props.children}</div>
+              <div>
+                <Searchbar setConditionsobad={setConditionsobad} />
+              </div>
             </div>
           </div>
 

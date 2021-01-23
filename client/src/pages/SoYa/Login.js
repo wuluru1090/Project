@@ -13,7 +13,7 @@ import Axios from 'axios'
 
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
-import '../../style/soya/login.scss'
+import '../../style/soya/login2.scss'
 import { FaTwitter } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
@@ -43,6 +43,7 @@ function Login(props) {
       } else {
         setIsAuth(true)
         props.history.push('/')
+        alert('登入成功')
         setTimeout(window.location.reload(), 1)
       }
     })
@@ -81,7 +82,7 @@ function Login(props) {
 
                   <div className="col-12">
                     <input
-                      type="text"
+                      type="password"
                       className="form-control form-control-lg card-input loginpass"
                       placeholder="請輸入密碼"
                       onChange={(e) => {

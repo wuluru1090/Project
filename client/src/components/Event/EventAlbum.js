@@ -11,11 +11,17 @@ import Button from 'react-bootstrap/Button'
 function EventAlbum(props) {
   window.scrollTo(0, 0)
   const eventId = props.match.params.id
-  window.sessionStorage.setItem('logIn', '4')
-  const loginId = window.sessionStorage.getItem('logIn')
   let history = useHistory()
+  const isAuth = props.isAuth
+  const [loginId, setLogInId] = useState()
 
-  // console.log(loginId)
+  // 是否是登入狀態
+  useEffect(() => {
+    if (isAuth === true) {
+      const id = window.sessionStorage.getItem('useriddd')
+      setLogInId(id)
+    }
+  }, [isAuth])
 
   //預設顯示的相簿
   const [defaultPhoto, setDefaultPhoto] = useState([])
@@ -43,15 +49,17 @@ function EventAlbum(props) {
 
   //取得會員照片狀態
   const getMemberPhoto = () => {
-    Axios.get(
-      `http://localhost:3001/api/event/memberalbum?eventId=${eventId}&memberId=${loginId}`
-    )
-      .then((response) => {
-        setMemberImg(response.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
+    if (loginId) {
+      Axios.get(
+        `http://localhost:3001/api/event/memberalbum?eventId=${eventId}&memberId=${loginId}`
+      )
+        .then((response) => {
+          setMemberImg(response.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
   }
 
   //初始狀態
@@ -165,16 +173,20 @@ function EventAlbum(props) {
             <h5>{eventInfo.event_name}</h5>
           </div>
 
-          <button
-            className="btn rounded-pill upload-button align-items-center d-flex"
-            onClick={() => setLgShow(true)}
-          >
-            <MdImage
-              size={30}
-              style={{ color: 'white', paddingRight: '6px' }}
-            />
-            <span>編輯我的圖片</span>
-          </button>
+          {loginId && (
+            <button
+              className="btn rounded-pill upload-button align-items-center d-flex"
+              onClick={() => {
+                setLgShow(true)
+              }}
+            >
+              <MdImage
+                size={30}
+                style={{ color: 'white', paddingRight: '6px' }}
+              />
+              <span>編輯我的圖片</span>
+            </button>
+          )}
         </div>
         {/* 圖片部分開始 */}
         <div className="album-slider d-flex justify-content-center">

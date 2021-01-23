@@ -2,10 +2,10 @@ import React from 'react'
 import '../../index.scss'
 import EventAlbum from '../../components/Event/EventAlbum'
 
-function Album() {
+function Album(props) {
   return (
     <>
-      <EventAlbum />
+      <EventAlbum isAuth={props.isAuth} />
     </>
   )
 }

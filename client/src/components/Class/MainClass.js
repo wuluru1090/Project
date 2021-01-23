@@ -24,7 +24,6 @@ import {
   WhatsappIcon,
 } from 'react-share'
 import Bread from '../Class/MyBreadCrumb'
-import Calendar from '../Class/Calendar'
 
 function ClassMain(props) {
   // class資料儲存區
@@ -94,17 +93,11 @@ function ClassMain(props) {
       })
   }, [])
 
-  //GMap地圖Pin標記位置
-  const location = {
-    address: add.toString(),
-    lat: lat,
-    lng: lng,
-  }
-
   //地址轉經緯度
   geoCode()
   function geoCode() {
-    var insertLocation = location.address
+    //var insertLocation = location.address
+    var insertLocation = add.toString()
     // let location = add
     Axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
@@ -131,7 +124,8 @@ function ClassMain(props) {
           <div className="class_wave_background test">
             <div className="mainclass_wrapper">
               <div className="page-head">
-                <div>
+                <Bread className={className} />
+                <div className="title">
                   <h6 className="subtitle1">
                     {dateConvert(val.class_start_date)}&nbsp;~&nbsp;
                     {dateConvert(val.class_end_date)}
@@ -197,9 +191,6 @@ function ClassMain(props) {
                     </button>
                   </div>
                 </div>
-                <div className="bread_crumb">
-                  <Bread className={className} />
-                </div>
               </div>
               <div className="page-head-part3">
                 <div className="content_big_part">
@@ -241,9 +232,17 @@ function ClassMain(props) {
                 <div className="left_part">
                   <ClassCard />
                   <div className="gmap">
-                    <GMap location={location} zoomLevel={15} />
+                    {lat > 0 && lng > 0 && (
+                      <GMap
+                        location={{
+                          address: add.toString(),
+                          lat: lat,
+                          lng: lng,
+                        }}
+                        zoomLevel={15}
+                      />
+                    )}
                   </div>
-                  <Calendar />
                 </div>
 
                 {/* modal */}
