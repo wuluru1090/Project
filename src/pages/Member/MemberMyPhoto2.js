@@ -99,20 +99,19 @@ function MemberMyPhoto2(props) {
     })
   }
 
-  //目前無法即使顯示即刪除
+  // 目前無法即使顯示即刪除多個
   const delphoto = () => {
     console.log(photo_id)
-
     Axios.put('http://localhost:3001/member/update/photo', {
       photo_id: photo_id,
-      valid: 0,
-    }).then((res) => {})
+    })
+    console.log(photo_id)
   }
 
   function upUp() {
     setTimeout(function () {
       document.getElementById('photo-button').click()
-      // setTimeout(window.location.reload(), 500)
+      setTimeout(window.location.reload(), 500)
     }, 500)
   }
 
@@ -136,7 +135,17 @@ function MemberMyPhoto2(props) {
                       {att.map((m) => {
                         return (
                           <Card.Header className="mem_title d-flex justify-content-between">
-                            <h5>我的相簿/{m.event_name}</h5>
+                            <h5>
+                              <a
+                                href={
+                                  devUrl +
+                                  `/member/${props.match.params.id}/MyPhoto`
+                                }
+                              >
+                                我的相簿
+                              </a>
+                              /{m.event_name}
+                            </h5>
                             <form>
                               <input
                                 accept="image/*"
@@ -177,15 +186,16 @@ function MemberMyPhoto2(props) {
                       <Card.Body style={{ padding: '14px  42px  14px 42px' }}>
                         <div className="photo_album3 d-flex ">
                           <div className="img_box3  d-flex justify-content-between">
-                            <div className=" d-flex flex-wrap">
+                            <div>
                               {photo.length > 0 ? (
-                                <div>
+                                <div className=" d-flex flex-wrap">
                                   {photo.map((p) => {
                                     return (
                                       <div className="myphoto">
                                         <div className=" d-flex justify-content-end">
                                           <input
                                             type="checkbox"
+                                            name="checkbox"
                                             onChange={(e) => {
                                               setPhotoid(e.target.value)
                                             }}
