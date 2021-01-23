@@ -1,164 +1,129 @@
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 @import '../default.scss';
 
-$url: "http://localhost:3000";
+$url: 'http://localhost:3000';
 
-
-.loginoutbtn{
- 
+.loginoutbtn {
   box-shadow: 0 0 1px transparent !important;
-  
 }
 
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}
 
-  
-  .wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
+.login {
+  height: 100vh;
+  background: url($url + '/pic/soya/Group778.png') no-repeat;
+  background-size: cover;
+  .cover-fit {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
-  
-  
+  .cardboxmargin {
+    margin-top: 125px;
+    // width: 500px;
 
-
-.login{
-    height: 100vh;
-    background:url($url + "/pic/soya/Group778.png") no-repeat;
-    background-size: cover;
-
-
-    .cover-fit {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
-
-
-    .cardboxmargin{
-        margin-top: 125px;
-        // width: 500px;
-        
-        .card{
-            box-shadow: 0 3px 6px rgba(#000,0.2);
-            background: rgba(white,0.8);
-        }
-
-
-        .logintitle{
-            margin: 0 auto;
-            font-family: "Roboto";
-            font-size: $h4-font-size;
-            font-weight: bold;
-            color: #707070;
-            // border: 1px solid
-            padding-bottom: 30px;
-        }
-
-        input{
-            margin: 0 auto 37px auto;
-        }
-
-        .loginpass{
-            margin-bottom: 16px;
-        }
-
-        .forgetpass{
-            justify-content: flex-end;
-            padding: 0 15px;
-            font-size: 12px;
-            color: $primary-300;
-            margin-bottom: 16px;
-            font-family: 'TaipeiSansTCBeta-Regular';
-        }
-
-        .loginbtnthemebox{
-            // border: 1px solid;
-            margin-bottom: 30px;
-
-
-
-        }
-        .loginbtntheme{
-            font-size: $font-size-base;
-            padding: 11px 18px;
-            // border: 1px solid;
-            width: 135px;
-            margin-right: 5px;
-            font-family: "Roboto";
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 3px 6px rgba(#000,0.2);
-
-
-         
-        }
-        .loginbtntheme1{
-            border-radius: 5px;
-            background: #1877F2;
-            color: white;
-
-        }
-        
-            .loginbtnthemeicon1{
-                margin-right: 5px; 
-                width: 18px;
-                height: 18px;
-                
-            }
-        .loginbtntheme2{
-            border-radius: 5px;
-            background: white;
-            color:  #707070;
-            .loginbtnthemeicon2{
-                margin-right: 5px; 
-                width: 22px;
-                height: 22px;
-                
-            }
-        }
-        .loginbtntheme3{
-            border-radius: 5px;
-            background: #1DA1F2;
-            color: white;
-            margin-right:0;
-
-            .loginbtnthemeicon3{
-                margin-right: 5px; 
-                width: 20px;
-                height: 20px;
-                
-            }
-        }
-
-
-        .loginbtnlogin{
-            
-            margin: 0 15px;
-            background:$primary-400;
-            border-radius: 5px;
-            color: white;
-            font-size: $h6-font-size;
-            font-family: 'TaipeiSansTCBeta-Regular';
-            box-shadow: 0 3px 6px rgba(#000,0.2);
-            
-        }
-
-        .noaccount{
-            font-size: $font-size-base;
-            // border: 1px solid;
-            justify-content: center;
-            font-family: 'TaipeiSansTCBeta-Regular';
-            color: #707070;
-            margin-top: 30px;
-            
-
-            .signupbtn{
-                margin-left: 10px;
-                text-decoration: none;
-                color:#12D0C9;
-            }
-        }
-
-      
+    .card {
+      box-shadow: 0 3px 6px rgba(#000, 0.2);
+      background: rgba(white, 0.8);
     }
-}
+    .logintitle {
+      margin: 0 auto;
+      font-family: 'Roboto';
+      font-size: $h4-font-size;
+      font-weight: bold;
+      color: #707070;
+      // border: 1px solid
+      padding-bottom: 30px;
+    }
+    input {
+      margin: 0 auto 37px auto;
+    }
+    .loginpass {
+      margin-bottom: 16px;
+    }
+    .forgetpass {
+      justify-content: flex-end;
+      padding: 0 15px;
+      font-size: 12px;
+      color: $primary-300;
+      margin-bottom: 16px;
+      font-family: 'TaipeiSansTCBeta-Regular';
+    }
+    .loginbtnthemebox {
+      // border: 1px solid;
+      margin-bottom: 30px;
+    }
+    .loginbtntheme {
+      font-size: $font-size-base;
+      padding: 11px 18px;
+      // border: 1px solid;
+      width: 135px;
+      margin-right: 5px;
+      font-family: 'Roboto';
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 3px 6px rgba(#000, 0.2);
+    }
+    .loginbtntheme1 {
+      border-radius: 5px;
+      background: #1877f2;
+      color: white;
+    }
 
+    .loginbtnthemeicon1 {
+      margin-right: 5px;
+      width: 18px;
+      height: 18px;
+    }
+    .loginbtntheme2 {
+      border-radius: 5px;
+      background: white;
+      color: #707070;
+      .loginbtnthemeicon2 {
+        margin-right: 5px;
+        width: 22px;
+        height: 22px;
+      }
+    }
+    .loginbtntheme3 {
+      border-radius: 5px;
+      background: #1da1f2;
+      color: white;
+      margin-right: 0;
+
+      .loginbtnthemeicon3 {
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .loginbtnlogin {
+      margin: 0 15px;
+      background: $primary-400;
+      border-radius: 5px;
+      color: white;
+      font-size: $h6-font-size;
+      font-family: 'TaipeiSansTCBeta-Regular';
+      box-shadow: 0 3px 6px rgba(#000, 0.2);
+    }
+
+    .noaccount {
+      font-size: $font-size-base;
+      // border: 1px solid;
+      justify-content: center;
+      font-family: 'TaipeiSansTCBeta-Regular';
+      color: #707070;
+      margin-top: 30px;
+
+      .signupbtn {
+        margin-left: 10px;
+        text-decoration: none;
+        color: #12d0c9;
+      }
+    }
+  }
+}
