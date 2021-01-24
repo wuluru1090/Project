@@ -1,0 +1,112 @@
+// 導入bootstrap所有的樣式與預設變數
+@import '~bootstrap/scss/bootstrap.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+
+.paymentdetailstop {
+  margin-top: 96px;
+  font-size: 16px;
+  font-family: 'Taipei Sans TC Beta';
+
+  .paymentdetails1 {
+    width: 654px;
+    height: 76px;
+    background-color: #adcbdd;
+    top: 96px;
+    margin: 0px auto;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color: #2d6281;
+    line-height: 76px;
+    font-size: 20px;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  .paymentdetails2 {
+    width: 654px;
+    height: 413px;
+    background-color: white;
+    margin: 0px auto;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    .divmt {
+      padding: 40px 0 0 0;
+      .detailsframe {
+        margin: auto;
+        width: 616px;
+        height: 139px;
+        justify-content: flex-start;
+        .detailsphoto {
+          width: 104px;
+          height: 63px;
+          margin-top: 4px;
+          margin-left: 37px;
+          border-radius: 5px;
+        }
+      }
+      .divx4 {
+        margin-left: 21px;
+        .icon3 {
+          margin-right: 8px;
+        }
+
+        .divtext {
+          justify-content: space-between;
+          width: 436px;
+        }
+      }
+
+      .pbox1 {
+        margin-bottom: 10px;
+      }
+      .pbox2 {
+        margin-bottom: 14px;
+      }
+      .pbox3 {
+        margin-bottom: 10px;
+      }
+      .pbox4 {
+        margin-bottom: 10px;
+      }
+      .bigtext2 {
+        $font-size-base: 1rem;
+        font-weight: 700;
+        font-family: 'Roboto';
+      }
+      .bigtext3 {
+        $font-size-base: 1rem;
+        font-weight: 700;
+      }
+    }
+    .hrm {
+      margin: 10px auto 10px auto;
+      width: 100%;
+      height: 1px;
+    }
+    .hrm2 {
+      margin: 10px auto 10px auto;
+      width: 94%;
+      height: 1px;
+
+      background-image: linear-gradient(
+        to right,
+        #ccc 0%,
+        #ccc 50%,
+        transparent 50%
+      );
+      background-size: 20px 1px;
+      background-repeat: repeat-x;
+    }
+    .totalm {
+      width: 562px;
+      margin-left: 56px;
+      justify-content: space-between;
+      .bigtext {
+        font-size: $font-size-base * 1.25;
+        font-family: 'Roboto';
+        font-weight: 700;
+        color: #4f7f9a;
+      }
+    }
+  }
+}

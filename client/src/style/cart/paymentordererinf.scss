@@ -1,0 +1,51 @@
+// 導入bootstrap所有的樣式與預設變數
+@import '~bootstrap/scss/bootstrap.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+
+.paymentordererinftop{
+    margin-top: 96px;
+    .paymentordererinfbox1{
+        width: 654px;
+        height: 76px;
+        background-color:#ADCBDD;
+        top: 96px;
+        margin:0px auto;
+        border-radius: 10px 10px 0 0;
+        text-align:center;
+        color: #2D6281;
+        line-height:76px;
+        font-size: 20px;
+        font-family: 'TaipeiSansTCBeta-Bold';
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+    }
+    .paymentordererinfbox2{
+        width: 654px;
+        height: 264px;
+        background-color:white;
+        margin: 0px auto;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    }
+    .paymentinput{
+        margin-top: 41px;
+    }
+    .paymentinputbox{
+        margin-left: 20px;
+    }
+    .marginb{
+        margin-bottom: 34px;
+    }
+    .redt{
+        line-height: 36px;
+        color: red;
+    }
+    .ordereraccount{
+        line-height: 36px;                            
+        font-size: $h6-font-size;
+        font-family: 'TaipeiSansTCBeta-Regular';
+        color: #707070;
+        
+    }
+}

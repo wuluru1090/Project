@@ -52,7 +52,7 @@ function MyNavbar(props) {
       .then(() => {
         window.sessionStorage.setItem('useriddd', `${memberidd}`)
         const loginid = window.sessionStorage.getItem('useriddd')
-        console.log(loginid)
+        // console.log(loginid)
       })
   }, [isAuth])
 

@@ -30,7 +30,7 @@ function EventCardHor(props) {
     Axios.get(
       `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
     ).then((response) => {
-      console.log(response.data)
+      // console.log(response.data)
       if (response.data.length > 0) setIsActive(true)
     })
   }, [])
@@ -94,37 +94,16 @@ function EventCardHor(props) {
               }}
               style={isActive ? { display: 'inline' } : { display: 'none' }}
             />
-            <figure
-              className="card-img-top event-photo"
-              onClick={() => click2Detail(cardInfo.event_id)}
-            >
+            <figure className="card-img-top event-photo">
               <img
                 src={devUrl + '/pic/event/' + cardInfo.event_photo}
                 className="photo"
                 alt={cardInfo.event_name}
               />
             </figure>
-            <a href="#">
-              <div className="more-att">+3</div>
-            </a>
-            <a href="#">
-              <img
-                className="second-att"
-                src={devUrl + '/pic/pic/member2.jpg'}
-              ></img>
-            </a>
-            <a href="#">
-              <img
-                className="first-att"
-                src={devUrl + '/pic/pic/member3.jpg'}
-              ></img>
-            </a>
           </div>
 
-          <div
-            className="card-body"
-            onClick={() => click2Detail(cardInfo.event_id)}
-          >
+          <div className="card-body">
             <h5 className="card-title">{cardInfo.event_name}</h5>
             <div className="t2">
               {/* {cardInfo.event_details} */}
@@ -182,18 +161,23 @@ function EventCardHor(props) {
                     <button
                       className="btn rounded-pill btn-md tag aaa"
                       type="button"
+                      onClick={() => {
+                        history.push(`/event?tag=${t.tags_name}`)
+                      }}
                     >
                       {t.tags_name}
                     </button>
                   )
                 })}
               </div>
-              <a
-                onClick={() => click2Detail(cardInfo.event_id)}
+              <button
+                onClick={() => {
+                  click2Detail(cardInfo.event_id)
+                }}
                 className="btn d-flex join"
               >
                 參加活動
-              </a>
+              </button>
             </div>
           </div>
         </div>

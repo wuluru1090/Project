@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, useHistory } from 'react-router-dom'
 import '../../style/event/event_detail_attendant.scss'
 import { devUrl } from '../../config'
 import Axios from 'axios'
 
 function EventDetailAttendant(props) {
   // console.log(props)
+  let history = useHistory()
   const [detailData, setDetailData] = useState(props.initValue[0])
   const [allAttendOrders, setAllAttendOrders] = useState([])
   const [attendantsData, setAttendantsData] = useState([])
@@ -63,7 +64,12 @@ function EventDetailAttendant(props) {
   return (
     <>
       <div className="detail-attendant-wrapper d-flex flex-wrap justify-content-start">
-        <div className="attendant-card  d-flex justify-content-center">
+        <div
+          className="attendant-card  d-flex justify-content-center"
+          onClick={() => {
+            history.push(`/see/${detailData.event_host_id}`)
+          }}
+        >
           <figure className="detail-attendant-avatar">
             {detailData.event_host_img !== '' ? (
               <img
@@ -81,7 +87,12 @@ function EventDetailAttendant(props) {
         </div>
         {list.map((val) => {
           return (
-            <div className="attendant-card  d-flex justify-content-center">
+            <div
+              className="attendant-card  d-flex justify-content-center"
+              onClick={() => {
+                history.push(`/see/${val.member_id}`)
+              }}
+            >
               <figure className="detail-attendant-avatar">
                 {val.member_img != '' ? (
                   <img src={`${devUrl}/pic/mem_img/${val.member_img}`} alt="" />

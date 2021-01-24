@@ -9,10 +9,31 @@ import { withRouter, useHistory } from 'react-router-dom'
 
 //connect with backend
 import Axios from 'axios'
+import { FaWindows } from 'react-icons/fa'
 
 function EventResult(props) {
-  // console.log(props)
+  console.log(props)
+
   let history = useHistory()
+
+  //標籤
+  if (props.location.search !== '') {
+    const queryString = require('query-string')
+    let param = queryString.parse(props.location.search)
+    console.log(param)
+    if ('theme' in param) {
+      props.condition.theme = param.theme
+      param.theme = ''
+    } else {
+      param.theme = ''
+    }
+    if ('type' in param) {
+      props.condition.type = param.type
+      param.type = ''
+    } else {
+      param.type = ''
+    }
+  }
 
   // 搜尋欄子傳子判斷式
   if (props.conditionsobad.searchbar !== '') {
@@ -47,13 +68,12 @@ function EventResult(props) {
       `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}`
     )
       .then((response) => {
-        // console.log(response)
         setEventResult(response.data)
       })
       .catch(function (error) {
         console.log(error)
       })
-  }, [locate, searchbar, theme, time])
+  }, [locate, searchbar, theme, time, type])
 
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(12)
@@ -85,6 +105,33 @@ function EventResult(props) {
             <h6 className="d-inline-block">
               搜尋結果 共{eventResult.length}筆
             </h6>
+            {props.condition !==
+            {
+              locate: '',
+              searchbar: '',
+              theme: '',
+              time: '',
+              type: '',
+            } ? (
+              <button
+                className="btn rounded-pill"
+                style={{
+                  padding: '6px 12px',
+                  background: '#104b6d',
+                  marginLeft: '12px',
+                  marginBottom: '12px',
+                  color: '#ffffff',
+                }}
+                onClick={() => {
+                  history.push(`/event`)
+                  window.location.reload()
+                }}
+              >
+                返回所有行程
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="result-icon d-inline-block">
             <img
