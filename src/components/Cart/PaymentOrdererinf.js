@@ -16,7 +16,7 @@ function PaymentOrdererinf(props) {
                   <div className="d-flex">
                     <div className="d-flex marginb">
                       <div className="redt">*</div>
-                      <div className="ordereraccount">帳號:</div>
+                      <div className="ordereraccount">姓名:</div>
                     </div>
 
                     <div className="paymentinputbox">

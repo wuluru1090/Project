@@ -6,7 +6,7 @@ import { devUrl } from '../config'
 import FukuanActivityPage from '../pages/cart/FukuanActivityPage'
 import Buttonx3 from '../components/Cart/Buttonx3'
 
-function Cart() {
+function Cart2() {
   // [{cat1:'a', cat2:'XXXX', cat3:'123'}]
   // const [filter, setFilter] = useState([])
 
@@ -27,7 +27,7 @@ function Cart() {
     // 開啟載入的指示圖示
     setDataLoading(true)
 
-    const newCart = localStorage.getItem('cart') || '[]'
+    const newCart = localStorage.getItem('cart2') || '[]'
 
     console.log(JSON.parse(newCart))
 
@@ -124,7 +124,7 @@ function Cart() {
                 <th className="checkboxaaa">
                   <input type="checkbox" />
                 </th>
-                <th className="imgw">活動名稱</th>
+                <th className="imgw">課程名稱</th>
                 <th>數量</th>
                 <th>價格</th>
                 <th>下次再買</th>
@@ -144,55 +144,18 @@ function Cart() {
                       <div>
                         <img
                           className="titlephoto"
-                          src={devUrl + '/pic/pic/鳳山溪橋東側1.jpg'}
+                          src={devUrl + `/pic/pic/${item.photoimg}`}
                           alt="titlephoto"
                         />
                       </div>{' '}
-                      <div>{item.name}</div>
+                      <div className="context">{item.name}</div>
                     </td>
-                    <td className="">
-                      <button
-                        onClick={() => {
-                          if (item.amount === 1) return
-                          updateCartToLocalStorage(item, false)
-                        }}
-                      >
-                        -
-                      </button>
-                      {item.amount}
-                      <button
-                        onClick={() => updateCartToLocalStorage(item, true)}
-                      >
-                        +
-                      </button>
-                    </td>
+                    <td className="">1</td>
                     <td>{item.amount * item.price}</td>
                     <td className="">
-                      <select
-                        className="form-select selectstyle"
-                        aria-label="Default select example"
-                      >
-                        <option selected>{item.amount}</option>
-                        <option
-                          value="1"
-                          onChange={() => {
-                            if (item.amount === 1) return
-                            updateCartToLocalStorage(item, false)
-                          }}
-                        >
-                          1
-                        </option>
-                        <option
-                          value="2"
-                          onChange={() => {
-                            if (item.amount === 1) return
-                            updateCartToLocalStorage(item, false)
-                          }}
-                        >
-                          2
-                        </option>
-                        <option value="3">3</option>
-                      </select>
+                      <Link to="#">
+                        <MdAddBox className="iconcolor" />
+                      </Link>
                     </td>
                     <td>
                       <Link to="#">
@@ -252,4 +215,4 @@ function Cart() {
   return dataLoading ? loading : display
 }
 
-export default Cart
+export default Cart2

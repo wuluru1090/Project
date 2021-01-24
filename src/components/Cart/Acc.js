@@ -18,7 +18,7 @@ export default class AccordionExampleStandard extends Component {
 
     return (
       <div className="paymentparticipantinftop">
-        <div className="paymentparticipantinfbox1">訂購人資訊</div>
+        <div className="paymentparticipantinfbox1">參加者資訊</div>
         <div className="paymentparticipantinfbox2">
           <div className="container">
             <Accordion>

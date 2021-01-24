@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { Accordion, Icon } from 'semantic-ui-react'
+import { Accordion } from 'semantic-ui-react'
 import { devUrl } from '../../config'
-import { Link } from 'react-router-dom'
-import { MdAddBox } from 'react-icons/md'
-import { TiDeleteOutline } from 'react-icons/ti'
 import '../../style/cart/buydetails.scss'
 
 export default class AccordionExampleStandard extends Component {

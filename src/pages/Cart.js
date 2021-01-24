@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { MdAddBox } from 'react-icons/md'
+import { TiDeleteOutline } from 'react-icons/ti'
+import { devUrl } from '../config'
+import FukuanActivityPage from '../pages/cart/FukuanActivityPage'
+import Buttonx3 from '../components/Cart/Buttonx3'
 
 function Cart() {
+  // [{cat1:'a', cat2:'XXXX', cat3:'123'}]
+  // const [filter, setFilter] = useState([])
+
+  // // http://xxx.com/getdata/?color=red,white&ids=2,3,5
+  // const [colorArray, setColorArray] = useState([1, 3, 5])
+  // const [filterCat2, setFilterCat2] = useState([])
+  // const [filterCat3, setFilterCat3] = useState([])
+  // const [filterCat4, setFilterCat4] = useState([])
+  // const [filterCat5, setFilterCat5] = useState([])
+
+  // 'color='+ colorArray.join(',')
+
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
@@ -53,6 +71,26 @@ function Cart() {
     setMycartDisplay(newMycartDisplay)
   }, [mycart])
 
+  // 更新購物車中的商品數量
+  const updateCartToLocalStorage = (item, isAdded = true) => {
+    console.log(item, isAdded)
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+
+    // find if the product in the localstorage with its id
+    const index = currentCart.findIndex((v) => v.id === item.id)
+
+    console.log('index', index)
+    // found: index! == -1
+    if (index > -1) {
+      isAdded ? currentCart[index].amount++ : currentCart[index].amount--
+    }
+
+    localStorage.setItem('cart', JSON.stringify(currentCart))
+
+    // 設定資料
+    setMycart(currentCart)
+  }
+
   // 計算總價用的函式
   const sum = (items) => {
     let total = 0
@@ -74,6 +112,81 @@ function Cart() {
 
   const display = (
     <>
+      <div className="shoppingdetailstopphoto">
+        <img src={devUrl + '/pic/pic/Group 597.png'} alt="..." />
+      </div>
+      <Buttonx3 />
+      <div className="activityordercolumnobb2">
+        <div className="activityordercolumno">
+          <table responsive className="columnoh">
+            <thead className="centertrtd">
+              <tr className="trco">
+                <th className="checkboxaaa">
+                  <input type="checkbox" />
+                </th>
+                <th className="imgw">活動名稱</th>
+                <th>數量</th>
+                <th>價格</th>
+                <th>下次再買</th>
+                <th>刪除</th>
+              </tr>
+            </thead>
+            <div className="lineup"></div>
+
+            {mycartDisplay.map((item, index) => {
+              return (
+                <tbody className="centertrtd">
+                  <tr className="">
+                    <td>
+                      <input type="checkbox" />
+                    </td>
+                    <td className="tdcolumn d-flex">
+                      <div>
+                        <img
+                          className="titlephoto"
+                          src={devUrl + `/pic/pic/${item.photoimg}`}
+                          alt="titlephoto"
+                        />
+                      </div>{' '}
+                      <div className="context">{item.name}</div>
+                    </td>
+                    <td className="">
+                      <button
+                        className="btnn"
+                        onClick={() => {
+                          if (item.amount === 1) return
+                          updateCartToLocalStorage(item, false)
+                        }}
+                      >
+                        -
+                      </button>
+                      {item.amount}
+                      <button
+                        className="btnn2"
+                        onClick={() => updateCartToLocalStorage(item, true)}
+                      >
+                        +
+                      </button>
+                    </td>
+                    <td>{item.amount * item.price}</td>
+                    <td className="">
+                      <Link to="#">
+                        <MdAddBox className="iconcolor" />
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to="#">
+                        <TiDeleteOutline className="iconcolor2" />
+                      </Link>
+                    </td>
+                  </tr>
+                  <div className="lineup"></div>
+                </tbody>
+              )
+            })}
+          </table>
+        </div>
+      </div>
       <div>
         <div className="detailsamountbox d-flex">
           <div className="boxx2 d-flex">
@@ -91,28 +204,27 @@ function Cart() {
             <div>
               <div className="money d-flex">5件商品合計</div>
               <div className="money d-flex">優惠卷折抵</div>
-              <div className="money d-flex">小記</div>
+              <div className="money d-flex">總價</div>
             </div>
             <div>
-              <div className="money d-flex moneyex"> NT$10000元</div>
+              <div className="money d-flex moneyex">{sum(mycartDisplay)}元</div>
               <div className="money d-flex moneyred"> -$200元</div>
               <div className="money d-flex">{sum(mycartDisplay)}元</div>
             </div>
           </div>
         </div>
       </div>
-      <ul>
-        {mycartDisplay.map((value, index) => {
-          return (
-            <li key={value.id}>
-              產品：{value.name}/數量：{value.amount}/單價：{value.price}/
-              {'   '}
-              小計：{value.amount * value.price}
-            </li>
-          )
-        })}
-      </ul>
-      <h3>總價：{sum(mycartDisplay)}</h3>
+      <div className="fukuanbutton">
+        <div className="b1 d-flex">
+          <button className="btn d-flex confirmbutton1">繼續購物</button>
+          <Link
+            to="/PaymentMethodActivityPage"
+            className="btn d-flex confirmbutton2"
+          >
+            前往結帳
+          </Link>
+        </div>
+      </div>
     </>
   )
 

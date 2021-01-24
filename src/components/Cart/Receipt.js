@@ -7,7 +7,7 @@ function Receipt(props) {
   return (
     <>
       <div className="receipttop">
-        <div className="receiptbox1">訂購人資訊</div>
+        <div className="receiptbox1">電子發票</div>
         <div className="receiptbox2">
           <div className="container">
             <div className="row justify-content-center">

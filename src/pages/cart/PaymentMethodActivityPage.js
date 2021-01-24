@@ -1,5 +1,4 @@
 import '../../index.scss'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import ShoppingDetailsTopPhoto from '../../components/Cart/ShoppingDetailsTopPhoto'
 import ConfirmPuzzle from '../../components/Cart/ConfirmPuzzle'
 import PaymentButton from '../../components/Cart/PaymentButton'

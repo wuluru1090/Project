@@ -13,41 +13,44 @@ import FukuanClassPage from '../src/pages/cart/FukuanClassPage'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import 'semantic-ui-css/semantic.min.css'
 import MainContent from './components/MainContent'
+import Cart from './pages/Cart'
 import Cart2 from './pages/Cart2'
+import ScrollToTop from './components/Main/ScrollToTop'
 
 function App() {
   return (
     <Router>
       <MyNavbar />
-
       <>
         <MainContent>
-          <Switch>
-            <Route path="/" exact>
-              <Cart2 />
-            </Route>
-            <Route path="/PaymentMethodActivityPage">
-              <PaymentMethodActivityPage />
-            </Route>
-            <Route path="/PaymentMethodClassPage">
-              <PaymentMethodClassPage />
-            </Route>
-            <Route path="/QuerenPage">
-              <QuerenPage />
-            </Route>
-            <Route path="/QuerenClassPage">
-              <QuerenClassPage />
-            </Route>
-            <Route path="/LastConfirmationPage1">
-              <LastConfirmationPage1 />
-            </Route>
-            <Route path="/FukuanClassPage">
-              <FukuanClassPage />
-            </Route>
-            <Route path="/NextTimePage">
-              <NextTimePage />
-            </Route>
-          </Switch>
+          <ScrollToTop>
+            <Switch>
+              <Route path="/" exact>
+                <Cart />
+              </Route>
+              <Route path="/PaymentMethodActivityPage">
+                <PaymentMethodActivityPage />
+              </Route>
+              <Route path="/PaymentMethodClassPage">
+                <PaymentMethodClassPage />
+              </Route>
+              <Route path="/QuerenPage">
+                <QuerenPage />
+              </Route>
+              <Route path="/QuerenClassPage">
+                <QuerenClassPage />
+              </Route>
+              <Route path="/LastConfirmationPage1">
+                <LastConfirmationPage1 />
+              </Route>
+              <Route path="/cart2">
+                <Cart2 />
+              </Route>
+              <Route path="/NextTime">
+                <NextTimePage />
+              </Route>
+            </Switch>
+          </ScrollToTop>
         </MainContent>
       </>
       <ConfirmWave />

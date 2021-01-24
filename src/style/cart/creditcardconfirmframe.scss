@@ -27,9 +27,16 @@
     margin: 0px auto;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    .tcen {
-      margin: auto;
-      width: 250px;
+    .mt {
+      justify-content: center;
+      width: 740px;
+      .tcen {
+        margin: auto;
+        width: 310px;
+        font-size: $font-size-base * 1.25;
+        font-family: 'TaipeiSansTCBeta-Regular';
+        line-height: 128px;
+      }
     }
   }
 }

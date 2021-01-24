@@ -12,10 +12,10 @@ function Buttonx3(props) {
         <Link to="/" className="btn d-flex confirmbutton2">
           活動
         </Link>
-        <Link to="/FukuanClassPage" className="btn d-flex confirmbutton2">
+        <Link to="/cart2" className="btn d-flex confirmbutton2">
           課程
         </Link>
-        <Link to="/NextTimePage" className="btn d-flex confirmbutton2">
+        <Link to="/NextTime" className="btn d-flex confirmbutton2">
           下次再買
         </Link>
       </div>

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { devUrl } from '../../config/'
+import React from 'react'
 import '../../style/cart/paymentparticipantinf2.scss'
 
 function Participant2(props) {
   return (
     <div className="paymentparticipantinftop2">
-      <div className="paymentparticipantinfbox1">訂購人資訊</div>
+      <div className="paymentparticipantinfbox1">參加者資訊</div>
       <div className="paymentparticipantinfbox2">
         <div className="container">
           <div className="row justify-content-center">

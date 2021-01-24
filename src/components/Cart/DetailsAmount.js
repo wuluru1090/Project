@@ -2,8 +2,28 @@ import React, { useState, useEffect } from 'react'
 // import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config/'
 import '../../style/cart/detailsamount.scss'
+import Axios from 'axios'
 
-function DetailsAmount(propsz) {
+function DetailsAmount(props) {
+  const [member_name, setmember_name] = useState('')
+  const [member_account, setmember_account] = useState('')
+  const [membername, setmembername] = useState([])
+
+  useEffect(() => {
+    Axios.get('http://localhost:3001/api/get').then((response) => {
+      setmembername(response.data)
+    })
+  }, [])
+
+  const submitReview = () => {
+    Axios.post('http://localhost:3001/api/insert', {
+      member_name: member_name,
+      member_account: member_account,
+    }).then(() => {
+      alert('successful insert')
+    })
+  }
+
   return (
     <>
       <div>
@@ -15,7 +35,14 @@ function DetailsAmount(propsz) {
               </div>
               <div className="lineh">是否使用優惠卷</div>
               <div className="inputbox d-flex">
-                <input type="text" className="form-control form-control-md" />
+                <input
+                  type="text"
+                  name="member_name"
+                  className="form-control form-control-md"
+                  onChange={(e) => {
+                    setmember_name(e.target.value)
+                  }}
+                />
               </div>
             </div>
           </div>
