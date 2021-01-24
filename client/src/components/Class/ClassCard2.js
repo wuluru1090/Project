@@ -32,7 +32,7 @@ function Card(props) {
       <div className="card class_suggest_card">
         {/* 未收藏 */}
         <img
-          src={devUrl + '/pic/SVG/bookmark-24px.svg'}
+          src={devUrl + '/pic/SVG/bookmark.svg'}
           className="tag un-pushed"
           alt="..."
           onClick={() => {

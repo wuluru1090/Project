@@ -42,7 +42,7 @@ function ClassResultCard(props) {
         </figure>
         {/* 未收藏 */}
         <img
-          src={devUrl + '/pic/SVG/bookmark-24px.svg'}
+          src={devUrl + '/Pic/SVG/bookmark.svg'}
           className="tag un-pushed"
           alt="..."
           onClick={() => setActiveEvent(true)}
