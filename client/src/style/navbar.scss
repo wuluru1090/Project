@@ -63,4 +63,11 @@ main > .container {
   .loginoutbtn {
     padding-right: 75px;
   }
+  .logoutbtn {
+    padding: 0px;
+    margin: 0px;
+  }
+  .dropdown-menu {
+    transform: translateX(-120px);
+  }
 }

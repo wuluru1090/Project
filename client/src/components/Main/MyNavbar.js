@@ -28,6 +28,7 @@ function MyNavbar(props) {
   // 拿到會員id
   const [member, setMember] = useState()
   const [memberidd, setMemberidd] = useState('')
+  const [memberInfo, setMemberInfo] = useState()
 
   //保護頁面
   const [show, setShow] = useState(false)
@@ -55,6 +56,17 @@ function MyNavbar(props) {
       })
   }, [isAuth])
 
+  useEffect(() => {
+    if (memberidd !== '') {
+      Axios.get(`http://localhost:3001/member/get/${memberidd}`).then(
+        (response) => {
+          setMemberInfo(response.data[0])
+          console.log(response.data)
+        }
+      )
+    }
+  }, [memberidd])
+
   return (
     <>
       {/* .navbar-expand-{sm|md|lg|xl}決定在哪個斷點以上就出現漢堡式選單 */}
@@ -74,8 +86,6 @@ function MyNavbar(props) {
               alt="揪影"
             />
           </Navbar.Brand>
-          {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
-          {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
             {props.isAuth ? (
               <Nav.Link className="navLink" as={NavLink} to="/eventstart">
@@ -130,8 +140,24 @@ function MyNavbar(props) {
 
           {isAuth ? (
             <div className="position-relative" style={{ marginRight: '75px' }}>
-              <NavDropdown title="" id="basic-nav-dropdown">
-                <NavDropdown.Item href={`/member/${memberidd}`}>
+              <NavDropdown
+                title=""
+                id="basic-nav-dropdown"
+                className="text-align-center"
+              >
+                <NavDropdown.Item
+                  style={{
+                    color: '#104b6d',
+                    paddingBottom: '12px',
+                    borderBottom: '1px solid rgba(0,0,0,0.2)',
+                  }}
+                >
+                  嗨!&nbsp;&nbsp;{memberInfo && memberInfo.member_name}
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  href={`/member/${memberidd}`}
+                  style={{ paddingTop: '12px' }}
+                >
                   會員中心
                 </NavDropdown.Item>
                 <NavDropdown.Item href={`/member/${memberidd}/Myjoinin`}>
@@ -140,13 +166,30 @@ function MyNavbar(props) {
                 <NavDropdown.Item href={`/member/${memberidd}/MyCollection`}>
                   我的收藏
                 </NavDropdown.Item>
-                <NavDropdown.Item href={`/member/${memberidd}/MyPhoto`}>
+                <NavDropdown.Item
+                  href={`/member/${memberidd}/MyPhoto`}
+                  style={{ paddingBottom: '12px' }}
+                >
                   我的相簿
                 </NavDropdown.Item>
-                <Logout isAuth={isAuth} setIsAuth={setIsAuth} />
+                <NavDropdown.Item
+                  style={{
+                    color: '#104b6d',
+                    paddingTop: '12px',
+                    borderTop: '1px solid rgba(0,0,0,0.2)',
+                  }}
+                >
+                  <Logout isAuth={isAuth} setIsAuth={setIsAuth} />
+                </NavDropdown.Item>
               </NavDropdown>
               <figure className="memberPhoto position-absolute">
-                <img src={devUrl + '/Pic/pic/member.jpg'} alt="" />
+                {memberInfo && (
+                  <img
+                    src={`${devUrl}/Pic/mem_img/${memberInfo.member_img}`}
+                    alt=""
+                  />
+                )}
+                {/* <img src={devUrl + '/Pic/pic/member.jpg'} alt="" /> */}
               </figure>
             </div>
           ) : (

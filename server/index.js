@@ -697,6 +697,8 @@ app.get("/member/get/event/photo", (req, res) => {
     }
   });
 });
+
+//取得會員基本資料
 app.get("/member/get/:id", (req, res) => {
   const sqlSelect = ` SELECT * FROM member WHERE member_id  = ${req.params.id}  `;
   db.query(sqlSelect, (err, result) => {
