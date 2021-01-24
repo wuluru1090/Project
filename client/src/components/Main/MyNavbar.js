@@ -56,6 +56,7 @@ function MyNavbar(props) {
       })
   }, [isAuth])
 
+  //取得會員資料
   useEffect(() => {
     if (memberidd !== '') {
       Axios.get(`http://localhost:3001/member/get/${memberidd}`).then(

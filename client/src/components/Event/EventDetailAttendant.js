@@ -32,15 +32,12 @@ function EventDetailAttendant(props) {
 
   useEffect(() => {
     if (allAttendOrders.length > 0) {
-      {
-        allAttendOrders.map((val) => {
-          var everyAttendOrderEvent = JSON.parse(val.event_id)
-          // console.log(JSON.parse(val.event_id))
-          if (everyAttendOrderEvent.includes(parseInt(detailData.event_id))) {
-            attend.push(val.id)
-          }
-        })
-      }
+      allAttendOrders.map((val) => {
+        var everyAttendOrderEvent = JSON.parse(val.event_id)
+        if (everyAttendOrderEvent.includes(parseInt(detailData.event_id))) {
+          attend.push(val.id)
+        }
+      })
       setAttendantsData(attend)
     }
   }, [allAttendOrders])
@@ -56,7 +53,6 @@ function EventDetailAttendant(props) {
       `http://localhost:3001/api/attendants?id=${attendantsData.join(',')}`
     )
       .then((response) => {
-        // console.log(response.data)
         setList(response.data)
       })
       .catch(function (error) {
@@ -69,7 +65,7 @@ function EventDetailAttendant(props) {
       <div className="detail-attendant-wrapper d-flex flex-wrap justify-content-start">
         <div className="attendant-card  d-flex justify-content-center">
           <figure className="detail-attendant-avatar">
-            {detailData.event_host_img != '' ? (
+            {detailData.event_host_img !== '' ? (
               <img
                 src={`${devUrl}/pic/mem_img/${detailData.event_host_img}`}
                 alt=""

@@ -28,18 +28,22 @@
     }
   }
 
-  .ccard {
+  .eventccard {
     // background: crimson;
     width: 271px;
     height: 350px;
     border: 1px solid transparent;
-
-    .card-title {
-      font-size: $font-size-base;
-      font-family: 'TaipeiSansTCBeta-Bold' !important;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    .card-body {
+      width: 100%;
+      padding: 0px 0px 0px 12px;
+      .card-title {
+        width: 100%;
+        font-size: $font-size-base;
+        font-family: 'TaipeiSansTCBeta-Bold' !important;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
 
     .event-photo {
@@ -114,10 +118,6 @@
       margin-top: -50px;
     }
 
-    .card-body {
-      padding: 0px 0px 0px 12px;
-    }
-
     .inform {
       margin-top: 1px;
     }
@@ -148,7 +148,6 @@
 
     .join {
       padding: 6px 21px;
-      border-radius: 50px;
       font-size: 12px;
       background: #4f7f9a;
       color: white;
@@ -156,6 +155,9 @@
       justify-content: center;
       align-items: center;
       transition: 0.5s;
+      flex-wrap: nowrap;
+      margin: 0px;
+
       &:hover {
         color: white;
         transform: translateY(2px);

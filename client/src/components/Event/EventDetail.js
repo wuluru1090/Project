@@ -44,6 +44,7 @@ function EventDetail(props) {
   const eventId = props.match.params.id
   const isAuth = props.isAuth
   const [loginId, setLogInId] = useState()
+  const [memberInfo, setMemberInfo] = useState()
 
   // 是否是登入狀態
   useEffect(() => {
@@ -117,6 +118,17 @@ function EventDetail(props) {
   //     `http://localhost:3001/api/eventwasbought?eventId=${eventId}&valid=1&memberId=${loginId}`
   //   ).then((response) => {})
   // })
+
+  //取得登入會員
+  useEffect(() => {
+    if (loginId) {
+      Axios.get(`http://localhost:3001/member/get/${loginId}`).then(
+        (response) => {
+          setMemberInfo(response.data[0])
+        }
+      )
+    }
+  }, [loginId])
 
   //單獨轉換json日期
   function dateConvert(jsonDate) {
@@ -416,6 +428,7 @@ function EventDetail(props) {
                     id: val.event_id,
                     hostId: val.event_host_id,
                   }}
+                  memInfo={loginId && memberInfo}
                 />
               </div>
 

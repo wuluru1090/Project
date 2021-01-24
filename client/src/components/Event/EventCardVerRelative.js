@@ -52,7 +52,7 @@ function EventCardVerRelative(props) {
   return (
     <>
       <div className="d-flex justify-content-center event-card-vertical_relative">
-        <div className="card box d-flex ccard">
+        <div className="card box d-flex eventccard">
           <img
             src={devUrl + '/Pic/SVG/bookmark.svg'}
             className="bookmark un-pushed"

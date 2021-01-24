@@ -5,14 +5,20 @@ import Axios from 'axios'
 import { DateConvert, TimeConvert } from '../Main/DateTimeConverter'
 
 function EventForum(props) {
-  // console.log(props.eventValue)
+  console.log(props)
   const [commentContent, setCommentContent] = useState('')
   const [commentData, setCommentData] = useState([])
+  let memberInfo = ''
+  if (props.memInfo) {
+    memberInfo = props.memInfo
+  }
+
+  console.log(memberInfo)
 
   const comment = () => {
     Axios.post('http://localhost:3001/api/comment', {
       commentEventId: props.eventValue.id,
-      commentMemberId: 13,
+      commentMemberId: memberInfo.member_id,
       commentContent: commentContent,
       commentTime: new Date(),
     })
@@ -20,8 +26,9 @@ function EventForum(props) {
     setCommentData([
       ...commentData,
       {
-        member_name: '登入的使用者',
-        comment_member_id: 13,
+        member_name: memberInfo.member_name,
+        member_img: memberInfo.member_img,
+        comment_member_id: memberInfo.member_id,
         comment_content: commentContent,
         comment_time: now.toJSON(),
       },
@@ -118,7 +125,13 @@ function EventForum(props) {
           ></textarea>
           <div className="d-flex justify-content-end forum-form">
             <button
-              onClick={comment}
+              onClick={() => {
+                if (memberInfo) {
+                  comment()
+                } else {
+                  alert('請先登入!')
+                }
+              }}
               className="btn btn-primary rounded-pill bttn"
             >
               留言

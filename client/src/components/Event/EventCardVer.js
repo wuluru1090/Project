@@ -53,7 +53,7 @@ function EventCardVer(props) {
   return (
     <>
       <div className="event-card-vertical card-wrapper">
-        <div className="card box d-flex ccard">
+        <div className="card box d-flex eventccard">
           <img
             src={devUrl + '/Pic/SVG/bookmark.svg'}
             className="bookmark un-pushed"
@@ -88,10 +88,7 @@ function EventCardVer(props) {
               isActive === true ? { display: 'inline' } : { display: 'none' }
             }
           />
-          <figure
-            className="event-photo"
-            onClick={() => click2Detail(cardInfo.event_id)}
-          >
+          <figure className="event-photo">
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
               className="card-img-top photo"
@@ -157,7 +154,7 @@ function EventCardVer(props) {
               </div>
               <button
                 onClick={() => click2Detail(cardInfo.event_id)}
-                className="btn d-flex join"
+                className="btn d-flex join rounded-pill"
               >
                 參加活動
               </button>
