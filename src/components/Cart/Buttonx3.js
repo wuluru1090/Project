@@ -6,7 +6,7 @@ function Buttonx3(props) {
   return (
     <>
       <div className="d-flex buttonx3">
-        <Link to="/" className="btn d-flex buttonx3">
+        <Link to="/cart" className="btn d-flex buttonx3">
           活動
         </Link>
         <Link to="/cart2" className="btn d-flex buttonx3">

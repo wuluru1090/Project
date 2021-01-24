@@ -10,7 +10,7 @@ function NextTimeButton(props) {
       <div className="fukuanbutton">
         <div className="b1 d-flex">
           <button className="btn d-flex confirmbutton1">繼續購物</button>
-          <Link to="/" className="btn d-flex confirmbutton2">
+          <Link to="/cart" className="btn d-flex confirmbutton2">
             返回首頁
           </Link>
         </div>

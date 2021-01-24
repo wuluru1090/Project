@@ -25,7 +25,7 @@ function App() {
         <MainContent>
           <ScrollToTop>
             <Switch>
-              <Route path="/" exact>
+              <Route path="/cart" exact>
                 <Cart />
               </Route>
               <Route path="/PaymentMethodActivityPage">
