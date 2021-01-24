@@ -43,7 +43,7 @@ function SoYa2(props) {
               </p>
               <img
                 className="themepicture cover-fit"
-                src={devUrl + '/pic/soya/pag4img3.png'}
+                src={devUrl + '/pic/soya/武嶺2.jpg'}
                 alt="themepicture"
               />
             </div>
@@ -59,7 +59,7 @@ function SoYa2(props) {
               </p>
               <img
                 className="themepicture cover-fit"
-                src={devUrl + '/pic/soya/themepicture1.png'}
+                src={devUrl + '/pic/soya/dscf0623-edit.jpg'}
                 alt="themepicture"
               />
             </div>
@@ -75,7 +75,7 @@ function SoYa2(props) {
               </p>
               <img
                 className="themepicture cover-fit"
-                src={devUrl + '/pic/soya/battleo.jpg'}
+                src={devUrl + '/pic/soya/2019-12-19-155924-58.jpg'}
                 alt="themepicture"
               />
             </div>
@@ -93,7 +93,7 @@ function SoYa2(props) {
               </p>
               <img
                 className="themepicture cover-fit"
-                src={devUrl + '/pic/soya/fourgress1.jpg'}
+                src={devUrl + '/pic/soya/藍眼淚2.jpeg'}
                 alt="themepicture"
               />
             </div>
@@ -159,7 +159,7 @@ function SoYa2(props) {
               </p>
               <img
                 className="themepicture cover-fit"
-                src={devUrl + '/pic/soya/classcontentimg3.png'}
+                src={devUrl + '/pic/soya/phone-1149925.jpg'}
                 alt="themepicture"
               />
             </div>

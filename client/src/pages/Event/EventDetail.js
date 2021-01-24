@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import '../../index.scss'
 import EventDetail from '../../components/Event/EventDetail'
 
-function EventDetails() {
+function EventDetails(props) {
   return (
     <>
-      <EventDetail />
+      <EventDetail isAuth={props.isAuth} />
     </>
   )
 }

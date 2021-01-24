@@ -3,12 +3,21 @@
 .inspect-photo-wrapper {
   height: calc(100vh - 60px);
   background: #000000;
-  .go-back {
-    color: white;
-    padding: 36px 0px;
-    margin-left: 36px;
-    font-size: 16px;
+  .btn-div {
+    padding: 18px 0px;
+    .go-back {
+      color: white;
+      margin-left: 36px;
+      padding: 5px;
+      font-size: 16px;
+      background: transparent;
+      border: transparent 1px solid;
+      &:active {
+        border: transparent 1px solid;
+      }
+    }
   }
+
   .photo-carousel {
     // border: yellow 1px solid;
     padding: 0px 48px;

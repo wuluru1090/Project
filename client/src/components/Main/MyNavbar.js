@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import { MdSearch } from 'react-icons/md'
 import { MdShoppingCart } from 'react-icons/md'
 import { devUrl } from '../../config'
 import '../../style/navbar.scss'
 
 // 有改一點樣式
-import '../../style/soya/login.scss'
+import '../../style/soya/login2.scss'
 import Axios from 'axios'
 import Logout from '../Soya/Logout'
 import { Modal, Button } from 'react-bootstrap'
@@ -28,6 +28,7 @@ function MyNavbar(props) {
   // 拿到會員id
   const [member, setMember] = useState()
   const [memberidd, setMemberidd] = useState('')
+  const [memberInfo, setMemberInfo] = useState()
 
   //保護頁面
   const [show, setShow] = useState(false)
@@ -40,7 +41,7 @@ function MyNavbar(props) {
   useEffect(() => {
     Axios.get('http://localhost:3001/login')
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         if (response.data.loggedIn === true) {
           // console.log(response.data)
           setMemberidd(response.data.user[0].member_id)
@@ -54,6 +55,17 @@ function MyNavbar(props) {
         console.log(loginid)
       })
   }, [isAuth])
+
+  useEffect(() => {
+    if (memberidd !== '') {
+      Axios.get(`http://localhost:3001/member/get/${memberidd}`).then(
+        (response) => {
+          setMemberInfo(response.data[0])
+          console.log(response.data)
+        }
+      )
+    }
+  }, [memberidd])
 
   return (
     <>
@@ -74,8 +86,6 @@ function MyNavbar(props) {
               alt="揪影"
             />
           </Navbar.Brand>
-          {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
-          {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
           <Nav className="nav1">
             {props.isAuth ? (
               <Nav.Link className="navLink" as={NavLink} to="/eventstart">
@@ -123,25 +133,65 @@ function MyNavbar(props) {
             </Nav.Link>
           </Nav>
           <Nav className="nav2">
-            <Nav.Link className="icon" href="#">
-              <MdSearch />
-            </Nav.Link>
             <Nav.Link className="icon" href="cart">
-              <MdShoppingCart />
+              <MdShoppingCart size={20} />
             </Nav.Link>
           </Nav>
-          <div className="memberPhoto">
-            <figure>
-              {props.isAuth ? (
-                <img src={devUrl + '/Pic/pic/member.jpg'} alt="" />
-              ) : (
-                <img src={devUrl + '/Pic/pic/filter_vintage-24px.png'} alt="" />
-              )}
-            </figure>
-          </div>
 
           {isAuth ? (
-            <Logout isAuth={isAuth} setIsAuth={setIsAuth} />
+            <div className="position-relative" style={{ marginRight: '75px' }}>
+              <NavDropdown
+                title=""
+                id="basic-nav-dropdown"
+                className="text-align-center"
+              >
+                <NavDropdown.Item
+                  style={{
+                    color: '#104b6d',
+                    paddingBottom: '12px',
+                    borderBottom: '1px solid rgba(0,0,0,0.2)',
+                  }}
+                >
+                  嗨!&nbsp;&nbsp;{memberInfo && memberInfo.member_name}
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  href={`/member/${memberidd}`}
+                  style={{ paddingTop: '12px' }}
+                >
+                  會員中心
+                </NavDropdown.Item>
+                <NavDropdown.Item href={`/member/${memberidd}/Myjoinin`}>
+                  我的揪團
+                </NavDropdown.Item>
+                <NavDropdown.Item href={`/member/${memberidd}/MyCollection`}>
+                  我的收藏
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  href={`/member/${memberidd}/MyPhoto`}
+                  style={{ paddingBottom: '12px' }}
+                >
+                  我的相簿
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  style={{
+                    color: '#104b6d',
+                    paddingTop: '12px',
+                    borderTop: '1px solid rgba(0,0,0,0.2)',
+                  }}
+                >
+                  <Logout isAuth={isAuth} setIsAuth={setIsAuth} />
+                </NavDropdown.Item>
+              </NavDropdown>
+              <figure className="memberPhoto position-absolute">
+                {memberInfo && (
+                  <img
+                    src={`${devUrl}/Pic/mem_img/${memberInfo.member_img}`}
+                    alt=""
+                  />
+                )}
+                {/* <img src={devUrl + '/Pic/pic/member.jpg'} alt="" /> */}
+              </figure>
+            </div>
           ) : (
             <button
               className="btn loginoutbtn"

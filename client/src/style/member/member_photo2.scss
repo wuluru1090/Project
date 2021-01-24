@@ -1,0 +1,16 @@
+@import '../default.scss';
+.addphoto2 {
+}
+
+.photo_album3 {
+  .img_box3 {
+    // padding: 16px;
+    img {
+      width: 230px;
+      height: 140px;
+      padding: 8px 0px 0 0px;
+      margin: 0 0 0 16px;
+      object-fit: cover;
+    }
+  }
+}

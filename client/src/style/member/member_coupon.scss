@@ -1,0 +1,44 @@
+@import '../default.scss';
+
+.hrline {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.get_coupon {
+  width: 100%;
+  flex-wrap: wrap;
+  flex: content;
+
+  .coupon {
+    width: 230px;
+    height: 110px;
+    padding: 5px;
+    background-color: $primary-100;
+    border-radius: 10px;
+    margin: 8px;
+    // flex-wrap: wrap;
+  }
+  .join {
+    width: 70px;
+    height: 24px;
+    border-radius: 50px;
+    font-size: 12px;
+    background: #4f7f9a;
+    color: white;
+    box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+    justify-content: center;
+    align-items: center;
+    border: 0;
+  }
+}
+
+.btn_style {
+  height: 34px;
+  padding: 8px 16px;
+  border-radius: 25px;
+  background-color: #104b6d;
+  color: #ffffff;
+  font-family: 'TaipeiSansTCBeta-Regular';
+  border: 0;
+}

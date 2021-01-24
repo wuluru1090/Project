@@ -1,0 +1,30 @@
+@import '../default.scss';
+
+.navbarbox {
+  .navbar {
+    position: absolute;
+    margin: 0 auto;
+    padding: 12px 0px;
+    .main_li {
+      list-style: none;
+      a {
+        padding: 5px 20px;
+      }
+    }
+  }
+}
+
+.navbar {
+  &:hover {
+    & .main_li {
+      &:hover {
+        a {
+          background-color: $secondary-050;
+          border-right: solid 2px $secondary-300;
+          border-left: solid 2px $secondary-300;
+          color: $secondary-300;
+        }
+      }
+    }
+  }
+}

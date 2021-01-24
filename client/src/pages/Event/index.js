@@ -10,7 +10,7 @@ function Event(props) {
   const { conditionsobad } = props
   return (
     <>
-      <EventMain conditionsobad={conditionsobad} />
+      <EventMain conditionsobad={conditionsobad} isAuth={props.isAuth} />
     </>
   )
 }

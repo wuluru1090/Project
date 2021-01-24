@@ -8,7 +8,7 @@ import Axios from 'axios'
 
 function EventCardVerRelative(props) {
   let history = useHistory()
-  const loginId = 1
+  const loginId = window.sessionStorage.getItem('useriddd')
 
   // console.log(props.initValue)
   const [isActive, setIsActive] = useState(false)
@@ -33,20 +33,17 @@ function EventCardVerRelative(props) {
     Axios.get(
       `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
     ).then((response) => {
-      // console.log(response.data)
       if (response.data.length > 0) setIsActive(true)
     })
   }, [])
 
   const writeLike = () => {
-    // if (!isActive)
     Axios.post('http://localhost:3001/api/save', {
       likeEventId: cardInfo.event_id,
       likeMemberId: 1,
     }).then(alert('success!'))
   }
   const deleteLike = () => {
-    // if (isActive)
     Axios.delete(
       `http://localhost:3001/api/delete?eventId=${cardInfo.event_id}&memId=1`
     ).then(alert('刪除成功!'))
@@ -60,7 +57,14 @@ function EventCardVerRelative(props) {
             src={devUrl + '/Pic/SVG/bookmark.svg'}
             className="bookmark un-pushed"
             alt="..."
-            onClick={() => setIsActive(true)}
+            onClick={() => {
+              if (loginId) {
+                setIsActive(true)
+                writeLike()
+              } else {
+                alert('請先登入!')
+              }
+            }}
             style={isActive ? { display: 'none' } : { display: 'inline' }}
             id="inactive"
           />
@@ -69,21 +73,41 @@ function EventCardVerRelative(props) {
             className="bookmark pushed"
             alt="..."
             id="active"
-            onClick={() => setIsActive(false)}
+            onClick={() => {
+              if (loginId) {
+                setIsActive(false)
+                deleteLike()
+              } else {
+                alert('請先登入!')
+              }
+            }}
             style={isActive ? { display: 'inline' } : { display: 'none' }}
           />
           <figure
-            className="event-photo card-img-top"
+            className="event-photo"
             onClick={() => click2Detail(cardInfo.event_id)}
           >
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
-              className="photo"
+              className="card-img-top photo"
               alt={cardInfo.event_name}
-              style={{ marginTop: '0px' }}
             />
           </figure>
-
+          <a href="#">
+            <div className="more-att">+3</div>
+          </a>
+          <a href="#">
+            <img
+              className="second-att"
+              src={devUrl + '/pic/pic/member2.jpg'}
+            ></img>
+          </a>
+          <a href="#">
+            <img
+              className="first-att"
+              src={devUrl + '/pic/pic/member3.jpg'}
+            ></img>
+          </a>
           <div
             className="card-body"
             onClick={() => click2Detail(cardInfo.event_id)}

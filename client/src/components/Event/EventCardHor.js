@@ -10,7 +10,7 @@ function EventCardHor(props) {
   const [isActive, setIsActive] = useState(false)
   const [tags, setTags] = useState([])
   const cardInfo = props.initVal
-  const loginId = 1
+  const loginId = window.sessionStorage.getItem('useriddd')
 
   let history = useHistory()
   function click2Detail(id) {
@@ -71,8 +71,12 @@ function EventCardHor(props) {
               className="bookmark"
               alt="..."
               onClick={() => {
-                setIsActive(true)
-                writeLike()
+                if (loginId) {
+                  setIsActive(true)
+                  writeLike()
+                } else {
+                  alert('請先登入!')
+                }
               }}
               style={isActive ? { display: 'none' } : { display: 'inline' }}
             />
@@ -81,8 +85,12 @@ function EventCardHor(props) {
               className="bookmark"
               alt="..."
               onClick={() => {
-                setIsActive(false)
-                deleteLike()
+                if (loginId) {
+                  setIsActive(false)
+                  deleteLike()
+                } else {
+                  alert('請先登入!')
+                }
               }}
               style={isActive ? { display: 'inline' } : { display: 'none' }}
             />
@@ -96,6 +104,21 @@ function EventCardHor(props) {
                 alt={cardInfo.event_name}
               />
             </figure>
+            <a href="#">
+              <div className="more-att">+3</div>
+            </a>
+            <a href="#">
+              <img
+                className="second-att"
+                src={devUrl + '/pic/pic/member2.jpg'}
+              ></img>
+            </a>
+            <a href="#">
+              <img
+                className="first-att"
+                src={devUrl + '/pic/pic/member3.jpg'}
+              ></img>
+            </a>
           </div>
 
           <div
@@ -165,12 +188,12 @@ function EventCardHor(props) {
                   )
                 })}
               </div>
-              <button
+              <a
                 onClick={() => click2Detail(cardInfo.event_id)}
                 className="btn d-flex join"
               >
                 參加活動
-              </button>
+              </a>
             </div>
           </div>
         </div>

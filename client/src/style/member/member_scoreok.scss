@@ -1,0 +1,36 @@
+.pd_score {
+  margin: 0 auto;
+
+  .mymem_toscoreM {
+    padding: 20px;
+    // .mem_img {
+    //   width: 16px;
+    //   height: 16px;
+    // }
+
+    .score_p {
+      // margin: 0 8px 0 0px;
+      padding: 0 32px 0 0px;
+    }
+
+    .ScoText {
+      width: 600px;
+      height: 80px;
+    }
+  }
+  .join {
+    width: 70px;
+    height: 24px;
+    border-radius: 50px;
+    font-size: 12px;
+    background: #4f7f9a;
+    color: white;
+    box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+    border: 0;
+  }
+}
+.score_table {
+  .list-content {
+    border-bottom: 1px solid #212121;
+  }
+}

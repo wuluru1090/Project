@@ -13,7 +13,7 @@ import Axios from 'axios'
 
 import React, { useState, useEffect } from 'react'
 import { devUrl } from '../../config'
-import '../../style/soya/login.scss'
+import '../../style/soya/login2.scss'
 import { FaTwitter } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'

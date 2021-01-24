@@ -34,7 +34,7 @@ function Logout(props) {
   return (
     <>
       <p>
-        <button className="btn loginoutbtn" onClick={signout}>
+        <button className="btn logoutbtn" onClick={signout}>
           登出
         </button>
       </p>

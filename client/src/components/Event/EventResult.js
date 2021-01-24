@@ -5,13 +5,14 @@ import { devUrl } from '../../config'
 import EventCardVer from './EventCardVer'
 import EventCardHor from './EventCardHor'
 import Pagination from '../Main/Pagination'
+import { withRouter, useHistory } from 'react-router-dom'
 
 //connect with backend
 import Axios from 'axios'
 
 function EventResult(props) {
   // console.log(props)
-  Axios.defaults.withCredentials = true
+  let history = useHistory()
 
   // 搜尋欄子傳子判斷式
   if (props.conditionsobad.searchbar !== '') {
@@ -46,7 +47,7 @@ function EventResult(props) {
       `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}`
     )
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         setEventResult(response.data)
       })
       .catch(function (error) {
@@ -64,14 +65,14 @@ function EventResult(props) {
   const resultCard = (
     <div className="result-card d-flex flex-wrap justify-content-start">
       {currentPosts.map((val) => {
-        return <EventCardVer initVal={val} />
+        return <EventCardVer initVal={val} isAuth={props.isAuth} />
       })}
     </div>
   )
   const resultList = (
     <div className="result-list d-flex justify-content-start flex-wrap">
       {currentPosts.map((val) => {
-        return <EventCardHor initVal={val} />
+        return <EventCardHor initVal={val} isAuth={props.isAuth} />
       })}
     </div>
   )
@@ -126,11 +127,18 @@ function EventResult(props) {
             {displayCard ? resultCard : resultList}
           </div>
         ) : (
-          <div className="no-result">
+          <div className="no-result ">
             <h5>很抱歉，未找到符合的搜尋結果。</h5>
-            <button className="btn btn-primary rounded-pill" onclick={() => {}}>
-              返回全部活動
-            </button>
+            <div className="d-flex justify-content-center">
+              <button
+                className="btn btn-primary rounded-pill"
+                onClick={() => {
+                  window.location.reload()
+                }}
+              >
+                返回全部活動
+              </button>
+            </div>
           </div>
         )}
 
@@ -147,4 +155,4 @@ function EventResult(props) {
   )
 }
 
-export default EventResult
+export default withRouter(EventResult)

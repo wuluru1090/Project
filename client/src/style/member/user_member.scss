@@ -1,0 +1,109 @@
+@import '../default.scss';
+
+body {
+  min-height: 100%;
+
+  .user_card_body {
+    padding-bottom: 260px;
+    img {
+      object-fit: cover;
+    }
+
+    .mem_nameandtitle {
+      padding: 16px;
+      // width: 350px;
+      text-align: center;
+    }
+    .photo_album_all {
+      width: 900px;
+
+      .photo_album2 {
+        width: 220px;
+        margin: 32px 24px 50px 24px;
+
+        h6 {
+          text-align: center;
+        }
+        .img_box2 {
+          align-items: center;
+          border-radius: 5px;
+          border: solid 1px $secondary;
+          padding: 8px;
+          background-color: #ffffff;
+          margin: 0 auto;
+          img {
+            width: 100px;
+            height: 70px;
+            padding: 5px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  bottom: 0;
+}
+
+.mem_namescorh {
+  .btn-mem_view {
+    width: 124.7px;
+    height: 34px;
+    background-color: $secondary;
+    border: 0;
+    border-radius: 50px;
+    // margin: 8px;
+    SVG {
+      margin: 0 8px 0 0;
+    }
+  }
+}
+
+.mem_coll_list {
+  .list-content {
+    margin: 0px auto;
+    border-bottom: rgba(0, 0, 0, 0.6) 1px solid;
+    .pic {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 12px;
+      figure {
+        img {
+          width: 80px;
+          height: 80px;
+          margin: 0px;
+          border: rgba(0, 0, 0, 0.6) 1px solid;
+        }
+      }
+    }
+    .detail {
+      margin: 0px;
+      padding: 0px;
+
+      .de {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      h6 {
+        font-family: 'TaipeiSansTCBeta-Bold';
+        margin: 8px 0;
+      }
+      .subtitle2 {
+        margin: 0px;
+      }
+      .comments {
+        font-family: 'TaipeiSansTCBeta-Bold';
+      }
+      .host {
+        color: $secondary;
+        margin-bottom: 8px;
+      }
+      p {
+        padding: 0 0 4px 0;
+      }
+    }
+  }
+}

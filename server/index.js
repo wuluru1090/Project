@@ -7,7 +7,7 @@ const mysql = require("mysql");
 const db = mysql.createPool({
   host: "127.0.0.1",
   user: "root",
-  password: "",
+  password: "12345",
   database: "final_project",
 });
 
@@ -22,11 +22,31 @@ app.use(
 app.use(express.json()); //用來解析json檔，因為前端回傳的是json object = app.use(bodyParser.son())
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//////////////活動部分//////////////
 //活動相簿
 app.get("/api/event/album/:id?", (req, res) => {
   const sqlSelect = `SELECT photo.*, member.member_name AS member_name FROM photo JOIN member ON photo.member_id = member.member_id WHERE photo.event_id=${req.params.id} AND photo.valid=1 AND photo.photo_show=1`;
   db.query(sqlSelect, (err, result) => {
     res.send(result);
+  });
+});
+
+//加入活動照片
+app.put("/api/event/eventaddphoto", (req, res) => {
+  const sqlUpdate = `UPDATE photo SET photo_show = 1 WHERE photo_id IN (${req.query.photoId})`;
+  db.query(sqlUpdate, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+//移除活動相片
+app.put("/api/event/eventdeletephoto", (req, res) => {
+  const sqlUpdate = `UPDATE photo SET photo_show = 0 WHERE photo_id IN (${req.query.photoId})`;
+  db.query(sqlUpdate, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
   });
 });
 
@@ -187,13 +207,7 @@ app.get("/api/save", (req, res) => {
   });
 });
 
-// app.get("/api/eventwasbought", (req, res) => {
-//   const eventId = req.query.eventId;
-//   const memberId = req.query.memberId;
-//   const sqlSelect = `SELECT * FROM s_event WHERE id=${memberId} AND  FIND_IN_SET(${eventId}, event_id) > 0`;
-// });
-
-// 首頁部分
+//////////////首頁部分//////////////
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
@@ -275,7 +289,7 @@ app.post("/login", (req, res) => {
     "SELECT * FROM member WHERE member_account = ? AND member_password = ?",
     [username, password],
     (err, result) => {
-      console.log({ err: err });
+      // console.log({ err: err });
 
       if (result.length > 0) {
         req.session.user = result;
@@ -315,7 +329,7 @@ app.post("/eventform", (req, res) => {
   const memberid = req.body.memberid;
 
   // console.log(memberid);
-  res.send("no way")
+  res.send("no way");
 
   db.query(
     "INSERT INTO event_tags (tags_name) VALUES (?)",
@@ -347,7 +361,6 @@ app.post("/eventform", (req, res) => {
     ],
     (err, result) => {
       console.log(err);
-      
     }
   );
 });
@@ -374,6 +387,452 @@ app.get("/eventstartdata/get/:id", (req, res) => {
   db.query(sqlselect, (err, result) => {
     res.send(result);
     // console.log(result);
+  });
+});
+
+//////////////課程部分//////////////
+const orderby = [
+  "",
+  "ORDER BY class_start_date DESC",
+  "ORDER BY class_price ASC",
+  "ORDER BY class_price DESC",
+];
+
+// 接收主題篩選及排序的資料
+app.get("/class/category", (req, res) => {
+  const sqlSelect = `SELECT main_class.*,class_theme.class_theme_name FROM main_class INNER JOIN class_teacher ON main_class.class_teacher_id = class_teacher.class_teacher_id INNER JOIN class_theme ON main_class.class_theme_id = class_theme.class_theme_id WHERE class_theme_name IN (${
+    req.query.theme
+  }) ${orderby[+req.query.orderby]} 
+  `;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+// 接收商品頁下方的推薦主題商品
+app.get("/class/theme", (req, res) => {
+  const sqlSelect = `SELECT main_class.*,class_theme.class_theme_name FROM main_class INNER JOIN class_teacher ON main_class.class_teacher_id = class_teacher.class_teacher_id INNER JOIN class_theme ON main_class.class_theme_id = class_theme.class_theme_id WHERE class_theme_name IN (${req.query.theme}) LIMIT 6
+  `;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+// 商品頁面資料
+app.get("/class/:id", (req, res) => {
+  const sqlSelect = `SELECT main_class.*,class_teacher.*,class_theme.class_theme_name FROM main_class INNER JOIN class_teacher ON main_class.class_teacher_id = class_teacher.class_teacher_id INNER JOIN class_theme ON main_class.class_theme_id = class_theme.class_theme_id WHERE class_id = ${req.params.id}`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+// 加入我的收藏
+app.post("/class/favorites", (req, res) => {
+  const member_id = req.body.member_id;
+  const class_id = req.body.class_id;
+  const member_like = req.body.member_like;
+  const sqlInsert =
+    "INSERT INTO like_class (member_id,class_id,member_like) VALUES (?,?,?)";
+  // console.log(sqlInsert)
+  db.query(sqlInsert, [member_id, class_id, member_like], (err, result) => {
+    console.log(result);
+    res.json({
+      state: "success",
+    });
+  });
+});
+
+// 刪除我的收藏
+app.delete("/class/delete/:classId", (req, res) => {
+  const sqlDelete = `DELETE FROM like_class WHERE member_id=101 AND class_id=${req.params.classId}`;
+  // console.log(sqlDelete);
+  db.query(sqlDelete, (err, result) => {
+    console.log(result);
+    res.json({
+      state: "success",
+    });
+  });
+});
+
+// 接收所有課程的資料
+app.get("/class", (req, res) => {
+  const sqlSelect = `SELECT main_class.*,class_theme.class_theme_name FROM main_class INNER JOIN class_teacher ON main_class.class_teacher_id = class_teacher.class_teacher_id INNER JOIN class_theme ON main_class.class_theme_id = class_theme.class_theme_id
+  `;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+//////////////會員部分//////////////
+app.post("/member/coupon", (req, res) => {
+  const coupon_id = req.body.coupon_id;
+  const member_id = req.body.member_id;
+  const valid = 1;
+  const sqlInsert =
+    "INSERT INTO coupon_related (coupon_id ,member_id,valid) VALUES (?,?,?) ";
+  console.log(sqlInsert);
+  db.query(sqlInsert, [coupon_id, member_id, valid], (err, result) => {
+    if (err) console.log(err);
+    console.log(result);
+    res.json({ state: "success" });
+  });
+});
+
+app.post("/member/photo", (req, res) => {
+  const member_id = req.body.member_id;
+  const event_id = req.body.event_id;
+  const photo_show = 0;
+  const photo_name = req.body.photo_name;
+  const valid = 1;
+  const c_date = new Date();
+  const sqlInsert =
+    "INSERT INTO photo (member_id ,event_id,photo_show,photo_name,valid,c_date) VALUES (?,?,?,?,?,?) ";
+  console.log(sqlInsert);
+  db.query(
+    sqlInsert,
+    [member_id, event_id, photo_show, photo_name, valid, c_date],
+    (err, result) => {
+      if (err) console.log(err);
+      console.log(result);
+    }
+  );
+});
+
+app.get("/member/get/coupon/new/:id", (req, res) => {
+  // const sqlSelect=`SELECT * FROM coupon_main WHERE NOT FIND_IN_SET(${req.params.id}, given_member_id) > 0`;
+  const sqlSelect = `SELECT * 
+  FROM coupon_main 
+  WHERE coupon_id NOT IN (
+    SELECT coupon_id FROM coupon_related
+      WHERE coupon_related.member_id = ${req.params.id}
+      AND valid = 1
+  ) `;
+  db.query(sqlSelect, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.get("/member/get/coupon/:id", (req, res) => {
+  // const sqlSelect=`SELECT * FROM coupon_main WHERE NOT FIND_IN_SET(${req.params.id}, given_member_id) > 0`;
+  const sqlSelect = `SELECT * 
+  FROM coupon_main 
+  WHERE coupon_id IN (
+    SELECT coupon_id FROM coupon_related
+      WHERE coupon_related.member_id = ${req.params.id}
+      AND valid = 1
+  ) `;
+  db.query(sqlSelect, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.get("/member/get/collection/class/:id", (req, res) => {
+  const sqlSelect = ` SELECT * FROM like_class INNER JOIN main_class ON like_class.class_id=main_class.class_id  WHERE member_id  = ${req.params.id}`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+app.get("/member/get/collection/event/:id", (req, res) => {
+  const sqlSelect = ` SELECT * FROM like_event INNER JOIN event ON like_event.event_id=event.event_id  WHERE member_id  = ${req.params.id}`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/event_host/:id", (req, res) => {
+  const sqlSelect = ` SELECT * FROM event WHERE event_host_id  = ${req.params.id} AND event_start_time >=NOW() `;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/event_host/finish/:id", (req, res) => {
+  const sqlSelect = ` SELECT * FROM event WHERE event_host_id  = ${req.params.id} AND event_start_time <=NOW() `;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/history/event/:id", (req, res) => {
+  const sqlSelect = ` SELECT s_event.event_id, s_event.id FROM s_event WHERE id = ${req.params.id}  AND vaild= 1 `;
+
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/history/event/att", (req, res) => {
+  console.log(req.query.id);
+  const sqlSelect = ` SELECT * FROM event WHERE event_id IN (${req.query.id}) AND event_start_time < NOW()  `;
+  console.log(sqlSelect);
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/history/event/att/mem", (req, res) => {
+  console.log(req.query.id);
+  const sqlSelect = ` SELECT member_id,member_name,member_img FROM member WHERE member_id IN (${req.query.id}) `;
+  console.log(sqlSelect);
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/history/class/:id", (req, res) => {
+  const sqlSelect = ` SELECT s_class.class_id, s_class.id FROM s_class WHERE id = ${req.params.id}  AND vaild= 1`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/history/class/att", (req, res) => {
+  // console.log(req.query.id)
+  const sqlSelect = ` SELECT * FROM main_class WHERE class_id IN (${req.query.id}) AND class_end_date < CURDATE()  `;
+  // console.log(sqlSelect)
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+app.get("/member/get/order/event/:id", (req, res) => {
+  const sqlSelect = ` SELECT  * FROM  s_event WHERE id  = ${req.params.id} AND order_paid=1  AND vaild= 1`;
+
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/order/event/att", (req, res) => {
+  // console.log(req.query.id)
+  const sqlSelect = ` SELECT event_id,event_name,event_location,event_start_time,event_end_time,event_address,event_photo FROM event WHERE event_id IN (${req.query.id})   `;
+  // console.log(sqlSelect)
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/order/class/:id", (req, res) => {
+  const sqlSelect = ` SELECT  * FROM  s_class WHERE id  = ${req.params.id} AND order_paid=1 AND vaild= 1`;
+
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/order/class/att", (req, res) => {
+  // console.log(req.query.id)
+  const sqlSelect = ` SELECT class_id,class_name,class_place,class_start_date,class_end_date,class_address,class_main_pic FROM main_class WHERE class_id IN (${req.query.id})   `;
+  // console.log(sqlSelect)
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/order/event/pay/:id", (req, res) => {
+  const sqlSelect = ` SELECT  * FROM  s_event WHERE id  = ${req.params.id} AND order_paid=0  AND vaild= 1`;
+
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/order/event/pay/att", (req, res) => {
+  // console.log(req.query.id)
+  const sqlSelect = ` SELECT event_id,event_name,event_location,event_start_time,event_end_time,event_address,event_photo FROM event WHERE event_id IN (${req.query.id})   `;
+  // console.log(sqlSelect)
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/order/class/pay/:id", (req, res) => {
+  const sqlSelect = ` SELECT * FROM  s_class WHERE id  = ${req.params.id} AND order_paid = 0  AND vaild= 1`;
+
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/order/class/pay/att", (req, res) => {
+  // console.log(req.query.id)
+  const sqlSelect = ` SELECT class_id,class_name,class_place,class_start_date,class_end_date,class_address,class_main_pic FROM main_class WHERE class_id IN (${req.query.id})   `;
+  // console.log(sqlSelect)
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/score/:id", (req, res) => {
+  const sqlSelect = ` SELECT * FROM score INNER JOIN member ON score.member_id = member.member_id WHERE score.toscore_id  = ${req.params.id}`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/score/mem/:id", (req, res) => {
+  const sqlSelect = `SELECT * FROM score INNER JOIN member ON score.toscore_id = member.member_id WHERE score.member_id = ${req.params.id}`;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.get("/member/get/event/photo", (req, res) => {
+  const member_id = req.body.member_id;
+  console.log(member_id);
+  const sqlSelect = ` SELECT * FROM photo INNER JOIN event ON photo.event_id = event.event_id WHERE photo.event_id IN (${req.query.id}) AND  photo.member_id IN (${req.query.member}) AND valid=1`;
+  console.log(sqlSelect);
+  db.query(sqlSelect, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+//取得會員基本資料
+app.get("/member/get/:id", (req, res) => {
+  const sqlSelect = ` SELECT * FROM member WHERE member_id  = ${req.params.id}  `;
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+app.put("/member/update/photo", (req, res) => {
+  const valid = 0;
+  const photo_id = req.body.photo_id;
+  const sqlUpdate = "UPDATE photo SET valid=? WHERE photo_id=? ";
+
+  console.log(sqlUpdate);
+  db.query(sqlUpdate, [valid, photo_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/member/update/classorder", (req, res) => {
+  const vaild = 0;
+  const order_id = req.body.order_id;
+  const sqlUpdate = "UPDATE s_class SET vaild=? WHERE order_id=? ";
+  console.log(sqlUpdate);
+  db.query(sqlUpdate, [vaild, order_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/member/update/eventorder", (req, res) => {
+  const vaild = 0;
+  const order_id = req.body.order_id;
+  const sqlUpdate = "UPDATE s_event SET vaild=? WHERE order_id=? ";
+  console.log(sqlUpdate);
+  db.query(sqlUpdate, [vaild, order_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/member/update/img", (req, res) => {
+  const member_id = req.body.member_id;
+  const member_img = req.body.member_img;
+  const sqlUpdate = "UPDATE member SET member_img=?  WHERE member_id=?";
+  db.query(sqlUpdate, [member_img, member_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/member/update", (req, res) => {
+  const member_id = req.body.member_id;
+  const member_name = req.body.member_name;
+  const member_phone = req.body.member_phone;
+  // const member_birthday= req.body.member_birthday;
+  const member_ex = req.body.member_ex;
+  const member_about = req.body.member_about;
+  const sqlUpdate =
+    "UPDATE member SET member_name=?,member_phone=?,member_ex=?, member_about=?  WHERE member_id=?";
+  db.query(
+    sqlUpdate,
+    [member_name, member_phone, member_ex, member_about, member_id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+app.post("/member/score", (req, res) => {
+  const member_id = req.body.member_id;
+  const event_id = req.body.event_id;
+  const toscore_id = req.body.toscore_id;
+  const rating = req.body.rating;
+  const rating_evaluate = req.body.rating_evaluate;
+  const c_date = new Date();
+  const sqlInsert =
+    "INSERT INTO score (member_id ,event_id,toscore_id,rating,rating_evaluate,c_date) VALUES (?,?,?,?,?,?) ";
+  console.log(sqlInsert);
+  db.query(
+    sqlInsert,
+    [member_id, event_id, toscore_id, rating, rating_evaluate, c_date],
+    (err, result) => {
+      if (err) console.log(err);
+      console.log(result);
+    }
+  );
+});
+
+app.delete("/api/delete/classlike", (req, res) => {
+  const sqlDelete = `DELETE FROM like_class WHERE class_id =${req.query.classId}  AND member_id=${req.query.member}`;
+  console.log(sqlDelete);
+  res.send(JSON.stringify({ result: "ok" }));
+  db.query(sqlDelete, (err, result) => {
+    if (err) console.log(err);
+    // res.json({
+    //   state:"success"
+    // })
+  });
+});
+
+app.delete("/api/delete/eventlike", (req, res) => {
+  const sqlDelete = `DELETE FROM like_event WHERE event_id =${req.query.eventId}  AND member_id=${req.query.member}`;
+  console.log(sqlDelete);
+  res.send(JSON.stringify({ result: "ok" }));
+  db.query(sqlDelete, (err, result) => {
+    if (err) console.log(err);
+    // res.json({
+    //   state:"success"
+    // })
+  });
+});
+
+app.delete("/api/delete/:member_id", (req, res) => {
+  const member_id = req.params.member_id;
+  const sqlDelete = "Delete FROM  member WHERE member_id=?";
+  db.query(sqlDelete, member_id, (err, result) => {
+    if (err) console.log(err);
   });
 });
 

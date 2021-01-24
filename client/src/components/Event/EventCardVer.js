@@ -10,23 +10,24 @@ import Axios from 'axios'
 function EventCardVer(props) {
   const [isActive, setIsActive] = useState(false)
   const cardInfo = props.initVal
-  const loginId = 1
+  // const loginId = 1
+  const loginId = window.sessionStorage.getItem('useriddd')
 
-  let history = useHistory()
+  let history = useHistory(loginId)
 
   //確認是否有收藏
   useEffect(() => {
-    Axios.get(
-      `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
-    ).then((response) => {
-      // console.log(response.data)
-      if (response.data.length > 0) setIsActive(true)
-    })
+    if (loginId !== '') {
+      Axios.get(
+        `http://localhost:3001/api/save?eventId=${cardInfo.event_id}&memId=${loginId}`
+      ).then((response) => {
+        if (response.data.length > 0) setIsActive(true)
+      })
+    }
   }, [])
 
   function click2Detail(id) {
     let stringId = JSON.stringify(id)
-    // console.log(stringId)
     history.push('/event/' + stringId)
   }
 
@@ -38,14 +39,12 @@ function EventCardVer(props) {
   }
 
   const writeLike = () => {
-    // if (!isActive)
     Axios.post('http://localhost:3001/api/save', {
       likeEventId: cardInfo.event_id,
       likeMemberId: loginId,
     })
   }
   const deleteLike = () => {
-    // if (isActive)
     Axios.delete(
       `http://localhost:3001/api/delete?eventId=${cardInfo.event_id}&memId=${loginId}`
     )
@@ -60,8 +59,12 @@ function EventCardVer(props) {
             className="bookmark un-pushed"
             alt="..."
             onClick={() => {
-              setIsActive(true)
-              writeLike()
+              if (loginId) {
+                setIsActive(true)
+                writeLike()
+              } else {
+                alert('請先登入!')
+              }
             }}
             style={
               isActive === false ? { display: 'inline' } : { display: 'none' }
@@ -74,20 +77,24 @@ function EventCardVer(props) {
             alt="..."
             id="active"
             onClick={() => {
-              setIsActive(false)
-              deleteLike()
+              if (loginId) {
+                setIsActive(false)
+                deleteLike()
+              } else {
+                alert('請先登入!')
+              }
             }}
             style={
               isActive === true ? { display: 'inline' } : { display: 'none' }
             }
           />
           <figure
-            className="event-photo card-img-top"
+            className="event-photo"
             onClick={() => click2Detail(cardInfo.event_id)}
           >
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
-              className="photo"
+              className="card-img-top photo"
               alt={cardInfo.event_name}
             />
           </figure>

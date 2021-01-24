@@ -1,0 +1,44 @@
+@import '../default.scss';
+
+//EventBottom
+.class-bottom-wrapper {
+  .blue-wave-with-couple {
+    transform: translateY(3px);
+    position: relative;
+    // background: burlywood;
+    .couple.couple {
+      position: absolute;
+      bottom: 0px;
+      left: 140px;
+      z-index: 10;
+    }
+    .blue-wave {
+      z-index: 20;
+    }
+  }
+  .wave-height {
+    background: $primary-100;
+  }
+  .theme {
+    width: calc(100% - 150px);
+    margin: 0px auto;
+    flex-wrap: wrap;
+    padding: 60px 0px 120px 0px;
+  }
+
+  .theme-button.theme-button {
+    background: $primary-050;
+    padding: 17px 34px;
+    border: 1px transparent;
+    color: $primary-300;
+    font-size: $font-size-base * 1.5;
+    letter-spacing: 1.92px;
+    margin: 18px;
+    // transition: 0.5s;
+
+    &:hover {
+      color: white;
+      background: #4f7f9a;
+    }
+  }
+}

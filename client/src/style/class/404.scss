@@ -1,0 +1,70 @@
+$url: 'http://localhost:3000';
+
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: 'Arvo', serif;
+  height: calc(100vh - 80px);
+
+  .c404 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page_404 img {
+    width: 100%;
+  }
+
+  .four_zero_four_bg {
+    background-image: url($url + '/pic/SVG/ulall.svg');
+
+    height: 400px;
+    background-position: center;
+    flex-grow: 1;
+    position: relative;
+  }
+
+  .four_zero_four_bg h1 {
+    font-size: 80px;
+    position: absolute;
+    top: 150px;
+    left: 180px;
+    color: #175fab;
+  }
+
+  .four_zero_four_bg h3 {
+    font-size: 80px;
+  }
+
+  .link_404 {
+    color: #fff !important;
+    width: 118px;
+    height: 30px;
+    background: #175fab;
+    display: inline-block;
+    border-radius: 50px;
+    font-size: 12px;
+    box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 200px;
+    text-decoration: none;
+    &:hover {
+      transform: translateY(2px);
+      box-shadow: 0 3px 3px rgba(25, 25, 25, 0.3);
+    }
+  }
+  .contant_box_404 {
+    margin-top: -50px;
+    position: relative;
+    h3 {
+      color: #175fab;
+    }
+    p {
+      color: gray;
+    }
+  }
+}
