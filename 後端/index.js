@@ -254,7 +254,7 @@ app.get('/member/get/event/photo',(req,res)=>{
 
     const member_id = req.body.member_id;
     console.log(member_id)
-  const sqlSelect=` SELECT * FROM photo INNER JOIN event ON photo.event_id = event.event_id WHERE photo.event_id IN (${req.query.id}) AND  photo.member_id IN (${req.query.member})`;
+  const sqlSelect=` SELECT * FROM photo INNER JOIN event ON photo.event_id = event.event_id WHERE photo.event_id IN (${req.query.id}) AND  photo.member_id IN (${req.query.member}) AND valid=1`;
   console.log(sqlSelect)
   db.query(sqlSelect,(err,result)=>{
     if (err) {
@@ -271,23 +271,23 @@ app.get('/member/get/:id',(req,res)=>{
 })
 })
 
-// app.put("/member/update/photo",(req,res)=>{
-//   const valid= 0;
-//   const photo_id= req.body.photoid;
-//   const sqlUpdate="UPDATE photo SET valid=0 WHERE photo_id = ? ";
-//   console.log(sqlUpdate)
-//   db.query(sqlUpdate,[valid,photo_id],
-//       (err, result) => {
-//           if (err) {
-//             console.log(err);
-//           } else {
-//             res.send(result);
-//           }
-// })
-// })
+app.put("/member/update/photo",(req,res)=>{
+  const valid= 0;
+  const photo_id = req.body.photo_id;
+  const sqlUpdate="UPDATE photo SET valid=? WHERE photo_id=? ";
+
+  console.log(sqlUpdate)
+  db.query(sqlUpdate,[valid,photo_id],
+      (err, result) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(result);
+          }
+})
+})
 
 app.put("/member/update/classorder",(req,res)=>{
-
   const vaild= 0;
   const order_id= req.body.order_id;
   const sqlUpdate="UPDATE s_class SET vaild=? WHERE order_id=? ";
