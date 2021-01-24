@@ -12,8 +12,21 @@ function EventMain(props) {
   window.scrollTo(0, 0)
   const [condition, setCondition] = useState({})
 
-  //首頁搜尋欄子傳子
+  //首頁搜尋欄子傳子滑動
   const { conditionsobad } = props
+
+  if (props.conditionsobad.searchbar !== '') {
+    window.scrollTo({ top: 700, behavior: 'smooth' })
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  // 主題子傳子判斷式滑動
+  if (props.conditionsobad.theme !== '') {
+    window.scrollTo({ top: 700, behavior: 'smooth' })
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <>

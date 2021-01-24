@@ -20,7 +20,7 @@ const SelectTime = (props) => {
       timeFormat="HH:mm"
       timeIntervals={15}
       timeCaption="time"
-      dateFormat="yyyy-MM-dd hh:mm"
+      dateFormat="MMMM d, yyyy h:mm aa"
       className="testt form-control form-control-md"
     />
   )
