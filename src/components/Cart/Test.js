@@ -42,7 +42,9 @@ export default class AccordionExampleStandard extends Component {
                         alt="titlephoto"
                       />
                     </div>{' '}
-                    <div>日出撈魚苗│日出霞光、火燒雲絕美景色</div>
+                    <div className="tdtext">
+                      日出撈魚苗│日出霞光、火燒雲絕美景色
+                    </div>
                   </td>
                   <td className="">1</td>
                   <td>2000</td>
@@ -115,7 +117,9 @@ export default class AccordionExampleStandard extends Component {
                         alt="titlephoto"
                       />
                     </div>{' '}
-                    <div>日出撈魚苗│日出霞光、火燒雲絕美景色</div>
+                    <div className="tdtext">
+                      日出撈魚苗│日出霞光、火燒雲絕美景色
+                    </div>
                   </td>
                   <td className="">1</td>
                   <td>2000</td>
