@@ -4,6 +4,7 @@ import '../../style/event/event_attendant.scss'
 import { devUrl } from '../../config'
 import { withRouter } from 'react-router-dom'
 import Axios from 'axios'
+import { DateConvert } from '../Main/DateTimeConverter'
 
 function EventAttendant(props) {
   const eventId = props.match.params.id
@@ -48,7 +49,6 @@ function EventAttendant(props) {
   const getAttFromOrderAttend = async () => {
     await Axios.get(`http://localhost:3001/api/eventorder?valid=1`)
       .then((response) => {
-        // console.log(response.data)
         setAllAttendOrders(response.data)
       })
       .catch(function (error) {
@@ -120,7 +120,7 @@ function EventAttendant(props) {
       `http://localhost:3001/api/attendants?id=${cancelData.join(',')}`
     )
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         setCancelList(response.data)
       })
       .catch(function (error) {
@@ -162,12 +162,29 @@ function EventAttendant(props) {
     }
   }
 
+  //天數計算機
+  function isOneDay(date1, date2) {
+    let startDate = date1.split('-')
+    let endDate = date2.split('-')
+    return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
+  }
+
   return (
     <>
       <div className="back">
         <div className="att-container content">
           <div className="att-header">
-            <h6>2020/03/05-2020/03/17</h6>
+            <h6>
+              {isOneDay(event.event_start_time, event.event_end_time) ? (
+                <DateConvert jsonDate={event.event_start_time} />
+              ) : (
+                <>
+                  <DateConvert jsonDate={event.event_start_time} />
+                  <span>&nbsp;~&nbsp;</span>
+                  <DateConvert jsonDate={event.event_end_time} />
+                </>
+              )}
+            </h6>
             <h5 className="title">{event.event_name}</h5>
             <h5 className="title">參與者</h5>
             <div className="status">

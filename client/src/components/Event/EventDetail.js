@@ -63,6 +63,10 @@ function EventDetail(props) {
     new Date('2021-01-15'),
     new Date('2021-01-15'),
   ])
+  const [passed, setPassed] = useState('')
+  const [address, setAddress] = useState('')
+  const [lat, setLat] = useState(0)
+  const [lng, setLng] = useState(0)
   //設定標籤
   const [tags, setTags] = useState([])
 
@@ -80,6 +84,28 @@ function EventDetail(props) {
     lat: 24.96803,
     lng: 121.19498,
   }
+  Axios.defaults.withCredentials = true
+  //地址轉經緯度
+  geoCode()
+  function geoCode() {
+    var insertLocation = address.toString()
+    Axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+      params: {
+        address: `"${insertLocation}"`,
+        key: 'AIzaSyC6QUff0ut3Jr7uZCFw-_u5fdcziRnyr2k',
+      },
+    })
+      .then(function (response) {
+        // 地址的緯度
+        setLat(response.data.results[0].geometry.location.lat)
+        //地址的經度
+        setLng(response.data.results[0].geometry.location.lng)
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error)
+      })
+  }
 
   //取得後端活動資料
   useEffect(() => {
@@ -90,6 +116,14 @@ function EventDetail(props) {
           new Date(dateConvert(response.data[0].event_start_time).toString()),
           new Date(dateConvert(response.data[0].event_end_time).toString()),
         ])
+
+        setAddress(response.data[0].event_address)
+
+        let eventDate = +new Date(response.data[0].event_start_time)
+        let today = +new Date()
+        if (eventDate <= today) {
+          setPassed(true)
+        }
       })
       .catch(function (error) {
         console.log(error)
@@ -409,7 +443,16 @@ function EventDetail(props) {
                     </button>
 
                     <div className="gmap">
-                      <GMap location={location} zoomLevel={15} />
+                      {lat > 0 && lng > 0 && (
+                        <GMap
+                          location={{
+                            address: address.toString(),
+                            lat: lat,
+                            lng: lng,
+                          }}
+                          zoomLevel={15}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -452,7 +495,7 @@ function EventDetail(props) {
                 </div>
               </div>
               {/* 底下的bar */}
-              <EventFixedBottom value={val} />
+              <EventFixedBottom value={val} passed={passed} />
             </div>
           </>
         )

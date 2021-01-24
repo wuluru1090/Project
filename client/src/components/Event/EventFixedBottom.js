@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_fixed_bottom.scss'
 
-function EventFixedBottom(value) {
-  const bottomData = value.value
+function EventFixedBottom(props) {
+  const bottomData = props.value
+  const passed = props.passed
 
   function isOneDay(date1, date2) {
     let startDate = date1.split('-')
@@ -88,7 +89,11 @@ function EventFixedBottom(value) {
               </div>
             </div>
             <button className="btn d-flex align-items-center justify-content-center fixed_cart_button">
-              {left() > 0 ? '加入購物車' : '加入購物車(後補)'}
+              {passed
+                ? '活動已過期'
+                : left() > 0
+                ? '加入購物車'
+                : '加入購物車(後補)'}
             </button>
           </div>
         </div>
