@@ -11,25 +11,53 @@ import React, { useState, useEffect } from 'react'
 import MyNavbar from './components/Main/MyNavbar'
 import Footer from './components/Main/Footer'
 import MainContent from './components/Main/MainContent'
-import EventAttendant from './pages/Event/EventAttendant'
 
+//////////活動//////////
+import EventAttendant from './pages/Event/EventAttendant'
 import Event from './pages/Event/'
 import Album from './pages/Event/EventAlbum'
 import EventAlbumPhoto from './pages/Event/EventAlbumPhoto'
 import EventDetails from './pages/Event/EventDetail'
 
+//////////首頁&登入//////////
 import SoYa from './pages/SoYa/SoYa'
 import Login from './pages/SoYa/Login'
 import Signup from './pages/SoYa/Signup'
 import EventStart from './pages/SoYa/EventStart'
+import Logout from './components/Soya/Logout'
 
+//////////課程//////////
 import ClassResult from './pages/Class/ClassResult'
 import ClassSearch from './pages/Class/ClassSearch'
 
-import Logout from './components/Soya/Logout'
+//////////自動往上捲//////////
+import AutoTop from './components/Soya/AutoTop'
+
+//////////會員//////////
+import MemberMyCollection from './pages/Member/MemberMyCollection'
+import MemberHome from './pages/Member/MemberHome'
+import MemberMyjoininFinish from './pages/Member/MemberMyjoininFinish'
+import MemberMyjoinin from './pages/Member/MemberMyjoinin'
+import MemberMyOrder from './pages/Member/MemberMyOrder'
+import MemberMyOrderClass from './pages/Member/MemberMyOrderClass'
+import MemberMyOrderClassNopay from './pages/Member/MemberMyOrderClassNopay'
+import MemberMyOrderEventNopay from './pages/Member/MemberMyOrderEventNopay'
+import MemberCoupon from './pages/Member/MemberCoupon'
+import MemberHistoryClass from './pages/Member/MemberHistoryClass'
+import MemberHistory from './pages/Member/MemberHistory'
+import MemberMyCollectionC from './pages/Member/MemberMyCollectionC'
+import MemberMyPhoto from './pages/Member/MemberMyPhoto'
+import MemberMyPhoto2 from './pages/Member/MemberMyPhoto2'
+import MemberMyManagement from './pages/Member/MemberMyManagement'
+import MemberMyScore from './pages/Member/MemberMyScore'
+import MemberMyScoreOk from './pages/Member/MemberMyScoreOk'
+import UserSeeMember from './pages/Member/UserSeeMember'
+import SeeMemberAlbum from './pages/Member/SeeMemberAlbum'
+import UserSeeMemberAlbum from './pages/Member/UserSeeMemberAlbum'
+import MemberMyManagementDelete from './pages/Member/MemberMyManagementDelete'
+
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Formika from './pages/SoYa/Formika'
-import AutoTop from './components/Soya/AutoTop'
 
 function App() {
   // 會員認証範例
@@ -100,6 +128,75 @@ function App() {
                   <ClassResult />
                 </Route>
                 {/* 課程頁面結束 */}
+
+                {/* 會員頁面開始 */}
+                <Route path="/member/:id?/MyOrder/Class/Pay">
+                  <MemberMyOrderClassNopay />
+                </Route>
+                <Route path="/member/:id?/MyOrder/Event/Pay">
+                  <MemberMyOrderEventNopay />
+                </Route>
+                <Route path="/member/:id?/MyCollection/Class">
+                  <MemberMyCollectionC />
+                </Route>
+                <Route path="/member/:id?/MyManagement/Delete">
+                  <MemberMyManagementDelete />
+                </Route>
+                <Route path="/member/:id?/MyOrder/Class">
+                  <MemberMyOrderClass />
+                </Route>
+                <Route path="/member/:id?/MyHistory/Class">
+                  <MemberHistoryClass />
+                </Route>
+
+                <Route path="/see/:id?/Album/photo">
+                  <UserSeeMemberAlbum />
+                </Route>
+                <Route path="/member/:id?/MyScoreOk">
+                  <MemberMyScoreOk />
+                </Route>
+                <Route path="/member/:id?/MyScore">
+                  <MemberMyScore />
+                </Route>
+                <Route path="/member/:id?/MyManagement">
+                  <MemberMyManagement />
+                </Route>
+                <Route path="/member/:id?/MyPhoto2">
+                  <MemberMyPhoto2 />
+                </Route>
+
+                <Route path="/member/:id?/MyPhoto">
+                  <MemberMyPhoto />
+                </Route>
+                <Route path="/member/:id?/MyjoininFinish">
+                  <MemberMyjoininFinish />
+                </Route>
+
+                <Route path="/member/:id?/Myjoinin">
+                  <MemberMyjoinin />
+                </Route>
+                <Route path="/member/:id?/MyOrder">
+                  <MemberMyOrder />
+                </Route>
+                <Route path="/member/:id?/MyCoupon">
+                  <MemberCoupon />
+                </Route>
+                <Route path="/member/:id?/MyHistory">
+                  <MemberHistory />
+                </Route>
+                <Route path="/member/:id?/MyCollection">
+                  <MemberMyCollection />
+                </Route>
+                <Route path="/see/:id?/Album">
+                  <SeeMemberAlbum />
+                </Route>
+                <Route path="/member/:id?">
+                  <MemberHome />
+                </Route>
+                <Route path="/see/:id?">
+                  <UserSeeMember />
+                </Route>
+                {/* 會員頁面結束 */}
               </Switch>
             </AutoTop>
           </MainContent>

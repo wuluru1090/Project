@@ -131,16 +131,16 @@ function MyNavbar(props) {
           {isAuth ? (
             <div className="position-relative" style={{ marginRight: '75px' }}>
               <NavDropdown title="" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/member/:id?">
+                <NavDropdown.Item href={`/member/${memberidd}`}>
                   會員中心
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/member/:id?/Myjoinin">
+                <NavDropdown.Item href={`/member/${memberidd}/Myjoinin`}>
                   我的揪團
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/member/:id?/MyCollection">
+                <NavDropdown.Item href={`/member/${memberidd}/MyCollection`}>
                   我的收藏
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/member/:id?/MyPhoto">
+                <NavDropdown.Item href={`/member/${memberidd}/MyPhoto`}>
                   我的相簿
                 </NavDropdown.Item>
                 <Logout isAuth={isAuth} setIsAuth={setIsAuth} />

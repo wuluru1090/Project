@@ -1,6 +1,7 @@
-@import 'default.scss';
+@import '../default.scss';
 .mem_box {
   width: 825px;
+  height: 100%;
   border-radius: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
@@ -9,7 +10,6 @@
     .mem_form {
       .text_w {
         border-radius: 5px;
-
         width: 240px;
         height: 38px;
         margin: 0 43px 0 0;
@@ -29,6 +29,7 @@
     height: 34px;
     border-radius: 25px;
     background-color: #104b6d;
+    border: 0px;
     color: #ffffff;
     font-family: 'TaipeiSansTCBeta-Regular';
   }

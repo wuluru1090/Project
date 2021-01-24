@@ -1,0 +1,35 @@
+@import '../default.scss';
+
+.photo_album {
+  width: 220px;
+  height: 150px;
+  margin: 38px 0px 43px 0px;
+  h6 {
+    text-align: center;
+  }
+  .img_box {
+    width: 210px;
+    height: 144px;
+    border-radius: 5px;
+    border: solid 1px $secondary;
+    background-color: #ffffff;
+
+    img {
+      width: 90px;
+      height: 55px;
+      padding: 5px;
+      object-fit: cover;
+    }
+  }
+}
+.addphoto {
+  // position: absolute;
+  bottom: -20%;
+  right: -10%;
+
+  SVG {
+    width: 40px;
+    height: 40px;
+    color: $primary-300;
+  }
+}

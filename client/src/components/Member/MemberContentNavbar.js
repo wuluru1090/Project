@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../style/default.scss'
-import '../../style/member_navbar.scss'
+import '../../style/member/member_navbar.scss'
 function MemberContentNavbar() {
   return (
     <>

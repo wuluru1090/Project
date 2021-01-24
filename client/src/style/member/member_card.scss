@@ -1,4 +1,4 @@
-@import 'default.scss';
+@import '../default.scss';
 
 //card
 .mem_card {
@@ -10,6 +10,19 @@
   background-color: #ffffff;
 }
 
+.mem_img_box {
+  .mem_img {
+    background-color: $gray-default;
+    border: solid 1px $primary;
+    object-fit: cover;
+  }
+}
+
+.star_Points {
+  color: $primary;
+  font-family: 'TaipeiSansTCBeta-Bold';
+  // padding: 0 0 0 8px;
+}
 .star {
   svg {
     color: $yellow;
@@ -17,7 +30,6 @@
     height: 23.2px;
   }
 }
-
 //navlist
 
 .mem_navlist {

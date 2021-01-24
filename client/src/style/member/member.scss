@@ -1,0 +1,26 @@
+@import '../default.scss';
+
+body {
+  min-height: 100%;
+  max-width: 100%;
+}
+
+.background_wave2 {
+  width: 100%;
+  background-image: url('http://localhost:3000/pic/SVG/wave.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 1;
+  //   bottom: 80px;
+}
+.background_wave {
+  width: 100%;
+  background-image: url('http://localhost:3000/pic/SVG/mem_bg.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  z-index: 1;
+}
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+}

@@ -1,23 +1,34 @@
 import '../../index.scss'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import MemberPdCard from '../../components/Member/MemberPdCard'
-import MyNavbar from '../../components/Main/MyNavbar'
-import Footer from '../../components/Main/Footer'
-import '../../style/member_navbar.scss'
-import { Card, Button } from 'react-bootstrap'
-import { MdVisibility } from 'react-icons/md'
+import { MdVisibility, MdBrightnessHigh } from 'react-icons/md'
+import '../../style/member/member_navbar.scss'
 import { devUrl } from '../../config'
-
+import { Card, Button } from 'react-bootstrap'
+import Axios from 'axios'
+import { withRouter } from 'react-router-dom'
+import { DateConvert } from '../../components/Main/DateTimeConverter'
+import '../../style/member/member_pdcard.scss'
 function MemberMyjoinin(props) {
+  const [memjoinin, setMemberjoinin] = useState([])
+
+  useEffect(() => {
+    Axios.get(
+      `http://localhost:3001/member/get/event_host/${props.match.params.id}`
+    )
+      .then((res) => {
+        setMemberjoinin(res.data)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
+
   return (
     <>
       <body>
         <div className="background_wave ">
-          <header>
-            <MyNavbar />
-          </header>
           <div className="wrapper  ">
             <main className="container">
               <aside className="d-flex justify-content-end">
@@ -36,18 +47,119 @@ function MemberMyjoinin(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="box "
+                        className="navbarbox "
                       >
                         <ul className="row navbar  d-flex align-items-center">
                           <li className=" subtitle1  main_li">
-                            <a href="#">發起中</a>
+                            <a
+                              href={
+                                devUrl +
+                                `/member/${props.match.params.id}/Myjoinin`
+                              }
+                            >
+                              發起中
+                            </a>
                           </li>
                           <li className=" subtitle1 main_li">
-                            <a href="#">已完成</a>
+                            <a
+                              href={
+                                devUrl +
+                                `/member/${props.match.params.id}/MyjoininFinish`
+                              }
+                            >
+                              已完成
+                            </a>
                           </li>
                         </ul>
                         <br />
-                        <MemberPdCard />
+                        {memjoinin.length > 0 ? (
+                          <div>
+                            {memjoinin.map((val) => {
+                              return (
+                                <div className="pdCard">
+                                  <div className="ccard">
+                                    <div className="d-flex dcard">
+                                      <div>
+                                        <img
+                                          src={
+                                            devUrl + '/pic/pic/桌布-德國.jpg'
+                                          }
+                                          className="card-img-top photo"
+                                          alt="..."
+                                        />
+                                      </div>
+                                      <div className="">
+                                        <div className="card-body">
+                                          <h5 className="card-title">
+                                            {val.event_name}
+                                          </h5>
+
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon"
+                                              src="/pic/svg/photo-camera.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption">
+                                              {val.event_location}
+                                            </p>
+                                          </div>
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon2"
+                                              src="/pic/svg/date_range-24px.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption  d-flex">
+                                              <DateConvert
+                                                jsonDate={val.event_start_time}
+                                              />
+                                              &nbsp;~&nbsp;
+                                              <DateConvert
+                                                jsonDate={val.event_end_time}
+                                              />
+                                            </p>
+                                          </div>
+                                          <div className="d-flex bbb">
+                                            <img
+                                              className="icon3"
+                                              src="/pic/svg/location_on-24px.svg"
+                                              alt=""
+                                            />
+                                            <p className="caption ">
+                                              {val.event_address}
+                                            </p>
+                                          </div>
+                                          <div className="d-flex justify-content-end btn_group">
+                                            <Button
+                                              onclick=""
+                                              className="btn-style botton-font btn_icon mem_card_btn"
+                                            >
+                                              <MdVisibility />
+                                              活動檢視
+                                            </Button>
+
+                                            <Button
+                                              onclick=""
+                                              className="btn-style botton-font btn_icon mem_card_btn btn_edit"
+                                            >
+                                              <MdBrightnessHigh />
+                                              活動編輯
+                                            </Button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              )
+                            })}
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: '32px' }}>
+                            <p>沒有舉辦揪影，趕快去發起活動吧</p>
+                          </div>
+                        )}
                       </Card.Body>
                     </Card>
                   </div>
@@ -55,25 +167,11 @@ function MemberMyjoinin(props) {
               </aside>
             </main>
           </div>
-          {/* 背景icon 需要再研究 */}
-          <div className="bg-couple row d-flex align-items-end ">
-            <figure>
-              <img src={devUrl + '/pic/SVG/couple man.svg'} alt="背景iocn男" />
-            </figure>
-            <figure>
-              <img
-                src={devUrl + '/pic/SVG/couple woman.svg'}
-                alt="背景iocn女"
-              />
-            </figure>
-          </div>
           <br />
         </div>
-
-        <Footer />
       </body>
     </>
   )
 }
 
-export default MemberMyjoinin
+export default withRouter(MemberMyjoinin)

@@ -1,15 +1,16 @@
 // 導入bootstrap所有的樣式與預設變數
 // @import '~bootstrap/scss/bootstrap.scss';
-@import 'default.scss';
+@import '../default.scss';
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 
 .ccard {
   width: 100%;
   height: 204px;
-  padding: 14px;
+  padding: 24px 0 0 0;
 
-  .ccard.card-body {
-    padding: 0 0 0 12px;
+  .card-body {
+    width: 460px;
+    padding: 0 0 0 20px;
   }
   .ccc {
     height: 50px;
@@ -20,17 +21,12 @@
   }
 
   .card-title {
-    margin: 0px;
-    margin-top: 3px;
+    margin: 0 0 24px 0;
     font-size: $font-size-base;
     font-family: 'TaipeiSansTCBeta-Bold';
     font-size: 20px;
-    padding: 8px 0;
+    // padding: 8px 0;
     width: 450px;
-  }
-
-  .bbb {
-    margin-bottom: 8px;
   }
 
   .photo {
@@ -40,7 +36,7 @@
     position: relative;
 
     /* margin-left: 7px; */
-    margin-top: 18px;
+    // margin-top: 18px;
     border-radius: 10px;
     z-index: 1;
   }
@@ -64,6 +60,7 @@
   .aaa {
     margin-left: 8px;
   }
+
   .join {
     width: 90px;
     height: 24px;
@@ -74,16 +71,11 @@
     box-shadow: 0 6px 6px rgba(25, 25, 25, 0.2);
     justify-content: center;
     align-items: center;
-
-    &:hover {
-      color: white;
-    }
   }
 
   .btn_group {
-    margin: 8px;
     .btn-style {
-      margin: 8px;
+      margin: 0 8px;
     }
     .btn_edit {
       background-color: $secondary;
