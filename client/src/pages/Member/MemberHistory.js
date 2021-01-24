@@ -112,7 +112,9 @@ function MemberHistory(props) {
                                   <div className="d-flex dcard">
                                     <div>
                                       <img
-                                        src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                        src={
+                                          devUrl + '/pic/event/' + m.event_photo
+                                        }
                                         className="card-img-top photo"
                                         alt="..."
                                       />

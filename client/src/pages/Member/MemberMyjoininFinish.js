@@ -85,7 +85,9 @@ function MemberMyjoinin(props) {
                                       <div>
                                         <img
                                           src={
-                                            devUrl + '/pic/pic/桌布-德國.jpg'
+                                            devUrl +
+                                            '/pic/event/' +
+                                            val.event_photo
                                           }
                                           className="card-img-top photo"
                                           alt="..."

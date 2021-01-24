@@ -161,7 +161,7 @@ function App() {
                 <Route path="/member/:id?/MyManagement">
                   <MemberMyManagement />
                 </Route>
-                <Route path="/member/:id?/MyPhoto2">
+                <Route path="/member/:id?/MyPhoto/photo">
                   <MemberMyPhoto2 />
                 </Route>
 

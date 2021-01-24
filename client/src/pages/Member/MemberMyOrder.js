@@ -188,7 +188,8 @@ function MemberMyOrder(props) {
                                                   <img
                                                     src={
                                                       devUrl +
-                                                      '/pic/pic/桌布-德國.jpg'
+                                                      '/pic/event/' +
+                                                      m.event_photo
                                                     }
                                                     alt="..."
                                                   />
@@ -197,7 +198,10 @@ function MemberMyOrder(props) {
                                             })}
                                           </div>
 
-                                          <div className="d-flex justify-content-center align-items-center row order_li">
+                                          <div
+                                            className="d-flex justify-content-center align-items-center row order_li"
+                                            style={{ marginLeft: '8px' }}
+                                          >
                                             <ul>
                                               <li>
                                                 <p>
@@ -318,7 +322,8 @@ function MemberMyOrder(props) {
                                                       <img
                                                         src={
                                                           devUrl +
-                                                          '/pic/pic/桌布-德國.jpg'
+                                                          '/pic/event/' +
+                                                          m.event_photo
                                                         }
                                                         className="card-img-top photo"
                                                         alt="..."

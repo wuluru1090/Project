@@ -7,7 +7,7 @@ import '../../style/member/member_photo2.scss'
 import { devUrl } from '../../config'
 import { Card, Button } from 'react-bootstrap'
 import { MdDelete } from 'react-icons/md'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Axios from 'axios'
 import { DateConvert } from '../../components/Main/DateTimeConverter'
 
@@ -135,17 +135,14 @@ function MemberMyPhoto2(props) {
                       {att.map((m) => {
                         return (
                           <Card.Header className="mem_title d-flex justify-content-between">
-                            <h5>
-                              <a
-                                href={
-                                  devUrl +
-                                  `/member/${props.match.params.id}/MyPhoto`
-                                }
+                            <div className="row">
+                              <Link
+                                to={`/member/${props.match.params.id}/MyPhoto`}
                               >
-                                我的相簿
-                              </a>
-                              /{m.event_name}
-                            </h5>
+                                <h5>我的相簿</h5>
+                              </Link>
+                              <h5> /{m.event_name}</h5>
+                            </div>
                             <form>
                               <input
                                 accept="image/*"
@@ -191,7 +188,10 @@ function MemberMyPhoto2(props) {
                                 <div className=" d-flex flex-wrap">
                                   {photo.map((p) => {
                                     return (
-                                      <div className="myphoto">
+                                      <div
+                                        className="myphoto"
+                                        style={{ marginBottom: '32px' }}
+                                      >
                                         <div className=" d-flex justify-content-end">
                                           <input
                                             type="checkbox"
@@ -200,17 +200,18 @@ function MemberMyPhoto2(props) {
                                               setPhotoid(e.target.value)
                                             }}
                                             value={p.photo_id}
+                                            id="img"
                                           />
                                         </div>
 
                                         <img
-                                          // src={
-                                          //   devUrl +
-                                          //   `pic/event_photo/${p.photo_name}`
-                                          // }
                                           src={
-                                            devUrl + '/pic/pic/桌布-德國.jpg'
+                                            devUrl +
+                                            `pic/event_photo/${p.photo_name}`
                                           }
+                                          // src={
+                                          //   devUrl + '/pic/pic/桌布-德國.jpg'
+                                          // }
                                           alt="photo1"
                                         ></img>
 

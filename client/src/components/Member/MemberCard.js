@@ -31,8 +31,8 @@ function MemberCard(props) {
 
               <Card.Body>
                 <Card.Text className="d-flex justify-content-center  align-items-center">
-                  <div className="d-flex justify-content-center  ">
-                    <div className=" d-flex justify-content-center">
+                  <div className="d-flex justify-content-center">
+                    <div className=" d-flex justify-content-center star">
                       <p className=" d-flex align-items-center star_Points">
                         <Box sml={2}>{val.member_Average_rating} </Box>
                       </p>

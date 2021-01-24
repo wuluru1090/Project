@@ -188,7 +188,8 @@ function MemberMyOrderEventNopay(props) {
                                                   <img
                                                     src={
                                                       devUrl +
-                                                      '/pic/pic/桌布-德國.jpg'
+                                                      '/pic/event/' +
+                                                      m.event_photo
                                                     }
                                                     alt="..."
                                                   />
@@ -197,7 +198,10 @@ function MemberMyOrderEventNopay(props) {
                                             })}
                                           </div>
 
-                                          <div className="d-flex justify-content-center align-items-start row order_li">
+                                          <div
+                                            className="d-flex justify-content-center align-items-start row order_li"
+                                            style={{ marginLeft: '8px' }}
+                                          >
                                             <ul>
                                               <li>
                                                 <p>
@@ -314,7 +318,8 @@ function MemberMyOrderEventNopay(props) {
                                                       <img
                                                         src={
                                                           devUrl +
-                                                          '/pic/pic/桌布-德國.jpg'
+                                                          '/pic/event/' +
+                                                          m.event_photo
                                                         }
                                                         className="card-img-top photo"
                                                         alt="..."

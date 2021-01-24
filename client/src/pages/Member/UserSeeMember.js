@@ -132,7 +132,7 @@ function UserSeeMember(props) {
                           </p>
 
                           <div className="d-flex justify-content-center  ">
-                            <div className=" d-flex justify-content-center">
+                            <div className=" d-flex justify-content-center star">
                               <p className=" d-flex align-items-center star_Points">
                                 <Box sml={2}>{val.member_Average_rating} </Box>
                               </p>
@@ -178,7 +178,7 @@ function UserSeeMember(props) {
                                         <img
                                           src={
                                             devUrl +
-                                            `/pic/mem_img/${p.photo_name}`
+                                            `pic/event_photo/${p.photo_name}`
                                           }
                                           alt="photo1"
                                         ></img>
@@ -230,7 +230,7 @@ function UserSeeMember(props) {
                                 style={{ margin: '0px' }}
                               >
                                 <div className="d-flex justify-content-center  ">
-                                  <div className=" d-flex justify-content-center">
+                                  <div className=" d-flex justify-content-center star">
                                     <p
                                       className=" d-flex align-items-center star_Points"
                                       style={{

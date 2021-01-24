@@ -23,7 +23,7 @@ function MemberMyManagement(props) {
       })
   }, [])
   const ValidMemberP = async (fields) => {
-    // console.log(fields)
+    console.log(fields)
     const isValid = await ValidMemberPassword.isValid(fields)
     // console.log(isValid)
     if (isValid) {
@@ -33,8 +33,10 @@ function MemberMyManagement(props) {
 
   // 船去資料庫
   const passwordpass = (fields) => {
-    Axios.post('http://localhost:3001/passwordpass', {
+    console.log(fields)
+    Axios.put('http://localhost:3001/member/update/passwordpass', {
       passwordConfirmation: fields.passwordConfirmation,
+      // member_id: fields,
     }).then(() => {
       // 返回的位置
       props.history.goBack()
@@ -104,22 +106,6 @@ function MemberMyManagement(props) {
                           {member.map((val) => {
                             return (
                               <Form className="  mem_inf">
-                                {/* <Form.Group
-                                  controlId="formBasicEmail"
-                                  className="mem_form"
-                                >
-                                  <Form.Label className=" ">
-                                    <p className="subtitle1">現有密碼</p>
-                                  </Form.Label>
-                                  <Form.Control
-                                    type="Password"
-                                    placeholder="現有密碼"
-                                    className="  text_w"
-                                    aria-describedby="inputGroupPrepend"
-                                    value={val.member_account}
-                                    // onChange=
-                                  />
-                                </Form.Group> */}
                                 <div className="contentboxinput mb-4">
                                   <div className="starbox d-flex">
                                     <div className="startitle">*</div>
@@ -136,6 +122,7 @@ function MemberMyManagement(props) {
                                     type="password"
                                     placeholder="現有密碼"
                                     className="form-control form-control-md card-input col-5"
+                                    // value={val.member_account}
                                   />
                                   <ErrorMessage
                                     name="nowpass"
@@ -221,7 +208,7 @@ function MemberMyManagement(props) {
                                 </div>
                                 <div className=" d-flex justify-content-end ">
                                   <Button
-                                    onclick=""
+                                    onClick={passwordpass(val.member_id)}
                                     className="btn-style botton-font btn_icon mem_card_btn  "
                                   >
                                     <MdCreate />

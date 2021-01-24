@@ -7,7 +7,7 @@ const mysql = require("mysql");
 const db = mysql.createPool({
   host: "127.0.0.1",
   user: "root",
-  password: "12345",
+  password: "123456",
   database: "final_project",
 });
 
@@ -782,6 +782,19 @@ app.put("/member/update", (req, res) => {
       }
     }
   );
+});
+
+app.put("/member/update/passwordpass", (req, res) => {
+  const member_id = req.body.member_id;
+  const member_password = req.body.fields.passwordConfirmation;
+  const sqlUpdate = "UPDATE member SET member_password=?  WHERE member_id=?";
+  db.query(sqlUpdate, [member_password, member_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
 });
 
 app.post("/member/score", (req, res) => {

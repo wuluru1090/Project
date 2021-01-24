@@ -1,73 +1,63 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import { devUrl } from '../../config'
 import Carousel from 'react-elastic-carousel'
 import '../../style/event/event_album_photo_carousel.scss'
+import Axios from 'axios'
+import { withRouter } from 'react-router'
 
-class MemberAlbumPhotoCarousel extends Component {
-  render() {
-    // const { items } = this.state
-    return (
+function MemberAlbumPhotoCarousel(props) {
+  console.log(props)
+  const photo = props.match.params.photo
+  const id = props.match.params.id
+  const [photoList, setPhotoList] = useState([])
+  const [ind, setInd] = useState(0)
+
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/event/album/${id}`)
+      .then((response) => {
+        setPhotoList(response.data)
+        console.log(response.data)
+        let name = response.data.map((val) => val.photo_name)
+        let index = name.indexOf(photo)
+        setInd(index)
+        console.log(name.indexOf(photo))
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [])
+
+  // useEffect(() => {
+  //   if (photoList.length > 0) {
+  //     let name = photoList.map((val) => val.photo_name)
+  //     setIndex(name.indexOf(photo))
+  //   }
+  // }, [photoList])
+
+  return (
+    <>
       <Carousel
         itemsToScroll={1}
         itemsToShow={1}
         itemPadding={[10, 10, 10, 10]}
-        // enableAutoPlay
-        // autoPlaySpeed={2000}
+        initialActiveIndex={ind}
       >
-        <figure className="box">
-          <img
-            className="event-photo"
-            src={devUrl + '/pic/pic/桌布-德國.jpg'}
-            alt=""
-          ></img>
-          <figcaption>
-            <h6>我是標題</h6>
-          </figcaption>
-        </figure>
-
-        <figure className="box">
-          <img
-            className="event-photo"
-            src={devUrl + '/pic/pic/桌布-德國.jpg'}
-            alt=""
-          ></img>
-          <figcaption>
-            <h6>我是標題</h6>
-          </figcaption>
-        </figure>
-        <figure className="box">
-          <img
-            className="event-photo"
-            src={devUrl + '/pic/pic/桌布-德國.jpg'}
-            alt=""
-          ></img>
-          <figcaption>
-            <h6>我是標題</h6>
-          </figcaption>
-        </figure>
-        <figure className="box">
-          <img
-            className="event-photo"
-            src={devUrl + '/pic/pic/桌布-德國.jpg'}
-            alt=""
-          ></img>
-          <figcaption>
-            <h6>我是標題</h6>
-          </figcaption>
-        </figure>
-        <figure className="box">
-          <img
-            className="event-photo"
-            src={devUrl + '/pic/pic/桌布-德國.jpg'}
-            alt=""
-          ></img>
-          <figcaption>
-            <h6>我是標題</h6>
-          </figcaption>
-        </figure>
+        {photoList.map((val) => {
+          return (
+            <>
+              <figure className="box">
+                <img
+                  className="event-photo"
+                  src={`${devUrl}/pic/event_pic/${val.photo_name}`}
+                  alt=""
+                ></img>
+              </figure>
+            </>
+          )
+        })}
       </Carousel>
-    )
-  }
+    </>
+  )
 }
 
-export default MemberAlbumPhotoCarousel
+export default withRouter(MemberAlbumPhotoCarousel)

@@ -128,7 +128,9 @@ function MemberMyPhoto(props) {
                                       <figure className="position-absolute addphoto">
                                         <div className="">
                                           <div>
-                                            <Link to="/member/:id/MyPhoto2">
+                                            <Link
+                                              to={`/member/${props.match.params.id}/MyPhoto/photo`}
+                                            >
                                               <MdAddCircle className="justify-content-center" />
                                             </Link>
                                           </div>

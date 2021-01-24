@@ -193,7 +193,10 @@ function MemberMyOrderClass(props) {
                                             })}
                                           </div>
 
-                                          <div className="d-flex justify-content-center align-items-center row order_li">
+                                          <div
+                                            className="d-flex justify-content-center align-items-center row order_li"
+                                            style={{ marginLeft: '8px' }}
+                                          >
                                             <ul>
                                               <li>
                                                 <p>
