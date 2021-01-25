@@ -194,7 +194,10 @@ function MemberMyOrderClassNopay(props) {
                                             })}
                                           </div>
 
-                                          <div className="d-flex justify-content-center align-items-start row order_li">
+                                          <div
+                                            className="d-flex justify-content-center align-items-start row order_li"
+                                            style={{ marginLeft: '8px' }}
+                                          >
                                             <ul>
                                               <li>
                                                 <p>
@@ -367,9 +370,13 @@ function MemberMyOrderClassNopay(props) {
                                                           <Button
                                                             onclick=""
                                                             className="btn-style botton-font btn_icon mem_card_btn"
+                                                            href={
+                                                              devUrl +
+                                                              `/class/${m.class_id}`
+                                                            }
                                                           >
                                                             <MdVisibility />
-                                                            活動檢視
+                                                            課程檢視
                                                           </Button>
                                                         </div>
                                                       </div>

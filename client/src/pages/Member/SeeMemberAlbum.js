@@ -74,6 +74,7 @@ function SeeMemberAlbum(props) {
       getPhoto()
     }
   }, [events])
+
   return (
     <>
       <div className="album-page">
@@ -108,10 +109,16 @@ function SeeMemberAlbum(props) {
                 return (
                   <div className="photo-card col-4">
                     <figure>
-                      <img
-                        src={`${devUrl}/pic/event_pic/${p.photo_name}`}
-                        alt=""
-                      ></img>
+                      <a
+                        href={
+                          devUrl + `/see/${props.match.params.id}/Album/photo`
+                        }
+                      >
+                        <img
+                          src={`${devUrl}/pic/event_pic/${p.photo_name}`}
+                          alt=""
+                        ></img>
+                      </a>
                     </figure>
                     {/* <div>
                       <p className="subtitle1">by&nbsp;&nbsp;{p.member_name}</p>

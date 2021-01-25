@@ -112,7 +112,9 @@ function MemberHistory(props) {
                                   <div className="d-flex dcard">
                                     <div>
                                       <img
-                                        src={devUrl + '/pic/pic/桌布-德國.jpg'}
+                                        src={
+                                          devUrl + '/pic/event/' + m.event_photo
+                                        }
                                         className="card-img-top photo"
                                         alt="..."
                                       />
@@ -161,7 +163,9 @@ function MemberHistory(props) {
                                         </div>
                                         <div className="d-flex justify-content-end">
                                           <Button
-                                            onclick=""
+                                            href={
+                                              devUrl + `/event/${m.event_id}`
+                                            }
                                             className="btn-style botton-font btn_icon mem_card_btn"
                                           >
                                             <MdVisibility />

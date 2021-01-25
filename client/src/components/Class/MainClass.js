@@ -4,6 +4,8 @@ import { devUrl } from '../../config'
 import { MdBookmark, MdShare } from 'react-icons/md'
 import Axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import { key } from './Key'
 
 // 元素
 import ClassCard from './ClassCard'
@@ -61,19 +63,25 @@ function ClassMain(props) {
     return date
   }
 
+  // const loginId = window.sessionStorage.getItem('useriddd')
+  // console.log(loginId)
   const addFavorites = () => {
     Axios.post('http://localhost:3001/class/favorites', {
-      member_id: 101,
+      member_id: window.sessionStorage.getItem('useriddd'),
       class_id: classId,
       member_like: 1,
     }).then(() => {
-      alert('收藏成功')
+      console.log('成功')
     })
   }
 
   const deleteFavorites = () => {
-    Axios.delete(`http://localhost:3001/class/delete/${classId}`).then(() => {
-      alert('取消收藏')
+    Axios.delete(
+      `http://localhost:3001/class/delete?classId=${classId}&memberId=${window.sessionStorage.getItem(
+        'useriddd'
+      )}`
+    ).then(() => {
+      console.log('失敗')
     })
   }
 
@@ -96,9 +104,7 @@ function ClassMain(props) {
   //地址轉經緯度
   geoCode()
   function geoCode() {
-    //var insertLocation = location.address
     var insertLocation = add.toString()
-    // let location = add
     Axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: `"${insertLocation}"`,
@@ -232,6 +238,7 @@ function ClassMain(props) {
                 <div className="left_part">
                   <ClassCard />
                   <div className="gmap">
+                    {console.log(`lat=${lat} lng=${lng}`)}
                     {lat > 0 && lng > 0 && (
                       <GMap
                         location={{

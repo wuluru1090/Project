@@ -9,9 +9,17 @@ import {
   withRouter,
 } from 'react-router-dom'
 import Axios from 'axios'
+import { Modal, Button } from 'react-bootstrap'
 
 function Logout(props) {
+  // 保護頁面
   const { isAuth, setIsAuth } = props
+
+  // modal
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
   Axios.defaults.withCredentials = true
 
   const signout = () => {
@@ -25,19 +33,43 @@ function Logout(props) {
         console.log(isAuth)
       })
       .then(() => {
-        props.history.push('/')
-        setTimeout(window.location.reload(), 1)
-        setTimeout(alert('登出成功'), 3000)
+        window.location.reload()
+        // setTimeout(alert('登出成功'), 1000)
       })
   }
 
   return (
     <>
       <p>
-        <button className="btn logoutbtn" onClick={signout}>
+        <button className="btn logoutbtn" onClick={handleShow}>
           登出
         </button>
       </p>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>會員登出</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>確認要登出嗎?</Modal.Body>
+        <Modal.Footer>
+          <Button
+            style={{ color: 'white' }}
+            variant="secondary"
+            onClick={handleClose}
+          >
+            關閉
+          </Button>
+
+          <Button variant="primary" onClick={signout}>
+            登出
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   )
 }

@@ -22,24 +22,24 @@ class NextTimeColumn extends Component {
       todos: [
         {
           id: 1,
-          name: '大稻埕攝影懷舊之旅',
+          name: '金燦金針花海拍攝~錯過再等一年',
           amount: 1,
-          price: 1500,
-          photoimg: 'event-slider1.jpg',
+          price: 500,
+          photoimg: '六十石山3.jpg',
         },
         {
           id: 2,
-          name: '與玉山拍張照',
+          name: '自然風貌攝影之旅',
           amount: 1,
-          price: 2500,
-          photoimg: 'event-slider2.jpg',
+          price: 500,
+          photoimg: '太魯閣.jpg',
         },
         {
           id: 3,
-          name: '阿里山日出',
+          name: '捕捉台灣百岳團',
           amount: 1,
-          price: 3500,
-          photoimg: 'event-slider4.jpg',
+          price: 1000,
+          photoimg: '合歡山.jpeg',
         },
       ],
     }

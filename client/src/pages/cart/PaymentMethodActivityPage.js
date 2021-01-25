@@ -8,6 +8,7 @@ import 'semantic-ui-css/semantic.min.css'
 import Participant2 from '../../components/Cart/Participant2'
 import Receipt from '../../components/Cart/Receipt'
 import PaymentDetails from '../../components/Cart/PaymentDetails'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function PaymentMethodActivityPage() {
   return (
@@ -20,6 +21,7 @@ function PaymentMethodActivityPage() {
       <Receipt />
       <PaymentDetails />
       <PaymentButton />
+      <ConfirmWave />
     </>
   )
 }

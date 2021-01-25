@@ -5,6 +5,8 @@ import { TiDeleteOutline } from 'react-icons/ti'
 import { devUrl } from '../config'
 import FukuanActivityPage from '../pages/cart/FukuanActivityPage'
 import Buttonx3 from '../components/Cart/Buttonx3'
+import ConfirmPuzzle from '../components/Cart/ConfirmPuzzle'
+import ConfirmWave from '../components/Cart/ConfirmWave'
 
 function Cart() {
   const [mycart, setMycart] = useState([])
@@ -91,7 +93,7 @@ function Cart() {
   const loading = (
     <>
       <div
-        className="d-flex justify-content-center"
+        className="d-flex justify-content-center align-items-center"
         style={{ minHeight: '100vh' }}
       >
         <div className="spinner-border" role="status">
@@ -107,6 +109,7 @@ function Cart() {
         <img src={devUrl + '/pic/pic/Group 597.png'} alt="..." />
       </div>
       <Buttonx3 />
+      <ConfirmPuzzle />
       <div className="activityordercolumnobb2">
         <div className="activityordercolumno">
           <table responsive className="columnoh">
@@ -136,30 +139,13 @@ function Cart() {
                         <div>
                           <img
                             className="titlephoto"
-                            src={devUrl + `/pic/pic/${item.photoimg}`}
+                            src={devUrl + `/pic/event/${item.photoimg}`}
                             alt="titlephoto"
                           />
                         </div>{' '}
                         <div className="context">{item.name}</div>
                       </td>
-                      <td className="">
-                        <button
-                          className="btnn"
-                          onClick={() => {
-                            if (item.amount === 1) return
-                            updateCartToLocalStorage(item, false)
-                          }}
-                        >
-                          -
-                        </button>
-                        {item.amount}
-                        <button
-                          className="btnn2"
-                          onClick={() => updateCartToLocalStorage(item, true)}
-                        >
-                          +
-                        </button>
-                      </td>
+                      <td className="">1</td>
                       <td>{item.amount * item.price}</td>
                       <td className="">
                         <Link to="#">
@@ -197,13 +183,13 @@ function Cart() {
           </div>
           <div className="boxx3 d-flex">
             <div>
-              <div className="money d-flex">5件商品合計</div>
+              <div className="money d-flex">2件商品合計</div>
               <div className="money d-flex">優惠卷折抵</div>
               <div className="money d-flex">總價</div>
             </div>
             <div>
               <div className="money d-flex moneyex">{sum(mycartDisplay)}元</div>
-              <div className="money d-flex moneyred"> -$200元</div>
+              <div className="money d-flex moneyred"> - 0元</div>
               <div className="money d-flex">{sum(mycartDisplay)}元</div>
             </div>
           </div>
@@ -219,6 +205,7 @@ function Cart() {
             前往結帳
           </Link>
         </div>
+        <ConfirmWave />
       </div>
     </>
   )

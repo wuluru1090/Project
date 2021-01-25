@@ -7,7 +7,7 @@ import '../../style/member/member_photo2.scss'
 import { devUrl } from '../../config'
 import { Card, Button } from 'react-bootstrap'
 import { MdDelete } from 'react-icons/md'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Axios from 'axios'
 import { DateConvert } from '../../components/Main/DateTimeConverter'
 
@@ -79,13 +79,12 @@ function MemberMyPhoto2(props) {
   }, [events])
 
   const postphoto = (event_id) => {
-    // console.log(event_id)
+    console.log(event_id)
     console.log(addphoto)
 
     Axios.post('http://localhost:3001/member/photo', {
       event_id: event_id,
       member_id: `${props.match.params.id}`,
-      // photo_show: coupon.coupon_name,
       photo_name: addphoto,
     }).then((res) => {
       setAttphoto([
@@ -98,21 +97,37 @@ function MemberMyPhoto2(props) {
       ])
     })
   }
-
-  // 目前無法即使顯示即刪除多個
-  const delphoto = () => {
-    console.log(photo_id)
-    Axios.put('http://localhost:3001/member/update/photo', {
-      photo_id: photo_id,
-    })
-    console.log(photo_id)
-  }
-
   function upUp() {
     setTimeout(function () {
       document.getElementById('photo-button').click()
       setTimeout(window.location.reload(), 500)
     }, 500)
+  }
+
+  var updateList = []
+
+  const [status, setStatus] = useState('unupload')
+  //上傳函式
+  const add2Update = (photo_id) => {
+    console.log(photo_id)
+    if (!updateList.includes(photo_id)) {
+      updateList = [...updateList, photo_id]
+      // console.log(updateList)
+    } else {
+      const newList = updateList.filter((v) => v !== photo_id)
+      updateList = newList
+    }
+    console.log(updateList)
+  }
+
+  // 目前無法即使顯示即刪除多個
+  const delphoto = (updateList) => {
+    console.log(updateList)
+    Axios.put('http://localhost:3001/member/update/photo', {
+      photo_id: updateList,
+    })
+    console.log(updateList)
+    setTimeout(window.location.reload(), 500)
   }
 
   return (
@@ -135,17 +150,14 @@ function MemberMyPhoto2(props) {
                       {att.map((m) => {
                         return (
                           <Card.Header className="mem_title d-flex justify-content-between">
-                            <h5>
-                              <a
-                                href={
-                                  devUrl +
-                                  `/member/${props.match.params.id}/MyPhoto`
-                                }
+                            <div className="row">
+                              <Link
+                                to={`/member/${props.match.params.id}/MyPhoto`}
                               >
-                                我的相簿
-                              </a>
-                              /{m.event_name}
-                            </h5>
+                                <h5>我的相簿</h5>
+                              </Link>
+                              <h5> /{m.event_name}</h5>
+                            </div>
                             <form>
                               <input
                                 accept="image/*"
@@ -191,26 +203,24 @@ function MemberMyPhoto2(props) {
                                 <div className=" d-flex flex-wrap">
                                   {photo.map((p) => {
                                     return (
-                                      <div className="myphoto">
+                                      <div
+                                        className="myphoto"
+                                        style={{ marginBottom: '32px' }}
+                                      >
                                         <div className=" d-flex justify-content-end">
                                           <input
                                             type="checkbox"
                                             name="checkbox"
-                                            onChange={(e) => {
-                                              setPhotoid(e.target.value)
+                                            onClick={(e) => {
+                                              add2Update(e.target.value)
                                             }}
                                             value={p.photo_id}
+                                            id="img"
                                           />
                                         </div>
 
                                         <img
-                                          // src={
-                                          //   devUrl +
-                                          //   `pic/event_photo/${p.photo_name}`
-                                          // }
-                                          src={
-                                            devUrl + '/pic/pic/桌布-德國.jpg'
-                                          }
+                                          src={`${devUrl}/pic/event_pic/${p.photo_name}`}
                                           alt="photo1"
                                         ></img>
 
@@ -235,7 +245,11 @@ function MemberMyPhoto2(props) {
 
                         <div className="d-flex justify-content-end">
                           <Button
-                            onClick={delphoto}
+                            // onClick={add2Update}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              delphoto(updateList)
+                            }}
                             className="btn-style $botton-font btn_icon mem_card_btn"
                           >
                             <MdDelete />

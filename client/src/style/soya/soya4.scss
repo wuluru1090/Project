@@ -85,6 +85,11 @@ $url: "http://localhost:3000";
           &:link{
             text-decoration: none;
           }
+
+          &:hover{
+            background: $primary-500;
+            transition: background 0.5s;
+          }
           
         }
       }
@@ -320,7 +325,12 @@ $url: "http://localhost:3000";
 
       .morejoin{
         font-size: $h6-font-size;
-        color:rgba($color: #ffffff, $alpha: 0.7);
+        color:rgba($color: #ffffff, $alpha: 0.6);
+
+        &:hover{
+          color:rgba($color: #ffffff, $alpha: 0.9);
+          transition: color 0.5s;
+        }
       }
       .morejoinline{
         width: 80px;

@@ -85,7 +85,9 @@ function MemberMyjoinin(props) {
                                       <div>
                                         <img
                                           src={
-                                            devUrl + '/pic/pic/桌布-德國.jpg'
+                                            devUrl +
+                                            '/pic/event/' +
+                                            val.event_photo
                                           }
                                           className="card-img-top photo"
                                           alt="..."
@@ -137,6 +139,10 @@ function MemberMyjoinin(props) {
                                             <Button
                                               onclick=""
                                               className="btn-style botton-font btn_icon mem_card_btn"
+                                              href={
+                                                devUrl +
+                                                `/event/${val.event_id}`
+                                              }
                                             >
                                               <MdVisibility />
                                               活動檢視

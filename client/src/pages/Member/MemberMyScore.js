@@ -215,7 +215,8 @@ function MemberMyScore(props) {
                                             <img
                                               src={
                                                 devUrl +
-                                                '/pic/pic/桌布-德國.jpg'
+                                                '/pic/event/' +
+                                                m.event_photo
                                               }
                                               className="card-img-top photo"
                                               alt="..."
@@ -331,7 +332,7 @@ function MemberMyScore(props) {
                                     <div>
                                       <div className="d-flex mem_toscore_table align-items-center ">
                                         <p className=" d-flex score_p">評分</p>
-                                        <div className=" d-flex row">
+                                        <div className=" d-flex row star">
                                           {value !== null && (
                                             <p
                                               className=" d-flex align-items-center star_Points

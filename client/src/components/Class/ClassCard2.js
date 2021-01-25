@@ -6,25 +6,26 @@ import { DateConvert } from '../Main/DateTimeConverter'
 
 function Card(props) {
   const cardInfo = props.calData
-  const carouselClassId = props.classCaId
+  const carouselClassId = cardInfo.class_id
   const [isActive, setIsActive] = useState(false)
+  const loginId = window.sessionStorage.getItem('useriddd')
 
   const addFavorites = () => {
     Axios.post('http://localhost:3001/class/favorites', {
-      member_id: 101,
+      member_id: loginId,
       class_id: carouselClassId,
       member_like: 1,
     }).then(() => {
-      alert('收藏成功')
+      console.log('收藏成功')
     })
   }
 
   const deleteFavorites = () => {
-    Axios.delete(`http://localhost:3001/class/delete/${carouselClassId}`).then(
-      () => {
-        alert('取消收藏')
-      }
-    )
+    Axios.delete(
+      `http://localhost:3001/class/delete?memberId=${loginId}&classId=${carouselClassId}`
+    ).then(() => {
+      console.log('取消收藏')
+    })
   }
 
   return (
@@ -32,7 +33,7 @@ function Card(props) {
       <div className="card class_suggest_card">
         {/* 未收藏 */}
         <img
-          src={devUrl + '/pic/SVG/bookmark-24px.svg'}
+          src={devUrl + '/pic/SVG/bookmark.svg'}
           className="tag un-pushed"
           alt="..."
           onClick={() => {

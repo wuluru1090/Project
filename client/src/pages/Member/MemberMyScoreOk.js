@@ -170,7 +170,8 @@ function MemberMyScoreOk(props) {
                                             <img
                                               src={
                                                 devUrl +
-                                                '/pic/pic/桌布-德國.jpg'
+                                                '/pic/event/' +
+                                                m.event_photo
                                               }
                                               className="card-img-top photo"
                                               alt="..."
@@ -230,7 +231,7 @@ function MemberMyScoreOk(props) {
                                                 >
                                                   <Button className="btn-style botton-font btn_icon mem_card_btn btn_toscore">
                                                     <MdGrade />
-                                                    我要評價
+                                                    我的評價
                                                   </Button>
                                                 </Accordion.Toggle>
                                               </div>
@@ -290,7 +291,7 @@ function MemberMyScoreOk(props) {
                                                       style={{ margin: '0px' }}
                                                     >
                                                       <div className="d-flex justify-content-center  ">
-                                                        <div className=" d-flex justify-content-center">
+                                                        <div className=" d-flex justify-content-center star">
                                                           <p
                                                             className=" d-flex align-items-center star_Points"
                                                             style={{

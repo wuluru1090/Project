@@ -18,9 +18,9 @@ function DetailsAmount(props) {
                   <div className="infd">信箱:</div>
                 </div>
                 <div>
-                  <div className="infd">胡子</div>
-                  <div className="infd">0911111111</div>
-                  <div className="infd">aa@gmail.com</div>
+                  <div className="infd">李詩婷</div>
+                  <div className="infd">0962359970</div>
+                  <div className="infd">ed1040129@gmail.com</div>
                 </div>
               </div>
             </div>
@@ -33,9 +33,9 @@ function DetailsAmount(props) {
               <div className="money d-flex">付款方式</div>
             </div>
             <div>
-              <div className="money d-flex moneyex"> NT$10000元</div>
-              <div className="money d-flex moneyred"> -$200元</div>
-              <div className="money d-flex">NT$9800元</div>
+              <div className="money d-flex moneyex"> NT$200元</div>
+              <div className="money d-flex moneyred"> - 0元</div>
+              <div className="money d-flex">NT$200元</div>
               <div className="money d-flex">Line Pay</div>
             </div>
           </div>

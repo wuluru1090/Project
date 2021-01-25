@@ -9,21 +9,22 @@ function ClassResultCard(props) {
   const [isActive, setIsActive] = useState(false)
   const class_info = props.cardData
   console.log(class_info)
+  const loginId = window.sessionStorage.getItem('useriddd')
 
   function setActiveEvent(isActive) {
     if (isActive) {
       Axios.post('http://localhost:3001/class/favorites', {
-        member_id: 101,
+        member_id: loginId,
         class_id: class_info.class_id,
         member_like: 1,
       }).then(() => {
-        alert('收藏成功')
+        console.log('加入收藏')
       })
     } else {
       Axios.delete(
-        `http://localhost:3001/class/delete/${class_info.class_id}`
+        `http://localhost:3001/class/delete?memberId=${loginId}&classId=${class_info.class_id}`
       ).then(() => {
-        alert('取消收藏')
+        console.log('取消收藏')
       })
     }
 
@@ -42,7 +43,7 @@ function ClassResultCard(props) {
         </figure>
         {/* 未收藏 */}
         <img
-          src={devUrl + '/pic/SVG/bookmark-24px.svg'}
+          src={devUrl + '/Pic/SVG/bookmark.svg'}
           className="tag un-pushed"
           alt="..."
           onClick={() => setActiveEvent(true)}

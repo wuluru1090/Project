@@ -26,7 +26,7 @@ function SoYa5(props) {
                 <Link to="/class/23">
                   <img
                     className="cover-fit"
-                    src={devUrl + '/pic/soya/classcontentimg1.png'}
+                    src={devUrl + '/pic/soya/classcontentimg3.png'}
                     alt="classcontentimg"
                   />
                 </Link>

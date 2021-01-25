@@ -28,7 +28,7 @@ export default class AccordionExampleStandard extends Component {
                 onClick={this.handleClick}
               >
                 <div className="participantitem1" name="dropdown">
-                  落羽松巡禮第1站{' '}
+                  手機人像攝影課程{' '}
                   <img className="particon1" src="/pic/pic/arrow.png" alt="" />{' '}
                 </div>
               </Accordion.Title>
@@ -159,7 +159,7 @@ export default class AccordionExampleStandard extends Component {
                 onClick={this.handleClick}
               >
                 <div className="participantitem2" name="dropdown">
-                  落羽松巡禮第1站{' '}
+                  時尚攝影高階班{' '}
                   <img className="particon1" src="/pic/pic/arrow.png" alt="" />
                 </div>
               </Accordion.Title>

@@ -29,7 +29,7 @@ function MemberMyManagementDelete(props) {
 
   const deleteAccount = (member) => {
     Axios.delete(`http://localhost:3001/api/delete/${member}`)
-    alert('確定要刪除')
+    alert('確定刪除')
   }
   // function deteAcc() {
   //   setTimeout(function () {

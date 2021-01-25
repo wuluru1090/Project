@@ -2,18 +2,20 @@ import '../../index.scss'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import QuerenTopPhoto from '../../components/Cart/QuerenTopPhoto'
 import ConfirmPuzzle from '../../components/Cart/ConfirmPuzzle'
-import Test from '../../components/Cart/Test'
-import TotalInf from '../../components/Cart/TotalInf'
+import TestClass from '../../components/Cart/TestClass'
+import TotalInfClass from '../../components/Cart/TotalInfClass'
 import QuerenClassButton from '../../components/Cart/QuerenClassButton'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function QuerenClassPage() {
   return (
     <>
       <QuerenTopPhoto />
       <ConfirmPuzzle />
-      <Test />
-      <TotalInf />
+      <TestClass />
+      <TotalInfClass />
       <QuerenClassButton />
+      <ConfirmWave />
     </>
   )
 }

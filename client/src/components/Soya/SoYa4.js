@@ -7,9 +7,10 @@ import { ParallaxProvider, Parallax } from 'react-skrollr'
 import { Modal, Button } from 'react-bootstrap'
 
 function SoYa4(props) {
+  // 保護頁面
   const { isAuth, setIsAuth } = props
 
-  // 保護頁面
+  // modal
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)

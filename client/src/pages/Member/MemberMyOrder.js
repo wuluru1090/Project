@@ -188,7 +188,8 @@ function MemberMyOrder(props) {
                                                   <img
                                                     src={
                                                       devUrl +
-                                                      '/pic/pic/桌布-德國.jpg'
+                                                      '/pic/event/' +
+                                                      m.event_photo
                                                     }
                                                     alt="..."
                                                   />
@@ -197,7 +198,10 @@ function MemberMyOrder(props) {
                                             })}
                                           </div>
 
-                                          <div className="d-flex justify-content-center align-items-center row order_li">
+                                          <div
+                                            className="d-flex justify-content-center align-items-center row order_li"
+                                            style={{ marginLeft: '8px' }}
+                                          >
                                             <ul>
                                               <li>
                                                 <p>
@@ -232,7 +236,7 @@ function MemberMyOrder(props) {
                                                   ></DateConvert>
                                                 </p>
                                               </li>
-                                              <li
+                                              {/* <li
                                                 className="d-flex justify-content-end position-absolute "
                                                 style={{
                                                   bottom: '8px',
@@ -290,7 +294,7 @@ function MemberMyOrder(props) {
                                                     </div>
                                                   </Modal.Footer>
                                                 </Modal>
-                                              </li>
+                                              </li> */}
                                             </ul>
                                           </div>
                                         </div>
@@ -318,7 +322,8 @@ function MemberMyOrder(props) {
                                                       <img
                                                         src={
                                                           devUrl +
-                                                          '/pic/pic/桌布-德國.jpg'
+                                                          '/pic/event/' +
+                                                          m.event_photo
                                                         }
                                                         className="card-img-top photo"
                                                         alt="..."
@@ -374,6 +379,10 @@ function MemberMyOrder(props) {
                                                           <Button
                                                             onclick=""
                                                             className="btn-style botton-font btn_icon mem_card_btn"
+                                                            href={
+                                                              devUrl +
+                                                              `/event/${m.event_id}`
+                                                            }
                                                           >
                                                             <MdVisibility />
                                                             活動檢視

@@ -29,7 +29,7 @@ export default class Todo extends Component {
             <div>
               <img
                 className="titlephoto"
-                src={devUrl + `/pic/pic/${photoimg}`}
+                src={devUrl + `/pic/event/${photoimg}`}
                 alt="titlephoto"
               />
             </div>

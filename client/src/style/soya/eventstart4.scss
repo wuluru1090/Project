@@ -76,12 +76,18 @@ $url: "http://localhost:3000";
         justify-content: center;
         margin-bottom: 100px;
         
+
+        
         .gotoact{
           font-size: $h5-font-size;
           font-family: 'TaipeiSansTCBeta-Regular';
           color: white;
           padding: 12px 139px;
           background: $danger;
+
+          &:hover{
+            background: red
+          }
         }
       }
       

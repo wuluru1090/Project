@@ -55,6 +55,7 @@ import UserSeeMember from './pages/Member/UserSeeMember'
 import SeeMemberAlbum from './pages/Member/SeeMemberAlbum'
 import UserSeeMemberAlbum from './pages/Member/UserSeeMemberAlbum'
 import MemberMyManagementDelete from './pages/Member/MemberMyManagementDelete'
+import MemberEventManage from './pages/Member/MemberEventManage'
 
 //////////購物車///////////
 import Cart from './pages/Cart'
@@ -112,6 +113,9 @@ function App() {
                 </Route>
                 <Route path="/eventstart">
                   <EventStart isAuth={isAuth} setIsAuth={setIsAuth} />
+                </Route>
+                <Route path="/eventstartdata/get/:id">
+                  <MemberEventManage />
                 </Route>
 
                 {/* 活動頁面開始 */}
@@ -173,7 +177,7 @@ function App() {
                 <Route path="/member/:id?/MyManagement">
                   <MemberMyManagement />
                 </Route>
-                <Route path="/member/:id?/MyPhoto2">
+                <Route path="/member/:id?/MyPhoto/photo">
                   <MemberMyPhoto2 />
                 </Route>
 

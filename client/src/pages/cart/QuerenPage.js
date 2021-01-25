@@ -5,6 +5,7 @@ import ConfirmPuzzle from '../../components/Cart/ConfirmPuzzle'
 import Test from '../../components/Cart/Test'
 import TotalInf from '../../components/Cart/TotalInf'
 import QuerenButton from '../../components/Cart/QuerenButton'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function QuerenPage() {
   return (
@@ -14,6 +15,7 @@ function QuerenPage() {
       <Test />
       <TotalInf />
       <QuerenButton />
+      <ConfirmWave />
     </>
   )
 }

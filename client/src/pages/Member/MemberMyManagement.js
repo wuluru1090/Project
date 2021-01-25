@@ -2,28 +2,30 @@ import '../../index.scss'
 import React, { useState, useEffect } from 'react'
 import MemberCard from '../../components/Member/MemberCard'
 import MemberNavlist from '../../components/Member/MemberNavlist'
-import { Card, Form, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { MdCreate } from 'react-icons/md'
 import { devUrl } from '../../config'
 import '../../style/member/member_score.scss'
 import Axios from 'axios'
 import { withRouter, Link } from 'react-router-dom'
 import ValidMemberPassword from '../../components/Member/ValidMemberPassword'
-import { Formik, Field, ErrorMessage } from 'formik'
+import { Formik, Field, ErrorMessage, Form } from 'formik'
 
 function MemberMyManagement(props) {
   const [member, setMember] = useState([])
+  const [memberid, setMemberid] = useState([])
   useEffect(() => {
     Axios.get(`http://localhost:3001/member/get/${props.match.params.id}`)
       .then((res) => {
         setMember(res.data)
+        setMemberid(res.data[0].member_id)
       })
       .catch((error) => {
         console.error(error)
       })
   }, [])
   const ValidMemberP = async (fields) => {
-    // console.log(fields)
+    console.log(fields)
     const isValid = await ValidMemberPassword.isValid(fields)
     // console.log(isValid)
     if (isValid) {
@@ -33,11 +35,15 @@ function MemberMyManagement(props) {
 
   // 船去資料庫
   const passwordpass = (fields) => {
-    Axios.post('http://localhost:3001/passwordpass', {
+    console.log(fields)
+    Axios.put('http://localhost:3001/member/update/passwordpass', {
       passwordConfirmation: fields.passwordConfirmation,
+      member_id: memberid,
     }).then(() => {
       // 返回的位置
-      props.history.goBack()
+      alert('修改成功!下次登錄請輸入新密碼!')
+      // Swal.fire('修改成功!', '下次登錄請輸入新密碼!', 'success')
+      setTimeout(window.location.reload(), 500)
     })
   }
 
@@ -71,106 +77,61 @@ function MemberMyManagement(props) {
                         // 驗證表單,提交
                         validationSchema={ValidMemberPassword}
                         onSubmit={(fields) => {
+                          // console.log(fields)
                           ValidMemberP(fields)
                         }}
                       >
-                        <Card.Body
-                          style={{ padding: '0  42px  43px 42px' }}
-                          className="navbarbox "
-                        >
-                          <ul className="row navbar  d-flex align-items-center">
-                            <li className=" subtitle1  main_li">
-                              <a
-                                href={
-                                  devUrl +
-                                  `/member/${props.match.params.id}/MyManagement`
-                                }
-                              >
-                                修改密碼
-                              </a>
-                            </li>
-                            <li className=" subtitle1 main_li">
-                              <a
-                                href={
-                                  devUrl +
-                                  `/member/${props.match.params.id}/MyManagement/Delete`
-                                }
-                              >
-                                刪除帳號
-                              </a>
-                            </li>
-                          </ul>
-                          <br />
-                          {member.map((val) => {
-                            return (
-                              <Form className="  mem_inf">
-                                {/* <Form.Group
-                                  controlId="formBasicEmail"
-                                  className="mem_form"
+                        <Form>
+                          <Card.Body
+                            style={{ padding: '0  42px  43px 42px' }}
+                            className="navbarbox "
+                          >
+                            <ul className="row navbar  d-flex align-items-center">
+                              <li className=" subtitle1  main_li">
+                                <a
+                                  href={
+                                    devUrl +
+                                    `/member/${props.match.params.id}/MyManagement`
+                                  }
                                 >
-                                  <Form.Label className=" ">
-                                    <p className="subtitle1">現有密碼</p>
-                                  </Form.Label>
-                                  <Form.Control
-                                    type="Password"
-                                    placeholder="現有密碼"
-                                    className="  text_w"
-                                    aria-describedby="inputGroupPrepend"
-                                    value={val.member_account}
-                                    // onChange=
-                                  />
-                                </Form.Group> */}
-                                <div className="contentboxinput mb-4">
-                                  <div className="starbox d-flex">
-                                    <div className="startitle">*</div>
-                                    <div
-                                      className="starafter mb-4"
-                                      placeholder="現有密碼"
-                                    >
-                                      現有密碼
-                                    </div>
-                                  </div>
-
-                                  <Field
-                                    name="nowpass"
-                                    type="password"
-                                    placeholder="現有密碼"
-                                    className="form-control form-control-md card-input col-5"
-                                  />
-                                  <ErrorMessage
-                                    name="nowpass"
-                                    className="invalid-feedback"
-                                  >
-                                    {(msg) => (
+                                  修改密碼
+                                </a>
+                              </li>
+                              <li className=" subtitle1 main_li">
+                                <a
+                                  href={
+                                    devUrl +
+                                    `/member/${props.match.params.id}/MyManagement/Delete`
+                                  }
+                                >
+                                  刪除帳號
+                                </a>
+                              </li>
+                            </ul>
+                            <br />
+                            {member.map((val) => {
+                              return (
+                                <div className="  mem_inf">
+                                  <div className="contentboxinput mb-4">
+                                    <div className="starbox d-flex">
+                                      <div className="startitle">*</div>
                                       <div
-                                        style={{
-                                          color: 'red',
-                                          height: '0',
-                                        }}
+                                        className="starafter mb-4"
+                                        placeholder="現有密碼"
                                       >
-                                        {msg}
+                                        現有密碼
                                       </div>
-                                    )}
-                                  </ErrorMessage>
-                                </div>
-
-                                <div className="contentboxinput mb-4">
-                                  <div className="starbox d-flex">
-                                    <div className="startitle">*</div>
-                                    <div className="starafter mb-3">
-                                      更改密碼
                                     </div>
-                                  </div>
 
-                                  <div className="inputbox">
                                     <Field
-                                      name="password"
+                                      name="nowpass"
                                       type="password"
-                                      placeholder="更改密碼"
+                                      placeholder="現有密碼"
                                       className="form-control form-control-md card-input col-5"
+                                      // value={val.member_account}
                                     />
                                     <ErrorMessage
-                                      name="password"
+                                      name="nowpass"
                                       className="invalid-feedback"
                                     >
                                       {(msg) => (
@@ -185,53 +146,87 @@ function MemberMyManagement(props) {
                                       )}
                                     </ErrorMessage>
                                   </div>
-                                </div>
 
-                                <div className="contentboxinput mb-4">
-                                  <div className="starbox d-flex">
-                                    <div className="startitle">*</div>
-                                    <div className="starafter mb-3">
-                                      確認密碼
+                                  <div className="contentboxinput mb-4">
+                                    <div className="starbox d-flex">
+                                      <div className="startitle">*</div>
+                                      <div className="starafter mb-3">
+                                        更改密碼
+                                      </div>
+                                    </div>
+
+                                    <div className="inputbox">
+                                      <Field
+                                        name="password"
+                                        type="password"
+                                        placeholder="更改密碼"
+                                        className="form-control form-control-md card-input col-5"
+                                      />
+                                      <ErrorMessage
+                                        name="password"
+                                        className="invalid-feedback"
+                                      >
+                                        {(msg) => (
+                                          <div
+                                            style={{
+                                              color: 'red',
+                                              height: '0',
+                                            }}
+                                          >
+                                            {msg}
+                                          </div>
+                                        )}
+                                      </ErrorMessage>
                                     </div>
                                   </div>
 
-                                  <div className="inputbox">
-                                    <Field
-                                      name="passwordConfirmation"
-                                      type="password"
-                                      placeholder="確認密碼"
-                                      className="form-control form-control-md card-input col-5"
-                                    />
-                                    <ErrorMessage
-                                      name="passwordConfirmation"
-                                      className="invalid-feedback"
+                                  <div className="contentboxinput mb-4">
+                                    <div className="starbox d-flex">
+                                      <div className="startitle">*</div>
+                                      <div className="starafter mb-3">
+                                        確認密碼
+                                      </div>
+                                    </div>
+
+                                    <div className="inputbox">
+                                      <Field
+                                        name="passwordConfirmation"
+                                        type="password"
+                                        placeholder="確認密碼"
+                                        className="form-control form-control-md card-input col-5"
+                                      />
+                                      <ErrorMessage
+                                        name="passwordConfirmation"
+                                        className="invalid-feedback"
+                                      >
+                                        {(msg) => (
+                                          <div
+                                            style={{
+                                              color: 'red',
+                                              height: '0',
+                                            }}
+                                          >
+                                            {msg}
+                                          </div>
+                                        )}
+                                      </ErrorMessage>
+                                    </div>
+                                  </div>
+                                  <div className=" d-flex justify-content-end ">
+                                    <Button
+                                      // onClick={passwordpass(val.member_id)}
+                                      className="btn-style botton-font btn_icon mem_card_btn  "
+                                      type="submit"
                                     >
-                                      {(msg) => (
-                                        <div
-                                          style={{
-                                            color: 'red',
-                                            height: '0',
-                                          }}
-                                        >
-                                          {msg}
-                                        </div>
-                                      )}
-                                    </ErrorMessage>
+                                      <MdCreate />
+                                      確認修改
+                                    </Button>
                                   </div>
                                 </div>
-                                <div className=" d-flex justify-content-end ">
-                                  <Button
-                                    onclick=""
-                                    className="btn-style botton-font btn_icon mem_card_btn  "
-                                  >
-                                    <MdCreate />
-                                    確認修改
-                                  </Button>
-                                </div>
-                              </Form>
-                            )
-                          })}
-                        </Card.Body>
+                              )
+                            })}
+                          </Card.Body>
+                        </Form>
                       </Formik>
                     </Card>
                   </div>

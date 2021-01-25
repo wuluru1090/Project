@@ -13,14 +13,14 @@ function PaymentDetails(props) {
             <div className="detailsframe d-flex">
               <div>
                 <img
-                  src={devUrl + '/pic/pic/中正紀念堂.jpg'}
+                  src={devUrl + '/pic/event/光之穹頂1.jpg'}
                   className="detailsphoto"
                   alt="..."
                 />
               </div>
               <div className="divx4">
                 <div className="divtext pbox1 d-flex bigtext3">
-                  <div>日出撈魚苗│日出霞光、火燒雲絕美景色</div>
+                  <div>蒼穹之間</div>
                   <div>單人費用</div>
                 </div>
                 <div className="divtext pbox2 d-flex">
@@ -30,17 +30,17 @@ function PaymentDetails(props) {
                       src="/pic/svg/date_range-24px.svg"
                       alt=""
                     />
-                    2020/10/10
+                    2021-02-06
                   </div>
                 </div>
                 <div className="divtext pbox3 d-flex">
                   <div>人數X1</div>
-                  <div>NT$2000</div>
+                  <div>NT$0</div>
                 </div>
                 <hr className="hrm" />
                 <div className="divtext pbox4 d-flex">
                   <div>總金額</div>
-                  <div className="bigtext2">NT$2000</div>
+                  <div className="bigtext2">NT$0</div>
                 </div>
               </div>
             </div>
@@ -48,14 +48,14 @@ function PaymentDetails(props) {
             <div className="detailsframe d-flex">
               <div>
                 <img
-                  src={devUrl + '/pic/pic/中正紀念堂.jpg'}
+                  src={devUrl + '/pic/event/田寮月世界2.jpg'}
                   className="detailsphoto"
                   alt="..."
                 />
               </div>
               <div className="divx4">
                 <div className="divtext pbox1 d-flex bigtext3">
-                  <div>日出撈魚苗│日出霞光、火燒雲絕美景色</div>
+                  <div>探索月世界</div>
                   <div>單人費用</div>
                 </div>
                 <div className="divtext pbox2 d-flex">
@@ -65,24 +65,24 @@ function PaymentDetails(props) {
                       src="/pic/svg/date_range-24px.svg"
                       alt=""
                     />
-                    2020/10/10
+                    2021-02-17
                   </div>
                 </div>
                 <div className="divtext pbox3 d-flex">
                   <div>人數X1</div>
-                  <div>NT$2000</div>
+                  <div>NT$200</div>
                 </div>
                 <hr className="hrm" />
                 <div className="divtext pbox4 d-flex">
                   <div>總金額</div>
-                  <div className="bigtext2">NT$2000</div>
+                  <div className="bigtext2">NT$200</div>
                 </div>
               </div>
             </div>
             <div className="hrm2"></div>
             <div className="totalm d-flex">
               <div className="bigtext3">支付金額</div>
-              <div className="bigtext">NT$4000</div>
+              <div className="bigtext">NT$200</div>
             </div>
           </div>
         </div>

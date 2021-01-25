@@ -16,7 +16,7 @@ function QuerenButton(props) {
             回上一頁
           </Link>
           <Link
-            to="/LastConfirmationPage1"
+            to="/LastConfirmationPage4"
             className="btn d-flex confirmbutton2"
           >
             完成結帳

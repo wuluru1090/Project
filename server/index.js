@@ -114,11 +114,15 @@ app.get("/api/eventsearch", (req, res) => {
     );
   if (req.query.theme) where.push(`event.event_theme = ${req.query.theme}`);
   if (req.query.type) where.push(`event.event_type = ${req.query.type}`);
+  if (req.query.tag)
+    where.push(
+      `event.event_id IN (SELECT event_tags_relate.event_tags_event_id FROM event_tags_relate JOIN event_tags ON event_tags_relate.event_tags_tags_id = event_tags.tags_id WHERE event_tags.tags_name="${req.query.tag}")`
+    );
 
   const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";
 
   const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql}`;
-  // console.log(sqlSelect);
+  console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
@@ -426,6 +430,20 @@ app.get("/class/:id", (req, res) => {
   });
 });
 
+// 刪除我的收藏
+app.delete("/class/delete", (req, res) => {
+  const cId = req.query.classId;
+  const mId = req.query.memberId;
+  const sqlDelete = `DELETE FROM like_class WHERE member_id=${mId} AND class_id=${cId}`;
+  // console.log(sqlDelete);
+  db.query(sqlDelete, (err, result) => {
+    console.log(result);
+    res.json({
+      state: "success",
+    });
+  });
+});
+
 // 加入我的收藏
 app.post("/class/favorites", (req, res) => {
   const member_id = req.body.member_id;
@@ -435,18 +453,6 @@ app.post("/class/favorites", (req, res) => {
     "INSERT INTO like_class (member_id,class_id,member_like) VALUES (?,?,?)";
   // console.log(sqlInsert)
   db.query(sqlInsert, [member_id, class_id, member_like], (err, result) => {
-    console.log(result);
-    res.json({
-      state: "success",
-    });
-  });
-});
-
-// 刪除我的收藏
-app.delete("/class/delete/:classId", (req, res) => {
-  const sqlDelete = `DELETE FROM like_class WHERE member_id=101 AND class_id=${req.params.classId}`;
-  // console.log(sqlDelete);
-  db.query(sqlDelete, (err, result) => {
     console.log(result);
     res.json({
       state: "success",
@@ -709,7 +715,7 @@ app.get("/member/get/:id", (req, res) => {
 app.put("/member/update/photo", (req, res) => {
   const valid = 0;
   const photo_id = req.body.photo_id;
-  const sqlUpdate = "UPDATE photo SET valid=? WHERE photo_id=? ";
+  const sqlUpdate = "UPDATE photo SET valid=? WHERE photo_id IN (?) ";
 
   console.log(sqlUpdate);
   db.query(sqlUpdate, [valid, photo_id], (err, result) => {
@@ -782,6 +788,19 @@ app.put("/member/update", (req, res) => {
       }
     }
   );
+});
+
+app.put("/member/update/passwordpass", (req, res) => {
+  const member_id = req.body.member_id;
+  const member_password = req.body.passwordConfirmation;
+  const sqlUpdate = "UPDATE member SET member_password=?  WHERE member_id=?";
+  db.query(sqlUpdate, [member_password, member_id], (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
 });
 
 app.post("/member/score", (req, res) => {

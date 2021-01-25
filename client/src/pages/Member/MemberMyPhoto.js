@@ -116,10 +116,7 @@ function MemberMyPhoto(props) {
                                         {attphoto.map((p) => {
                                           return (
                                             <img
-                                              src={
-                                                devUrl +
-                                                `pic/event_photo/${p.photo_name}`
-                                              }
+                                              src={`${devUrl}/pic/event_pic/${p.photo_name}`}
                                               alt="photo1"
                                             ></img>
                                           )
@@ -128,7 +125,9 @@ function MemberMyPhoto(props) {
                                       <figure className="position-absolute addphoto">
                                         <div className="">
                                           <div>
-                                            <Link to="/member/:id/MyPhoto2">
+                                            <Link
+                                              to={`/member/${props.match.params.id}/MyPhoto/photo`}
+                                            >
                                               <MdAddCircle className="justify-content-center" />
                                             </Link>
                                           </div>
