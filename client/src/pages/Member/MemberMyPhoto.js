@@ -116,10 +116,7 @@ function MemberMyPhoto(props) {
                                         {attphoto.map((p) => {
                                           return (
                                             <img
-                                              src={
-                                                devUrl +
-                                                `pic/event_photo/${p.photo_name}`
-                                              }
+                                              src={`${devUrl}/pic/event_pic/${p.photo_name}`}
                                               alt="photo1"
                                             ></img>
                                           )

@@ -79,13 +79,12 @@ function MemberMyPhoto2(props) {
   }, [events])
 
   const postphoto = (event_id) => {
-    // console.log(event_id)
+    console.log(event_id)
     console.log(addphoto)
 
     Axios.post('http://localhost:3001/member/photo', {
       event_id: event_id,
       member_id: `${props.match.params.id}`,
-      // photo_show: coupon.coupon_name,
       photo_name: addphoto,
     }).then((res) => {
       setAttphoto([
@@ -98,21 +97,37 @@ function MemberMyPhoto2(props) {
       ])
     })
   }
-
-  // 目前無法即使顯示即刪除多個
-  const delphoto = () => {
-    console.log(photo_id)
-    Axios.put('http://localhost:3001/member/update/photo', {
-      photo_id: photo_id,
-    })
-    console.log(photo_id)
-  }
-
   function upUp() {
     setTimeout(function () {
       document.getElementById('photo-button').click()
       setTimeout(window.location.reload(), 500)
     }, 500)
+  }
+
+  var updateList = []
+
+  const [status, setStatus] = useState('unupload')
+  //上傳函式
+  const add2Update = (photo_id) => {
+    console.log(photo_id)
+    if (!updateList.includes(photo_id)) {
+      updateList = [...updateList, photo_id]
+      // console.log(updateList)
+    } else {
+      const newList = updateList.filter((v) => v !== photo_id)
+      updateList = newList
+    }
+    console.log(updateList)
+  }
+
+  // 目前無法即使顯示即刪除多個
+  const delphoto = (updateList) => {
+    console.log(updateList)
+    Axios.put('http://localhost:3001/member/update/photo', {
+      photo_id: updateList,
+    })
+    console.log(updateList)
+    setTimeout(window.location.reload(), 500)
   }
 
   return (
@@ -196,8 +211,8 @@ function MemberMyPhoto2(props) {
                                           <input
                                             type="checkbox"
                                             name="checkbox"
-                                            onChange={(e) => {
-                                              setPhotoid(e.target.value)
+                                            onClick={(e) => {
+                                              add2Update(e.target.value)
                                             }}
                                             value={p.photo_id}
                                             id="img"
@@ -205,13 +220,7 @@ function MemberMyPhoto2(props) {
                                         </div>
 
                                         <img
-                                          src={
-                                            devUrl +
-                                            `pic/event_photo/${p.photo_name}`
-                                          }
-                                          // src={
-                                          //   devUrl + '/pic/pic/桌布-德國.jpg'
-                                          // }
+                                          src={`${devUrl}/pic/event_pic/${p.photo_name}`}
                                           alt="photo1"
                                         ></img>
 
@@ -236,7 +245,11 @@ function MemberMyPhoto2(props) {
 
                         <div className="d-flex justify-content-end">
                           <Button
-                            onClick={delphoto}
+                            // onClick={add2Update}
+                            onClick={(e) => {
+                              e.preventDefault()
+                              delphoto(updateList)
+                            }}
                             className="btn-style $botton-font btn_icon mem_card_btn"
                           >
                             <MdDelete />

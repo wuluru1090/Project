@@ -139,6 +139,10 @@ function MemberMyjoinin(props) {
                                             <Button
                                               onclick=""
                                               className="btn-style botton-font btn_icon mem_card_btn"
+                                              href={
+                                                devUrl +
+                                                `/event/${val.event_id}`
+                                              }
                                             >
                                               <MdVisibility />
                                               活動檢視

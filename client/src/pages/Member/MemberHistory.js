@@ -163,7 +163,9 @@ function MemberHistory(props) {
                                         </div>
                                         <div className="d-flex justify-content-end">
                                           <Button
-                                            onclick=""
+                                            href={
+                                              devUrl + `/event/${m.event_id}`
+                                            }
                                             className="btn-style botton-font btn_icon mem_card_btn"
                                           >
                                             <MdVisibility />

@@ -6,6 +6,7 @@ import '../../style/member/member_content.scss'
 import { MdVisibility, MdDone } from 'react-icons/md'
 import { withRouter, Link } from 'react-router-dom'
 import { devUrl } from '../../config'
+import Swal from 'sweetalert2'
 function MemberContent(props) {
   const [member, setMember] = useState([])
   // const [member_id, setMember_id] = useState('')
@@ -284,6 +285,7 @@ function MemberContent(props) {
                     className="btn-style botton-font btn_icon "
                     onClick={() => {
                       UpdateMember(m.member_id)
+                      Swal.fire('修改完成!', '修改完成', 'success')
                     }}
                   >
                     <MdDone />

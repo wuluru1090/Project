@@ -236,7 +236,7 @@ function MemberMyOrder(props) {
                                                   ></DateConvert>
                                                 </p>
                                               </li>
-                                              <li
+                                              {/* <li
                                                 className="d-flex justify-content-end position-absolute "
                                                 style={{
                                                   bottom: '8px',
@@ -294,7 +294,7 @@ function MemberMyOrder(props) {
                                                     </div>
                                                   </Modal.Footer>
                                                 </Modal>
-                                              </li>
+                                              </li> */}
                                             </ul>
                                           </div>
                                         </div>
@@ -379,6 +379,10 @@ function MemberMyOrder(props) {
                                                           <Button
                                                             onclick=""
                                                             className="btn-style botton-font btn_icon mem_card_btn"
+                                                            href={
+                                                              devUrl +
+                                                              `/event/${m.event_id}`
+                                                            }
                                                           >
                                                             <MdVisibility />
                                                             活動檢視

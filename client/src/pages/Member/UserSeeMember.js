@@ -176,10 +176,7 @@ function UserSeeMember(props) {
                                     {attphoto.map((p) => {
                                       return (
                                         <img
-                                          src={
-                                            devUrl +
-                                            `pic/event_photo/${p.photo_name}`
-                                          }
+                                          src={`${devUrl}/pic/event_pic/${p.photo_name}`}
                                           alt="photo1"
                                         ></img>
                                       )
@@ -245,12 +242,12 @@ function UserSeeMember(props) {
                                           padding: '0px',
                                         }}
                                       >
-                                        {s.member_Average_rating}
+                                        {s.rating}
                                       </Box>
                                     </p>
                                     <Rating
                                       name="read-only"
-                                      value={s.member_Average_rating}
+                                      value={s.rating}
                                       precision={0.5}
                                       readOnly
                                       style={{

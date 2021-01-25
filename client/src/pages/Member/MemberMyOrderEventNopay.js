@@ -375,9 +375,13 @@ function MemberMyOrderEventNopay(props) {
                                                           <Button
                                                             onclick=""
                                                             className="btn-style botton-font btn_icon mem_card_btn"
+                                                            href={
+                                                              devUrl +
+                                                              `/class/${m.class_id}`
+                                                            }
                                                           >
                                                             <MdVisibility />
-                                                            活動檢視
+                                                            課程檢視
                                                           </Button>
                                                         </div>
                                                       </div>

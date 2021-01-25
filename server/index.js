@@ -709,7 +709,7 @@ app.get("/member/get/:id", (req, res) => {
 app.put("/member/update/photo", (req, res) => {
   const valid = 0;
   const photo_id = req.body.photo_id;
-  const sqlUpdate = "UPDATE photo SET valid=? WHERE photo_id=? ";
+  const sqlUpdate = "UPDATE photo SET valid=? WHERE photo_id IN (?) ";
 
   console.log(sqlUpdate);
   db.query(sqlUpdate, [valid, photo_id], (err, result) => {
@@ -786,7 +786,7 @@ app.put("/member/update", (req, res) => {
 
 app.put("/member/update/passwordpass", (req, res) => {
   const member_id = req.body.member_id;
-  const member_password = req.body.fields.passwordConfirmation;
+  const member_password = req.body.passwordConfirmation;
   const sqlUpdate = "UPDATE member SET member_password=?  WHERE member_id=?";
   db.query(sqlUpdate, [member_password, member_id], (err, result) => {
     if (err) {

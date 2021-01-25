@@ -11,15 +11,15 @@ function UserSeeMemberAlbum(props) {
     <>
       <div className="inspect-photo-wrapper">
         <div className="btn-div">
-          {/* <button
+          <button
             className="go-back d-flex align-items-center"
             onClick={() => {
               history.goBack()
             }}
-          > */}
-          <MdKeyboardArrowLeft />
-          <div>回到相簿</div>
-          {/* </button> */}
+          >
+            <MdKeyboardArrowLeft />
+            <div>回到相簿</div>
+          </button>
         </div>
 
         <div className="photo-carousel">
