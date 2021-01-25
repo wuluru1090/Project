@@ -18,9 +18,9 @@ function DetailsAmount(props) {
                   <div className="infd">信箱:</div>
                 </div>
                 <div>
-                  <div className="infd">胡子</div>
-                  <div className="infd">0911111111</div>
-                  <div className="infd">aa@gmail.com</div>
+                  <div className="infd">李詩婷</div>
+                  <div className="infd">0962359970</div>
+                  <div className="infd">ed1040129@gmail.com</div>
                 </div>
               </div>
             </div>

@@ -30,7 +30,7 @@ function Credit() {
             onChange={(e) => setNumber(e.target.value)}
             onFocus={(e) => setFocus(e.target.name)}
           />
-          <div className="ind">E.g.: 49..., 51..., 36..., 37...</div>
+          <div className="ind">支援Mastercard, VISA, JCB</div>
           <input
             type="text"
             className="form-control form-control-md ibox"

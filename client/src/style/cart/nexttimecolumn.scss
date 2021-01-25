@@ -5,8 +5,8 @@
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 .nextactivityordercolumnobb {
   .activityordercolumno {
-    width: 1160px;
-    height: 583px;
+    max-width: 1160px;
+    min-height: 240px;
     margin: auto;
     margin-top: 34px;
     border-radius: 10px;

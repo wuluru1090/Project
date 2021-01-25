@@ -83,11 +83,11 @@ export default class AccordionExampleStandard extends Component {
                   <div className="infd">訂單備註:</div>
                 </div>
                 <div>
-                  <div className="infd">胡子</div>
-                  <div className="infd">0911111111</div>
+                  <div className="infd">李詩婷</div>
+                  <div className="infd">0962359970</div>
                   <div className="infd">1999/12/31</div>
                   <div className="infd">A111111111</div>
-                  <div className="infd">男</div>
+                  <div className="infd">女</div>
                   <div className="infd">無</div>
                 </div>
               </div>
@@ -157,11 +157,11 @@ export default class AccordionExampleStandard extends Component {
                   <div className="infd">訂單備註:</div>
                 </div>
                 <div>
-                  <div className="infd">胡子</div>
-                  <div className="infd">0911111111</div>
-                  <div className="infd">1999/12/31</div>
+                  <div className="infd">李詩婷</div>
+                  <div className="infd">0962359970</div>
+                  <div className="infd">1995-11-23</div>
                   <div className="infd">A111111111</div>
-                  <div className="infd">男</div>
+                  <div className="infd">女</div>
                   <div className="infd">無</div>
                 </div>
               </div>
