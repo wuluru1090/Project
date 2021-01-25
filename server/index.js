@@ -7,7 +7,7 @@ const mysql = require("mysql");
 const db = mysql.createPool({
   host: "127.0.0.1",
   user: "root",
-  password: "12345",
+  password: "",
   database: "final_project",
 });
 
@@ -365,6 +365,8 @@ app.post("/eventform", (req, res) => {
   );
 });
 
+
+
 // 城市map
 app.get("/cityya", (req, res) => {
   db.query("SELECT * FROM event_city WHERE 1", (err, result) => {
@@ -373,9 +375,9 @@ app.get("/cityya", (req, res) => {
   });
 });
 
-// 標籤map
+// 主題map
 app.get("/tagss", (req, res) => {
-  db.query("SELECT * FROM event_tags WHERE 1", (err, result) => {
+  db.query("SELECT * FROM event_theme WHERE 1", (err, result) => {
     // console.log(result);
     res.send(result);
   });

@@ -55,6 +55,7 @@ import UserSeeMember from './pages/Member/UserSeeMember'
 import SeeMemberAlbum from './pages/Member/SeeMemberAlbum'
 import UserSeeMemberAlbum from './pages/Member/UserSeeMemberAlbum'
 import MemberMyManagementDelete from './pages/Member/MemberMyManagementDelete'
+import MemberEventManage from './pages/Member/MemberEventManage'
 
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Formika from './pages/SoYa/Formika'
@@ -100,6 +101,9 @@ function App() {
                 </Route>
                 <Route path="/eventstart">
                   <EventStart isAuth={isAuth} setIsAuth={setIsAuth} />
+                </Route>
+                <Route path="/eventstartdata/get/:id">
+                  <MemberEventManage />
                 </Route>
 
                 {/* 活動頁面開始 */}

@@ -14,6 +14,14 @@ function EventResult(props) {
   // console.log(props)
   let history = useHistory()
 
+  const {
+    locate = '',
+    searchbar = '',
+    theme = '',
+    time = '',
+    type = '',
+  } = props.condition
+
   // 搜尋欄子傳子判斷式
   if (props.conditionsobad.searchbar !== '') {
     props.condition.searchbar = props.conditionsobad.searchbar
@@ -29,14 +37,6 @@ function EventResult(props) {
   } else {
     props.conditionsobad.theme = ''
   }
-
-  const {
-    locate = '',
-    searchbar = '',
-    theme = '',
-    time = '',
-    type = '',
-  } = props.condition
 
   const [displayCard, setDisplayCard] = useState(true)
   const [eventResult, setEventResult] = useState([])

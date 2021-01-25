@@ -17,6 +17,7 @@ import '../../style/soya/login2.scss'
 import { FaTwitter } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
+import GoogleLogin from '../../components/Soya/GoogleLogin'
 
 function Login(props) {
   const [username, setUsername] = useState('')
@@ -42,9 +43,11 @@ function Login(props) {
         setloginStatus(response.data.message)
       } else {
         setIsAuth(true)
-        props.history.push('/')
+
         alert('登入成功')
-        setTimeout(window.location.reload(), 1)
+        // props.history.goBack(-2)
+        props.history.push('/')
+        window.location.reload()
       }
     })
   }
@@ -99,10 +102,7 @@ function Login(props) {
                       <FaFacebookF className="loginbtnthemeicon1" />
                       Facebook
                     </button>
-                    <button className="btn loginbtntheme loginbtntheme2 d-flex">
-                      <FcGoogle className="loginbtnthemeicon2" />
-                      Google
-                    </button>
+                    <GoogleLogin />
                     <button className="btn loginbtntheme loginbtntheme3 d-flex">
                       <FaTwitter className="loginbtnthemeicon3" />
                       Twitter

@@ -15,6 +15,7 @@ import SelectTime from '../../components/Soya/SelectTime'
 import SelectTime2 from '../../components/Soya/SelectTime2'
 import SelectTime3 from '../../components/Soya/SelectTime3'
 import Axios from 'axios'
+import { Modal, Button } from 'react-bootstrap'
 
 // 順序不可調換 css會亂掉
 import '../../style/soya/eventstart.scss'
@@ -24,6 +25,11 @@ import '../../style/soya/eventstart4.scss'
 
 function EventStart(props) {
   const { isAuth, setIsAuth } = props
+
+  // modal
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   const [cityname, setCityname] = useState([])
   const [tags, setTags] = useState([])
@@ -61,15 +67,15 @@ function EventStart(props) {
     window.scrollTo({ top: 2200, behavior: 'smooth' })
   }
   const ScrollTo2 = () => {
-    window.scrollTo({ top: 3100, behavior: 'smooth' })
+    window.scrollTo({ top: 3000, behavior: 'smooth' })
   }
   const ScrollTo3 = () => {
-    window.scrollTo({ top: 5280, behavior: 'smooth' })
+    window.scrollTo({ top: 5120, behavior: 'smooth' })
   }
 
   Axios.defaults.withCredentials = true
 
-  // 保護頁面
+  // 登入狀態
   useEffect(() => {
     Axios.get('http://localhost:3001/login').then((response) => {
       if (response.data.loggedIn == true) {
@@ -128,7 +134,6 @@ function EventStart(props) {
     }).then((response) => {
       // console.log(response)
       props.history.push('/')
-      alert('建立活動成功')
     })
   }
 
@@ -220,6 +225,21 @@ function EventStart(props) {
                 <div className="step1content">
                   首先步驟一，您必須填寫一些基本的個人資訊和基本的活動資訊，像是姓名、電話、信箱等等，這些都是發起一個活動必備的條件，而活動的開始和結束時間、地點和集合點，也可以讓其他參與者來評估有沒有空來參與這個攝影揪團活動。
                 </div>
+                <div
+                  className="d-flex justify-content-center"
+                  style={{
+                    marginTop: '120px',
+                    width: '376px',
+                    height: '350px',
+                  }}
+                >
+                  <img
+                    className="d-flex cover-fit"
+                    src={devUrl + '/pic/soya/eventstartphoyo1.jpg'}
+                    alt="step1"
+                    style={{ borderRadius: '10px' }}
+                  />
+                </div>
               </div>
               <div className="evstart2formbox">
                 <div className="evstart2formboxbox">
@@ -227,10 +247,10 @@ function EventStart(props) {
                     <div className="cardboxmargin">
                       <div className="afterfinish">
                         <div className="card p-5">
-                          <div className="checkboxname d-flex">
+                          {/* <div className="checkboxname d-flex">
                             <input type="checkbox" />
                             <div className="checkboxnamename">同會員資料</div>
-                          </div>
+                          </div> */}
                           <div className="d-flex contentboxinput">
                             <div className="starbox2 starbox d-flex">
                               <div className="startitle">*</div>
@@ -569,7 +589,7 @@ function EventStart(props) {
                             <div className="inputbox">
                               <input
                                 placeholder="請輸入費用"
-                                type="text"
+                                type="number"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActprice(e.target.value)
@@ -604,7 +624,7 @@ function EventStart(props) {
                             <div className="inputbox">
                               <input
                                 placeholder="請輸入成團人數"
-                                type="text"
+                                type="number"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActpeople(e.target.value)
@@ -621,7 +641,7 @@ function EventStart(props) {
                             <div className="inputbox">
                               <input
                                 placeholder="請輸入人數上限"
-                                type="text"
+                                type="number"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActpeopleline(e.target.value)
@@ -756,8 +776,11 @@ function EventStart(props) {
                           >
                             {tags.map((val) => {
                               return (
-                                <option key={val.tags_id} value={val.tags_id}>
-                                  {val.tags_name}
+                                <option
+                                  key={val.event_theme_id}
+                                  value={val.event_theme_id}
+                                >
+                                  {val.event_theme_name}
                                 </option>
                               )
                             })}
@@ -774,6 +797,7 @@ function EventStart(props) {
                               onChange={(e) => {
                                 setActdetail(e.target.value)
                               }}
+                              style={{ textIndent: '5px' }}
                             ></textarea>
                           </div>
 
@@ -783,21 +807,49 @@ function EventStart(props) {
                           </div>
 
                           <div className="card3sm p-4">
-                            <textarea
+                            <div className="inputbox row">
+                              <input
+                                type="text"
+                                placeholder="新增標籤"
+                                className="form-control form-control-md card-input col"
+                                onChange={(e) => {
+                                  setActtags(e.target.value)
+                                }}
+                              />
+                              <input
+                                style={{ margin: '0 10px' }}
+                                type="text"
+                                placeholder="新增標籤"
+                                className="form-control form-control-md card-input col"
+                                // onChange={(e) => {
+                                //   setActtags(e.target.value)
+                                // }}
+                              />
+                              <input
+                                type="text"
+                                placeholder="新增標籤"
+                                className="form-control form-control-md card-input col"
+                                // onChange={(e) => {
+                                //   setActtags(e.target.value)
+                                // }}
+                              />
+                            </div>
+                            {/* <textarea
                               className="textareatag"
                               placeholder="新增標籤..."
                               onChange={(e) => {
                                 setActtags(e.target.value)
                               }}
-                            ></textarea>
+                              style={{ textIndent: '5px' }}
+                            ></textarea> */}
                           </div>
                           <div className="finalcomfbrow d-flex">
-                            <button
+                            {/* <button
                               className="btn finalcomfbrowbtn finalcomfbrowbtn1 rounded-pill"
                               style={{ background: '#10B9B2' }}
                             >
                               預覽
-                            </button>
+                            </button> */}
                             <button
                               onClick={ScrollTo3}
                               className="btn finalcomfbrowbtn rounded-pill"
@@ -882,13 +934,38 @@ function EventStart(props) {
                 <div className="d-flex gotoactbox">
                   {/* <Link to="/"> */}
                   <button
-                    onClick={eventform}
+                    onClick={handleShow}
                     className="btn gotoact rounded-pill"
                   >
                     建立活動
                   </button>
                   {/* </Link> */}
                 </div>
+
+                <Modal
+                  show={show}
+                  onHide={handleClose}
+                  backdrop="static"
+                  keyboard={false}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>建立活動</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>確認要送出表單並建立活動嗎?</Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      style={{ color: 'white' }}
+                      variant="secondary"
+                      onClick={handleClose}
+                    >
+                      關閉
+                    </Button>
+
+                    <Button variant="primary" onClick={eventform}>
+                      確認
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
 
                 <div className="step4smguy1box">
                   <img
