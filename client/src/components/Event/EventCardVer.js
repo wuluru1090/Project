@@ -3,6 +3,7 @@ import { devUrl } from '../../config'
 import '../../style/event/event_card_ver.scss'
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 import Axios from 'axios'
 
@@ -62,7 +63,17 @@ function EventCardVer(props) {
                 setIsActive(true)
                 writeLike()
               } else {
-                alert('請先登入!')
+                Swal.fire({
+                  title: '登入會員即可收藏!',
+                  showCancelButton: true,
+                  confirmButtonText: `去登入`,
+                  cancelButtonText: '取消',
+                }).then((result) => {
+                  /* Read more about isConfirmed, isDenied below */
+                  if (result.isConfirmed) {
+                    history.push('/login')
+                  }
+                })
               }
             }}
             style={
@@ -80,7 +91,17 @@ function EventCardVer(props) {
                 setIsActive(false)
                 deleteLike()
               } else {
-                alert('請先登入!')
+                Swal.fire({
+                  title: '登入會員即可收藏!',
+                  showCancelButton: true,
+                  confirmButtonText: `去登入`,
+                  cancelButtonText: '取消',
+                }).then((result) => {
+                  /* Read more about isConfirmed, isDenied below */
+                  if (result.isConfirmed) {
+                    history.push('/login')
+                  }
+                })
               }
             }}
             style={

@@ -5,6 +5,7 @@ import '../../style/event/event_card_ver_relative.scss'
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
 import Axios from 'axios'
+import Swal from 'sweetalert2'
 
 function EventCardVerRelative(props) {
   let history = useHistory()
@@ -62,7 +63,17 @@ function EventCardVerRelative(props) {
                 setIsActive(true)
                 writeLike()
               } else {
-                alert('請先登入!')
+                Swal.fire({
+                  title: '登入會員即可收藏!',
+                  showCancelButton: true,
+                  confirmButtonText: `去登入`,
+                  cancelButtonText: '取消',
+                }).then((result) => {
+                  /* Read more about isConfirmed, isDenied below */
+                  if (result.isConfirmed) {
+                    history.push('/login')
+                  }
+                })
               }
             }}
             style={isActive ? { display: 'none' } : { display: 'inline' }}
@@ -78,7 +89,17 @@ function EventCardVerRelative(props) {
                 setIsActive(false)
                 deleteLike()
               } else {
-                alert('請先登入!')
+                Swal.fire({
+                  title: '登入會員即可收藏!',
+                  showCancelButton: true,
+                  confirmButtonText: `去登入`,
+                  cancelButtonText: '取消',
+                }).then((result) => {
+                  /* Read more about isConfirmed, isDenied below */
+                  if (result.isConfirmed) {
+                    history.push('/login')
+                  }
+                })
               }
             }}
             style={isActive ? { display: 'inline' } : { display: 'none' }}
@@ -93,21 +114,6 @@ function EventCardVerRelative(props) {
               alt={cardInfo.event_name}
             />
           </figure>
-          <a href="#">
-            <div className="more-att">+3</div>
-          </a>
-          <a href="#">
-            <img
-              className="second-att"
-              src={devUrl + '/pic/pic/member2.jpg'}
-            ></img>
-          </a>
-          <a href="#">
-            <img
-              className="first-att"
-              src={devUrl + '/pic/pic/member3.jpg'}
-            ></img>
-          </a>
           <div
             className="card-body"
             onClick={() => click2Detail(cardInfo.event_id)}
@@ -151,20 +157,26 @@ function EventCardVerRelative(props) {
 
             <div className="d-flex justify-content-between buttons">
               <div className="tag-box">
-                <a
+                <button
                   href="#"
                   className="btn rounded-pill btn-md tag"
                   type="button"
+                  onClick={() => {
+                    history.push(`/event?type=${cardInfo.event_type}`)
+                  }}
                 >
                   {cardInfo.event_type_name}
-                </a>
-                <a
+                </button>
+                <button
                   href="#"
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
+                  onClick={() => {
+                    history.push(`/event?theme=${cardInfo.event_theme}`)
+                  }}
                 >
                   {cardInfo.event_theme_name}
-                </a>
+                </button>
               </div>
               <button
                 onClick={() => click2Detail(cardInfo.event_id)}

@@ -101,7 +101,6 @@ function App() {
                 <Route exact path="/">
                   <SoYa isAuth={isAuth} setConditionsobad={setConditionsobad} />
                 </Route>
-
                 <Route path="/login">
                   <Login isAuth={isAuth} setIsAuth={setIsAuth} />
                 </Route>

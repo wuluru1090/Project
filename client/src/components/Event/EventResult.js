@@ -5,7 +5,7 @@ import { devUrl } from '../../config'
 import EventCardVer from './EventCardVer'
 import EventCardHor from './EventCardHor'
 import Pagination from '../Main/Pagination'
-import { withRouter, useHistory } from 'react-router-dom'
+import { withRouter, useHistory, useLocation } from 'react-router-dom'
 
 //connect with backend
 import Axios from 'axios'
@@ -15,25 +15,33 @@ function EventResult(props) {
   console.log(props)
 
   let history = useHistory()
+  let location = useLocation()
 
   //標籤
   if (props.location.search !== '') {
     const queryString = require('query-string')
     let param = queryString.parse(props.location.search)
-    console.log(param)
     if ('theme' in param) {
       props.condition.theme = param.theme
-      param.theme = ''
     } else {
-      param.theme = ''
+      props.condition.theme = ''
     }
     if ('type' in param) {
       props.condition.type = param.type
-      param.type = ''
     } else {
-      param.type = ''
+      props.condition.type = ''
     }
+    if ('tag' in param) {
+      props.condition.tag = param.tag
+    } else {
+      props.condition.tag = ''
+    }
+    var height = window.innerHeight
+    height = height - 60
+    window.scrollTo({ top: height, behavior: 'smooth' })
   }
+
+  console.log(location.search)
 
   // 搜尋欄子傳子判斷式
   if (props.conditionsobad.searchbar !== '') {
@@ -57,6 +65,7 @@ function EventResult(props) {
     theme = '',
     time = '',
     type = '',
+    tag = '',
   } = props.condition
 
   const [displayCard, setDisplayCard] = useState(true)
@@ -65,7 +74,7 @@ function EventResult(props) {
   // 取得後端資料
   useEffect(() => {
     Axios.get(
-      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}`
+      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}&tag=${tag}`
     )
       .then((response) => {
         setEventResult(response.data)
@@ -73,7 +82,7 @@ function EventResult(props) {
       .catch(function (error) {
         console.log(error)
       })
-  }, [locate, searchbar, theme, time, type])
+  }, [locate, searchbar, theme, time, type, tag])
 
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(12)
@@ -182,6 +191,7 @@ function EventResult(props) {
               <button
                 className="btn btn-primary rounded-pill"
                 onClick={() => {
+                  history.push('/event')
                   window.location.reload()
                 }}
               >

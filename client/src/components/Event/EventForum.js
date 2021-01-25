@@ -3,6 +3,8 @@ import '../../style/event/event_forum.scss'
 import { devUrl } from '../../config'
 import Axios from 'axios'
 import { DateConvert, TimeConvert } from '../Main/DateTimeConverter'
+import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom'
 
 function EventForum(props) {
   console.log(props)
@@ -14,6 +16,7 @@ function EventForum(props) {
   }
 
   console.log(memberInfo)
+  let history = useHistory()
 
   const comment = () => {
     Axios.post('http://localhost:3001/api/comment', {
@@ -129,7 +132,17 @@ function EventForum(props) {
                 if (memberInfo) {
                   comment()
                 } else {
-                  alert('請先登入!')
+                  Swal.fire({
+                    title: '登入會員即可留言!',
+                    showCancelButton: true,
+                    confirmButtonText: `去登入`,
+                    cancelButtonText: '取消',
+                  }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      history.push('/login')
+                    }
+                  })
                 }
               }}
               className="btn btn-primary rounded-pill bttn"

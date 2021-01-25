@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import '../../style/event/event_searchbar.scss'
+import { withRouter, useHistory } from 'react-router-dom'
 
 import { MdLocationOn } from 'react-icons/md'
 
@@ -30,6 +31,7 @@ function Searchbar2(props) {
     dateTime = String(yyyy + '/' + mm + '/' + dd + ' ' + tt)
     return dateTime
   }
+  let history = useHistory()
 
   useEffect(() => {
     switch (time) {
@@ -66,6 +68,7 @@ function Searchbar2(props) {
     var height = window.innerHeight
     height = height - 60
     window.scrollTo({ top: height, behavior: 'smooth' })
+    history.push('/event')
   }
 
   return (

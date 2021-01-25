@@ -5,6 +5,7 @@ import { withRouter, useHistory } from 'react-router-dom'
 import '../../style/event/event_detail.scss'
 import { devUrl } from '../../config'
 import { MdBookmark, MdShare } from 'react-icons/md'
+import Swal from 'sweetalert2'
 
 //DatePicker
 import 'react-calendar/dist/Calendar.css'
@@ -63,7 +64,7 @@ function EventDetail(props) {
     new Date('2021-01-15'),
     new Date('2021-01-15'),
   ])
-  const [passed, setPassed] = useState('')
+  const [passed, setPassed] = useState(false)
   const [address, setAddress] = useState('')
   const [lat, setLat] = useState(0)
   const [lng, setLng] = useState(0)
@@ -71,7 +72,7 @@ function EventDetail(props) {
   const [tags, setTags] = useState([])
 
   //設定是否購買過活動
-  const [bought, setBought] = useState(true)
+  const [bought, setBought] = useState(false)
 
   // Modal控制區
   const [show, setShow] = useState(false)
@@ -133,7 +134,7 @@ function EventDetail(props) {
   const getTag = () => {
     Axios.get(`http://localhost:3001/api/eventtags/${eventId}`)
       .then((response) => {
-        // console.log(response.data)
+        console.log(response.data)
         setTags(response.data)
       })
       .catch(function (error) {
@@ -319,7 +320,17 @@ function EventDetail(props) {
                               setIsActive(true)
                               writeLike()
                             } else {
-                              alert('請先登入!')
+                              Swal.fire({
+                                title: '登入會員即可收藏!',
+                                showCancelButton: true,
+                                confirmButtonText: `去登入`,
+                                cancelButtonText: '取消',
+                              }).then((result) => {
+                                /* Read more about isConfirmed, isDenied below */
+                                if (result.isConfirmed) {
+                                  history.push('/login')
+                                }
+                              })
                             }
                           }}
                         >
@@ -380,12 +391,18 @@ function EventDetail(props) {
                         <button
                           className="btn rounded-pill btn-md tag"
                           type="button"
+                          onClick={() => {
+                            history.push(`/event?type=${val.event_type}`)
+                          }}
                         >
                           {val.event_type_name}
                         </button>
                         <button
                           className="btn rounded-pill btn-md tag aaa"
                           type="button"
+                          onClick={() => {
+                            history.push(`/event?theme=${val.event_theme}`)
+                          }}
                         >
                           {val.event_theme_name}
                         </button>
@@ -395,6 +412,9 @@ function EventDetail(props) {
                               <button
                                 className="btn rounded-pill btn-md tag aaa"
                                 type="button"
+                                onClick={() => {
+                                  history.push(`/event?tag=${t.tags_name}`)
+                                }}
                               >
                                 {t.tags_name}
                               </button>
@@ -422,7 +442,7 @@ function EventDetail(props) {
                         onClick={handleClick}
                         className="btn google-calender font-bold"
                         style={
-                          bought === false
+                          passed === false
                             ? { display: 'inline' }
                             : { display: 'none' }
                         }
@@ -436,7 +456,7 @@ function EventDetail(props) {
                         }}
                         className="btn google-calender font-bold"
                         style={
-                          bought === true
+                          passed === true
                             ? { display: 'inline' }
                             : { display: 'none' }
                         }

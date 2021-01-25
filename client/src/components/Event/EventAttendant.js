@@ -27,7 +27,6 @@ function EventAttendant(props) {
   const getData = async () => {
     await Axios.get(`http://localhost:3001/api/event/${eventId}`).then(
       (response) => {
-        console.log(response.data[0])
         setEvent(response.data[0])
       }
     )
@@ -165,7 +164,11 @@ function EventAttendant(props) {
       case 'waiting':
         return waiting
       case 'cancel':
-        return cancelList
+        if (cancelList.length > 0) {
+          return cancelList
+        } else {
+          return []
+        }
     }
   }
 
@@ -209,7 +212,7 @@ function EventAttendant(props) {
                   }}
                 >
                   確定參加 (
-                  {event.event_limit_number >= attendantsData.length
+                  {event.event_limit_number > attendantsData.length
                     ? attendantsData.length + 1
                     : event.event_limit_number}
                   )
@@ -233,9 +236,9 @@ function EventAttendant(props) {
                   }}
                 >
                   候補 (
-                  {event.event_limit_number >= attendantsData.length
+                  {event.event_limit_number > attendantsData.length
                     ? 0
-                    : attendantsData.length - event.event_limit_number}
+                    : attendantsData.length - event.event_limit_number + 1}
                   )
                 </li>
               </ul>

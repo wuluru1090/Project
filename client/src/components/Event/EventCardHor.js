@@ -5,6 +5,7 @@ import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
 import '../../style/event/event_card_hor.scss'
 import Axios from 'axios'
+import Swal from 'sweetalert2'
 
 function EventCardHor(props) {
   const [isActive, setIsActive] = useState(false)
@@ -53,7 +54,7 @@ function EventCardHor(props) {
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/eventtags/${cardInfo.event_id}`)
       .then((response) => {
-        // console.log(response.data)
+        console.log(response.data)
         setTags(response.data)
       })
       .catch(function (error) {
@@ -75,7 +76,17 @@ function EventCardHor(props) {
                   setIsActive(true)
                   writeLike()
                 } else {
-                  alert('請先登入!')
+                  Swal.fire({
+                    title: '登入會員即可收藏!',
+                    showCancelButton: true,
+                    confirmButtonText: `去登入`,
+                    cancelButtonText: '取消',
+                  }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      history.push('/login')
+                    }
+                  })
                 }
               }}
               style={isActive ? { display: 'none' } : { display: 'inline' }}
@@ -89,7 +100,17 @@ function EventCardHor(props) {
                   setIsActive(false)
                   deleteLike()
                 } else {
-                  alert('請先登入!')
+                  Swal.fire({
+                    title: '登入會員即可收藏!',
+                    showCancelButton: true,
+                    confirmButtonText: `去登入`,
+                    cancelButtonText: '取消',
+                  }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      history.push('/login')
+                    }
+                  })
                 }
               }}
               style={isActive ? { display: 'inline' } : { display: 'none' }}
@@ -147,12 +168,21 @@ function EventCardHor(props) {
             </div>
             <div className="d-flex justify-content-between buttons">
               <div className="tag-box">
-                <button className="btn rounded-pill btn-md tag" type="button">
+                <button
+                  className="btn rounded-pill btn-md tag"
+                  type="button"
+                  onClick={() => {
+                    history.push(`/event?type=${cardInfo.event_type}`)
+                  }}
+                >
                   {cardInfo.event_type_name}
                 </button>
                 <button
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
+                  onClick={() => {
+                    history.push(`/event?theme=${cardInfo.event_theme}`)
+                  }}
                 >
                   {cardInfo.event_theme_name}
                 </button>
