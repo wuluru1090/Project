@@ -46,7 +46,6 @@ function MyNavbar(props) {
           // console.log(response.data)
           setMemberidd(response.data.user[0].member_id)
           setIsAuth(true)
-          // console.log(memberidd)
         }
       })
       .then(() => {
@@ -134,7 +133,7 @@ function MyNavbar(props) {
             </Nav.Link>
           </Nav>
           <Nav className="nav2">
-            <Nav.Link className="icon" href="cart">
+            <Nav.Link className="icon" as={NavLink} to="/cart">
               <MdShoppingCart size={20} />
             </Nav.Link>
           </Nav>

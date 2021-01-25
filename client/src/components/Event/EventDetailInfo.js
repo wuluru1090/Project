@@ -54,106 +54,107 @@ function EventDetailInfo(props) {
 
   return (
     <>
-      {detailInfo.map((val) => {
-        return (
-          <Card className="event-info-card">
-            <Card.Body className="card_body">
-              <div className="paragraph d-flex align-items-start">
-                <MdDone />
-                <div className="info">
-                  <div className="subtitle2 font-bold small-title">
-                    報名截止：
-                  </div>
-                  <div className="subtitle2">
-                    <DateConvert jsonDate={val.event_deadline_date} />
-                  </div>
-                  <div className="subtitle2">
-                    <TimeConvert jsonTime={val.event_deadline_date} />
-                  </div>
-                </div>
-              </div>
-              <div className="paragraph d-flex align-items-start">
-                <MdPerson />
-                <div className="info">
-                  <div className="subtitle2 font-bold small-title">
-                    名額上限：
-                  </div>
-                  <div className="subtitle2">{val.event_limit_number} 人</div>
-                </div>
-              </div>
-              <div className="paragraph d-flex align-items-start">
-                <MdAccessTime />
-                <div className="info">
-                  <div className="subtitle2 font-bold small-title">
-                    活動時間：
-                  </div>
-                  <div className="subtitle2">
-                    {isOneDay(
-                      dateConvert(val.event_start_time),
-                      dateConvert(val.event_end_time)
-                    )
-                      ? `${dateConvert(val.event_start_time)}`
-                      : `${dateConvert(val.event_start_time)} ~ ${dateConvert(
-                          val.event_end_time
-                        )}`}
-                  </div>
-                  <div className="subtitle2">
-                    <TimeConvert jsonTime={val.event_start_time} />
-                    &nbsp;~&nbsp;
-                    <TimeConvert jsonTime={val.event_end_time} />
+      {detailInfo.length > 0 &&
+        detailInfo.map((val) => {
+          return (
+            <Card className="event-info-card">
+              <Card.Body className="card_body">
+                <div className="paragraph d-flex align-items-start">
+                  <MdDone />
+                  <div className="info">
+                    <div className="subtitle2 font-bold small-title">
+                      報名截止：
+                    </div>
+                    <div className="subtitle2">
+                      <DateConvert jsonDate={val.event_deadline_date} />
+                    </div>
+                    <div className="subtitle2">
+                      <TimeConvert jsonTime={val.event_deadline_date} />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="paragraph d-flex align-items-start ">
-                <MdExplore />
-                <div className="info">
-                  <div className="subtitle2 font-bold small-title">
-                    集合地點：
-                  </div>
-                  <div className="subtitle2">{val.event_meeting_point}</div>
-                  <div className="subtitle2">{val.event_meeting_address}</div>
-                </div>
-              </div>
-              <div className="paragraph d-flex align-items-start">
-                <MdFlag />
-                <div className="info">
-                  <div className="subtitle2 font-bold small-title">
-                    活動地點：
-                  </div>
-                  <div className="subtitle2">{val.event_location}</div>
-                  <div className="subtitle2">{val.event_address}</div>
-                </div>
-              </div>
-              <div className="paragraph last-para d-flex align-items-start">
-                <MdCall />
-                <div className="info">
-                  <div className="subtitle2 font-bold small-title">
-                    聯繫主揪：
-                  </div>
-                  <div className="subtitle2">
-                    {contact.contact_name != ''
-                      ? `聯絡人姓名 : ${contact.contact_name}`
-                      : ''}
-                  </div>
-                  <div className="subtitle2">
-                    {contact.contact_phone != ''
-                      ? `聯絡人電話 : ${contact.contact_phone}`
-                      : ''}
-                  </div>
-                  <div className="subtitle2">
-                    {contact.contact_email != ''
-                      ? `聯絡人信箱 : ${contact.contact_email}`
-                      : ''}
-                  </div>
-                  <div className="subtitle2">
-                    line ID：{contact.contact_lineId}
+                <div className="paragraph d-flex align-items-start">
+                  <MdPerson />
+                  <div className="info">
+                    <div className="subtitle2 font-bold small-title">
+                      名額上限：
+                    </div>
+                    <div className="subtitle2">{val.event_limit_number} 人</div>
                   </div>
                 </div>
-              </div>
-            </Card.Body>
-          </Card>
-        )
-      })}
+                <div className="paragraph d-flex align-items-start">
+                  <MdAccessTime />
+                  <div className="info">
+                    <div className="subtitle2 font-bold small-title">
+                      活動時間：
+                    </div>
+                    <div className="subtitle2">
+                      {isOneDay(
+                        dateConvert(val.event_start_time),
+                        dateConvert(val.event_end_time)
+                      )
+                        ? `${dateConvert(val.event_start_time)}`
+                        : `${dateConvert(val.event_start_time)} ~ ${dateConvert(
+                            val.event_end_time
+                          )}`}
+                    </div>
+                    <div className="subtitle2">
+                      <TimeConvert jsonTime={val.event_start_time} />
+                      &nbsp;~&nbsp;
+                      <TimeConvert jsonTime={val.event_end_time} />
+                    </div>
+                  </div>
+                </div>
+                <div className="paragraph d-flex align-items-start ">
+                  <MdExplore />
+                  <div className="info">
+                    <div className="subtitle2 font-bold small-title">
+                      集合地點：
+                    </div>
+                    <div className="subtitle2">{val.event_meeting_point}</div>
+                    <div className="subtitle2">{val.event_meeting_address}</div>
+                  </div>
+                </div>
+                <div className="paragraph d-flex align-items-start">
+                  <MdFlag />
+                  <div className="info">
+                    <div className="subtitle2 font-bold small-title">
+                      活動地點：
+                    </div>
+                    <div className="subtitle2">{val.event_location}</div>
+                    <div className="subtitle2">{val.event_address}</div>
+                  </div>
+                </div>
+                <div className="paragraph last-para d-flex align-items-start">
+                  <MdCall />
+                  <div className="info">
+                    <div className="subtitle2 font-bold small-title">
+                      聯繫主揪：
+                    </div>
+                    <div className="subtitle2">
+                      {contact.contact_name != ''
+                        ? `聯絡人姓名 : ${contact.contact_name}`
+                        : ''}
+                    </div>
+                    <div className="subtitle2">
+                      {contact.contact_phone != ''
+                        ? `聯絡人電話 : ${contact.contact_phone}`
+                        : ''}
+                    </div>
+                    <div className="subtitle2">
+                      {contact.contact_email != ''
+                        ? `聯絡人信箱 : ${contact.contact_email}`
+                        : ''}
+                    </div>
+                    <div className="subtitle2">
+                      line ID：{contact.contact_lineId}
+                    </div>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          )
+        })}
     </>
   )
 }

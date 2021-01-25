@@ -7,18 +7,6 @@ import FukuanActivityPage from '../pages/cart/FukuanActivityPage'
 import Buttonx3 from '../components/Cart/Buttonx3'
 
 function Cart() {
-  // [{cat1:'a', cat2:'XXXX', cat3:'123'}]
-  // const [filter, setFilter] = useState([])
-
-  // // http://xxx.com/getdata/?color=red,white&ids=2,3,5
-  // const [colorArray, setColorArray] = useState([1, 3, 5])
-  // const [filterCat2, setFilterCat2] = useState([])
-  // const [filterCat3, setFilterCat3] = useState([])
-  // const [filterCat4, setFilterCat4] = useState([])
-  // const [filterCat5, setFilterCat5] = useState([])
-
-  // 'color='+ colorArray.join(',')
-
   const [mycart, setMycart] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   const [mycartDisplay, setMycartDisplay] = useState([])
@@ -102,7 +90,10 @@ function Cart() {
 
   const loading = (
     <>
-      <div className="d-flex justify-content-center">
+      <div
+        className="d-flex justify-content-center"
+        style={{ minHeight: '100vh' }}
+      >
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
@@ -131,59 +122,63 @@ function Cart() {
                 <th>刪除</th>
               </tr>
             </thead>
-            <div className="lineup"></div>
+            {/* <div className="lineup"></div> */}
 
-            {mycartDisplay.map((item, index) => {
-              return (
-                <tbody className="centertrtd">
-                  <tr className="">
-                    <td>
-                      <input type="checkbox" />
-                    </td>
-                    <td className="tdcolumn d-flex">
-                      <div>
-                        <img
-                          className="titlephoto"
-                          src={devUrl + `/pic/pic/${item.photoimg}`}
-                          alt="titlephoto"
-                        />
-                      </div>{' '}
-                      <div className="context">{item.name}</div>
-                    </td>
-                    <td className="">
-                      <button
-                        className="btnn"
-                        onClick={() => {
-                          if (item.amount === 1) return
-                          updateCartToLocalStorage(item, false)
-                        }}
-                      >
-                        -
-                      </button>
-                      {item.amount}
-                      <button
-                        className="btnn2"
-                        onClick={() => updateCartToLocalStorage(item, true)}
-                      >
-                        +
-                      </button>
-                    </td>
-                    <td>{item.amount * item.price}</td>
-                    <td className="">
-                      <Link to="#">
-                        <MdAddBox className="iconcolor" />
-                      </Link>
-                    </td>
-                    <td>
-                      <Link to="#">
-                        <TiDeleteOutline className="iconcolor2" />
-                      </Link>
-                    </td>
-                  </tr>
-                  <div className="lineup"></div>
-                </tbody>
-              )
-            })}
+            {mycartDisplay.length > 0 ? (
+              mycartDisplay.map((item, index) => {
+                return (
+                  <tbody className="centertrtd">
+                    <tr className="">
+                      <td>
+                        <input type="checkbox" />
+                      </td>
+                      <td className="tdcolumn d-flex">
+                        <div>
+                          <img
+                            className="titlephoto"
+                            src={devUrl + `/pic/pic/${item.photoimg}`}
+                            alt="titlephoto"
+                          />
+                        </div>{' '}
+                        <div className="context">{item.name}</div>
+                      </td>
+                      <td className="">
+                        <button
+                          className="btnn"
+                          onClick={() => {
+                            if (item.amount === 1) return
+                            updateCartToLocalStorage(item, false)
+                          }}
+                        >
+                          -
+                        </button>
+                        {item.amount}
+                        <button
+                          className="btnn2"
+                          onClick={() => updateCartToLocalStorage(item, true)}
+                        >
+                          +
+                        </button>
+                      </td>
+                      <td>{item.amount * item.price}</td>
+                      <td className="">
+                        <Link to="#">
+                          <MdAddBox className="iconcolor" />
+                        </Link>
+                      </td>
+                      <td>
+                        <Link to="#">
+                          <TiDeleteOutline className="iconcolor2" />
+                        </Link>
+                      </td>
+                    </tr>
+                    <div className="lineup"></div>
+                  </tbody>
+                )
+              })
+            ) : (
+              <></>
+            )}
           </table>
         </div>
       </div>

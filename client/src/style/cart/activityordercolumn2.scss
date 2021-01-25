@@ -1,13 +1,13 @@
 // 導入bootstrap所有的樣式與預設變數
-@import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
 
 // 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
 * {
 }
 .activityordercolumnobb2 {
   .activityordercolumno {
-    width: 1160px;
-    height: 583px;
+    max-width: 1160px;
+    min-height: 240px;
     margin: auto;
     margin-top: 34px;
     border-radius: 10px;
@@ -17,19 +17,13 @@
     z-index: 2;
     .columnoh {
       border-collapse: separate;
-      border-spacing: 0px 22px;
+      border-spacing: 0px 28px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.16);
       margin: auto;
       margin-top: 50px;
       .selectstyle {
         width: 74px;
         height: 38px;
-      }
-
-      .lineup {
-        border-bottom: 1px solid gray;
-        width: 1090px;
-        position: absolute;
-        margin-left: 35px;
       }
     }
 
@@ -79,9 +73,7 @@
         width: 6%;
         text-align: center;
       }
-      .checkboxaaa {
-        width: 5%;
-      }
+
       .imgw {
         width: 35%;
       }

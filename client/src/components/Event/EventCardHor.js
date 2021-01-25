@@ -156,19 +156,23 @@ function EventCardHor(props) {
                 >
                   {cardInfo.event_theme_name}
                 </button>
-                {tags.map((t) => {
-                  return (
-                    <button
-                      className="btn rounded-pill btn-md tag aaa"
-                      type="button"
-                      onClick={() => {
-                        history.push(`/event?tag=${t.tags_name}`)
-                      }}
-                    >
-                      {t.tags_name}
-                    </button>
-                  )
-                })}
+                {tags.length > 0 ? (
+                  tags.map((t) => {
+                    return (
+                      <button
+                        className="btn rounded-pill btn-md tag aaa"
+                        type="button"
+                        onClick={() => {
+                          history.push(`/event?tag=${t.tags_name}`)
+                        }}
+                      >
+                        {t.tags_name}
+                      </button>
+                    )
+                  })
+                ) : (
+                  <></>
+                )}
               </div>
               <button
                 onClick={() => {

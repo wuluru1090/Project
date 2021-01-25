@@ -102,7 +102,10 @@ function Cart2() {
 
   const loading = (
     <>
-      <div className="d-flex justify-content-center">
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ minHeight: '100vh' }}
+      >
         <div className="spinner-border" role="status">
           <span className="sr-only">Loading...</span>
         </div>
@@ -131,7 +134,7 @@ function Cart2() {
                 <th>刪除</th>
               </tr>
             </thead>
-            <div className="lineup"></div>
+            {/* <div className="lineup"></div> */}
 
             {mycartDisplay.map((item, index) => {
               return (

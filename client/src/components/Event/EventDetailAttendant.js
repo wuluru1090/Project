@@ -85,28 +85,32 @@ function EventDetailAttendant(props) {
             <div className="subtitle2 identity host caption">主揪</div>
           </div>
         </div>
-        {list.map((val) => {
-          return (
-            <div
-              className="attendant-card  d-flex justify-content-center"
-              onClick={() => {
-                history.push(`/see/${val.member_id}`)
-              }}
-            >
-              <figure className="detail-attendant-avatar">
-                {val.member_img != '' ? (
-                  <img src={`${devUrl}/pic/mem_img/${val.member_img}`} alt="" />
-                ) : (
-                  <img src={`${devUrl}/pic/mem_img/null.png`} alt="" />
-                )}
-              </figure>
-              <div className="name d-flex flex-column align-items-center">
-                <h6>{val.member_name}</h6>
-                <div className="subtitle2 identity attendants">參與者</div>
+        {list.length > 0 &&
+          list.map((val) => {
+            return (
+              <div
+                className="attendant-card  d-flex justify-content-center"
+                onClick={() => {
+                  history.push(`/see/${val.member_id}`)
+                }}
+              >
+                <figure className="detail-attendant-avatar">
+                  {val.member_img != '' ? (
+                    <img
+                      src={`${devUrl}/pic/mem_img/${val.member_img}`}
+                      alt=""
+                    />
+                  ) : (
+                    <img src={`${devUrl}/pic/mem_img/null.png`} alt="" />
+                  )}
+                </figure>
+                <div className="name d-flex flex-column align-items-center">
+                  <h6>{val.member_name}</h6>
+                  <div className="subtitle2 identity attendants">參與者</div>
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
       </div>
     </>
   )

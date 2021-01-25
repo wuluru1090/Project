@@ -9,10 +9,10 @@ function ConfirmButton(props) {
     <>
       <div className="conbutton">
         <div className="b1 d-flex">
-          <Link to="/" className="btn d-flex confirmbutton1">
+          <Link to="/cart" className="btn d-flex confirmbutton1">
             查詢訂單
           </Link>
-          <Link to="/" className="btn d-flex confirmbutton2">
+          <Link to="/cart" className="btn d-flex confirmbutton2">
             繼續購物
           </Link>
         </div>

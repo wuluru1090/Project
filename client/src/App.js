@@ -67,6 +67,8 @@ import QuerenClassPage from '../src/pages/cart/QuerenClassPage'
 import NextTimePage from '../src/pages/cart/NextTimePage'
 import LastConfirmationPage1 from '../src/pages/cart/LastConfirmationPage1'
 
+import ErrorPage from '../src/pages/404'
+
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Formika from './pages/SoYa/Formika'
 
@@ -235,6 +237,9 @@ function App() {
                   <NextTimePage />
                 </Route>
                 {/* 購物車頁面結束 */}
+                <Route path="/404">
+                  <ErrorPage />
+                </Route>
               </Switch>
             </AutoTop>
           </MainContent>

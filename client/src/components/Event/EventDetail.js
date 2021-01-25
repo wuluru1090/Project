@@ -262,244 +262,249 @@ function EventDetail(props) {
   return (
     <>
       {/* <div> */}
-      {eventDataList.map((val) => {
-        return (
-          <>
-            <div className="event_wave_background">
-              <ScrollTop />
-              <div className="mainclass_wrapper">
-                <div className="page-head">
-                  <EventBreadCrumb initValue={val.event_name} />
-                  <div className="title">
-                    <h6 className="subtitle1">
-                      {isOneDay(
-                        dateConvert(val.event_start_time),
-                        dateConvert(val.event_end_time)
-                      )
-                        ? `${dateConvert(val.event_start_time)} ${timeConvert(
-                            val.event_start_time
-                          )} ~ ${timeConvert(val.event_end_time)}
+      {eventDataList.length ? (
+        eventDataList.map((val) => {
+          return (
+            <>
+              <div className="event_wave_background">
+                <ScrollTop />
+                <div className="mainclass_wrapper">
+                  <div className="page-head">
+                    <EventBreadCrumb initValue={val.event_name} />
+                    <div className="title">
+                      <h6 className="subtitle1">
+                        {isOneDay(
+                          dateConvert(val.event_start_time),
+                          dateConvert(val.event_end_time)
+                        )
+                          ? `${dateConvert(val.event_start_time)} ${timeConvert(
+                              val.event_start_time
+                            )} ~ ${timeConvert(val.event_end_time)}
                           `
-                        : `${dateConvert(val.event_start_time)} 
+                          : `${dateConvert(val.event_start_time)} 
                       ${timeConvert(val.event_start_time)} ~ 
                       ${dateConvert(val.event_end_time)} 
                       ${timeConvert(val.event_end_time)}`}
-                    </h6>
-                    <h5>{val.event_name}</h5>
+                      </h6>
+                      <h5>{val.event_name}</h5>
+                    </div>
+                    <div className="page-head-part2">
+                      <div className="organizer_info d-flex align-items-center">
+                        <div className="organizer d-flex align-items-center">
+                          <figure>
+                            <img
+                              src={`${devUrl}/pic/mem_img/${val.event_host_img}`}
+                              alt=""
+                            />
+                          </figure>
+                        </div>
+                        <div className="host">
+                          <span>
+                            {val.event_host_name}
+                            <br />
+                            <span style={{ fontSize: '12px' }}>發起的活動</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div className="btn_part">
+                        <button
+                          className="btn bttn save rounded-pill"
+                          style={
+                            isActive === false
+                              ? { display: 'inline' }
+                              : { display: 'none' }
+                          }
+                          onClick={() => {
+                            if (loginId) {
+                              setIsActive(true)
+                              writeLike()
+                            } else {
+                              alert('請先登入!')
+                            }
+                          }}
+                        >
+                          <MdBookmark
+                            size={30}
+                            style={{ color: 'white', paddingRight: '6px' }}
+                          />
+                          <span className="align-middle">收藏</span>
+                        </button>
+                        <button
+                          className="btn bttn save rounded-pill"
+                          style={
+                            isActive === true
+                              ? { display: 'inline' }
+                              : { display: 'none' }
+                          }
+                          onClick={() => {
+                            setIsActive(false)
+                            deleteLike()
+                          }}
+                        >
+                          <span className="align-middle">取消收藏</span>
+                        </button>
+                        <button
+                          className="btn bttn share rounded-pill"
+                          onClick={handleShow}
+                        >
+                          <MdShare
+                            size={30}
+                            style={{ color: 'white', paddingRight: '6px' }}
+                          />
+                          <span className="align-middle">分享</span>
+                        </button>
+                      </div>
+                    </div>
+                    {/* <div className="bread_crumb">麵包屑放置處</div> */}
                   </div>
-                  <div className="page-head-part2">
-                    <div className="organizer_info d-flex align-items-center">
-                      <div className="organizer d-flex align-items-center">
+                  <div className="page-head-part3">
+                    <div className="content_big_part">
+                      <div className="event_pic">
                         <figure>
                           <img
-                            src={`${devUrl}/pic/mem_img/${val.event_host_img}`}
-                            alt=""
+                            src={`${devUrl}/pic/event/${val.event_photo}`}
+                            alt="活動圖片"
                           />
                         </figure>
                       </div>
-                      <div className="host">
-                        <span>
-                          {val.event_host_name}
-                          <br />
-                          <span style={{ fontSize: '12px' }}>發起的活動</span>
-                        </span>
+                      <div className="underline-title">
+                        <span className="detail-title">詳細資訊</span>
+                      </div>
+                      <div
+                        className="detail-data"
+                        dangerouslySetInnerHTML={{
+                          __html: val.event_details,
+                        }}
+                      ></div>
+                      <div className="event-tag-box">
+                        <button
+                          className="btn rounded-pill btn-md tag"
+                          type="button"
+                        >
+                          {val.event_type_name}
+                        </button>
+                        <button
+                          className="btn rounded-pill btn-md tag aaa"
+                          type="button"
+                        >
+                          {val.event_theme_name}
+                        </button>
+                        {tags.length > 0 &&
+                          tags.map((t) => {
+                            return (
+                              <button
+                                className="btn rounded-pill btn-md tag aaa"
+                                type="button"
+                              >
+                                {t.tags_name}
+                              </button>
+                            )
+                          })}
+                      </div>
+                      <div className="underline-title d-flex justify-content-between align-items-end">
+                        <div className="detail-title">參與者名單</div>
+                        <a
+                          href={`/event/${eventId}/attendants`}
+                          className="btn btn-link all"
+                          target="_blank"
+                        >
+                          查看全部
+                        </a>
+                      </div>
+                      <EventDetailAttendant initValue={eventDataList} />
+                    </div>
+                    <div className="left_part">
+                      <EventDetailInfo initValue={eventDataList} />
+
+                      <Calendar value={calenderValue} />
+
+                      <button
+                        onClick={handleClick}
+                        className="btn google-calender font-bold"
+                        style={
+                          bought === false
+                            ? { display: 'inline' }
+                            : { display: 'none' }
+                        }
+                      >
+                        <h5>+ 加入Google行事曆</h5>
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          click2Album(eventId)
+                        }}
+                        className="btn google-calender font-bold"
+                        style={
+                          bought === true
+                            ? { display: 'inline' }
+                            : { display: 'none' }
+                        }
+                      >
+                        <h5>前往活動相簿</h5>
+                      </button>
+
+                      <div className="gmap">
+                        {lat > 0 && lng > 0 && (
+                          <GMap
+                            location={{
+                              address: address.toString(),
+                              lat: lat,
+                              lng: lng,
+                            }}
+                            zoomLevel={15}
+                          />
+                        )}
                       </div>
                     </div>
-                    <div className="btn_part">
-                      <button
-                        className="btn bttn save rounded-pill"
-                        style={
-                          isActive === false
-                            ? { display: 'inline' }
-                            : { display: 'none' }
-                        }
-                        onClick={() => {
-                          if (loginId) {
-                            setIsActive(true)
-                            writeLike()
-                          } else {
-                            alert('請先登入!')
-                          }
-                        }}
-                      >
-                        <MdBookmark
-                          size={30}
-                          style={{ color: 'white', paddingRight: '6px' }}
-                        />
-                        <span className="align-middle">收藏</span>
-                      </button>
-                      <button
-                        className="btn bttn save rounded-pill"
-                        style={
-                          isActive === true
-                            ? { display: 'inline' }
-                            : { display: 'none' }
-                        }
-                        onClick={() => {
-                          setIsActive(false)
-                          deleteLike()
-                        }}
-                      >
-                        <span className="align-middle">取消收藏</span>
-                      </button>
-                      <button
-                        className="btn bttn share rounded-pill"
-                        onClick={handleShow}
-                      >
-                        <MdShare
-                          size={30}
-                          style={{ color: 'white', paddingRight: '6px' }}
-                        />
-                        <span className="align-middle">分享</span>
-                      </button>
-                    </div>
-                  </div>
-                  {/* <div className="bread_crumb">麵包屑放置處</div> */}
-                </div>
-                <div className="page-head-part3">
-                  <div className="content_big_part">
-                    <div className="event_pic">
-                      <figure>
-                        <img
-                          src={`${devUrl}/pic/event/${val.event_photo}`}
-                          alt="活動圖片"
-                        />
-                      </figure>
-                    </div>
-                    <div className="underline-title">
-                      <span className="detail-title">詳細資訊</span>
-                    </div>
-                    <div
-                      className="detail-data"
-                      dangerouslySetInnerHTML={{
-                        __html: val.event_details,
-                      }}
-                    ></div>
-                    <div className="event-tag-box">
-                      <button
-                        className="btn rounded-pill btn-md tag"
-                        type="button"
-                      >
-                        {val.event_type_name}
-                      </button>
-                      <button
-                        className="btn rounded-pill btn-md tag aaa"
-                        type="button"
-                      >
-                        {val.event_theme_name}
-                      </button>
-                      {tags.map((t) => {
-                        return (
-                          <button
-                            className="btn rounded-pill btn-md tag aaa"
-                            type="button"
-                          >
-                            {t.tags_name}
-                          </button>
-                        )
-                      })}
-                    </div>
-                    <div className="underline-title d-flex justify-content-between align-items-end">
-                      <div className="detail-title">參與者名單</div>
-                      <a
-                        href={`/event/${eventId}/attendants`}
-                        className="btn btn-link all"
-                        target="_blank"
-                      >
-                        查看全部
-                      </a>
-                    </div>
-                    <EventDetailAttendant initValue={eventDataList} />
-                  </div>
-                  <div className="left_part">
-                    <EventDetailInfo initValue={eventDataList} />
-
-                    <Calendar value={calenderValue} />
-
-                    <button
-                      onClick={handleClick}
-                      className="btn google-calender font-bold"
-                      style={
-                        bought === false
-                          ? { display: 'inline' }
-                          : { display: 'none' }
-                      }
-                    >
-                      <h5>+ 加入Google行事曆</h5>
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        click2Album(eventId)
-                      }}
-                      className="btn google-calender font-bold"
-                      style={
-                        bought === true
-                          ? { display: 'inline' }
-                          : { display: 'none' }
-                      }
-                    >
-                      <h5>前往活動相簿</h5>
-                    </button>
-
-                    <div className="gmap">
-                      {lat > 0 && lng > 0 && (
-                        <GMap
-                          location={{
-                            address: address.toString(),
-                            lat: lat,
-                            lng: lng,
-                          }}
-                          zoomLevel={15}
-                        />
-                      )}
-                    </div>
                   </div>
                 </div>
-              </div>
-              {/* 上波浪 */}
-              <div className="wave_background2">
-                <img
-                  src={devUrl + '/Pic/SVG/wave-darker-blue-1440-01.svg'}
-                  alt=""
-                />
-              </div>
-              {/* 討論區 */}
-              <div className="forum-wave-height d-flex justify-content-center">
-                <EventForum
-                  eventValue={{
-                    id: val.event_id,
-                    hostId: val.event_host_id,
-                  }}
-                  memInfo={loginId && memberInfo}
-                />
-              </div>
-
-              {/* 下波浪 */}
-              <div className="wave_background3">
-                <img
-                  src={devUrl + '/Pic/SVG/wave-darker-blue-opposite-1440.svg'}
-                  alt=""
-                />
-              </div>
-              {/* 相似活動 */}
-
-              <div className="mainclass_wrapper relative-event">
-                <div className="underline-title">
-                  <span className="detail-title">相似活動</span>
-                </div>
-                <div className="relative-event-carousel">
-                  <EventRelativeCarousel
-                    initValue={{ theme: val.event_theme, id: val.event_id }}
+                {/* 上波浪 */}
+                <div className="wave_background2">
+                  <img
+                    src={devUrl + '/Pic/SVG/wave-darker-blue-1440-01.svg'}
+                    alt=""
                   />
                 </div>
+                {/* 討論區 */}
+                <div className="forum-wave-height d-flex justify-content-center">
+                  <EventForum
+                    eventValue={{
+                      id: val.event_id,
+                      hostId: val.event_host_id,
+                    }}
+                    memInfo={loginId && memberInfo}
+                  />
+                </div>
+
+                {/* 下波浪 */}
+                <div className="wave_background3">
+                  <img
+                    src={devUrl + '/Pic/SVG/wave-darker-blue-opposite-1440.svg'}
+                    alt=""
+                  />
+                </div>
+                {/* 相似活動 */}
+
+                <div className="mainclass_wrapper relative-event">
+                  <div className="underline-title">
+                    <span className="detail-title">相似活動</span>
+                  </div>
+                  <div className="relative-event-carousel">
+                    <EventRelativeCarousel
+                      initValue={{ theme: val.event_theme, id: val.event_id }}
+                    />
+                  </div>
+                </div>
+                {/* 底下的bar */}
+                <EventFixedBottom value={val} passed={passed} />
               </div>
-              {/* 底下的bar */}
-              <EventFixedBottom value={val} passed={passed} />
-            </div>
-          </>
-        )
-      })}
+            </>
+          )
+        })
+      ) : (
+        <div style={{ minHeight: '100vh' }}></div>
+      )}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className="border-0">
           <Modal.Title

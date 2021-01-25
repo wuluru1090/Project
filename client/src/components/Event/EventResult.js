@@ -84,16 +84,18 @@ function EventResult(props) {
 
   const resultCard = (
     <div className="result-card d-flex flex-wrap justify-content-start">
-      {currentPosts.map((val) => {
-        return <EventCardVer initVal={val} isAuth={props.isAuth} />
-      })}
+      {eventResult.length > 0 &&
+        currentPosts.map((val) => {
+          return <EventCardVer initVal={val} isAuth={props.isAuth} />
+        })}
     </div>
   )
   const resultList = (
     <div className="result-list d-flex justify-content-start flex-wrap">
-      {currentPosts.map((val) => {
-        return <EventCardHor initVal={val} isAuth={props.isAuth} />
-      })}
+      {eventResult.length > 0 &&
+        currentPosts.map((val) => {
+          return <EventCardHor initVal={val} isAuth={props.isAuth} />
+        })}
     </div>
   )
 
@@ -127,7 +129,7 @@ function EventResult(props) {
                   window.location.reload()
                 }}
               >
-                返回所有行程
+                顯示所有行程
               </button>
             ) : (
               <></>
