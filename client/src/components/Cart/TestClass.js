@@ -38,15 +38,15 @@ export default class AccordionExampleStandard extends Component {
                     <div>
                       <img
                         className="titlephoto"
-                        src={devUrl + '/pic/event/光之穹頂1.jpg'}
+                        src={devUrl + '/pic/class/p7.jpg'}
                         alt="titlephoto"
                       />
                     </div>{' '}
-                    <div className="tdtext">蒼穹之間</div>
+                    <div className="tdtext">手機人像攝影課程</div>
                   </td>
                   <td>1</td>
-                  <td>0</td>
-                  <td>0</td>
+                  <td>4000</td>
+                  <td>4000</td>
                 </tr>
               </tbody>
             </table>
@@ -111,15 +111,15 @@ export default class AccordionExampleStandard extends Component {
                     <div>
                       <img
                         className="titlephoto"
-                        src={devUrl + '/pic/event/田寮月世界2.jpg'}
+                        src={devUrl + '/pic/class/p52.jpg'}
                         alt="titlephoto"
                       />
                     </div>{' '}
-                    <div className="tdtext">探索月世界</div>
+                    <div className="tdtext">時尚攝影高階班</div>
                   </td>
                   <td className="">1</td>
-                  <td>200</td>
-                  <td className="">200</td>
+                  <td>1700</td>
+                  <td className="">1700</td>
                 </tr>
               </tbody>
             </table>

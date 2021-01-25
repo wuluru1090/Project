@@ -66,6 +66,7 @@ import QuerenPage from '../src/pages/cart/QuerenPage'
 import QuerenClassPage from '../src/pages/cart/QuerenClassPage'
 import NextTimePage from '../src/pages/cart/NextTimePage'
 import LastConfirmationPage1 from '../src/pages/cart/LastConfirmationPage1'
+import LastConfirmationPage4 from '../src/pages/cart/LastConfirmationPage4'
 
 import ErrorPage from '../src/pages/404'
 
@@ -229,6 +230,9 @@ function App() {
                 </Route>
                 <Route path="/LastConfirmationPage1">
                   <LastConfirmationPage1 />
+                </Route>
+                <Route path="/LastConfirmationPage4">
+                  <LastConfirmationPage4 />
                 </Route>
                 <Route path="/cart2">
                   <Cart2 />

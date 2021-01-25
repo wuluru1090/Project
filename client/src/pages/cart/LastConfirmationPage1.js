@@ -2,7 +2,8 @@ import '../../index.scss'
 import ConfirmTopPhoto from '../../components/Cart/ConfirmTopPhoto'
 import ConfirmPuzzle from '../../components/Cart/ConfirmPuzzle'
 import CreditcardConfirmFrame from '../../components/Cart/CreditcardConfirmFrame'
-import ConfirmButton from '../../components/Cart/ConfirmButton'
+import ConfirmButtonClass from '../../components/Cart/ConfirmButtonClass'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function LastConfirmationPage1() {
   return (
@@ -10,7 +11,8 @@ function LastConfirmationPage1() {
       <ConfirmTopPhoto />
       <ConfirmPuzzle />
       <CreditcardConfirmFrame />
-      <ConfirmButton />
+      <ConfirmButtonClass />
+      <ConfirmWave />
     </>
   )
 }

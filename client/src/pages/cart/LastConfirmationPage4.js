@@ -4,6 +4,7 @@ import ConfirmTopPhoto from '../../components/Cart/ConfirmTopPhoto'
 import ConfirmPuzzle from '../../components/Cart/ConfirmPuzzle'
 import LineConfirmFrame from '../../components/Cart/LineConfirmFrame'
 import ConfirmButton from '../../components/Cart/ConfirmButton'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function PaymentMethodPage() {
   return (
@@ -12,6 +13,7 @@ function PaymentMethodPage() {
       <ConfirmPuzzle />
       <LineConfirmFrame />
       <ConfirmButton />
+      <ConfirmWave />
     </>
   )
 }

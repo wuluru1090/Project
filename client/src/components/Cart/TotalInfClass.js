@@ -33,10 +33,10 @@ function DetailsAmount(props) {
               <div className="money d-flex">付款方式</div>
             </div>
             <div>
-              <div className="money d-flex moneyex"> NT$200元</div>
+              <div className="money d-flex moneyex"> NT$5700元</div>
               <div className="money d-flex moneyred"> - 0元</div>
-              <div className="money d-flex">NT$200元</div>
-              <div className="money d-flex">Line Pay</div>
+              <div className="money d-flex">NT$5700元</div>
+              <div className="money d-flex">信用卡</div>
             </div>
           </div>
         </div>

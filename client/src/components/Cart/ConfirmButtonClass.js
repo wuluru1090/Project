@@ -12,7 +12,7 @@ function ConfirmButton(props) {
           <Link to="/" className="btn d-flex confirmbutton1">
             查詢訂單
           </Link>
-          <Link to="/cart2" className="btn d-flex confirmbutton2">
+          <Link to="/NextTime" className="btn d-flex confirmbutton2">
             繼續購物
           </Link>
         </div>

@@ -5,6 +5,7 @@ import Buttonx3 from '../../components/Cart/Buttonx3'
 import ConfirmPuzzle from '../../components/Cart/ConfirmPuzzle'
 import NextTimeColumn from '../../components/Cart/NextTimeColumn'
 import NextTimeButton from '../../components/Cart/NextTimeButton'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function NextTimePage() {
   return (
@@ -14,6 +15,7 @@ function NextTimePage() {
       <ConfirmPuzzle />
       <NextTimeColumn />
       <NextTimeButton />
+      <ConfirmWave />
     </>
   )
 }

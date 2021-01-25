@@ -6,6 +6,7 @@ import ConfirmPuzzle from '../../components/Cart/ConfirmPuzzle'
 import ActivityOrderColumn from '../../components/Cart/ActivityOrderColumn'
 import DetailsAmount from '../../components/Cart/DetailsAmount'
 import FukuanClassButton from '../../components/Cart/FukuanClassButton'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function FukuanClassPage() {
   return (
@@ -16,6 +17,7 @@ function FukuanClassPage() {
       <ActivityOrderColumn />
       <DetailsAmount />
       <FukuanClassButton />
+      <ConfirmWave />
     </>
   )
 }

@@ -8,7 +8,13 @@ function LineConfirmFrame(props) {
     <>
       <div className="lineconfirmframetop">
         <div className="lineconfirmframe1">購買完成</div>
-        <div className="lineconfirmframe2"></div>
+        <div className="lineconfirmframe2">
+          <img
+            className="lineimg"
+            src={devUrl + '/pic/cart/line pay.jpg'}
+            alt="..."
+          />
+        </div>
       </div>
     </>
   )

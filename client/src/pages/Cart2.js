@@ -5,6 +5,8 @@ import { TiDeleteOutline } from 'react-icons/ti'
 import { devUrl } from '../config'
 import FukuanActivityPage from '../pages/cart/FukuanActivityPage'
 import Buttonx3 from '../components/Cart/Buttonx3'
+import ConfirmPuzzle from '../components/Cart/ConfirmPuzzle'
+import ConfirmWave from '../components/Cart/ConfirmWave'
 
 function Cart2() {
   // [{cat1:'a', cat2:'XXXX', cat3:'123'}]
@@ -74,7 +76,7 @@ function Cart2() {
   // 更新購物車中的商品數量
   const updateCartToLocalStorage = (item, isAdded = true) => {
     console.log(item, isAdded)
-    const currentCart = JSON.parse(localStorage.getItem('cart')) || []
+    const currentCart = JSON.parse(localStorage.getItem('cart2')) || []
 
     // find if the product in the localstorage with its id
     const index = currentCart.findIndex((v) => v.id === item.id)
@@ -85,7 +87,7 @@ function Cart2() {
       isAdded ? currentCart[index].amount++ : currentCart[index].amount--
     }
 
-    localStorage.setItem('cart', JSON.stringify(currentCart))
+    localStorage.setItem('cart2', JSON.stringify(currentCart))
 
     // 設定資料
     setMycart(currentCart)
@@ -119,6 +121,7 @@ function Cart2() {
         <img src={devUrl + '/pic/pic/Group 597.png'} alt="..." />
       </div>
       <Buttonx3 />
+      <ConfirmPuzzle />
       <div className="activityordercolumnobb2">
         <div className="activityordercolumno">
           <table responsive className="columnoh">
@@ -147,13 +150,30 @@ function Cart2() {
                       <div>
                         <img
                           className="titlephoto"
-                          src={devUrl + `/pic/pic/${item.photoimg}`}
+                          src={devUrl + `/pic/class/${item.photoimg}`}
                           alt="titlephoto"
                         />
                       </div>{' '}
                       <div className="context">{item.name}</div>
                     </td>
-                    <td className="">1</td>
+                    <td className="">
+                      <button
+                        className="btnn"
+                        onClick={() => {
+                          if (item.amount === 1) return
+                          updateCartToLocalStorage(item, false)
+                        }}
+                      >
+                        -
+                      </button>
+                      {item.amount}
+                      <button
+                        className="btnn2"
+                        onClick={() => updateCartToLocalStorage(item, true)}
+                      >
+                        +
+                      </button>
+                    </td>
                     <td>{item.amount * item.price}</td>
                     <td className="">
                       <Link to="#">
@@ -188,13 +208,13 @@ function Cart2() {
           </div>
           <div className="boxx3 d-flex">
             <div>
-              <div className="money d-flex">5件商品合計</div>
+              <div className="money d-flex">2件商品合計</div>
               <div className="money d-flex">優惠卷折抵</div>
               <div className="money d-flex">總價</div>
             </div>
             <div>
               <div className="money d-flex moneyex">{sum(mycartDisplay)}元</div>
-              <div className="money d-flex moneyred"> -$200元</div>
+              <div className="money d-flex moneyred"> -$0元</div>
               <div className="money d-flex">{sum(mycartDisplay)}元</div>
             </div>
           </div>
@@ -204,12 +224,13 @@ function Cart2() {
         <div className="b1 d-flex">
           <button className="btn d-flex confirmbutton1">繼續購物</button>
           <Link
-            to="/PaymentMethodActivityPage"
+            to="/PaymentMethodClassPage"
             className="btn d-flex confirmbutton2"
           >
             前往結帳
           </Link>
         </div>
+        <ConfirmWave />
       </div>
     </>
   )

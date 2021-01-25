@@ -8,7 +8,8 @@ import PaymentOrdererinf from '../../components/Cart/PaymentOrdererinf'
 import 'semantic-ui-css/semantic.min.css'
 import Acc from '../../components/Cart/Acc'
 import Receipt from '../../components/Cart/Receipt'
-import PaymentDetails from '../../components/Cart/PaymentDetails'
+import PaymentDetailsClass from '../../components/Cart/PaymentDetailsClass'
+import ConfirmWave from '../../components/Cart/ConfirmWave'
 
 function PaymentMethodClassPage() {
   return (
@@ -19,8 +20,9 @@ function PaymentMethodClassPage() {
       <PaymentOrdererinf />
       <Acc />
       <Receipt />
-      <PaymentDetails />
+      <PaymentDetailsClass />
       <PaymentClassButton />
+      <ConfirmWave />
     </>
   )
 }
