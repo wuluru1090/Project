@@ -57,6 +57,10 @@ function MemberContent(props) {
       //   })
       // )
     })
+    Swal.fire('會員資訊已修改', '', 'success').then((result) => {
+      if (result.isConfirmed) {
+      }
+    })
   }
 
   function dateConvert(jsonDate) {
@@ -285,7 +289,6 @@ function MemberContent(props) {
                     className="btn-style botton-font btn_icon "
                     onClick={() => {
                       UpdateMember(m.member_id)
-                      Swal.fire('修改完成!', '修改完成', 'success')
                     }}
                   >
                     <MdDone />

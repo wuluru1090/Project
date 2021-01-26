@@ -78,9 +78,9 @@ function MemberHistoryClass(props) {
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="navbarbox "
+                        className="navbarbox1 "
                       >
-                        <ul className="row navbar  d-flex align-items-center">
+                        <ul className="row navbarmem d-flex align-items-center">
                           <li className=" subtitle1  main_li">
                             <a
                               href={

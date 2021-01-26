@@ -1,7 +1,7 @@
 @import '../default.scss';
 
 .navbarbox2 {
-  .navbar2 {
+  .navbarmem2 {
     position: absolute;
     margin: 0 auto;
     left: 10px;
@@ -18,7 +18,7 @@
       }
     }
   }
-  .navbar2 {
+  .navbarmem2 {
     &:hover {
       & .main_li {
         &:hover {

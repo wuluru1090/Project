@@ -10,6 +10,7 @@ import { MdDelete } from 'react-icons/md'
 import { withRouter, Link } from 'react-router-dom'
 import Axios from 'axios'
 import { DateConvert } from '../../components/Main/DateTimeConverter'
+import Swal from 'sweetalert2'
 
 function MemberMyPhoto2(props) {
   const [memberevent, setMemberEvent] = useState([])
@@ -128,7 +129,11 @@ function MemberMyPhoto2(props) {
       photo_id: updateList,
     })
     console.log(updateList)
-    setTimeout(window.location.reload(), 500)
+    Swal.fire('確定刪除照片', '', 'success').then((result) => {
+      if (result.isConfirmed) {
+      }
+      setTimeout(window.location.reload(), 500)
+    })
   }
 
   return (

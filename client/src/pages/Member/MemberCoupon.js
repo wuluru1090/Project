@@ -8,6 +8,7 @@ import { Card } from 'react-bootstrap'
 import { MdArchive } from 'react-icons/md'
 import { withRouter } from 'react-router-dom'
 import Axios from 'axios'
+import Swal from 'sweetalert2'
 
 function MemberCoupon(props) {
   const [couponnew, setCouponNew] = useState([])
@@ -60,7 +61,7 @@ function MemberCoupon(props) {
           valid: 1,
         },
       ])
-      setTimeout(window.location.reload(), 500)
+      window.location.reload()
     })
   }
 
@@ -89,7 +90,11 @@ function MemberCoupon(props) {
         // ])
       })
     }
-    setTimeout(window.location.reload(), 500)
+    Swal.fire('成功領取所有折價券!', '', 'success').then((result) => {
+      if (result.isConfirmed) {
+      }
+      setTimeout(window.location.reload(), 500)
+    })
   }
 
   return (

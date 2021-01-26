@@ -14,6 +14,7 @@ import { withRouter } from 'react-router-dom'
 import { DateConvert } from '../../components/Main/DateTimeConverter'
 import Rating from '@material-ui/lab/Rating'
 import Box from '@material-ui/core/Box'
+import Swal from 'sweetalert2'
 
 const labels = {
   0.0: '0.0',
@@ -120,19 +121,10 @@ function MemberMyScore(props) {
     }
   }, [attendants])
 
-  // useEffect(() => {
-  //   Axios.get(
-  //     `http://localhost:3001/member/get/score/mem/${props.match.params.id}`
-  //   ).then((res) => {
-  //     setScore(res.data)
-  //     console.log(res.data)
-  //   })
-  // }, [])
-
   const submitScore = () => {
     let toScoreId = toscore_id
-    alert('確認送出')
-    setTimeout(window.location.reload(), 500)
+    // alert('確認送出')
+    // setTimeout(window.location.reload(), 500)
     Axios.post('http://localhost:3001/member/score', {
       member_id: `${props.match.params.id}`,
       event_id: events,
@@ -150,6 +142,11 @@ function MemberMyScore(props) {
           rating_evaluate: rating_eva,
         },
       ])
+    })
+    Swal.fire('成功送出評論!', '', 'success').then((result) => {
+      if (result.isConfirmed) {
+      }
+      setTimeout(window.location.reload(), 500)
     })
   }
 
@@ -176,9 +173,9 @@ function MemberMyScore(props) {
 
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="navbarbox"
+                        className="navbarbox1"
                       >
-                        <ul className="row navbar d-flex align-items-center">
+                        <ul className="row navbarmem d-flex align-items-center">
                           <li className=" subtitle1  main_li  d-flex align-items-center">
                             <a
                               href={

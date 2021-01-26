@@ -112,7 +112,7 @@ function MemberMyOrderClassNopay(props) {
                         style={{ padding: '0  38px  43px 42px' }}
                         className="navbarbox2 "
                       >
-                        <ul className="row navbar2  d-flex align-items-center">
+                        <ul className="row navbarmem2  d-flex align-items-center">
                           <li className=" subtitle1  main_li  d-flex align-items-center">
                             <a href="#" className="memnav_alink1">
                               已付款
