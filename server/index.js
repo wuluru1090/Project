@@ -489,7 +489,7 @@ app.post("/member/coupon", (req, res) => {
 app.post("/member/photo", (req, res) => {
   const member_id = req.body.member_id;
   const event_id = req.body.event_id;
-  const photo_show = 0;
+  const photo_show = 1;
   const photo_name = req.body.photo_name;
   const valid = 1;
   const c_date = new Date();
@@ -501,7 +501,7 @@ app.post("/member/photo", (req, res) => {
     [member_id, event_id, photo_show, photo_name, valid, c_date],
     (err, result) => {
       if (err) console.log(err);
-      console.log(result);
+      // console.log(result);
     }
   );
 });
