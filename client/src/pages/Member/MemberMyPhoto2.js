@@ -45,6 +45,7 @@ function MemberMyPhoto2(props) {
     )
       .then((res) => {
         setAtt(res.data)
+        setAtt(res.data.slice(0, 1))
         console.log(res.data)
       })
       .catch(function (error) {

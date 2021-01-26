@@ -481,7 +481,7 @@ app.post("/member/coupon", (req, res) => {
 app.post("/member/photo", (req, res) => {
   const member_id = req.body.member_id;
   const event_id = req.body.event_id;
-  const photo_show = 0;
+  const photo_show = 1;
   const photo_name = req.body.photo_name;
   const valid = 1;
   const c_date = new Date();
@@ -687,7 +687,7 @@ app.get("/member/get/score/mem/:id", (req, res) => {
 app.get("/member/get/event/photo", (req, res) => {
   const member_id = req.body.member_id;
   console.log(member_id);
-  const sqlSelect = ` SELECT * FROM photo INNER JOIN event ON photo.event_id = event.event_id WHERE photo.event_id IN (${req.query.id}) AND  photo.member_id IN (${req.query.member}) AND valid=1`;
+  const sqlSelect = ` SELECT * FROM photo INNER JOIN event ON photo.event_id = event.event_id WHERE photo.event_id IN (${req.query.id}) AND  photo.member_id = (${req.query.member}) AND valid=1`;
   console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     if (err) {

@@ -157,7 +157,7 @@ function UserSeeMember(props) {
                         </Button>
                       </div>
 
-                      <div className="d-flex justify-content-between  photo_album_all flex-wrap">
+                      <div className="d-flex justify-content-around  photo_album_all flex-wrap">
                         {att.map((m) => {
                           return (
                             <a
@@ -165,7 +165,7 @@ function UserSeeMember(props) {
                                 devUrl + `/see/${props.match.params.id}/Album`
                               }
                             >
-                              <div className="photo_album2">
+                              <div className="photo_album2 albumtitle">
                                 <h6 className="subtitle2 font-bold">
                                   {m.event_name} &nbsp;
                                   <MdFolderOpen />

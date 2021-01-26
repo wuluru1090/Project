@@ -74,8 +74,8 @@ function MemberCoupon(props) {
       Axios.post('http://localhost:3001/member/coupon', {
         coupon_id: getcouponid,
         member_id: `${props.match.params.id}`,
-        coupon_name: coupon.coupon_name,
-        coupon_content: coupon.coupon_content,
+        // coupon_name: coupon.coupon_name,
+        // coupon_content: coupon.coupon_content,
       }).then((res) => {
         // setCoupon([
         //   ...coupon,

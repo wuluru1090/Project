@@ -156,13 +156,12 @@ function MemberMyScoreOk(props) {
                           </li>
                         </ul>
                         <br />
-
-                        <Card.Body style={{ padding: '0' }}>
-                          <Accordion>
-                            {att.length > 0 ? (
-                              <div>
-                                {att.map((m) => {
-                                  return (
+                        {att.length > 0 ? (
+                          <div>
+                            {att.map((m) => {
+                              return (
+                                <Card.Body style={{ padding: '0' }}>
+                                  <Accordion>
                                     <div className="pd_score">
                                       <div className="ccard">
                                         <div className="d-flex dcard">
@@ -240,130 +239,152 @@ function MemberMyScoreOk(props) {
                                         </div>
                                       </div>
                                     </div>
-                                  )
-                                })}
-                              </div>
-                            ) : (
-                              <div style={{ marginTop: '32px' }}>
-                                <p>無活動評論紀錄</p>
-                              </div>
-                            )}
 
-                            <Accordion.Collapse eventKey="0">
-                              <form className="mymem_toscoreM">
-                                <div className="mymem_toscore">
-                                  <div className="score_table">
-                                    <div>
-                                      {score.length > 0 ? (
-                                        <div>
-                                          {score.map((s) => {
-                                            return (
-                                              <div className="list-content row holder">
-                                                <div className="pic col-2 d-flex justify-content-start align-items-center">
-                                                  <figure>
-                                                    <img
-                                                      className=" rounded-circle mem_img "
-                                                      style={{
-                                                        width: '80px',
-                                                        height: '80px',
-                                                      }}
-                                                      variant="top"
-                                                      src={
-                                                        devUrl +
-                                                        `/pic/mem_img/${s.member_img}`
-                                                      }
-                                                      alt=""
-                                                    />
-                                                  </figure>
-                                                </div>
-                                                <div className="detail d-flex col-10 align-items-center">
-                                                  <div className="de">
-                                                    <h6
-                                                      style={{
-                                                        margin: '8px 0 0 0',
-                                                        padding: '0px',
-                                                      }}
-                                                    >
-                                                      {s.member_name}
-                                                    </h6>
-                                                    <div
-                                                      className="d-flex justify-content-start"
-                                                      style={{ margin: '0px' }}
-                                                    >
-                                                      <div className="d-flex justify-content-center  ">
-                                                        <div className=" d-flex justify-content-center star">
-                                                          <p
-                                                            className=" d-flex align-items-center star_Points"
-                                                            style={{
-                                                              margin: '0px',
-                                                              padding: '0px',
-                                                            }}
-                                                          >
-                                                            <Box
-                                                              sml={2}
+                                    <Accordion.Collapse eventKey="0">
+                                      <form className="mymem_toscoreM">
+                                        <div className="mymem_toscore">
+                                          <div className="score_table">
+                                            <div>
+                                              {score.length > 0 ? (
+                                                <div>
+                                                  {score.map((s) => {
+                                                    return (
+                                                      <div className="list-content row holder">
+                                                        <div className="pic col-2 d-flex justify-content-start align-items-center">
+                                                          <figure>
+                                                            <img
+                                                              className=" rounded-circle mem_img "
                                                               style={{
-                                                                margin: '0px',
+                                                                width: '80px',
+                                                                height: '80px',
+                                                              }}
+                                                              variant="top"
+                                                              src={
+                                                                devUrl +
+                                                                `/pic/mem_img/${s.member_img}`
+                                                              }
+                                                              alt=""
+                                                            />
+                                                          </figure>
+                                                        </div>
+                                                        <div className="detail d-flex col-10 align-items-center">
+                                                          <div className="de">
+                                                            <h6
+                                                              style={{
+                                                                margin:
+                                                                  '8px 0 0 0',
                                                                 padding: '0px',
                                                               }}
                                                             >
-                                                              {s.rating}
-                                                            </Box>
-                                                          </p>
-                                                          <Rating
-                                                            name="read-only"
-                                                            value={s.rating}
-                                                            precision={0.5}
-                                                            readOnly
-                                                            style={{
-                                                              margin: '8px 0',
-                                                              padding: '0px',
-                                                            }}
-                                                          />
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                    <div>
-                                                      <p
-                                                        className="subtitle2 
+                                                              {s.member_name}
+                                                            </h6>
+                                                            <div
+                                                              className="d-flex justify-content-start"
+                                                              style={{
+                                                                margin: '0px',
+                                                              }}
+                                                            >
+                                                              <div className="d-flex justify-content-center  ">
+                                                                <div className=" d-flex justify-content-center star">
+                                                                  <p
+                                                                    className=" d-flex align-items-center star_Points"
+                                                                    style={{
+                                                                      margin:
+                                                                        '0px',
+                                                                      padding:
+                                                                        '0px',
+                                                                    }}
+                                                                  >
+                                                                    <Box
+                                                                      sml={2}
+                                                                      style={{
+                                                                        margin:
+                                                                          '0px',
+                                                                        padding:
+                                                                          '0px',
+                                                                      }}
+                                                                    >
+                                                                      {s.rating}
+                                                                    </Box>
+                                                                  </p>
+                                                                  <Rating
+                                                                    name="read-only"
+                                                                    value={
+                                                                      s.rating
+                                                                    }
+                                                                    precision={
+                                                                      0.5
+                                                                    }
+                                                                    readOnly
+                                                                    style={{
+                                                                      margin:
+                                                                        '8px 0',
+                                                                      padding:
+                                                                        '0px',
+                                                                    }}
+                                                                  />
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div>
+                                                              <p
+                                                                className="subtitle2 
                                                    
 comments"
-                                                        style={{
-                                                          margin: '0px',
-                                                          padding: '0px',
-                                                        }}
-                                                      >
-                                                        {s.rating_evaluate}
-                                                      </p>
-                                                      <p
-                                                        className="subtitle2"
-                                                        style={{
-                                                          margin: '8px 0',
-                                                          padding: '0px',
-                                                        }}
-                                                      >
-                                                        <DateConvert
-                                                          jsonDate={s.c_date}
-                                                        ></DateConvert>
-                                                      </p>
-                                                    </div>
-                                                  </div>
+                                                                style={{
+                                                                  margin: '0px',
+                                                                  padding:
+                                                                    '0px',
+                                                                }}
+                                                              >
+                                                                {
+                                                                  s.rating_evaluate
+                                                                }
+                                                              </p>
+                                                              <p
+                                                                className="subtitle2"
+                                                                style={{
+                                                                  margin:
+                                                                    '8px 0',
+                                                                  padding:
+                                                                    '0px',
+                                                                }}
+                                                              >
+                                                                <DateConvert
+                                                                  jsonDate={
+                                                                    s.c_date
+                                                                  }
+                                                                ></DateConvert>
+                                                              </p>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    )
+                                                  })}
                                                 </div>
-                                              </div>
-                                            )
-                                          })}
+                                              ) : (
+                                                <div
+                                                  style={{ marginTop: '32px' }}
+                                                >
+                                                  <p>未完成活動無法進行評論</p>
+                                                </div>
+                                              )}
+                                            </div>
+                                          </div>
                                         </div>
-                                      ) : (
-                                        <div style={{ marginTop: '32px' }}>
-                                          <p>未完成活動無法進行評論</p>
-                                        </div>
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                            </Accordion.Collapse>
-                          </Accordion>
-                        </Card.Body>
+                                      </form>
+                                    </Accordion.Collapse>
+                                  </Accordion>
+                                </Card.Body>
+                              )
+                            })}
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: '32px' }}>
+                            <p>無活動評論紀錄</p>
+                          </div>
+                        )}
                       </Card.Body>
                     </Card>
                   </div>
