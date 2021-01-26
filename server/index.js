@@ -350,8 +350,9 @@ app.post("/eventform", (req, res) => {
       console.log(err);
     }
   );
+  // 發起活動頁進資料庫
   db.query(
-    "INSERT INTO event (event_host_contact, event_start_time, event_end_time, event_location, event_city, event_address, event_meeting_point, event_meeting_address, event_deadline_date, event_fees, event_valid_attendents, event_limit_number, event_name, event_theme, event_details,event_photo, event_host_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    "INSERT INTO event (event_host_contact, event_start_time, event_end_time, event_location, event_city, event_address, event_meeting_point, event_meeting_address, event_deadline_date, event_fees, event_valid_attendents, event_limit_number, event_name, event_theme, event_details,event_photo, event_host_id ,event_type) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
     [
       event_host_contact,
       startDate,
@@ -370,6 +371,7 @@ app.post("/eventform", (req, res) => {
       actdetail,
       actupload,
       memberid,
+      "2",
     ],
     (err, result) => {
       console.log(err);

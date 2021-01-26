@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom'
 import Axios from 'axios'
 import { Modal, Button } from 'react-bootstrap'
+import Swal from 'sweetalert2'
 
 function Logout(props) {
   // 保護頁面
@@ -33,8 +34,11 @@ function Logout(props) {
         console.log(isAuth)
       })
       .then(() => {
-        props.history.push('/')
-        window.location.reload()
+        Swal.fire('登出', '您已成功登出', 'success').then(function () {
+          props.history.push('/')
+          window.location.reload()
+        })
+
         // setTimeout(alert('登出成功'), 1000)
       })
   }

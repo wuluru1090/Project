@@ -22,6 +22,7 @@ import '../../style/soya/eventstart.scss'
 import '../../style/soya/eventstart2.scss'
 import '../../style/soya/eventstart3.scss'
 import '../../style/soya/eventstart4.scss'
+import Swal from 'sweetalert2'
 
 function EventStart(props) {
   const { isAuth, setIsAuth } = props
@@ -39,8 +40,8 @@ function EventStart(props) {
   const [contactPhone, setContactPhone] = useState('0919385383')
   const [contactemail, setContactemail] = useState('ed1040129@gmail.com')
   const [contactlineid, setContactlineid] = useState('ed104')
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
+  const [startDate, setStartDate] = useState('2021-01-30 11:00:00')
+  const [endDate, setEndDate] = useState('2021-01-30 17:00:00')
   const [actlocaction, setActlocaction] = useState('Promaker普羅麥克攝影團隊')
   const [actcity, setActcity] = useState('3')
   const [actexactlocaction, setActexactlocaction] = useState(
@@ -50,12 +51,12 @@ function EventStart(props) {
   const [actexactclump, setActexactclump] = useState(
     '新北市蘆洲區中正路108號2樓'
   )
-  const [actsignupdead, setActsignupdead] = useState('')
+  const [actsignupdead, setActsignupdead] = useState('2021-01-29 11:00:00')
   const [actprice, setActprice] = useState('1600')
   // const [actpricemethod, setActpricemethod] = useState('')
   const [actpeople, setActpeople] = useState('10')
   const [actpeopleline, setActpeopleline] = useState('15')
-  const [actupload, setActupload] = useState('')
+  const [actupload, setActupload] = useState('拍廊4.jpg')
   const [acttitle, setActtitle] = useState('閃燈教學團拍平日場')
   const [acttheme, setActtheme] = useState('2')
   const [actdetail, setActdetail] = useState(
@@ -170,7 +171,10 @@ function EventStart(props) {
       memberid: memberidd,
     }).then((response) => {
       // console.log(response)
-      props.history.push('/')
+      // props.history.push('/')
+      Swal.fire('建立活動', '您已成功建立活動', 'success').then(function () {
+        props.history.push('/')
+      })
     })
   }
 
@@ -186,7 +190,7 @@ function EventStart(props) {
   const fileLoad = (e) => {
     setUploadimg(e.target.result)
     // console.log(e.target.result)
-    setActupload(e.target.result)
+    // setActupload(e.target.result)
   }
 
   // if (isAuth === false) {
@@ -441,7 +445,7 @@ function EventStart(props) {
 
                             <div className="inputbox">
                               <SelectTime
-                                setStartDate={setStartDate}
+                                // setStartDate={setStartDate}
                                 id="startdate"
                               />
                             </div>
@@ -455,7 +459,7 @@ function EventStart(props) {
 
                             <div className="inputbox">
                               <SelectTime2
-                                setEndDate={setEndDate}
+                                // setEndDate={setEndDate}
                                 id="enddate"
                               />
                             </div>
