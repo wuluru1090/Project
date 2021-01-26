@@ -19,8 +19,16 @@ app.use(
     credentials: true,
   })
 ); //跨來源資料共用
-app.use(express.json()); //用來解析json檔，因為前端回傳的是json object = app.use(bodyParser.son())
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.json()); //用來解析json檔，因為前端回傳的是json object = app.use(bodyParser.son())
+app.use(express.json({ limit: "50MB" }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+    limit: "50mb",
+    parameterLimit: 100000,
+  })
+);
 
 //////////////活動部分//////////////
 //活動相簿
@@ -218,13 +226,7 @@ const session = require("express-session");
 app.use(cookieParser());
 
 // 圖片base64需要改最大容量
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-    limit: "50mb",
-    parameterLimit: 100000,
-  })
-);
+
 app.use(
   cors({
     origin: ["http://localhost:3000"],
@@ -233,7 +235,7 @@ app.use(
   })
 );
 // 圖片base64需要改最大容量
-app.use(express.json({ limit: "50MB" }));
+
 app.use(
   session({
     key: "userId",

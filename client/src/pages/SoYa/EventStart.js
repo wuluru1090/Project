@@ -35,27 +35,33 @@ function EventStart(props) {
   const [tags, setTags] = useState([])
   const [uploadimg, setUploadimg] = useState(devUrl + '/pic/soya/white.jpg')
 
-  const [contactname, setContactname] = useState('')
-  const [contactPhone, setContactPhone] = useState('')
-  const [contactemail, setContactemail] = useState('')
-  const [contactlineid, setContactlineid] = useState('')
+  const [contactname, setContactname] = useState('李詩婷')
+  const [contactPhone, setContactPhone] = useState('0919385383')
+  const [contactemail, setContactemail] = useState('ed1040129@gmail.com')
+  const [contactlineid, setContactlineid] = useState('ed104')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
-  const [actlocaction, setActlocaction] = useState('')
-  const [actcity, setActcity] = useState('')
-  const [actexactlocaction, setActexactlocaction] = useState('')
-  const [actclump, setActclump] = useState('')
-  const [actexactclump, setActexactclump] = useState('')
+  const [actlocaction, setActlocaction] = useState('Promaker普羅麥克攝影團隊')
+  const [actcity, setActcity] = useState('3')
+  const [actexactlocaction, setActexactlocaction] = useState(
+    '新北市蘆洲區中正路108號2樓'
+  )
+  const [actclump, setActclump] = useState('Promaker普羅麥克攝影團隊')
+  const [actexactclump, setActexactclump] = useState(
+    '新北市蘆洲區中正路108號2樓'
+  )
   const [actsignupdead, setActsignupdead] = useState('')
-  const [actprice, setActprice] = useState('')
+  const [actprice, setActprice] = useState('1600')
   // const [actpricemethod, setActpricemethod] = useState('')
-  const [actpeople, setActpeople] = useState('')
-  const [actpeopleline, setActpeopleline] = useState('')
+  const [actpeople, setActpeople] = useState('10')
+  const [actpeopleline, setActpeopleline] = useState('15')
   const [actupload, setActupload] = useState('')
-  const [acttitle, setActtitle] = useState('')
-  const [acttheme, setActtheme] = useState('')
-  const [actdetail, setActdetail] = useState('')
-  const [acttags, setActtags] = useState('')
+  const [acttitle, setActtitle] = useState('閃燈教學團拍平日場')
+  const [acttheme, setActtheme] = useState('2')
+  const [actdetail, setActdetail] = useState(
+    '這次主要是著重在前期的燈光棚內打燈實戰，藉由前期良好的控光來達到後期速修,課堂中會親自示範使用不同光線拍攝產生的效果，將用光觀念分析給大家後，讓學員們經過思考，這樣才能在不同環境下使用自己的佈光方式來拍，讓創作有更多的自由跟變化'
+  )
+  const [acttags, setActtags] = useState('棚拍')
 
   console.log(acttags)
 
