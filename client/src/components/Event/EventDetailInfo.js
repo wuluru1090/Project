@@ -132,17 +132,17 @@ function EventDetailInfo(props) {
                       聯繫主揪：
                     </div>
                     <div className="subtitle2">
-                      {contact.contact_name != ''
+                      {contact.contact_name !== ''
                         ? `聯絡人姓名 : ${contact.contact_name}`
                         : ''}
                     </div>
                     <div className="subtitle2">
-                      {contact.contact_phone != ''
+                      {contact.contact_phone !== ''
                         ? `聯絡人電話 : ${contact.contact_phone}`
                         : ''}
                     </div>
                     <div className="subtitle2">
-                      {contact.contact_email != ''
+                      {contact.contact_email !== ''
                         ? `聯絡人信箱 : ${contact.contact_email}`
                         : ''}
                     </div>

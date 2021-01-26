@@ -98,16 +98,20 @@ function MemberMyPhoto(props) {
                       <Card.Header className="mem_title d-flex justify-content-between">
                         <h5>我的相簿</h5>
                       </Card.Header>
+
                       {att.length > 0 ? (
                         <div>
-                          {att.map((m) => {
-                            return (
-                              <Card.Body
-                                style={{ padding: '14px  42px  43px 42px' }}
-                              >
-                                <div className="d-flex justify-content-between flex-wrap">
-                                  <div className="photo_album  justify-content-start ">
-                                    <h6 className="subtitle2">
+                          <Card.Body
+                            style={{ padding: '14px  42px  43px 42px' }}
+                          >
+                            <div className="d-flex justify-content-start  flex-wrap">
+                              {att.map((m) => {
+                                return (
+                                  <div
+                                    className="photo_album  justify-content-start "
+                                    style={{ marginRight: '32px' }}
+                                  >
+                                    <h6 className="subtitle2 albumtitle">
                                       {m.event_name}
                                     </h6>
 
@@ -135,10 +139,10 @@ function MemberMyPhoto(props) {
                                       </figure>
                                     </div>
                                   </div>
-                                </div>
-                              </Card.Body>
-                            )
-                          })}
+                                )
+                              })}
+                            </div>
+                          </Card.Body>
                         </div>
                       ) : (
                         <div style={{ margin: '32px' }}>

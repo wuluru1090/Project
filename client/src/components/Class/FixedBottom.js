@@ -3,9 +3,11 @@ import '../../style/default.scss'
 import '../../style/class/fixed_bottom.scss'
 import Axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function FixedBottom(props) {
   const [fixedBottomData, setFixedBottomData] = useState([])
+  const [isActive, setIsActive] = useState(false)
 
   function dateConvert(jsonDate) {
     let json = String(jsonDate).split(' ')
@@ -53,8 +55,32 @@ function FixedBottom(props) {
                   <div>NT${val.class_price}</div>
                   <div>剩下{val1 - val2}個名額</div>
                 </div>
-                <button className="btn d-flex align-items-center justify-content-center fixed_cart_button ">
+                <button
+                  onClick={() => {
+                    setIsActive(true)
+                    // alert('yee')
+                    Swal.fire('已加入購物車', '詳情請至購物車查看', 'success')
+                  }}
+                  className={
+                    isActive
+                      ? 'd-none'
+                      : 'btn d-flex align-items-center justify-content-center fixed_cart_button'
+                  }
+                >
                   加入購物車
+                </button>
+                <button
+                  // className="btn d-flex align-items-center justify-content-center fixed_cart_button"
+                  onClick={(e) => {
+                    setIsActive(false)
+                  }}
+                  className={
+                    isActive
+                      ? 'btn d-flex align-items-center justify-content-center fixed_cart_button'
+                      : 'd-none'
+                  }
+                >
+                  已加入購物車
                 </button>
               </div>
             </div>

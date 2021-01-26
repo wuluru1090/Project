@@ -8,6 +8,7 @@ import { Card, Button } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import { DateConvert } from '../../components/Main/DateTimeConverter'
 import { withRouter } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function MemberMyCollection(props) {
   const [memlikeevent, setMemberlikeEvent] = useState([])
@@ -28,9 +29,11 @@ function MemberMyCollection(props) {
     Axios.delete(
       `http://localhost:3001/api/delete/eventlike?eventId=${eventId}&member=${props.match.params.id}`
     )
-    alert('取消收藏')
-    console.log(eventId)
-    setTimeout(window.location.reload(), 500)
+    Swal.fire('取消收藏!', '', 'error').then((result) => {
+      if (result.isConfirmed) {
+      }
+      setTimeout(window.location.reload(), 500)
+    })
   }
 
   return (
@@ -57,7 +60,7 @@ function MemberMyCollection(props) {
                         style={{ padding: '0  38px  43px 42px' }}
                         className="navbarbox "
                       >
-                        <ul className="row navbar  d-flex align-items-center">
+                        <ul className="row navbarmem   d-flex align-items-center">
                           <li className=" subtitle1  main_li">
                             <a
                               href={

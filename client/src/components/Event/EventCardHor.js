@@ -194,6 +194,7 @@ function EventCardHor(props) {
                         type="button"
                         onClick={() => {
                           history.push(`/event?tag=${t.tags_name}`)
+                          window.location.reload()
                         }}
                       >
                         {t.tags_name}

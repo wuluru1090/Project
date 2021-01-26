@@ -122,15 +122,21 @@ app.get("/api/eventsearch", (req, res) => {
     );
   if (req.query.theme) where.push(`event.event_theme = ${req.query.theme}`);
   if (req.query.type) where.push(`event.event_type = ${req.query.type}`);
-  if (req.query.tag)
-    where.push(
-      `event.event_id IN (SELECT event_tags_relate.event_tags_event_id FROM event_tags_relate JOIN event_tags ON event_tags_relate.event_tags_tags_id = event_tags.tags_id WHERE event_tags.tags_name="${req.query.tag}")`
-    );
+  if (req.query.tag) where.push(`event.event_id IN (${req.query.tag})`);
 
   const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";
 
   const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql} AND event.event_start_time BETWEEN '${today}' AND '2025/12/31 23:59:59'`;
   console.log(sqlSelect);
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+//取得有標籤的id
+app.get("/api/eventtag", (req, res) => {
+  const sqlSelect = `SELECT event_tags_relate.event_tags_event_id FROM event_tags_relate JOIN event_tags ON event_tags_relate.event_tags_tags_id = event_tags.tags_id WHERE event_tags.tags_name="${req.query.tag}"`;
+
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
@@ -695,7 +701,7 @@ app.get("/member/get/score/mem/:id", (req, res) => {
 app.get("/member/get/event/photo", (req, res) => {
   const member_id = req.body.member_id;
   console.log(member_id);
-  const sqlSelect = ` SELECT * FROM photo INNER JOIN event ON photo.event_id = event.event_id WHERE photo.event_id IN (${req.query.id}) AND  photo.member_id IN (${req.query.member}) AND valid=1`;
+  const sqlSelect = ` SELECT * FROM photo INNER JOIN event ON photo.event_id = event.event_id WHERE photo.event_id IN (${req.query.id}) AND  photo.member_id = (${req.query.member}) AND valid=1`;
   console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     if (err) {

@@ -13,9 +13,22 @@ import { FaWindows } from 'react-icons/fa'
 
 function EventResult(props) {
   console.log(props)
-
   let history = useHistory()
   let location = useLocation()
+  const [tagEventId, setTagEventId] = useState()
+  const [displayCard, setDisplayCard] = useState(true)
+  const [eventResult, setEventResult] = useState([])
+
+  let tagName = ''
+
+  const {
+    locate = '',
+    searchbar = '',
+    theme = '',
+    time = '',
+    type = '',
+    tag = [],
+  } = props.condition
 
   //標籤
   if (props.location.search !== '') {
@@ -32,16 +45,17 @@ function EventResult(props) {
       props.condition.type = ''
     }
     if ('tag' in param) {
-      props.condition.tag = param.tag
+      tagName = param.tag
+      console.log(tagName)
     } else {
-      props.condition.tag = ''
+      props.condition.tag = []
     }
     var height = window.innerHeight
     height = height - 60
     window.scrollTo({ top: height, behavior: 'smooth' })
   }
 
-  console.log(location.search)
+  // console.log(location.search)
 
   // 搜尋欄子傳子判斷式
   if (props.conditionsobad.searchbar !== '') {
@@ -59,22 +73,30 @@ function EventResult(props) {
     props.conditionsobad.theme = ''
   }
 
-  const {
-    locate = '',
-    searchbar = '',
-    theme = '',
-    time = '',
-    type = '',
-    tag = '',
-  } = props.condition
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/eventtag?tag=${tagName}`)
+      .then((response) => {
+        console.log(response.data.map((val) => val.event_tags_event_id))
+        setTagEventId(response.data.map((val) => val.event_tags_event_id))
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [tagName])
 
-  const [displayCard, setDisplayCard] = useState(true)
-  const [eventResult, setEventResult] = useState([])
+  useEffect(() => {
+    if (tagEventId) {
+      console.log(tagEventId)
+      props.condition.tag = tagEventId
+    }
+  }, [tagEventId])
 
   // 取得後端資料
   useEffect(() => {
     Axios.get(
-      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}&tag=${tag}`
+      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}&tag=${tag.join(
+        ','
+      )}`
     )
       .then((response) => {
         setEventResult(response.data)
