@@ -33,6 +33,7 @@ function Logout(props) {
         console.log(isAuth)
       })
       .then(() => {
+        props.history.push('/')
         window.location.reload()
         // setTimeout(alert('登出成功'), 1000)
       })

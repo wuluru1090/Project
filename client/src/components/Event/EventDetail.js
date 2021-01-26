@@ -210,7 +210,7 @@ function EventDetail(props) {
   var DISCOVERY_DOCS = [
     'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
   ]
-  var SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
+  var SCOPES = 'https://www.googleapis.com/auth/calendar'
 
   const handleClick = () => {
     gapi.load('client:auth2', () => {
@@ -225,7 +225,70 @@ function EventDetail(props) {
 
       gapi.client.load(`calendar`, 'v3', () => console.log(`bam!`))
 
-      gapi.auth2.getAuthInstance().signIn()
+      gapi.auth2
+        .getAuthInstance()
+        .signIn()
+        .then(() => {
+          var event = {}
+          function ISODateString(d) {
+            function pad(n) {
+              return n < 10 ? '0' + n : n
+            }
+            return (
+              d.getUTCFullYear() +
+              '-' +
+              pad(d.getUTCMonth() + 1) +
+              '-' +
+              pad(d.getUTCDate()) +
+              'T' +
+              pad(d.getUTCHours()) +
+              ':' +
+              pad(d.getUTCMinutes()) +
+              ':' +
+              pad(d.getUTCSeconds()) +
+              '+08:00'
+            )
+          }
+
+          if (eventDataList.length > 0) {
+            console.log(eventDataList[0].event_start_time)
+            var start = ISODateString(
+              new Date(eventDataList[0].event_start_time)
+            )
+            var end = ISODateString(new Date(eventDataList[0].event_end_time))
+
+            event = {
+              summary: `${eventDataList[0].event_name}`,
+              location: `${eventDataList[0].event_location}`,
+              // description:
+              // `報名截止時間: ${eventDataList[0].event_deadline_time}`,
+              start: {
+                dateTime: start,
+                timeZone: 'Asia/Taipei',
+              },
+              end: {
+                dateTime: end,
+                timeZone: 'Asia/Taipei',
+              },
+              reminders: {
+                useDefault: false,
+                overrides: [
+                  { method: 'email', minutes: 24 * 60 },
+                  { method: 'popup', minutes: 10 },
+                ],
+              },
+            }
+          }
+
+          var request = gapi.client.calendar.events.insert({
+            calendarId: 'primary',
+            resource: event,
+          })
+
+          request.execute(function (event) {
+            window.open(event.htmlLink)
+          })
+        })
     })
   }
 

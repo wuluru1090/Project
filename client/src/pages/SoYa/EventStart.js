@@ -57,8 +57,39 @@ function EventStart(props) {
   const [actdetail, setActdetail] = useState('')
   const [acttags, setActtags] = useState('')
 
+  console.log(acttags)
+
   // 抓會員id
   const [memberidd, setMemberidd] = useState('')
+
+  const [demo, setDemo] = useState(false)
+
+  useEffect(() => {
+    if (demo === true) {
+      document.getElementById('contactname').value = '李詩婷'
+      document.getElementById('contactphone').value = '0919385383'
+      document.getElementById('contactemail').value = 'ed1040129@gmail.com'
+      document.getElementById('contactlineid').value = 'ed104'
+      // document.getElementById('startdate').value = '2021-01-30 12:50'
+      // document.getElementById('enddate').value = '2021-01-30 20:50'
+      document.getElementById('actlocaction').value = 'Promaker普羅麥克攝影團隊'
+      document.getElementById('actcity').value = '3'
+      document.getElementById('acttexactlocaction').value =
+        '新北市蘆洲區中正路108號2樓'
+      document.getElementById('actclump').value = 'Promaker普羅麥克攝影團隊'
+      document.getElementById('actexactclump').value =
+        '新北市蘆洲區中正路108號2樓'
+      document.getElementById('actprice').value = '1600'
+      document.getElementById('actpeople').value = '10'
+      document.getElementById('actpeopleline').value = '15'
+      document.getElementById('acttitle').value = '閃燈教學團拍平日場'
+      document.getElementById('acttheme').value = '2'
+      document.getElementById('actdetail').value =
+        '這次主要是著重在前期的燈光棚內打燈實戰，藉由前期良好的控光來達到後期速修,課堂中會親自示範使用不同光線拍攝產生的效果，將用光觀念分析給大家後，讓學員們經過思考，這樣才能在不同環境下使用自己的佈光方式來拍，讓創作有更多的自由跟變化'
+      document.getElementById('acttags').value = '棚拍'
+      // document.getElementById('contactname').value = '李詩婷'
+    }
+  }, [demo])
 
   // console.log(uploadimg)
 
@@ -165,6 +196,15 @@ function EventStart(props) {
   return (
     <>
       <div className="eventstart">
+        <button
+          style={{ position: 'fixed', top: '100px', left: '100px' }}
+          className="btn rounded-pill btn-primary"
+          onClick={() => {
+            setDemo(true)
+          }}
+        >
+          Demo小幫手
+        </button>
         <main className="main0">
           <div className="eventstart1content wrapper d-flex justify-content-lg-between">
             <div className="eventstart1contenttext">
@@ -269,6 +309,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactname(e.target.value)
                                 }}
+                                id="contactname"
                               />
                               {/* <ErrorMessage
                                 name="contactname"
@@ -302,6 +343,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactPhone(e.target.value)
                                 }}
+                                id="contactphone"
                               />
                               {/* <ErrorMessage
                                 name="phone"
@@ -336,6 +378,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactemail(e.target.value)
                                 }}
+                                id="contactemail"
                               />
                               {/* <ErrorMessage
                                 name="email"
@@ -374,6 +417,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactlineid(e.target.value)
                                 }}
+                                id="contactlineid"
                               />
                             </div>
                           </div>
@@ -390,7 +434,10 @@ function EventStart(props) {
                             </div>
 
                             <div className="inputbox">
-                              <SelectTime setStartDate={setStartDate} />
+                              <SelectTime
+                                setStartDate={setStartDate}
+                                id="startdate"
+                              />
                             </div>
                           </div>
 
@@ -401,7 +448,10 @@ function EventStart(props) {
                             </div>
 
                             <div className="inputbox">
-                              <SelectTime2 setEndDate={setEndDate} />
+                              <SelectTime2
+                                setEndDate={setEndDate}
+                                id="enddate"
+                              />
                             </div>
                           </div>
 
@@ -413,12 +463,14 @@ function EventStart(props) {
 
                             <div className="inputbox">
                               <input
+                                required
                                 type="text"
                                 placeholder="請輸入活動地點"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActlocaction(e.target.value)
                                 }}
+                                id="actlocaction"
                               />
                             </div>
                           </div>
@@ -436,6 +488,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActcity(e.target.value)
                                 }}
+                                id="actcity"
                               >
                                 {cityname.map((val) => {
                                   return (
@@ -465,6 +518,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActexactlocaction(e.target.value)
                                 }}
+                                id="acttexactlocaction"
                               />
                             </div>
                           </div>
@@ -482,6 +536,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActclump(e.target.value)
                                 }}
+                                id="actclump"
                               />
                             </div>
                           </div>
@@ -500,6 +555,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActexactclump(e.target.value)
                                 }}
+                                id="actexactclump"
                               />
                             </div>
                           </div>
@@ -594,6 +650,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActprice(e.target.value)
                                 }}
+                                id="actprice"
                               />
                             </div>
                           </div>
@@ -629,6 +686,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActpeople(e.target.value)
                                 }}
+                                id="actpeople"
                               />
                             </div>
                           </div>
@@ -646,6 +704,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActpeopleline(e.target.value)
                                 }}
+                                id="actpeopleline"
                               />
                             </div>
                           </div>
@@ -760,6 +819,7 @@ function EventStart(props) {
                               onChange={(e) => {
                                 setActtitle(e.target.value)
                               }}
+                              id="acttitle"
                             />
                           </div>
 
@@ -773,6 +833,7 @@ function EventStart(props) {
                             onChange={(e) => {
                               setActtheme(e.target.value)
                             }}
+                            id="acttheme"
                           >
                             {tags.map((val) => {
                               return (
@@ -798,6 +859,7 @@ function EventStart(props) {
                                 setActdetail(e.target.value)
                               }}
                               style={{ textIndent: '5px' }}
+                              id="actdetail"
                             ></textarea>
                           </div>
 
@@ -815,6 +877,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActtags(e.target.value)
                                 }}
+                                id="acttags"
                               />
                               <input
                                 style={{ margin: '0 10px' }}

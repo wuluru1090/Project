@@ -245,69 +245,68 @@ function EventAlbum(props) {
             活動相簿裡的圖片預設是與會員相簿裡同名活動相簿中的圖面相同。您可以在此選擇相片並按下儲存以決定您的圖片在此相簿的可見狀態。
           </div>
           <div className="photo-content d-flex flex-wrap row">
-            {memberImg.length > 0 &&
-              memberImg.map((val) => {
-                return val.photo_show == 1 ? (
-                  <div
-                    className="image col-4"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      add2Delete(val.photo_id)
-                      if (document.querySelector(`#figure${val.photo_id}`)) {
-                        if (deleteList.includes(val.photo_id)) {
-                          document.querySelector(
-                            `#figure${val.photo_id}`
-                          ).innerHTML = '不可見'
-                        } else {
-                          document.querySelector(
-                            `#figure${val.photo_id}`
-                          ).innerHTML = '可見'
-                        }
+            {memberImg.map((val) => {
+              return val.photo_show == 1 ? (
+                <div
+                  className="image col-4"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    add2Delete(val.photo_id)
+                    if (document.querySelector(`#figure${val.photo_id}`)) {
+                      if (deleteList.includes(val.photo_id)) {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '不可見'
+                      } else {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '可見'
                       }
-                    }}
-                  >
-                    <figure>
-                      <img
-                        src={`${devUrl}/pic/event_pic/${val.photo_name}`}
-                        alt=""
-                      />
-                      <div className="gray" id={'figure' + val.photo_id}>
-                        可見
-                      </div>
-                    </figure>
-                  </div>
-                ) : (
-                  <div
-                    className="image col-4 "
-                    onClick={(e) => {
-                      e.preventDefault()
-                      add2Update(val.photo_id)
-                      if (document.querySelector(`#figure${val.photo_id}`)) {
-                        if (updateList.includes(val.photo_id)) {
-                          document.querySelector(
-                            `#figure${val.photo_id}`
-                          ).innerHTML = '可見'
-                        } else {
-                          document.querySelector(
-                            `#figure${val.photo_id}`
-                          ).innerHTML = '不可見'
-                        }
+                    }
+                  }}
+                >
+                  <figure>
+                    <img
+                      src={`${devUrl}/pic/event_pic/${val.photo_name}`}
+                      alt=""
+                    />
+                    <div className="gray" id={'figure' + val.photo_id}>
+                      可見
+                    </div>
+                  </figure>
+                </div>
+              ) : (
+                <div
+                  className="image col-4 "
+                  onClick={(e) => {
+                    e.preventDefault()
+                    add2Update(val.photo_id)
+                    if (document.querySelector(`#figure${val.photo_id}`)) {
+                      if (updateList.includes(val.photo_id)) {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '可見'
+                      } else {
+                        document.querySelector(
+                          `#figure${val.photo_id}`
+                        ).innerHTML = '不可見'
                       }
-                    }}
-                  >
-                    <figure>
-                      <img
-                        src={`${devUrl}/pic/event_pic/${val.photo_name}`}
-                        alt=""
-                        className="d-flex justify-content-center align-items-center"
-                      />
-                      <div className="gray" id={'figure' + val.photo_id}>
-                        不可見
-                      </div>
-                    </figure>
-                  </div>
-                )
-              })}
+                    }
+                  }}
+                >
+                  <figure>
+                    <img
+                      src={`${devUrl}/pic/event_pic/${val.photo_name}`}
+                      alt=""
+                      className="d-flex justify-content-center align-items-center"
+                    />
+                    <div className="gray" id={'figure' + val.photo_id}>
+                      不可見
+                    </div>
+                  </figure>
+                </div>
+              )
+            })}
           </div>
         </Modal.Body>
 

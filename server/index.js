@@ -90,7 +90,7 @@ app.get("/api/eventsearch/relative", (req, res) => {
 //活動搜尋頁頁資訊(單筆資料)
 app.get("/api/eventsearch", (req, res) => {
   // res.send(req.query.id);
-  const today = converter(new Date().getTime());
+  const today = converter(new Date());
   function converter(D) {
     let dateTime = new Date(D);
     let yyyy = dateTime.getFullYear();
@@ -121,7 +121,7 @@ app.get("/api/eventsearch", (req, res) => {
 
   const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";
 
-  const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql}`;
+  const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql} AND event.event_start_time BETWEEN '${today}' AND '2025/12/31 23:59:59'`;
   console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     res.send(result);
@@ -379,7 +379,7 @@ app.get("/cityya", (req, res) => {
 
 // 標籤map
 app.get("/tagss", (req, res) => {
-  db.query("SELECT * FROM event_tags WHERE 1", (err, result) => {
+  db.query("SELECT * FROM event_theme WHERE 1", (err, result) => {
     // console.log(result);
     res.send(result);
   });
