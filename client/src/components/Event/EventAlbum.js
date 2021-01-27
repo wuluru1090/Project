@@ -162,13 +162,15 @@ function EventAlbum(props) {
         <div className="title row d-flex justify-content-between">
           <div className="word col-9">
             <h6>
-              {isOneDay(
-                dateConvert(eventInfo.event_start_time),
-                dateConvert(eventInfo.event_end_time)
-              )
-                ? `${dateConvert(eventInfo.event_start_time)}`
-                : `${dateConvert(eventInfo.event_start_time)} ~ 
-                      ${dateConvert(eventInfo.event_end_time)} `}
+              {eventInfo !== {}
+                ? isOneDay(
+                    dateConvert(eventInfo.event_start_time),
+                    dateConvert(eventInfo.event_end_time)
+                  )
+                  ? `${dateConvert(eventInfo.event_start_time)}`
+                  : `${dateConvert(eventInfo.event_start_time)} ~ 
+                      ${dateConvert(eventInfo.event_end_time)} `
+                : ''}
             </h6>
             <h5>{eventInfo.event_name}</h5>
           </div>

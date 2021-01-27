@@ -1,0 +1,50 @@
+// 導入bootstrap所有的樣式與預設變數
+// @import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+* {
+}
+.totalinfbox {
+  width: 1160px;
+  height: 150px;
+  margin: 36px auto;
+  justify-content: space-between;
+  font-family: 'TaipeiSansTCBeta-Regular';
+  font-size: $font-size-base * 1.25;
+  .boxx2 {
+    justify-content: space-between;
+    width: 500px;
+    .inft {
+      font-family: 'TaipeiSansTCBeta-Bold';
+      font-size: $font-size-base * 1.25;
+      color: #4f7f9a;
+      margin-left: 35px;
+    }
+    .inf {
+      justify-content: space-between;
+      width: 250px;
+      margin-left: 35px;
+      margin-top: 20px;
+      .infd {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .boxx3 {
+    width: 360px;
+    justify-content: space-between;
+    margin-right: 5px;
+    .money {
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+    .moneyex {
+      color: #4f7f9a;
+      font-family: 'Roboto-Bold';
+    }
+    .moneyred {
+      color: #df3d00;
+    }
+  }
+}

@@ -17,6 +17,8 @@ import '../../style/soya/login2.scss'
 import { FaTwitter } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebookF } from 'react-icons/fa'
+import GoogleLogin from '../../components/Soya/GoogleLogin'
+import Swal from 'sweetalert2'
 
 function Login(props) {
   const [username, setUsername] = useState('')
@@ -42,9 +44,44 @@ function Login(props) {
         setloginStatus(response.data.message)
       } else {
         setIsAuth(true)
-        props.history.push('/')
-        alert('登入成功')
-        setTimeout(window.location.reload(), 1)
+
+        // alert('登入成功')
+        // props.history.goBack(-2)
+        // props.history.push('/')
+        // window.location.reload()
+
+        // Swal.fire('Good job!', 'You clicked the button!', 'success')
+        let timerInterval
+        Swal.fire({
+          title: '登入成功',
+          html: '即將回到上一頁',
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            timerInterval = setInterval(() => {
+              const content = Swal.getContent()
+              if (content) {
+                const b = content.querySelector('b')
+                if (b) {
+                  b.textContent = Swal.getTimerLeft()
+                }
+              }
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          },
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+          }
+        })
+        setTimeout(() => {
+          props.history.push('/')
+          window.location.reload()
+        }, 2050)
       }
     })
   }
@@ -99,10 +136,7 @@ function Login(props) {
                       <FaFacebookF className="loginbtnthemeicon1" />
                       Facebook
                     </button>
-                    <button className="btn loginbtntheme loginbtntheme2 d-flex">
-                      <FcGoogle className="loginbtnthemeicon2" />
-                      Google
-                    </button>
+                    <GoogleLogin />
                     <button className="btn loginbtntheme loginbtntheme3 d-flex">
                       <FaTwitter className="loginbtnthemeicon3" />
                       Twitter

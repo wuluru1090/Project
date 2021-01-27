@@ -25,15 +25,16 @@ class EventRelativeCarousel extends Component {
         itemsToShow={3}
         itemPadding={[10, 10, 38, 10]}
       >
-        {this.state.data.map((val) => {
-          return (
-            <>
-              <div className="carousel2_block">
-                <EventCardVerRelative initValue={val} />
-              </div>
-            </>
-          )
-        })}
+        {this.state.data.length > 0 &&
+          this.state.data.map((val) => {
+            return (
+              <>
+                <div className="carousel2_block">
+                  <EventCardVerRelative initValue={val} />
+                </div>
+              </>
+            )
+          })}
       </Carousel>
     )
   }

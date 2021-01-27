@@ -1,5 +1,4 @@
-import logo from '../../logo.svg'
-import '../../style/class/404.scss'
+import '../style/class/404.scss'
 
 function ErrorPage() {
   return (

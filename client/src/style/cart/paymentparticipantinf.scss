@@ -1,0 +1,88 @@
+// 導入bootstrap所有的樣式與預設變數
+// @import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+
+.paymentparticipantinftop {
+  margin-top: 96px;
+  .paymentparticipantinfbox1 {
+    width: 654px;
+    height: 76px;
+    background-color: #adcbdd;
+    top: 96px;
+    margin: 0px auto;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color: #2d6281;
+    line-height: 76px;
+    font-size: 20px;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  .paymentparticipantinfbox2 {
+    width: 654px;
+    height: 779px;
+    background-color: white;
+    margin: 0px auto;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  .participantitem1 {
+    width: 544px;
+    height: 80px;
+    background-color: #4f7f9a;
+    border-radius: 10px 10px 10px 10px;
+    margin: 34px auto;
+    margin-bottom: 0px;
+    text-indent: 32px;
+    color: white;
+    font-size: 20px;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    line-height: 80px;
+  }
+  .participantitem2 {
+    width: 544px;
+    height: 80px;
+    background-color: #4f7f9a;
+    border-radius: 10px 10px 10px 10px;
+    margin: -4px auto;
+    margin-bottom: 0px;
+    text-indent: 32px;
+    color: white;
+    font-size: 20px;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    line-height: 80px;
+  }
+  .paymentparticipantinput {
+    margin-top: 28px;
+  }
+  .paymentparticipantinputbox {
+    margin-left: 20px;
+    width: 240px;
+  }
+  .marginb {
+    margin-bottom: 34px;
+    width: 120px;
+    justify-content: flex-end;
+  }
+  .redt {
+    line-height: 36px;
+    color: red;
+  }
+  .participantaccount {
+    line-height: 36px;
+    font-size: $h6-font-size;
+    font-family: 'TaipeiSansTCBeta-Regular';
+    color: #707070;
+  }
+  .sexmb {
+    margin-bottom: 20px;
+    width: 100px;
+    justify-content: flex-end;
+  }
+  .sex {
+    margin-left: 40px;
+    padding-top: 5px;
+  }
+}

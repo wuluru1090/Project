@@ -1,0 +1,46 @@
+// @import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
+
+.toto {
+  .context {
+    font-size: 16px;
+    margin-left: 60px;
+    font-family: 'TaipeiSansTCBeta-Regular';
+  }
+  .iconcolor {
+    color: #707070;
+    width: 28px;
+    height: 28px;
+  }
+  .iconcolor2 {
+    color: #df3d00;
+    width: 28px;
+    height: 28px;
+  }
+  .trco {
+    color: #2d6281;
+    font-size: 20px;
+    opacity: 60%;
+  }
+
+  th {
+    width: 6%;
+    text-align: center;
+  }
+  .checkboxaaa {
+    width: 5%;
+  }
+  .imgw {
+    width: 35%;
+  }
+
+  .tdcolumn {
+    justify-self: start;
+    align-items: center;
+    .titlephoto {
+      width: 130px;
+      height: 79px;
+      border-radius: 10px;
+    }
+  }
+}

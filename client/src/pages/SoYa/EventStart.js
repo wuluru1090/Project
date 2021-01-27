@@ -15,44 +15,88 @@ import SelectTime from '../../components/Soya/SelectTime'
 import SelectTime2 from '../../components/Soya/SelectTime2'
 import SelectTime3 from '../../components/Soya/SelectTime3'
 import Axios from 'axios'
+import { Modal, Button } from 'react-bootstrap'
 
 // 順序不可調換 css會亂掉
 import '../../style/soya/eventstart.scss'
 import '../../style/soya/eventstart2.scss'
 import '../../style/soya/eventstart3.scss'
 import '../../style/soya/eventstart4.scss'
+import Swal from 'sweetalert2'
 
 function EventStart(props) {
   const { isAuth, setIsAuth } = props
+
+  // modal
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   const [cityname, setCityname] = useState([])
   const [tags, setTags] = useState([])
   const [uploadimg, setUploadimg] = useState(devUrl + '/pic/soya/white.jpg')
 
-  const [contactname, setContactname] = useState('')
-  const [contactPhone, setContactPhone] = useState('')
-  const [contactemail, setContactemail] = useState('')
-  const [contactlineid, setContactlineid] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
-  const [actlocaction, setActlocaction] = useState('')
-  const [actcity, setActcity] = useState('')
-  const [actexactlocaction, setActexactlocaction] = useState('')
-  const [actclump, setActclump] = useState('')
-  const [actexactclump, setActexactclump] = useState('')
-  const [actsignupdead, setActsignupdead] = useState('')
-  const [actprice, setActprice] = useState('')
+  const [contactname, setContactname] = useState('李詩婷')
+  const [contactPhone, setContactPhone] = useState('0919385383')
+  const [contactemail, setContactemail] = useState('ed1040129@gmail.com')
+  const [contactlineid, setContactlineid] = useState('ed104')
+  const [startDate, setStartDate] = useState('2021-01-30 11:00:00')
+  const [endDate, setEndDate] = useState('2021-01-30 17:00:00')
+  const [actlocaction, setActlocaction] = useState('Promaker普羅麥克攝影團隊')
+  const [actcity, setActcity] = useState('3')
+  const [actexactlocaction, setActexactlocaction] = useState(
+    '新北市蘆洲區中正路108號2樓'
+  )
+  const [actclump, setActclump] = useState('Promaker普羅麥克攝影團隊')
+  const [actexactclump, setActexactclump] = useState(
+    '新北市蘆洲區中正路108號2樓'
+  )
+  const [actsignupdead, setActsignupdead] = useState('2021-01-29 11:00:00')
+  const [actprice, setActprice] = useState('1600')
   // const [actpricemethod, setActpricemethod] = useState('')
-  const [actpeople, setActpeople] = useState('')
-  const [actpeopleline, setActpeopleline] = useState('')
-  const [actupload, setActupload] = useState('')
-  const [acttitle, setActtitle] = useState('')
-  const [acttheme, setActtheme] = useState('')
-  const [actdetail, setActdetail] = useState('')
-  const [acttags, setActtags] = useState('')
+  const [actpeople, setActpeople] = useState('10')
+  const [actpeopleline, setActpeopleline] = useState('15')
+  const [actupload, setActupload] = useState('拍廊4.jpg')
+  const [acttitle, setActtitle] = useState('閃燈教學團拍平日場')
+  const [acttheme, setActtheme] = useState('2')
+  const [actdetail, setActdetail] = useState(
+    '這次主要是著重在前期的燈光棚內打燈實戰，藉由前期良好的控光來達到後期速修,課堂中會親自示範使用不同光線拍攝產生的效果，將用光觀念分析給大家後，讓學員們經過思考，這樣才能在不同環境下使用自己的佈光方式來拍，讓創作有更多的自由跟變化'
+  )
+  const [acttags, setActtags] = useState('棚拍')
+
+  console.log(acttags)
 
   // 抓會員id
   const [memberidd, setMemberidd] = useState('')
+
+  const [demo, setDemo] = useState(false)
+
+  useEffect(() => {
+    if (demo === true) {
+      document.getElementById('contactname').value = '李詩婷'
+      document.getElementById('contactphone').value = '0919385383'
+      document.getElementById('contactemail').value = 'ed1040129@gmail.com'
+      document.getElementById('contactlineid').value = 'ed104'
+      // document.getElementById('startdate').value = '2021-01-30 12:50'
+      // document.getElementById('enddate').value = '2021-01-30 20:50'
+      document.getElementById('actlocaction').value = 'Promaker普羅麥克攝影團隊'
+      document.getElementById('actcity').value = '3'
+      document.getElementById('acttexactlocaction').value =
+        '新北市蘆洲區中正路108號2樓'
+      document.getElementById('actclump').value = 'Promaker普羅麥克攝影團隊'
+      document.getElementById('actexactclump').value =
+        '新北市蘆洲區中正路108號2樓'
+      document.getElementById('actprice').value = '1600'
+      document.getElementById('actpeople').value = '10'
+      document.getElementById('actpeopleline').value = '15'
+      document.getElementById('acttitle').value = '閃燈教學團拍平日場'
+      document.getElementById('acttheme').value = '2'
+      document.getElementById('actdetail').value =
+        '這次主要是著重在前期的燈光棚內打燈實戰，藉由前期良好的控光來達到後期速修,課堂中會親自示範使用不同光線拍攝產生的效果，將用光觀念分析給大家後，讓學員們經過思考，這樣才能在不同環境下使用自己的佈光方式來拍，讓創作有更多的自由跟變化'
+      document.getElementById('acttags').value = '棚拍'
+      // document.getElementById('contactname').value = '李詩婷'
+    }
+  }, [demo])
 
   // console.log(uploadimg)
 
@@ -61,15 +105,15 @@ function EventStart(props) {
     window.scrollTo({ top: 2200, behavior: 'smooth' })
   }
   const ScrollTo2 = () => {
-    window.scrollTo({ top: 3100, behavior: 'smooth' })
+    window.scrollTo({ top: 3000, behavior: 'smooth' })
   }
   const ScrollTo3 = () => {
-    window.scrollTo({ top: 5280, behavior: 'smooth' })
+    window.scrollTo({ top: 5120, behavior: 'smooth' })
   }
 
   Axios.defaults.withCredentials = true
 
-  // 保護頁面
+  // 登入狀態
   useEffect(() => {
     Axios.get('http://localhost:3001/login').then((response) => {
       if (response.data.loggedIn == true) {
@@ -127,8 +171,10 @@ function EventStart(props) {
       memberid: memberidd,
     }).then((response) => {
       // console.log(response)
-      props.history.push('/')
-      alert('建立活動成功')
+      // props.history.push('/')
+      Swal.fire('建立活動', '您已成功建立活動', 'success').then(function () {
+        props.history.push('/')
+      })
     })
   }
 
@@ -144,7 +190,7 @@ function EventStart(props) {
   const fileLoad = (e) => {
     setUploadimg(e.target.result)
     // console.log(e.target.result)
-    setActupload(e.target.result)
+    // setActupload(e.target.result)
   }
 
   // if (isAuth === false) {
@@ -160,6 +206,15 @@ function EventStart(props) {
   return (
     <>
       <div className="eventstart">
+        <button
+          style={{ position: 'fixed', top: '100px', left: '100px' }}
+          className="btn rounded-pill btn-primary"
+          onClick={() => {
+            setDemo(true)
+          }}
+        >
+          Demo小幫手
+        </button>
         <main className="main0">
           <div className="eventstart1content wrapper d-flex justify-content-lg-between">
             <div className="eventstart1contenttext">
@@ -220,6 +275,21 @@ function EventStart(props) {
                 <div className="step1content">
                   首先步驟一，您必須填寫一些基本的個人資訊和基本的活動資訊，像是姓名、電話、信箱等等，這些都是發起一個活動必備的條件，而活動的開始和結束時間、地點和集合點，也可以讓其他參與者來評估有沒有空來參與這個攝影揪團活動。
                 </div>
+                <div
+                  className="d-flex justify-content-center"
+                  style={{
+                    marginTop: '120px',
+                    width: '376px',
+                    height: '350px',
+                  }}
+                >
+                  <img
+                    className="d-flex cover-fit"
+                    src={devUrl + '/pic/soya/eventstartphoyo1.jpg'}
+                    alt="step1"
+                    style={{ borderRadius: '10px' }}
+                  />
+                </div>
               </div>
               <div className="evstart2formbox">
                 <div className="evstart2formboxbox">
@@ -227,10 +297,10 @@ function EventStart(props) {
                     <div className="cardboxmargin">
                       <div className="afterfinish">
                         <div className="card p-5">
-                          <div className="checkboxname d-flex">
+                          {/* <div className="checkboxname d-flex">
                             <input type="checkbox" />
                             <div className="checkboxnamename">同會員資料</div>
-                          </div>
+                          </div> */}
                           <div className="d-flex contentboxinput">
                             <div className="starbox2 starbox d-flex">
                               <div className="startitle">*</div>
@@ -249,6 +319,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactname(e.target.value)
                                 }}
+                                id="contactname"
                               />
                               {/* <ErrorMessage
                                 name="contactname"
@@ -282,6 +353,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactPhone(e.target.value)
                                 }}
+                                id="contactphone"
                               />
                               {/* <ErrorMessage
                                 name="phone"
@@ -316,6 +388,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactemail(e.target.value)
                                 }}
+                                id="contactemail"
                               />
                               {/* <ErrorMessage
                                 name="email"
@@ -354,6 +427,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setContactlineid(e.target.value)
                                 }}
+                                id="contactlineid"
                               />
                             </div>
                           </div>
@@ -370,7 +444,10 @@ function EventStart(props) {
                             </div>
 
                             <div className="inputbox">
-                              <SelectTime setStartDate={setStartDate} />
+                              <SelectTime
+                                // setStartDate={setStartDate}
+                                id="startdate"
+                              />
                             </div>
                           </div>
 
@@ -381,7 +458,10 @@ function EventStart(props) {
                             </div>
 
                             <div className="inputbox">
-                              <SelectTime2 setEndDate={setEndDate} />
+                              <SelectTime2
+                                // setEndDate={setEndDate}
+                                id="enddate"
+                              />
                             </div>
                           </div>
 
@@ -393,12 +473,14 @@ function EventStart(props) {
 
                             <div className="inputbox">
                               <input
+                                required
                                 type="text"
                                 placeholder="請輸入活動地點"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActlocaction(e.target.value)
                                 }}
+                                id="actlocaction"
                               />
                             </div>
                           </div>
@@ -416,6 +498,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActcity(e.target.value)
                                 }}
+                                id="actcity"
                               >
                                 {cityname.map((val) => {
                                   return (
@@ -445,6 +528,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActexactlocaction(e.target.value)
                                 }}
+                                id="acttexactlocaction"
                               />
                             </div>
                           </div>
@@ -462,6 +546,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActclump(e.target.value)
                                 }}
+                                id="actclump"
                               />
                             </div>
                           </div>
@@ -480,6 +565,7 @@ function EventStart(props) {
                                 onChange={(e) => {
                                   setActexactclump(e.target.value)
                                 }}
+                                id="actexactclump"
                               />
                             </div>
                           </div>
@@ -569,11 +655,12 @@ function EventStart(props) {
                             <div className="inputbox">
                               <input
                                 placeholder="請輸入費用"
-                                type="text"
+                                type="number"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActprice(e.target.value)
                                 }}
+                                id="actprice"
                               />
                             </div>
                           </div>
@@ -604,11 +691,12 @@ function EventStart(props) {
                             <div className="inputbox">
                               <input
                                 placeholder="請輸入成團人數"
-                                type="text"
+                                type="number"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActpeople(e.target.value)
                                 }}
+                                id="actpeople"
                               />
                             </div>
                           </div>
@@ -621,11 +709,12 @@ function EventStart(props) {
                             <div className="inputbox">
                               <input
                                 placeholder="請輸入人數上限"
-                                type="text"
+                                type="number"
                                 className="form-control form-control-md card-input"
                                 onChange={(e) => {
                                   setActpeopleline(e.target.value)
                                 }}
+                                id="actpeopleline"
                               />
                             </div>
                           </div>
@@ -740,6 +829,7 @@ function EventStart(props) {
                               onChange={(e) => {
                                 setActtitle(e.target.value)
                               }}
+                              id="acttitle"
                             />
                           </div>
 
@@ -753,11 +843,15 @@ function EventStart(props) {
                             onChange={(e) => {
                               setActtheme(e.target.value)
                             }}
+                            id="acttheme"
                           >
                             {tags.map((val) => {
                               return (
-                                <option key={val.tags_id} value={val.tags_id}>
-                                  {val.tags_name}
+                                <option
+                                  key={val.event_theme_id}
+                                  value={val.event_theme_id}
+                                >
+                                  {val.event_theme_name}
                                 </option>
                               )
                             })}
@@ -774,6 +868,8 @@ function EventStart(props) {
                               onChange={(e) => {
                                 setActdetail(e.target.value)
                               }}
+                              style={{ textIndent: '5px' }}
+                              id="actdetail"
                             ></textarea>
                           </div>
 
@@ -783,21 +879,50 @@ function EventStart(props) {
                           </div>
 
                           <div className="card3sm p-4">
-                            <textarea
+                            <div className="inputbox row">
+                              <input
+                                type="text"
+                                placeholder="新增標籤"
+                                className="form-control form-control-md card-input col"
+                                onChange={(e) => {
+                                  setActtags(e.target.value)
+                                }}
+                                id="acttags"
+                              />
+                              <input
+                                style={{ margin: '0 10px' }}
+                                type="text"
+                                placeholder="新增標籤"
+                                className="form-control form-control-md card-input col"
+                                // onChange={(e) => {
+                                //   setActtags(e.target.value)
+                                // }}
+                              />
+                              <input
+                                type="text"
+                                placeholder="新增標籤"
+                                className="form-control form-control-md card-input col"
+                                // onChange={(e) => {
+                                //   setActtags(e.target.value)
+                                // }}
+                              />
+                            </div>
+                            {/* <textarea
                               className="textareatag"
                               placeholder="新增標籤..."
                               onChange={(e) => {
                                 setActtags(e.target.value)
                               }}
-                            ></textarea>
+                              style={{ textIndent: '5px' }}
+                            ></textarea> */}
                           </div>
                           <div className="finalcomfbrow d-flex">
-                            <button
+                            {/* <button
                               className="btn finalcomfbrowbtn finalcomfbrowbtn1 rounded-pill"
                               style={{ background: '#10B9B2' }}
                             >
                               預覽
-                            </button>
+                            </button> */}
                             <button
                               onClick={ScrollTo3}
                               className="btn finalcomfbrowbtn rounded-pill"
@@ -882,13 +1007,38 @@ function EventStart(props) {
                 <div className="d-flex gotoactbox">
                   {/* <Link to="/"> */}
                   <button
-                    onClick={eventform}
+                    onClick={handleShow}
                     className="btn gotoact rounded-pill"
                   >
                     建立活動
                   </button>
                   {/* </Link> */}
                 </div>
+
+                <Modal
+                  show={show}
+                  onHide={handleClose}
+                  backdrop="static"
+                  keyboard={false}
+                >
+                  <Modal.Header closeButton>
+                    <Modal.Title>建立活動</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>確認要送出表單並建立活動嗎?</Modal.Body>
+                  <Modal.Footer>
+                    <Button
+                      style={{ color: 'white' }}
+                      variant="secondary"
+                      onClick={handleClose}
+                    >
+                      關閉
+                    </Button>
+
+                    <Button variant="primary" onClick={eventform}>
+                      確認
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
 
                 <div className="step4smguy1box">
                   <img

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
-// import { Form, FormControl, Button, Row, Col, Container } from 'react-bootstrap'
 import { devUrl } from '../../config'
 import '../../style/event/event_card_ver.scss'
 import { DateConvert } from '../Main/DateTimeConverter'
 import { useHistory } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 import Axios from 'axios'
 
 function EventCardVer(props) {
+  // console.log(props)
   const [isActive, setIsActive] = useState(false)
   const cardInfo = props.initVal
-  // const loginId = 1
   const loginId = window.sessionStorage.getItem('useriddd')
 
   let history = useHistory(loginId)
@@ -53,7 +53,7 @@ function EventCardVer(props) {
   return (
     <>
       <div className="event-card-vertical card-wrapper">
-        <div className="card box d-flex ccard">
+        <div className="card box d-flex eventccard">
           <img
             src={devUrl + '/Pic/SVG/bookmark.svg'}
             className="bookmark un-pushed"
@@ -63,7 +63,17 @@ function EventCardVer(props) {
                 setIsActive(true)
                 writeLike()
               } else {
-                alert('請先登入!')
+                Swal.fire({
+                  title: '登入會員即可收藏!',
+                  showCancelButton: true,
+                  confirmButtonText: `去登入`,
+                  cancelButtonText: '取消',
+                }).then((result) => {
+                  /* Read more about isConfirmed, isDenied below */
+                  if (result.isConfirmed) {
+                    history.push('/login')
+                  }
+                })
               }
             }}
             style={
@@ -81,17 +91,24 @@ function EventCardVer(props) {
                 setIsActive(false)
                 deleteLike()
               } else {
-                alert('請先登入!')
+                Swal.fire({
+                  title: '登入會員即可收藏!',
+                  showCancelButton: true,
+                  confirmButtonText: `去登入`,
+                  cancelButtonText: '取消',
+                }).then((result) => {
+                  /* Read more about isConfirmed, isDenied below */
+                  if (result.isConfirmed) {
+                    history.push('/login')
+                  }
+                })
               }
             }}
             style={
               isActive === true ? { display: 'inline' } : { display: 'none' }
             }
           />
-          <figure
-            className="event-photo"
-            onClick={() => click2Detail(cardInfo.event_id)}
-          >
+          <figure className="event-photo">
             <img
               src={devUrl + '/pic/event/' + cardInfo.event_photo}
               className="card-img-top photo"
@@ -99,10 +116,7 @@ function EventCardVer(props) {
             />
           </figure>
 
-          <div
-            className="card-body"
-            onClick={() => click2Detail(cardInfo.event_id)}
-          >
+          <div className="card-body">
             <h5 className="subtitle1 card-title ">{cardInfo.event_name}</h5>
             <div className="d-flex inform">
               <img className="icon" src="/pic/svg/photo-camera.svg" alt="" />
@@ -144,6 +158,9 @@ function EventCardVer(props) {
                   className="btn rounded-pill btn-md tag"
                   type="button"
                   value={cardInfo.event_type_id}
+                  onClick={() => {
+                    history.push(`/event?type=${cardInfo.event_type}`)
+                  }}
                 >
                   {cardInfo.event_type_name}
                 </button>
@@ -151,13 +168,16 @@ function EventCardVer(props) {
                   className="btn rounded-pill btn-md tag aaa"
                   type="button"
                   value={cardInfo.event_theme_id}
+                  onClick={() => {
+                    history.push(`/event?theme=${cardInfo.event_theme}`)
+                  }}
                 >
                   {cardInfo.event_theme_name}
                 </button>
               </div>
               <button
                 onClick={() => click2Detail(cardInfo.event_id)}
-                className="btn d-flex join"
+                className="btn d-flex join rounded-pill"
               >
                 參加活動
               </button>

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_fixed_bottom.scss'
+import Swal from 'sweetalert2'
+import Axios from 'axios'
 
-function EventFixedBottom(value) {
-  const bottomData = value.value
+function EventFixedBottom(props) {
+  const bottomData = props.value
+  const passed = props.passed
+  const [add2Cart, setAdd2Cart] = useState(false)
 
   function isOneDay(date1, date2) {
     let startDate = date1.split('-')
@@ -40,12 +44,41 @@ function EventFixedBottom(value) {
 
     return time
   }
-  const left = () => {
-    return (
-      parseInt(bottomData.event_valid_attendents) -
-      JSON.parse(bottomData.event_attendents).length
-    )
-  }
+
+  const [allAttendOrders, setAllAttendOrders] = useState([])
+
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/eventorder?valid=1`)
+      .then((response) => {
+        setAllAttendOrders(response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [])
+
+  var everyAttendOrderEvent = []
+  var attend = []
+  const [attendantsData, setAttendantsData] = useState([])
+
+  useEffect(() => {
+    if (allAttendOrders.length > 0) {
+      allAttendOrders.map((val) => {
+        everyAttendOrderEvent = JSON.parse(val.event_id)
+        // console.log(everyAttendOrderEvent)
+        if (everyAttendOrderEvent.includes(parseInt(bottomData.event_id))) {
+          attend.push(val.id)
+        }
+      })
+      setAttendantsData(attend)
+    }
+    console.log(attend)
+  }, [allAttendOrders])
+
+  const [left, setLeft] = useState()
+  useEffect(() => {
+    setLeft(parseInt(bottomData.event_limit_number) - attendantsData.length - 1)
+  }, [attend])
 
   return (
     <>
@@ -79,16 +112,30 @@ function EventFixedBottom(value) {
               </div>
               <div>
                 剩下
-                {left() > 0 ? (
-                  left()
+                {left > 0 ? (
+                  left
                 ) : (
                   <span style={{ color: '#df3d00' }}>&nbsp;0&nbsp;</span>
                 )}
                 個名額
               </div>
             </div>
-            <button className="btn d-flex align-items-center justify-content-center fixed_cart_button">
-              {left() > 0 ? '加入購物車' : '加入購物車(後補)'}
+            <button
+              className="btn d-flex align-items-center justify-content-center fixed_cart_button"
+              onClick={() => {
+                if (!passed && !add2Cart) {
+                  Swal.fire('已加入購物車', '詳情請至購物車查看', 'success')
+                  setAdd2Cart(true)
+                }
+              }}
+            >
+              {passed
+                ? '活動已過期'
+                : !add2Cart
+                ? left >= 0
+                  ? '加入購物車'
+                  : '加入購物車(後補)'
+                : '已加入購物車'}
             </button>
           </div>
         </div>

@@ -19,8 +19,16 @@ app.use(
     credentials: true,
   })
 ); //跨來源資料共用
-app.use(express.json()); //用來解析json檔，因為前端回傳的是json object = app.use(bodyParser.son())
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.json()); //用來解析json檔，因為前端回傳的是json object = app.use(bodyParser.son())
+app.use(express.json({ limit: "50MB" }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+    limit: "50mb",
+    parameterLimit: 100000,
+  })
+);
 
 //////////////活動部分//////////////
 //活動相簿
@@ -90,7 +98,7 @@ app.get("/api/eventsearch/relative", (req, res) => {
 //活動搜尋頁頁資訊(單筆資料)
 app.get("/api/eventsearch", (req, res) => {
   // res.send(req.query.id);
-  const today = converter(new Date().getTime());
+  const today = converter(new Date());
   function converter(D) {
     let dateTime = new Date(D);
     let yyyy = dateTime.getFullYear();
@@ -114,11 +122,21 @@ app.get("/api/eventsearch", (req, res) => {
     );
   if (req.query.theme) where.push(`event.event_theme = ${req.query.theme}`);
   if (req.query.type) where.push(`event.event_type = ${req.query.type}`);
+  if (req.query.tag) where.push(`event.event_id IN (${req.query.tag})`);
 
   const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";
 
-  const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql}`;
-  // console.log(sqlSelect);
+  const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql} AND event.event_start_time BETWEEN '${today}' AND '2025/12/31 23:59:59'`;
+  console.log(sqlSelect);
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
+//取得有標籤的id
+app.get("/api/eventtag", (req, res) => {
+  const sqlSelect = `SELECT event_tags_relate.event_tags_event_id FROM event_tags_relate JOIN event_tags ON event_tags_relate.event_tags_tags_id = event_tags.tags_id WHERE event_tags.tags_name="${req.query.tag}"`;
+
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
@@ -214,13 +232,7 @@ const session = require("express-session");
 app.use(cookieParser());
 
 // 圖片base64需要改最大容量
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-    limit: "50mb",
-    parameterLimit: 100000,
-  })
-);
+
 app.use(
   cors({
     origin: ["http://localhost:3000"],
@@ -229,7 +241,7 @@ app.use(
   })
 );
 // 圖片base64需要改最大容量
-app.use(express.json({ limit: "50MB" }));
+
 app.use(
   session({
     key: "userId",
@@ -338,8 +350,9 @@ app.post("/eventform", (req, res) => {
       console.log(err);
     }
   );
+  // 發起活動頁進資料庫
   db.query(
-    "INSERT INTO event (event_host_contact, event_start_time, event_end_time, event_location, event_city, event_address, event_meeting_point, event_meeting_address, event_deadline_date, event_fees, event_valid_attendents, event_limit_number, event_name, event_theme, event_details,event_photo, event_host_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    "INSERT INTO event (event_host_contact, event_start_time, event_end_time, event_location, event_city, event_address, event_meeting_point, event_meeting_address, event_deadline_date, event_fees, event_valid_attendents, event_limit_number, event_name, event_theme, event_details,event_photo, event_host_id ,event_type) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
     [
       event_host_contact,
       startDate,
@@ -358,6 +371,7 @@ app.post("/eventform", (req, res) => {
       actdetail,
       actupload,
       memberid,
+      "2",
     ],
     (err, result) => {
       console.log(err);
@@ -375,7 +389,7 @@ app.get("/cityya", (req, res) => {
 
 // 標籤map
 app.get("/tagss", (req, res) => {
-  db.query("SELECT * FROM event_tags WHERE 1", (err, result) => {
+  db.query("SELECT * FROM event_theme WHERE 1", (err, result) => {
     // console.log(result);
     res.send(result);
   });
@@ -426,6 +440,20 @@ app.get("/class/:id", (req, res) => {
   });
 });
 
+// 刪除我的收藏
+app.delete("/class/delete", (req, res) => {
+  const cId = req.query.classId;
+  const mId = req.query.memberId;
+  const sqlDelete = `DELETE FROM like_class WHERE member_id=${mId} AND class_id=${cId}`;
+  // console.log(sqlDelete);
+  db.query(sqlDelete, (err, result) => {
+    console.log(result);
+    res.json({
+      state: "success",
+    });
+  });
+});
+
 // 加入我的收藏
 app.post("/class/favorites", (req, res) => {
   const member_id = req.body.member_id;
@@ -435,18 +463,6 @@ app.post("/class/favorites", (req, res) => {
     "INSERT INTO like_class (member_id,class_id,member_like) VALUES (?,?,?)";
   // console.log(sqlInsert)
   db.query(sqlInsert, [member_id, class_id, member_like], (err, result) => {
-    console.log(result);
-    res.json({
-      state: "success",
-    });
-  });
-});
-
-// 刪除我的收藏
-app.delete("/class/delete/:classId", (req, res) => {
-  const sqlDelete = `DELETE FROM like_class WHERE member_id=101 AND class_id=${req.params.classId}`;
-  // console.log(sqlDelete);
-  db.query(sqlDelete, (err, result) => {
     console.log(result);
     res.json({
       state: "success",
@@ -493,7 +509,7 @@ app.post("/member/photo", (req, res) => {
     [member_id, event_id, photo_show, photo_name, valid, c_date],
     (err, result) => {
       if (err) console.log(err);
-      console.log(result);
+      // console.log(result);
     }
   );
 });

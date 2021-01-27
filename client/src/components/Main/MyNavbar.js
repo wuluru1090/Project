@@ -46,16 +46,16 @@ function MyNavbar(props) {
           // console.log(response.data)
           setMemberidd(response.data.user[0].member_id)
           setIsAuth(true)
-          // console.log(memberidd)
         }
       })
       .then(() => {
         window.sessionStorage.setItem('useriddd', `${memberidd}`)
         const loginid = window.sessionStorage.getItem('useriddd')
-        console.log(loginid)
+        // console.log(loginid)
       })
   }, [isAuth])
 
+  //取得會員資料
   useEffect(() => {
     if (memberidd !== '') {
       Axios.get(`http://localhost:3001/member/get/${memberidd}`).then(
@@ -133,7 +133,7 @@ function MyNavbar(props) {
             </Nav.Link>
           </Nav>
           <Nav className="nav2">
-            <Nav.Link className="icon" href="cart">
+            <Nav.Link className="icon" as={NavLink} to="/cart">
               <MdShoppingCart size={20} />
             </Nav.Link>
           </Nav>

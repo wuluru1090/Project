@@ -138,6 +138,10 @@ $url: "http://localhost:3000";
           font-family: 'TaipeiSansTCBeta-Regular';
           margin: 0 auto;
           padding: 12px 60px;
+
+          &:hover{
+            background:$primary-600;
+          }
          
         }
 

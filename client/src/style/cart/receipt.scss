@@ -1,0 +1,52 @@
+// 導入bootstrap所有的樣式與預設變數
+// @import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
+
+// 其它要導入覆蓋掉原本的預設bootstrap樣式要放在這下面
+
+.receipttop {
+  margin-top: 96px;
+  .receiptbox1 {
+    width: 654px;
+    height: 76px;
+    background-color: #adcbdd;
+    top: 96px;
+    margin: 0px auto;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    color: #2d6281;
+    line-height: 76px;
+    font-size: 20px;
+    font-family: 'TaipeiSansTCBeta-Bold';
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  .receiptbox2 {
+    width: 654px;
+    height: 254px;
+    background-color: white;
+    margin: 0px auto;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  .receiptinput {
+    margin-top: 41px;
+  }
+  .receiptbox {
+    margin-left: 20px;
+  }
+  .receiptmarginelect {
+    margin-bottom: 11px;
+    justify-content: flex-start;
+  }
+  .receiptmargin {
+    margin-bottom: 34px;
+    width: 117px;
+    justify-content: flex-end;
+  }
+  .receiptcolumn {
+    line-height: 36px;
+    font-size: 16px;
+    font-family: 'TaipeiSansTCBeta-Regular';
+    color: #707070;
+  }
+}

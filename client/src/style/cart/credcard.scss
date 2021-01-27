@@ -1,0 +1,20 @@
+// @import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
+
+.credcard {
+  width: 600px;
+  justify-content: center;
+  margin: auto;
+  .ibox {
+    margin-bottom: 11px;
+    align-items: center;
+  }
+  .inb {
+    margin-left: 40px;
+  }
+  .ind {
+    font-family: 'TaipeiSansTCBeta-Regular';
+    $font-size-base: 1rem;
+    margin-top: -5px;
+  }
+}

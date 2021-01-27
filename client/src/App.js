@@ -55,6 +55,20 @@ import UserSeeMember from './pages/Member/UserSeeMember'
 import SeeMemberAlbum from './pages/Member/SeeMemberAlbum'
 import UserSeeMemberAlbum from './pages/Member/UserSeeMemberAlbum'
 import MemberMyManagementDelete from './pages/Member/MemberMyManagementDelete'
+import MemberEventManage from './pages/Member/MemberEventManage'
+
+//////////購物車///////////
+import Cart from './pages/Cart'
+import Cart2 from './pages/Cart2'
+import ConfirmWave from './components/Cart/ConfirmWave'
+import PaymentMethodActivityPage from '../src/pages/cart/PaymentMethodActivityPage'
+import PaymentMethodClassPage from '../src/pages/cart/PaymentMethodClassPage'
+import QuerenPage from '../src/pages/cart/QuerenPage'
+import QuerenClassPage from '../src/pages/cart/QuerenClassPage'
+import NextTimePage from '../src/pages/cart/NextTimePage'
+import LastConfirmationPage1 from '../src/pages/cart/LastConfirmationPage1'
+
+import ErrorPage from '../src/pages/404'
 
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import Formika from './pages/SoYa/Formika'
@@ -67,9 +81,9 @@ function App() {
   const [conditionsobad, setConditionsobad] = useState({})
   // console.log(conditionsobad)
 
-  useEffect(() => {
-    console.log(isAuth)
-  }, [isAuth])
+  // useEffect(() => {
+  //    console.log(isAuth)
+  // }, [isAuth])
 
   return (
     <>
@@ -88,7 +102,6 @@ function App() {
                 <Route exact path="/">
                   <SoYa isAuth={isAuth} setConditionsobad={setConditionsobad} />
                 </Route>
-
                 <Route path="/login">
                   <Login isAuth={isAuth} setIsAuth={setIsAuth} />
                 </Route>
@@ -100,6 +113,9 @@ function App() {
                 </Route>
                 <Route path="/eventstart">
                   <EventStart isAuth={isAuth} setIsAuth={setIsAuth} />
+                </Route>
+                <Route path="/eventstartdata/get/:id">
+                  <MemberEventManage />
                 </Route>
 
                 {/* 活動頁面開始 */}
@@ -197,6 +213,36 @@ function App() {
                   <UserSeeMember />
                 </Route>
                 {/* 會員頁面結束 */}
+
+                {/* 購物車頁面開始 */}
+                <Route path="/cart" exact>
+                  <Cart />
+                </Route>
+                <Route path="/PaymentMethodActivityPage">
+                  <PaymentMethodActivityPage />
+                </Route>
+                <Route path="/PaymentMethodClassPage">
+                  <PaymentMethodClassPage />
+                </Route>
+                <Route path="/QuerenPage">
+                  <QuerenPage />
+                </Route>
+                <Route path="/QuerenClassPage">
+                  <QuerenClassPage />
+                </Route>
+                <Route path="/LastConfirmationPage1">
+                  <LastConfirmationPage1 />
+                </Route>
+                <Route path="/cart2">
+                  <Cart2 />
+                </Route>
+                <Route path="/NextTime">
+                  <NextTimePage />
+                </Route>
+                {/* 購物車頁面結束 */}
+                <Route path="/404">
+                  <ErrorPage />
+                </Route>
               </Switch>
             </AutoTop>
           </MainContent>

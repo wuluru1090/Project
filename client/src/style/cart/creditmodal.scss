@@ -1,0 +1,22 @@
+// @import '~bootstrap/scss/bootstrap.scss';
+@import '../default.scss';
+
+.creditmodal {
+  margin: auto;
+  .mo {
+    margin: auto;
+    .mobu {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #c4fcfa;
+      margin-left: 5px;
+      // display: inline-block;
+      outline: none;
+      border: none;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

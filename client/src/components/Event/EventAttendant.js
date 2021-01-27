@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import '../../style/default.scss'
 import '../../style/event/event_attendant.scss'
 import { devUrl } from '../../config'
-import { withRouter } from 'react-router-dom'
+import { withRouter, useHistory } from 'react-router-dom'
 import Axios from 'axios'
+import { DateConvert } from '../Main/DateTimeConverter'
 
 function EventAttendant(props) {
+  let history = useHistory()
   const eventId = props.match.params.id
   const [event, setEvent] = useState({})
   const [attendantsData, setAttendantsData] = useState([])
@@ -48,7 +50,6 @@ function EventAttendant(props) {
   const getAttFromOrderAttend = async () => {
     await Axios.get(`http://localhost:3001/api/eventorder?valid=1`)
       .then((response) => {
-        // console.log(response.data)
         setAllAttendOrders(response.data)
       })
       .catch(function (error) {
@@ -120,7 +121,7 @@ function EventAttendant(props) {
       `http://localhost:3001/api/attendants?id=${cancelData.join(',')}`
     )
       .then((response) => {
-        console.log(response.data)
+        // console.log(response.data)
         setCancelList(response.data)
       })
       .catch(function (error) {
@@ -130,7 +131,12 @@ function EventAttendant(props) {
 
   //設定主揪的資料
   const hostInfo = (
-    <div className="list-content row holder">
+    <div
+      className="list-content row holder"
+      onClick={() => {
+        history.push(`/see/${event.event_host_id}`)
+      }}
+    >
       <div className="pic col-2 d-flex justify-content-start align-items-center">
         <figure>
           <img
@@ -144,7 +150,7 @@ function EventAttendant(props) {
         <div className="de">
           <h6>{event.event_host_name}</h6>
           <p className="subtitle2 host">主揪</p>
-          <p className="subtitle2">1月1日, 12:25</p>
+          {/* <p className="subtitle2">1月1日, 12:25</p> */}
         </div>
       </div>
     </div>
@@ -158,8 +164,19 @@ function EventAttendant(props) {
       case 'waiting':
         return waiting
       case 'cancel':
-        return cancelList
+        if (cancelList.length > 0) {
+          return cancelList
+        } else {
+          return []
+        }
     }
+  }
+
+  //天數計算機
+  function isOneDay(date1, date2) {
+    let startDate = new Date(date1).toString().split(' ')
+    let endDate = new Date(date2).toString().split(' ')
+    return parseInt(endDate[2]) - parseInt(startDate[2]) <= 0 ? true : false
   }
 
   return (
@@ -167,7 +184,21 @@ function EventAttendant(props) {
       <div className="back">
         <div className="att-container content">
           <div className="att-header">
-            <h6>2020/03/05-2020/03/17</h6>
+            <h6>
+              {event !== {} ? (
+                isOneDay(event.event_start_time, event.event_end_time) ? (
+                  <DateConvert jsonDate={event.event_start_time} />
+                ) : (
+                  <>
+                    <DateConvert jsonDate={event.event_start_time} />
+                    <span>&nbsp;~&nbsp;</span>
+                    <DateConvert jsonDate={event.event_end_time} />
+                  </>
+                )
+              ) : (
+                ''
+              )}
+            </h6>
             <h5 className="title">{event.event_name}</h5>
             <h5 className="title">參與者</h5>
             <div className="status">
@@ -181,7 +212,7 @@ function EventAttendant(props) {
                   }}
                 >
                   確定參加 (
-                  {event.event_limit_number >= attendantsData.length
+                  {event.event_limit_number > attendantsData.length
                     ? attendantsData.length + 1
                     : event.event_limit_number}
                   )
@@ -205,9 +236,9 @@ function EventAttendant(props) {
                   }}
                 >
                   候補 (
-                  {event.event_limit_number >= attendantsData.length
+                  {event.event_limit_number > attendantsData.length
                     ? 0
-                    : attendantsData.length - event.event_limit_number}
+                    : attendantsData.length - event.event_limit_number + 1}
                   )
                 </li>
               </ul>
@@ -219,7 +250,12 @@ function EventAttendant(props) {
             {statusList().map((val) => {
               return (
                 <>
-                  <div className="list-content row">
+                  <div
+                    className="list-content row"
+                    onClick={() => {
+                      history.push(`/see/${val.member_id}`)
+                    }}
+                  >
                     <div className="pic col-2 d-flex justify-content-start align-items-center">
                       <figure>
                         {val.member_img != '' ? (
@@ -240,7 +276,7 @@ function EventAttendant(props) {
                     <div className="detail d-flex col-10 align-items-center">
                       <div className="de">
                         <h6>{val.member_name}</h6>
-                        <p className="subtitle2">1月1日, 12:25</p>
+                        <p className="subtitle2">參與者</p>
                       </div>
                     </div>
                   </div>

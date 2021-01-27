@@ -5,14 +5,57 @@ import { devUrl } from '../../config'
 import EventCardVer from './EventCardVer'
 import EventCardHor from './EventCardHor'
 import Pagination from '../Main/Pagination'
-import { withRouter, useHistory } from 'react-router-dom'
+import { withRouter, useHistory, useLocation } from 'react-router-dom'
 
 //connect with backend
 import Axios from 'axios'
+import { FaWindows } from 'react-icons/fa'
 
 function EventResult(props) {
-  // console.log(props)
+  console.log(props)
   let history = useHistory()
+  let location = useLocation()
+  const [tagEventId, setTagEventId] = useState()
+  const [displayCard, setDisplayCard] = useState(true)
+  const [eventResult, setEventResult] = useState([])
+
+  let tagName = ''
+
+  const {
+    locate = '',
+    searchbar = '',
+    theme = '',
+    time = '',
+    type = '',
+    tag = [],
+  } = props.condition
+
+  //標籤
+  if (props.location.search !== '') {
+    const queryString = require('query-string')
+    let param = queryString.parse(props.location.search)
+    if ('theme' in param) {
+      props.condition.theme = param.theme
+    } else {
+      props.condition.theme = ''
+    }
+    if ('type' in param) {
+      props.condition.type = param.type
+    } else {
+      props.condition.type = ''
+    }
+    if ('tag' in param) {
+      tagName = param.tag
+      console.log(tagName)
+    } else {
+      props.condition.tag = []
+    }
+    var height = window.innerHeight
+    height = height - 60
+    window.scrollTo({ top: height, behavior: 'smooth' })
+  }
+
+  // console.log(location.search)
 
   // 搜尋欄子傳子判斷式
   if (props.conditionsobad.searchbar !== '') {
@@ -30,30 +73,38 @@ function EventResult(props) {
     props.conditionsobad.theme = ''
   }
 
-  const {
-    locate = '',
-    searchbar = '',
-    theme = '',
-    time = '',
-    type = '',
-  } = props.condition
+  useEffect(() => {
+    Axios.get(`http://localhost:3001/api/eventtag?tag=${tagName}`)
+      .then((response) => {
+        console.log(response.data.map((val) => val.event_tags_event_id))
+        setTagEventId(response.data.map((val) => val.event_tags_event_id))
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }, [tagName])
 
-  const [displayCard, setDisplayCard] = useState(true)
-  const [eventResult, setEventResult] = useState([])
+  useEffect(() => {
+    if (tagEventId) {
+      console.log(tagEventId)
+      props.condition.tag = tagEventId
+    }
+  }, [tagEventId])
 
   // 取得後端資料
   useEffect(() => {
     Axios.get(
-      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}`
+      `http://localhost:3001/api/eventsearch?locate=${locate}&searchbar=${searchbar}&theme=${theme}&time=${time}&type=${type}&tag=${tag.join(
+        ','
+      )}`
     )
       .then((response) => {
-        // console.log(response)
         setEventResult(response.data)
       })
       .catch(function (error) {
         console.log(error)
       })
-  }, [locate, searchbar, theme, time])
+  }, [locate, searchbar, theme, time, type, tag])
 
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(12)
@@ -64,16 +115,18 @@ function EventResult(props) {
 
   const resultCard = (
     <div className="result-card d-flex flex-wrap justify-content-start">
-      {currentPosts.map((val) => {
-        return <EventCardVer initVal={val} isAuth={props.isAuth} />
-      })}
+      {eventResult.length > 0 &&
+        currentPosts.map((val) => {
+          return <EventCardVer initVal={val} isAuth={props.isAuth} />
+        })}
     </div>
   )
   const resultList = (
     <div className="result-list d-flex justify-content-start flex-wrap">
-      {currentPosts.map((val) => {
-        return <EventCardHor initVal={val} isAuth={props.isAuth} />
-      })}
+      {eventResult.length > 0 &&
+        currentPosts.map((val) => {
+          return <EventCardHor initVal={val} isAuth={props.isAuth} />
+        })}
     </div>
   )
 
@@ -85,6 +138,33 @@ function EventResult(props) {
             <h6 className="d-inline-block">
               搜尋結果 共{eventResult.length}筆
             </h6>
+            {props.condition !==
+            {
+              locate: '',
+              searchbar: '',
+              theme: '',
+              time: '',
+              type: '',
+            } ? (
+              <button
+                className="btn rounded-pill"
+                style={{
+                  padding: '6px 12px',
+                  background: '#104b6d',
+                  marginLeft: '12px',
+                  marginBottom: '12px',
+                  color: '#ffffff',
+                }}
+                onClick={() => {
+                  history.push(`/event`)
+                  window.location.reload()
+                }}
+              >
+                顯示所有行程
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
           <div className="result-icon d-inline-block">
             <img
@@ -133,6 +213,7 @@ function EventResult(props) {
               <button
                 className="btn btn-primary rounded-pill"
                 onClick={() => {
+                  history.push('/event')
                   window.location.reload()
                 }}
               >

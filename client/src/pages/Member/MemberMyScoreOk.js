@@ -240,6 +240,7 @@ function MemberMyScoreOk(props) {
                                       </div>
                                     </div>
 
+<<<<<<< HEAD
                                     <Accordion.Collapse eventKey="0">
                                       <form className="mymem_toscoreM">
                                         <div className="mymem_toscore">
@@ -254,6 +255,60 @@ function MemberMyScoreOk(props) {
                                                           <figure>
                                                             <img
                                                               className=" rounded-circle mem_img "
+=======
+                            <Accordion.Collapse eventKey="0">
+                              <form className="mymem_toscoreM">
+                                <div className="mymem_toscore">
+                                  <div className="score_table">
+                                    <div>
+                                      {score.length > 0 ? (
+                                        <div>
+                                          {score.map((s) => {
+                                            return (
+                                              <div className="list-content row holder">
+                                                <div className="pic col-2 d-flex justify-content-start align-items-center">
+                                                  <figure>
+                                                    <img
+                                                      className=" rounded-circle mem_img "
+                                                      style={{
+                                                        width: '80px',
+                                                        height: '80px',
+                                                      }}
+                                                      variant="top"
+                                                      src={
+                                                        devUrl +
+                                                        `/pic/mem_img/${s.member_img}`
+                                                      }
+                                                      alt=""
+                                                    />
+                                                  </figure>
+                                                </div>
+                                                <div className="detail d-flex col-10 align-items-center">
+                                                  <div className="de">
+                                                    <h6
+                                                      style={{
+                                                        margin: '8px 0 0 0',
+                                                        padding: '0px',
+                                                      }}
+                                                    >
+                                                      {s.member_name}
+                                                    </h6>
+                                                    <div
+                                                      className="d-flex justify-content-start"
+                                                      style={{ margin: '0px' }}
+                                                    >
+                                                      <div className="d-flex justify-content-center  ">
+                                                        <div className=" d-flex justify-content-center star">
+                                                          <p
+                                                            className=" d-flex align-items-center star_Points"
+                                                            style={{
+                                                              margin: '0px',
+                                                              padding: '0px',
+                                                            }}
+                                                          >
+                                                            <Box
+                                                              sml={2}
+>>>>>>> 2904d813d9bfab6eede45df99c859cf1feac2d62
                                                               style={{
                                                                 width: '80px',
                                                                 height: '80px',

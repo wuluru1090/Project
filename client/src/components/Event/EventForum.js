@@ -3,16 +3,25 @@ import '../../style/event/event_forum.scss'
 import { devUrl } from '../../config'
 import Axios from 'axios'
 import { DateConvert, TimeConvert } from '../Main/DateTimeConverter'
+import Swal from 'sweetalert2'
+import { useHistory } from 'react-router-dom'
 
 function EventForum(props) {
-  // console.log(props.eventValue)
+  console.log(props)
   const [commentContent, setCommentContent] = useState('')
   const [commentData, setCommentData] = useState([])
+  let memberInfo = ''
+  if (props.memInfo) {
+    memberInfo = props.memInfo
+  }
+
+  console.log(memberInfo)
+  let history = useHistory()
 
   const comment = () => {
     Axios.post('http://localhost:3001/api/comment', {
       commentEventId: props.eventValue.id,
-      commentMemberId: 13,
+      commentMemberId: memberInfo.member_id,
       commentContent: commentContent,
       commentTime: new Date(),
     })
@@ -20,8 +29,9 @@ function EventForum(props) {
     setCommentData([
       ...commentData,
       {
-        member_name: '登入的使用者',
-        comment_member_id: 13,
+        member_name: memberInfo.member_name,
+        member_img: memberInfo.member_img,
+        comment_member_id: memberInfo.member_id,
         comment_content: commentContent,
         comment_time: now.toJSON(),
       },
@@ -118,7 +128,23 @@ function EventForum(props) {
           ></textarea>
           <div className="d-flex justify-content-end forum-form">
             <button
-              onClick={comment}
+              onClick={() => {
+                if (memberInfo) {
+                  comment()
+                } else {
+                  Swal.fire({
+                    title: '登入會員即可留言!',
+                    showCancelButton: true,
+                    confirmButtonText: `去登入`,
+                    cancelButtonText: '取消',
+                  }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                      history.push('/login')
+                    }
+                  })
+                }
+              }}
               className="btn btn-primary rounded-pill bttn"
             >
               留言

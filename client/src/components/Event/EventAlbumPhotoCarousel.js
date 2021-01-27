@@ -42,19 +42,20 @@ function EventAlbumPhotoCarousel(props) {
         itemPadding={[10, 10, 10, 10]}
         initialActiveIndex={ind}
       >
-        {photoList.map((val) => {
-          return (
-            <>
-              <figure className="box">
-                <img
-                  className="event-photo"
-                  src={`${devUrl}/pic/event_pic/${val.photo_name}`}
-                  alt=""
-                ></img>
-              </figure>
-            </>
-          )
-        })}
+        {photoList.length > 0 &&
+          photoList.map((val) => {
+            return (
+              <>
+                <figure className="box">
+                  <img
+                    className="event-photo"
+                    src={`${devUrl}/pic/event_pic/${val.photo_name}`}
+                    alt=""
+                  ></img>
+                </figure>
+              </>
+            )
+          })}
       </Carousel>
     </>
   )
