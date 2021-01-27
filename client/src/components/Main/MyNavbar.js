@@ -166,11 +166,11 @@ function MyNavbar(props) {
                 <NavDropdown.Item href={`/member/${memberidd}/MyCollection`}>
                   我的收藏
                 </NavDropdown.Item>
-                <NavDropdown.Item
-                  href={`/member/${memberidd}/MyPhoto`}
-                  style={{ paddingBottom: '12px' }}
-                >
+                <NavDropdown.Item href={`/member/${memberidd}/MyPhoto`}>
                   我的相簿
+                </NavDropdown.Item>
+                <NavDropdown.Item href={`/member/${memberidd}/MyHistory`}>
+                  歷史紀錄
                 </NavDropdown.Item>
                 <NavDropdown.Item
                   style={{

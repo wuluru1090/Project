@@ -146,10 +146,10 @@ function EventStart(props) {
   const eventform = () => {
     Axios.post('http://localhost:3001/eventform', {
       event_host_contact: {
-        聯絡人姓名: contactname,
-        聯絡人電話: contactPhone,
-        聯絡人信箱: contactemail,
-        聯絡人LineID: contactlineid,
+        contact_name: contactname,
+        contact_phone: contactPhone,
+        contact_email: contactemail,
+        contact_lineId: contactlineid,
       },
       startDate: startDate,
       endDate: endDate,

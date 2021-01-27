@@ -3,7 +3,8 @@
 @import './event_searchbar.scss';
 
 .carousel-item {
-  height: calc(100vh - 80px);
+  // height: calc(100vh - 80px);
+  height: 100vh;
   > .carousel-img {
     object-fit: cover;
     object-position: center;
@@ -37,6 +38,7 @@
 
 .event-wrapper {
   position: relative;
+  min-height: calc(100vh-80px);
   .wave1 {
     // background: turquoise;
     position: absolute;

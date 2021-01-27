@@ -68,13 +68,13 @@ function MemberMyCollectionC(props) {
 
                 <article>
                   <div className="container">
-                    <Card className="mem_box">
+                    <Card className="mem_box" style={{ padding: '0px' }}>
                       <Card.Header className="mem_title d-flex justify-content-between">
                         <h5>我的收藏</h5>
                       </Card.Header>
                       <Card.Body
                         style={{ padding: '0  38px  43px 42px' }}
-                        className="navbarbox "
+                        className="navbarbox1 "
                       >
                         <ul className="row navbarmem   d-flex align-items-center">
                           <li className=" subtitle1  main_li">

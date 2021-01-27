@@ -147,7 +147,9 @@ function EventDetailInfo(props) {
                         : ''}
                     </div>
                     <div className="subtitle2">
-                      line ID：{contact.contact_lineId}
+                      {contact.contact_lineId !== ''
+                        ? `Line ID : ${contact.contact_lineId}`
+                        : ''}
                     </div>
                   </div>
                 </div>

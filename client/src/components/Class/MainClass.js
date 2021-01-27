@@ -108,7 +108,7 @@ function ClassMain(props) {
     Axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: `"${insertLocation}"`,
-        key: 'AIzaSyC6QUff0ut3Jr7uZCFw-_u5fdcziRnyr2k',
+        key: 'AIzaSyCMogInSI3uIE7NMzd6zNmGbW6-_gnGvI8',
       },
     })
       .then(function (response) {
@@ -238,7 +238,17 @@ function ClassMain(props) {
                 <div className="left_part">
                   <ClassCard />
                   <div className="gmap">
-                    {console.log(`lat=${lat} lng=${lng}`)}
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.716635848027!2d121.55716131432396!3d25.043688744058375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abc0ac49edb7%3A0xb13d35d6bafc3576!2z5p2-5bGx5paH5Ym15ZyS5Y2A44Sn6Jmf5YCJ5bqr!5e0!3m2!1szh-TW!2stw!4v1611649500214!5m2!1szh-TW!2stw"
+                      width="600"
+                      height="450"
+                      frameborder="0"
+                      allowfullscreen=""
+                      aria-hidden="false"
+                      tabindex="0"
+                      className="google_map"
+                    ></iframe>
+                    {/* {console.log(`lat=${lat} lng=${lng}`)}
                     {lat > 0 && lng > 0 && (
                       <GMap
                         location={{
@@ -248,7 +258,7 @@ function ClassMain(props) {
                         }}
                         zoomLevel={15}
                       />
-                    )}
+                    )} */}
                   </div>
                 </div>
 

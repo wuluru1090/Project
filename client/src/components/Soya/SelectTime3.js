@@ -6,13 +6,12 @@ import '../../style/soya/selecttime.scss'
 
 const SelectTime3 = (props) => {
   const [sDate, setSDate] = useState(new Date())
-  const { Actsignupdead, setActsignupdead } = props
+  const { Actsignupdead } = props
 
   return (
     <DatePicker
       selected={sDate}
       onChange={(date) => {
-        setActsignupdead(date)
         setSDate(date)
       }}
       showTimeSelect

@@ -3,6 +3,7 @@ import '../../style/default.scss'
 import '../../style/event/event_fixed_bottom.scss'
 import Swal from 'sweetalert2'
 import Axios from 'axios'
+import { setLocale } from 'yup'
 
 function EventFixedBottom(props) {
   const bottomData = props.value
@@ -127,6 +128,24 @@ function EventFixedBottom(props) {
                   Swal.fire('已加入購物車', '詳情請至購物車查看', 'success')
                   setAdd2Cart(true)
                 }
+
+                let data = {
+                  id: bottomData.event_id,
+                  name: bottomData.event_name,
+                  amount: 1,
+                  price: bottomData.event_fees,
+                  photoimg: bottomData.event_photo,
+                }
+                let ls = localStorage.getItem('cart')
+                console.log(ls)
+                if (!ls) {
+                  localStorage.setItem('cart', [data])
+                }
+
+                // ls.push(data)
+                // console.log(ls)
+                // localStorage.setItem('cart', newLs)
+                // console.log(localStorage.getItem('cart'))
               }}
             >
               {passed

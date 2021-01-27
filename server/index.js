@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "DELETE", "PUT"],
-    withCredentials: false,
+    // withCredentials: false,
     credentials: true,
   })
 ); //跨來源資料共用
@@ -127,7 +127,7 @@ app.get("/api/eventsearch", (req, res) => {
   const whereSql = where.length > 0 ? " WHERE " + where.join(" AND ") : "";
 
   const sqlSelect = `SELECT event.*,event_type.event_type_name AS event_type_name, event_theme.event_theme_name AS event_theme_name FROM event JOIN event_type ON event.event_type = event_type.event_type_id JOIN event_theme ON event.event_theme = event_theme.event_theme_id ${whereSql} AND event.event_start_time BETWEEN '${today}' AND '2025/12/31 23:59:59'`;
-  console.log(sqlSelect);
+  // console.log(sqlSelect);
   db.query(sqlSelect, (err, result) => {
     res.send(result);
   });
@@ -233,13 +233,13 @@ app.use(cookieParser());
 
 // 圖片base64需要改最大容量
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:3000"],
+//     methods: ["GET", "POST"],
+//     credentials: true,
+//   })
+// );
 // 圖片base64需要改最大容量
 
 app.use(

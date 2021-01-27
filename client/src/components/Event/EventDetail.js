@@ -42,6 +42,7 @@ import Axios from 'axios'
 function EventDetail(props) {
   // console.log(props)
   window.scrollTo(0, 0)
+  // localStorage.setItem('cart', [])
   const eventId = props.match.params.id
   const isAuth = props.isAuth
   const [loginId, setLogInId] = useState()
@@ -85,18 +86,19 @@ function EventDetail(props) {
     lat: 24.96803,
     lng: 121.19498,
   }
-  Axios.defaults.withCredentials = true
+
+  // Axios.defaults.withCredentials = true
   //地址轉經緯度
-  geoCode()
   function geoCode() {
     var insertLocation = address.toString()
     Axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: `"${insertLocation}"`,
-        key: 'AIzaSyA5QSCScAdWt8iysViDaSMLUE7NMrPuJmo',
+        key: 'AIzaSyCMogInSI3uIE7NMzd6zNmGbW6-_gnGvI8',
       },
     })
       .then(function (response) {
+        console.log(response)
         // 地址的緯度
         setLat(response.data.results[0].geometry.location.lat)
         //地址的經度
@@ -107,6 +109,16 @@ function EventDetail(props) {
         console.log(error)
       })
   }
+
+  useEffect(() => {
+    if (address !== '') {
+      geoCode()
+    }
+  }, [address])
+
+  useEffect(() => {
+    console.log(lat, lng)
+  }, [lat, lng])
 
   //取得後端活動資料
   useEffect(() => {
@@ -528,7 +540,17 @@ function EventDetail(props) {
                       </button>
 
                       <div className="gmap">
-                        {lat > 0 && lng > 0 && (
+                        <iframe
+                          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14637.799301134071!2d120.70371!3d23.480302!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x21d4803b7fb51b65!2z56a-5ZyS6KeA6Zyn5rCR5a6_!5e0!3m2!1szh-TW!2stw!4v1611759364918!5m2!1szh-TW!2stw"
+                          width="600"
+                          height="450"
+                          frameborder="0"
+                          allowfullscreen=""
+                          aria-hidden="false"
+                          tabindex="0"
+                          className="google_map"
+                        ></iframe>
+                        {/* {lat > 0 && lng > 0 && (
                           <GMap
                             location={{
                               address: address.toString(),
@@ -537,7 +559,7 @@ function EventDetail(props) {
                             }}
                             zoomLevel={15}
                           />
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </div>

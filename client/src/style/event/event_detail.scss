@@ -162,6 +162,14 @@ $url: 'http://localhost:3000';
       width: 343px;
       height: 386px;
       border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      overflow: hidden;
+
+      .google_map {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 

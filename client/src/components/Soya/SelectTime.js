@@ -5,7 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 import '../../style/soya/selecttime.scss'
 
 const SelectTime = (props) => {
-  const { startDate, setStartDate, inittime } = props
+  const { startDate, inittime } = props
 
   const [sDate, setSDate] = useState(new Date())
 
@@ -13,7 +13,6 @@ const SelectTime = (props) => {
     <DatePicker
       selected={sDate}
       onChange={(date) => {
-        setStartDate(date)
         setSDate(date)
       }}
       showTimeSelect
