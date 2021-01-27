@@ -40,11 +40,13 @@ function EventAlbum(props) {
   const getAllPhoto = () => {
     Axios.get(`http://localhost:3001/api/event/album/${eventId}`)
       .then((response) => {
+        console.log(response.data)
         setDefaultPhoto(response.data)
       })
       .catch(function (error) {
         console.log(error)
       })
+    return 'get all'
   }
 
   //取得會員照片狀態
@@ -54,19 +56,24 @@ function EventAlbum(props) {
         `http://localhost:3001/api/event/memberalbum?eventId=${eventId}&memberId=${loginId}`
       )
         .then((response) => {
+          console.log(response.data)
           setMemberImg(response.data)
         })
         .catch(function (error) {
           console.log(error)
         })
     }
+    return 'get mem'
   }
 
   //初始狀態
   useEffect(() => {
     getAllPhoto()
-    getMemberPhoto()
   }, [])
+
+  useEffect(() => {
+    getMemberPhoto()
+  }, [loginId])
 
   //取的活動資料
   useEffect(() => {
@@ -246,7 +253,7 @@ function EventAlbum(props) {
           </div>
           <div className="photo-content d-flex flex-wrap row">
             {memberImg.map((val) => {
-              return val.photo_show == 1 ? (
+              return val.photo_show === 1 ? (
                 <div
                   className="image col-4"
                   onClick={(e) => {

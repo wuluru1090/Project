@@ -44,15 +44,15 @@ function EventResult(props) {
     } else {
       props.condition.type = ''
     }
-    if ('tag' in param) {
-      tagName = param.tag
-      console.log(tagName)
-    } else {
-      props.condition.tag = []
-    }
-    var height = window.innerHeight
-    height = height - 60
-    window.scrollTo({ top: height, behavior: 'smooth' })
+    // if ('tag' in param) {
+    //   tagName = param.tag
+    //   console.log(tagName)
+    // } else {
+    //   props.condition.tag = []
+    // }
+    // var height = window.innerHeight
+    // height = height - 60
+    // window.scrollTo({ top: height, behavior: 'smooth' })
   }
 
   // console.log(location.search)

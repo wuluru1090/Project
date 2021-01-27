@@ -93,7 +93,7 @@ function EventDetail(props) {
     Axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: `"${insertLocation}"`,
-        key: 'AIzaSyC6QUff0ut3Jr7uZCFw-_u5fdcziRnyr2k',
+        key: 'AIzaSyA5QSCScAdWt8iysViDaSMLUE7NMrPuJmo',
       },
     })
       .then(function (response) {
