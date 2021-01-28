@@ -104,7 +104,7 @@ function EventResult(props) {
       .catch(function (error) {
         console.log(error)
       })
-  }, [locate, searchbar, theme, time, type, tag])
+  }, [locate, searchbar, theme, time, type])
 
   const [currentPage, setCurrentPage] = useState(1)
   const [postsPerPage] = useState(12)

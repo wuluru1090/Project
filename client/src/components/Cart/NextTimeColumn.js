@@ -98,7 +98,7 @@ class NextTimeColumn extends Component {
                   <th>刪除</th>
                 </tr>
               </thead>
-              <div className="lineup"></div>
+              {/* <div className="lineup"></div> */}
 
               <tbody className="centertrtd">
                 {todos.map((todo) => (
