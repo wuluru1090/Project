@@ -87,7 +87,6 @@ export default class AccordionExampleStandard extends Component {
                   <div className="infd">0962359970</div>
                   <div className="infd">1999/12/31</div>
                   <div className="infd">F256987412</div>
-                  <div className="infd">女</div>
                   <div className="infd">無</div>
                 </div>
               </div>
@@ -161,7 +160,6 @@ export default class AccordionExampleStandard extends Component {
                   <div className="infd">0988885236</div>
                   <div className="infd">1983-09-20</div>
                   <div className="infd">A256987412</div>
-                  <div className="infd">女</div>
                   <div className="infd">無</div>
                 </div>
               </div>

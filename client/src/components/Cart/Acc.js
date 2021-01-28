@@ -95,7 +95,7 @@ export default class AccordionExampleStandard extends Component {
                         </div>
                       </div>
                     </form>
-                    <form>
+                    {/* <form>
                       <div className="d-flex"></div>
                       <div className="d-flex">
                         <div className="sexmb d-flex">
@@ -132,7 +132,7 @@ export default class AccordionExampleStandard extends Component {
                           </label>
                         </div>
                       </div>
-                    </form>
+                    </form> */}
                     <form>
                       <div className="d-flex">
                         <div className="d-flex marginb">
@@ -226,7 +226,7 @@ export default class AccordionExampleStandard extends Component {
                         </div>
                       </div>
                     </form>
-                    <form>
+                    {/* <form>
                       <div className="d-flex"></div>
                       <div className="d-flex">
                         <div className="sexmb d-flex">
@@ -263,7 +263,7 @@ export default class AccordionExampleStandard extends Component {
                           </label>
                         </div>
                       </div>
-                    </form>
+                    </form> */}
                     <form>
                       <div className="d-flex">
                         <div className="d-flex marginb">
