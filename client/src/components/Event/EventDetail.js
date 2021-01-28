@@ -96,6 +96,7 @@ function EventDetail(props) {
         address: `"${insertLocation}"`,
         key: 'AIzaSyCMogInSI3uIE7NMzd6zNmGbW6-_gnGvI8',
       },
+      withCredentials: false,
     })
       .then(function (response) {
         console.log(response)
@@ -540,7 +541,7 @@ function EventDetail(props) {
                       </button>
 
                       <div className="gmap">
-                        <iframe
+                        {/* <iframe
                           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14637.799301134071!2d120.70371!3d23.480302!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x21d4803b7fb51b65!2z56a-5ZyS6KeA6Zyn5rCR5a6_!5e0!3m2!1szh-TW!2stw!4v1611759364918!5m2!1szh-TW!2stw"
                           width="600"
                           height="450"
@@ -549,8 +550,8 @@ function EventDetail(props) {
                           aria-hidden="false"
                           tabindex="0"
                           className="google_map"
-                        ></iframe>
-                        {/* {lat > 0 && lng > 0 && (
+                        ></iframe> */}
+                        {lat > 0 && lng > 0 && (
                           <GMap
                             location={{
                               address: address.toString(),
@@ -559,7 +560,7 @@ function EventDetail(props) {
                             }}
                             zoomLevel={15}
                           />
-                        )} */}
+                        )}
                       </div>
                     </div>
                   </div>

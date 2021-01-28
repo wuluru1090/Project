@@ -79,13 +79,12 @@ export default class AccordionExampleStandard extends Component {
                   <div className="infd">手機:</div>
                   <div className="infd">生日:</div>
                   <div className="infd">身分證字號:</div>
-                  <div className="infd">性別:</div>
                   <div className="infd">訂單備註:</div>
                 </div>
                 <div>
                   <div className="infd">李詩婷</div>
                   <div className="infd">0962359970</div>
-                  <div className="infd">1999/12/31</div>
+                  <div className="infd">1995/11/23</div>
                   <div className="infd">F256987412</div>
                   <div className="infd">無</div>
                 </div>
@@ -152,13 +151,12 @@ export default class AccordionExampleStandard extends Component {
                   <div className="infd">手機:</div>
                   <div className="infd">生日:</div>
                   <div className="infd">身分證字號:</div>
-                  <div className="infd">性別:</div>
                   <div className="infd">訂單備註:</div>
                 </div>
                 <div>
                   <div className="infd">李婉孜</div>
                   <div className="infd">0988885236</div>
-                  <div className="infd">1983-09-20</div>
+                  <div className="infd">2002-09-20</div>
                   <div className="infd">A256987412</div>
                   <div className="infd">無</div>
                 </div>

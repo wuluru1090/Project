@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "DELETE", "PUT"],
-    // withCredentials: false,
+    withCredentials: false,
     credentials: true,
   })
 ); //跨來源資料共用
